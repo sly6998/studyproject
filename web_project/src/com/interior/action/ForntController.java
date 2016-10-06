@@ -23,6 +23,7 @@ public class ForntController extends javax.servlet.http.HttpServlet implements j
 		if (command.equals("")) {
 
 		} else if (command.equals("")) {
+			
 
 		} else if (command.equals("")) {
 
