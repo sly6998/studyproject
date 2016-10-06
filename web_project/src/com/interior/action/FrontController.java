@@ -9,22 +9,19 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 @WebServlet("/ForntController")
-public class ForntController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
+public class FrontController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
+  private static final long serialVersionUID = 1L;
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 	  
-	  System.out.println("3");
-
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
 		ActionForward forward = null;
 		Action action = null;
 		
-		System.out.println("4");
-		if (command.equals("/MainPage.html")) {
-		  System.out.println("5");
+		if (command.equals("/mainpage.html")) {
 		  forward = new ActionForward();
       forward.setRedirect(false);
       forward.setPath("./mainpage.jsp");
@@ -95,14 +92,14 @@ public class ForntController extends javax.servlet.http.HttpServlet implements j
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	  System.out.println("1");
+	  System.out.println("get방식");
 		doProcess(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-	  System.out.println("2");
+	  System.out.println("post방식");
 		doProcess(request, response);
 	}
 

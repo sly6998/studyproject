@@ -1,16 +1,18 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="css/reset.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="css/style.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="css/grid.css" type="text/css" media="screen">   
-    <script src="js/jquery-1.6.2.min.js" type="text/javascript"></script> 
-    <script src="js/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="js/jcarousellite_1.0.1.js" type="text/javascript"></script>
-    <script src="js/jquery.galleriffic.js" type="text/javascript"></script>
-    <script src="js/jquery.opacityrollover.js" type="text/javascript"></script> 
+    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="../css/grid.css" type="text/css" media="screen">   
+    <script src="../js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+    <script src="../js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="../js/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <script src="../js/jquery.galleriffic.js" type="text/javascript"></script>
+    <script src="../js/jquery.opacityrollover.js" type="text/javascript"></script> 
     <script type="text/javascript">
 		$(document).ready(function() { 
 			$(".jCarouselLite").jCarouselLite({
@@ -37,51 +39,7 @@
 	<![endif]-->
 </head>
 <body id="page3">
-	<!--==============================header=================================-->
-    <header>
-    	<div class="row-1">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="grid_12">
-                    	<nav>
-                            <ul class="menu">
-                                <li><a href="index.html">About Us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a class="active" href="catalogue.html">Catalogue</a></li>
-                                <li><a href="pricing.html">Pricing</a></li>
-                                <li><a href="contacts.html">Contacts</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="row-2">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="grid_9">
-                    	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
-                        </h1>
-                    </div>
-                    <div class="grid_3">
-                    	<form id="search-form" method="post" enctype="multipart/form-data">
-                            <fieldset>	
-                                <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
-                                </div>						
-                            </fieldset>
-                        </form>
-                     </div>
-                     <div class="clear"></div>
-                </div>
-            </div>
-        </div>    	
-    </header><div class="ic">More Website Templates  @ TemplateMonster.com - August22nd 2011!</div>
-    
+<%@ include file="../page/header.jsp" %>
 <!-- content -->
     <section id="content">
         <div class="bg-top">
@@ -101,22 +59,22 @@
                                     <div id="thumbs" class="navigation">
                                         <ul class="thumbs noscript">
                                             <li>
-                                                <a class="thumb" href="images/gallery-img1.jpg" title=""> <img src="images/thumb-1.jpg" alt="" /><span></span> </a>
+                                                <a class="thumb" href="../images/gallery-img1.jpg" title=""> <img src="../images/thumb-1.jpg" alt="" /><span></span> </a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img2.jpg" title=""> <img src="images/thumb-2.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="../images/gallery-img2.jpg" title=""> <img src="../images/thumb-2.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img3.jpg" title=""> <img src="images/thumb-3.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="../images/gallery-img3.jpg" title=""> <img src="../images/thumb-3.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img4.jpg" title=""> <img src="images/thumb-4.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="../images/gallery-img4.jpg" title=""> <img src="../images/thumb-4.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img5.jpg" title=""> <img src="images/thumb-5.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="../images/gallery-img5.jpg" title=""> <img src="../images/thumb-5.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img6.jpg" title=""> <img src="images/thumb-6.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="../images/gallery-img6.jpg" title=""> <img src="../images/thumb-6.jpg" alt="" /> <span></span></a>
                                             </li>           
                                         </ul>
                                     </div>
@@ -136,10 +94,10 @@
                                 <a class="next" href="#">Next</a>
                                 <div class="jCarouselLite">
                                     <ul id="carousel">
-                                        <li><a href="#"><img src="images/page3-img1.jpg" alt="" /><span>2011</span></a></li>
-                                        <li><a href="#"><img src="images/page3-img2.jpg" alt="" /><span>2010</span></a></li>
-                                        <li><a href="#"><img src="images/page3-img3.jpg" alt="" /><span>2009</span></a></li>
-                                        <li><a href="#"><img src="images/page3-img4.jpg" alt="" /><span>2008</span></a></li>
+                                        <li><a href="#"><img src="../images/page3-img1.jpg" alt="" /><span>2011</span></a></li>
+                                        <li><a href="#"><img src="../images/page3-img2.jpg" alt="" /><span>2010</span></a></li>
+                                        <li><a href="#"><img src="../images/page3-img3.jpg" alt="" /><span>2009</span></a></li>
+                                        <li><a href="#"><img src="../images/page3-img4.jpg" alt="" /><span>2008</span></a></li>
                                     </ul>
                                 </div>
                             </div>
@@ -163,7 +121,7 @@
                         <article class="grid_4">
                         	<h3 class="p2">Art of Placement</h3>
                             <div class="wrapper">
-                            	<figure class="img-indent frame2"><img src="images/page3-img5.jpg" alt="" /></figure>
+                            	<figure class="img-indent frame2"><img src="../images/page3-img5.jpg" alt="" /></figure>
                                 <div class="extra-wrap">
                                 	<p class="img-indent-bot">At vero eos eaccusa mus etusto odio tium voluptatum deleniti atque corrupti quos dolores et quas.</p>
                                     <a class="button" href="#">View More</a>
@@ -187,31 +145,7 @@
         </div>
     </section>
     
-	<!--==============================footer=================================-->
-    <footer>
-        <div class="main">
-        	<div class="container_12">
-            	<div class="wrapper">
-                	<div class="grid_4">
-                    	<div>Interior Design &copy; 2011 <a class="link color-3" href="#">Privacy Policy</a></div>
-                        <div><a rel="nofollow" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com | <a rel="nofollow" target="_blank" href="http://www.html5xcss3.com/">html5xcss3.com</a></div>
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
-                    <div class="grid_4">
-                    	<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
-                    </div>
-                    <div class="grid_4">
-                    	<ul class="list-services">
-                        	<li><a href="#"></a></li>
-                            <li><a class="item-2" href="#"></a></li>
-                            <li><a class="item-3" href="#"></a></li>
-                            <li><a class="item-4" href="#"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<%@ include file="../page/footer.jsp" %>
     <script type="text/javascript">
 			$(window).load(function() {
 			// We only want these styles applied when javascript is enabled

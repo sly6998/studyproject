@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -16,55 +18,9 @@
    		<script type="text/javascript" src="js/html5.js"></script>
         <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
 	<![endif]--> 
-</head>
+</head> 
 <body id="page5">
-	<!--==============================header=================================-->
-    <header>
-    	<div class="row-1">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="grid_12">
-                    	<nav>
-                            <ul class="menu">
-                                <li><a href="../index.html">About Us</a></li>
-                                <li><a href="../services.html">Services</a></li>
-                                <li><a href="../catalogue.html">Catalogue</a></li>
-                                <li><a href="../pricing.html">Pricing</a></li>
-                                <li><a class="active" href="contacts.html">Contacts</a></li>
-                                <li><a href="member.html">Sign up</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        <div class="row-2">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="grid_9">
-                    	<h1>
-                            <a class="logo" href="../index.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
-                        </h1>
-                    </div>
-                    <div class="grid_3">
-                    	<form id="search-form" method="post" enctype="multipart/form-data">
-                            <fieldset>	
-                                <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="../#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
-                                </div>						
-                            </fieldset>
-                        </form>
-                     </div>
-                     <div class="clear"></div>
-                </div>
-            </div>
-        </div>    	
-    </header><div class="ic">More Website Templates  @ TemplateMonster.com - August22nd 2011!</div>
-    
-<!-- content -->
+	<%@ include file="../page/header.jsp" %>
     <section id="content">
         <div class="bg-top">
         	<div class="bg-top-2">
@@ -77,7 +33,7 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">JOIN US</h3>
+                                                	<h3 class="p2">아이디 찾기</h3>
                                                 	
                                                 	<table>
                                                 	<tr>
@@ -86,36 +42,15 @@
                                                         <fieldset>
                                                         	  
                                                               <label><span class="text-form">이름 </span><input name="name" type="text"  /></label>
-                                                              <label><span class="text-form">ID</span><input name="id" type="text" /></label>
-                                                              <label><span class="text-form">비밀번호</span><input name="pwd" type="password" /></label>
-                                                              <label><span class="text-form">비밀번호확인</span><input name="pwdchk" type="password" /></label>
-                                                              <label><span class="text-form">성별
-                                                              		</span>
-                                                              		
-                                                              		<table>
-                                                              		<tr>
-                                                              		<td width=100px>
-                                                              		남자
-                                                              		<input type="radio" name="gender" value="남자" 
-                                                              		style="width:15px;padding:1px;margin:1px;">
-                                                              		</td>
-                                                              		
-                                                              		<td>
-                                                           			여자
-                                                           			<input type="radio" name="gender" value="여자"
-                                                           			style="width:15px;padding:1px;margin:1px;">
-                                                              		</td>
-                                                              		</tr>
-                                                              		</table>
-
-                                                           	  </label>
+                                                              </label>
+                                                              
                                                               <label><span class="text-form">생년.월.일</span>
                                                               			<input name="birthday" type="text" />
                                                               			</label>
                                                               <label><span class="text-form">Email:</span><input name="email" type="text" /></label>   
                                                               <label><span class="text-form">전화번호</span><input name="phone" type="text" /></label>                                    
                                                               <div class="buttons">
-                                                                  <a class="button" href="#" onClick="document.getElementById('contact-form').submit()">Join</a>
+                                                                  <a class="button" href="#" onClick="document.getElementById('contact-form').submit()" >Find</a>
                                                                   <a class="button" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
                                                               </div>                             
                                                         </fieldset>						
@@ -123,7 +58,7 @@
                                                     </td>
                                                     
                                                     <td  border=1 bordercolor="#2ab6ef">
-                                                    <img  src="../images/1.jpg" width="400" height="315">
+                                                    <img  src="../images/3.jpg" width="400" height="315">
                                                     </td>
                                                     </tr>
                                                 	</table>
@@ -164,30 +99,6 @@
         </div>
     </section>
     
-	<!--==============================footer=================================-->
-    <footer>
-        <div class="main">
-        	<div class="container_12">
-            	<div class="wrapper">
-                	<div class="grid_4">
-                    	<div>Interior Design &copy; 2011 <a class="link color-3" href="../#">Privacy Policy</a></div>
-                        <div><a rel="nofollow" target="_blank" href="http://www.templatemonster.com/">Website Template</a> by TemplateMonster.com | <a rel="nofollow" target="_blank" href="http://www.html5xcss3.com/">html5xcss3.com</a></div>
-                        <!-- {%FOOTER_LINK} -->
-                    </div>
-                    <div class="grid_4">
-                    	<span class="phone-numb"><span>+1(800)</span> 123-1234</span>
-                    </div>
-                    <div class="grid_4">
-                    	<ul class="list-services">
-                        	<li><a href="../#"></a></li>
-                            <li><a class="item-2" href="#"></a></li>
-                            <li><a class="item-3" href="#"></a></li>
-                            <li><a class="item-4" href="#"></a></li>
-                        </ul>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </footer>
+<%@ include file="../page/footer.jsp" %>
 </body>
 </html>
