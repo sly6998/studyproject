@@ -77,7 +77,7 @@ h1 {padding:15px 0 0 0;position:relative;font-weight:normal;text-transform:upper
 .menu {padding:0;width:100%}
 .menu li {float:left;position:relative}
 	.menu li:first-child {background:url(../images/menu-a-tail.gif) 0 -71px no-repeat}
-.menu li a {font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;display:block;width:188px;font-size:21px;line-height:1.238em;padding:21px 0 24px 0;color:#262626;text-align:center;text-transform:uppercase;background:url(../images/menu-a-tail.gif) right -71px no-repeat;letter-spacing:-1px}
+.menu li a {font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;display:block;width:128px;font-size:21px;line-height:1.238em;padding:21px 0 24px 0;color:#262626;text-align:center;text-transform:uppercase;background:url(../images/menu-a-tail.gif) right -71px no-repeat;letter-spacing:-1px}
 .menu li a:hover,
 .menu li a.active {color:#fff;background-position:left top;background-repeat:repeat-x;background-color:#000}
 /***** search form *****/
@@ -181,14 +181,17 @@ dl strong {float:left; width:80px; font-weight:normal}
 #subscribe-form {display:block}
 #subscribe-form .subscribe-field {background:#fbfbfb;border:1px solid #fff;width:288px;height:29px;margin-bottom:20px;box-shadow: 0px 5px 8px rgba(0,0,0,0.70);-moz-box-shadow: 0px 5px 8px rgba(0,0,0,0.70);-webkit-box-shadow: 0px 5px 8px rgba(0,0,0,0.70)}
 #subscribe-form input {width:268px;font-size:13px;line-height:1.23em;color:#262626;padding:6px 10px;margin:0;font-family:Arial, Helvetica, sans-serif;border:none;background:none;outline:none}
+ 
 /***** Contact form *****/
 #contact-form {display:block}
 #contact-form label {display:block;height:40px;overflow:hidden}
-#contact-form input {float:left;width:406px;font-size:13px;line-height:1.23em;color:#262626;padding:6px 10px;margin:0;font-family:Arial, Helvetica, sans-serif;border:1px solid #d9d9d9;background:#fcfcfc;outline:none}
+#contact-form input {float:left;width:200px;font-size:13px;line-height:1.23em;color:#262626;padding:6px 10px;margin:0;font-family:Arial, Helvetica, sans-serif;border:1px solid #d9d9d9;background:#fcfcfc;outline:none}
+ 
 #contact-form textarea {float:left;height:192px;overflow:auto;width:776px;font-size:13px;line-height:1.23em;color:#404040;padding:6px 10px;margin:0;font-family:Arial, Helvetica, sans-serif;border:1px solid #d9d9d9;background:#fcfcfc;outline:none}
 .text-form {float:left;display:block;font-size:13px;line-height:1.23em;width:81px;color:#262626;font-family:Arial, Helvetica, sans-serif;padding-top:3px}
-.buttons {padding:18px 30px 0 0; text-align:right}
-.buttons a {margin-left:10px; padding:10px 42px 11px}
+.buttons {padding:18px 30px 0 0; text-align:}
+.buttons a {margin-left:30px; padding:10px 42px 11px}
+ 
 /****************************footer************************/
 footer {width:100%;padding:40px 0 33px;background:url(../images/footer-tail.gif) center top repeat-x #fff}
 .phone-numb {display:inline-block;font-size:42px;line-height:1.2em;font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;letter-spacing:-1px;margin-top:-4px}
