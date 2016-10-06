@@ -13,14 +13,21 @@ public class ForntController extends javax.servlet.http.HttpServlet implements j
 
 	protected void doProcess(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	  
+	  System.out.println("3");
 
 		String RequestURI = request.getRequestURI();
 		String contextPath = request.getContextPath();
 		String command = RequestURI.substring(contextPath.length());
 		ActionForward forward = null;
 		Action action = null;
-
-		if (command.equals("")) {
+		
+		System.out.println("4");
+		if (command.equals("/MainPage.html")) {
+		  System.out.println("5");
+		  forward = new ActionForward();
+      forward.setRedirect(false);
+      forward.setPath("./mainpage.jsp");
 
 		} else if (command.equals("")) {
 
@@ -88,12 +95,14 @@ public class ForntController extends javax.servlet.http.HttpServlet implements j
 	
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	  System.out.println("1");
 		doProcess(request, response);
 
 	}
 
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
+	  System.out.println("2");
 		doProcess(request, response);
 	}
 
