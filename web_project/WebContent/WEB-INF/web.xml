@@ -9,11 +9,22 @@
     <welcome-file>default.htm</welcome-file>
     <welcome-file>default.jsp</welcome-file>
   </welcome-file-list>
+  <resource-ref>
+    <description>Connection</description>
+    <res-ref-name>jdbc/OracleDB</res-ref-name>
+    <res-type>javax.sql.DataSource</res-type>
+    <res-auth>Container</res-auth>
+  </resource-ref>
   
-  <resource-ref> 
-        <description>Connection</description> 
-        <res-ref-name>jdbc/OracleDB</res-ref-name> 
-        <res-type>javax.sql.DataSource</res-type> 
-        <res-auth>Container</res-auth> 
-    </resource-ref>
+  <servlet>
+    <servlet-name>FrontController</servlet-name>
+    <servlet-class>com.interior.action.FrontController</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>FrontController</servlet-name>
+    <url-pattern>*.html</url-pattern>
+  </servlet-mapping>
+  
+  
+  
 </web-app>
