@@ -30,8 +30,9 @@
             	<div class="container_12">
                 	<div class="grid_9">
                     	<h1>
-                            <a class="logo" href="<%=request.getContextPath()%>/mainpage.html">Int<strong>e</strong>rior</a>
-                            <span>Design</span>
+                            <a class="logo" href="<%=request.getContextPath()%>/mainpage.html">Int<strong>e</strong>rior
+                            	<span>Design</span>
+                            </a>
                         </h1>
                     </div>
                     <div class="grid_3">
