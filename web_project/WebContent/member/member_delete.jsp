@@ -39,13 +39,13 @@
                                                 	<tr>
                                                 	<td width=400>
                                                     <form id="contact-form" method="post" enctype="multipart/form-data">                    
-                                                        <fieldset>
+                                                        <fieldset >
                                                         	  
                                                         	  
-                                                        	  <label><span class="text-form">ID</span><input name="id" type="text" /></label>
-                                                              <label><span class="text-form">비밀번호</span><input name="pwd" type="password"  /></label>
+                                                        	  <label style="padding:90px 0px 0px 0px"><span class="text-form">ID</span><input name="id" type="text" /></label>
+                                                              <label style="padding:30px 0px 0px 0px"><span class="text-form">비밀번호</span><input name="pwd" type="password"  /></label>
                                                               
-                                                              <div class="buttons" >
+                                                              <div class="buttons"  style="padding:130px 0px 0px 0px">
                                                                   <a class="button" href="#" onClick="document.getElementById('contact-form').submit()" 
                                                                 	  style="margin-left:30px; padding:10px 42px 11px"
                                                                   >Find</a>

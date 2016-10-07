@@ -42,17 +42,17 @@
                                                         <fieldset>
                                                         	  
                                                         	  
-                                                        	  <label><span class="text-form">ID</span><input name="id" type="text" /></label>
-                                                              <label><span class="text-form">이름 </span><input name="name" type="text"  /></label>
-                                                              </label>
+                                                        	  <label style="padding:50px 0px 0px 0px"><span class="text-form">ID</span><input name="id" type="text" /></label>
+                                                              <label style="padding:15px 0px 0px 0px"><span class="text-form">이름 </span><input name="name" type="text"  /></label>
                                                               
-                                                              <label><span class="text-form">생년.월.일</span>
+                                                              
+                                                              <label style="padding:15px 0px 0px 0px"><span class="text-form">생년.월.일</span>
                                                               			<input name="birthday" type="text" />
                                                               			</label>
-                                                              <label><span class="text-form">Email:</span><input name="email" type="text" /></label>   
-                                                              <label><span class="text-form">전화번호</span><input name="phone" type="text" /></label>                                    
+                                                              <label style="padding:15px 0px 0px 0px"><span class="text-form">Email:</span><input name="email" type="text" /></label>   
+                                                              <label style="padding:15px 0px 0px 0px"><span class="text-form">전화번호</span><input name="phone" type="text" /></label>                                    
                                                               
-                                                              <div class="buttons" >
+                                                              <div class="buttons" style="padding:20px 0px 0px 0px">
                                                                   <a class="button" href="#" onClick="document.getElementById('contact-form').submit()" 
                                                                 	  style="margin-left:30px; padding:10px 42px 11px"
                                                                   >Find</a>
