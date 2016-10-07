@@ -38,16 +38,17 @@
                                                         <fieldset>
                                                         <table>
                                                         <tr>
-                                                        	<td width="500" style='border:1px solid #000;'>
+                                                        	<td width="450" style='border:0px solid #000;'>
                                                        		<img src="../images/sofa1.jpg" width="400" height="315">
                                                        		</td>
                                                         
-                                                        <td width="400" style='border:1px solid #000;'>
+                                                        <td width="350" style='border:0px solid #000;'>
+                                                          <hr>
                                                           <label><span class="text-form">상품명  : </span><h2>엄청난 엄청난 엄청난 소파</h3></label>		
                                                           <label><span class="text-form">가  격  : </span><h2>500,000,000,000원</h3></label>
                                                           <label><span class="text-form">사이즈  : </span>
-                                                          <select>
-                                                          	<option selected="selected">선택하세요</option>
+                                                          <select id="" style="width:170px; height:25px">
+                                                          	<option selected="selected">사이즈(선택)</option>
 															<option>중</option>
 															<option>대</option>
 															<option>특대</option>
@@ -55,8 +56,8 @@
                                                           </select>                           
                                                           </label>
                                                           <label><span class="text-form">수  량  : </span>
-                                                          <select>
-                                                          	<option selected="selected">선택하세요</option>
+                                                          <select id="" style="width:170px; height:25px" >
+                                                          	<option selected="selected">수량(선택)</option>
 															<option>1</option>
 															<option>2</option>
 															<option>3</option>
@@ -66,24 +67,32 @@
                                                           </label>   
                                                           
                                                     
-                                                          
-                                                          <label>
+                                                          <hr width="">
+                                                          <label style="padding:30px 0px 0px 0px">
                                                           <span class="text-form">총금액  : </span><h2>원</h3>
                                                           </label>
                                                           
                                                           
                                                           
-                                                          <label>
+                                                          <label style="padding:20px 0px 0px 0px">
                                                           	<a class="button" href="#" onClick="">바로구매</a>
                                                             <a class="button" href="#" onClick="">장바구니</a>
                                                             <a class="button" href="#" onClick="">목록으로</a>
                                                           </label>
                                                           
                                                         </td>
-                                                        </tr> 
-                                                        <tr>
-                                                        	<td style='border:1px solid #000;' colspan="2">
-                                                        	<input type="text" width="900"> 
+                                                        </tr>
+                                                        
+                                                        <tr height="50px">
+                                                        </tr>
+                                                         
+                                                        <tr> 
+                                                        	<td style='border:0px solid #000; background-color:#efefef;' colspan="2" height="500">
+                                                        	 <h3>제품 상세내용 표시부분</h3><br/>
+                                                        	 <center>
+                                                        	 <img src="../images/sofa1_1.jpg">
+                                                        	 <img src="../images/sofa1_2.jpg">
+                                                        	 </center>
                                                         	</td>
                                                         </tr>  
                                                         </table>
