@@ -38,12 +38,12 @@
                                                         <fieldset>
                                                         <table>
                                                         <tr>
-                                                        	<td width="450" style='border:0px solid #000;'>
+                                                        	<td  style='border:0px solid #000; ' width="450" >
                                                        		<img src="../images/sofa1.jpg" width="400" height="315">
                                                        		</td>
                                                         
-                                                        <td width="350" style='border:0px solid #000;'>
-                                                          <hr>
+                                                        <td style='border:0px solid #000;' width="350">
+                                                          <hr >
                                                           <label><span class="text-form">상품명  : </span><h2>엄청난 엄청난 엄청난 소파</h3></label>		
                                                           <label><span class="text-form">가  격  : </span><h2>500,000,000,000원</h3></label>
                                                           <label><span class="text-form">사이즈  : </span>
@@ -67,7 +67,7 @@
                                                           </label>   
                                                           
                                                     
-                                                          <hr width="">
+                                                          <hr >
                                                           <label style="padding:30px 0px 0px 0px">
                                                           <span class="text-form">총금액  : </span><h2>원</h3>
                                                           </label>
@@ -81,13 +81,15 @@
                                                           </label>
                                                           
                                                         </td>
+                                                        <td style='border:0px solid #000; '>
+                                                        </td>
                                                         </tr>
                                                         
                                                         <tr height="50px">
                                                         </tr>
                                                          
                                                         <tr> 
-                                                        	<td style='border:0px solid #000; background-color:#efefef;' colspan="2" height="500">
+                                                        	<td style='border:0px solid #000; background-color:#efefef;' colspan="3" height="500">
                                                         	 <h3>제품 상세내용 표시부분</h3><br/>
                                                         	 <center>
                                                         	 <img src="../images/sofa1_1.jpg">
