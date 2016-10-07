@@ -1,4 +1,4 @@
-package qna.db;
+package com.qna.db;
 
 import java.sql.Date;
 

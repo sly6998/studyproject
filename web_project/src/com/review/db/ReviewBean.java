@@ -1,4 +1,4 @@
-package review.db;
+package com.review.db;
 
 import java.sql.Date;
 

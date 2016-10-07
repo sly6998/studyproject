@@ -1,4 +1,4 @@
-package order.db;
+package com.order.db;
 
 import java.sql.Date;
 

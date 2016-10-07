@@ -1,4 +1,4 @@
-package item.db;
+package com.item.db;
 
 public class ItemBean {
 
