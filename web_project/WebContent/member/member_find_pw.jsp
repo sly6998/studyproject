@@ -55,7 +55,7 @@
                                                               <div class="buttons" style="padding:20px 0px 0px 0px">
                                                                   <a class="button" href="#" onClick="document.getElementById('contact-form').submit()" 
                                                                 	  style="margin-left:30px; padding:10px 42px 11px"
-                                                                  >Find</a>
+                                                                  >Find </a>
                                                                   <a class="button" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
                                                               </div>                             
                                                         </fieldset>						
