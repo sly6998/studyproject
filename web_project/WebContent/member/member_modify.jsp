@@ -36,7 +36,7 @@
 										<div class="wrapper">
 											<div class="grid_12">
 												<div class="indent-left">
-													<h3 class="p2">Member Modify(회원정보 수정)</h3>
+													<h3 class="p2">Edit Account</h3>
 
 													<table>
 														<tr>
@@ -75,7 +75,7 @@
 																			type="text" /></label>
 																		<div class="buttons">
 																			<a class="button" href="#"
-																				onClick="document.getElementById('contact-form').submit()">수정</a>
+																				onClick="document.getElementById('contact-form').submit()">Edit</a>
 																			<a class="button" href="#"
 																				onClick="document.getElementById('contact-form').reset()">Clear</a>
 																		</div>

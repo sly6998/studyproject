@@ -37,7 +37,7 @@
 											<div class="wrapper">
 												<div class="grid_12">
 													<div class="indent-left">
-														<h3 class="p2">JOIN US</h3>
+														<h3 class="p2">Create Account</h3>
 
 														<table>
 															<tr>
@@ -76,7 +76,7 @@
 																				type="text" /></label>
 																			<div class="buttons">
 																				<a class="button" href="#"
-																					onClick="document.getElementById('contact-form').submit()">Join</a>
+																					onClick="document.getElementById('contact-form').submit()">Create</a>
 																				<a class="button" href="#"
 																					onClick="document.getElementById('contact-form').reset()">Clear</a>
 																			</div>

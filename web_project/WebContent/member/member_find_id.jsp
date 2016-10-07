@@ -33,7 +33,7 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">아이디 찾기</h3>
+                                                	<h3 class="p2">Find Account (ID)</h3>
                                                 	
                                                 	<table>
                                                 	<tr>
@@ -49,8 +49,11 @@
                                                               			</label>
                                                               <label><span class="text-form">Email:</span><input name="email" type="text" /></label>   
                                                               <label><span class="text-form">전화번호</span><input name="phone" type="text" /></label>                                    
-                                                              <div class="buttons">
-                                                                  <a class="button" href="#" onClick="document.getElementById('contact-form').submit()" >Find</a>
+                                                              
+                                                              <div class="buttons" >
+                                                                  <a class="button" href="#" onClick="document.getElementById('contact-form').submit()" 
+                                                                	  style="margin-left:30px; padding:10px 42px 11px"
+                                                                  >Find</a>
                                                                   <a class="button" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
                                                               </div>                             
                                                         </fieldset>						
