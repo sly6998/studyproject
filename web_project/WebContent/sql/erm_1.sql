@@ -12,6 +12,17 @@ DROP TABLE REPLY CASCADE CONSTRAINTS;
 DROP TABLE REVIEW CASCADE CONSTRAINTS;
 
 
+/* Select Tables */
+
+Select * from advice;
+Select * from basket;
+Select * from item;
+Select * from member_info;
+Select * from noti;
+Select * from order_list;
+Select * from qna_board;
+Select * from reply;
+Select * from review;
 
 
 /* Create Tables */
@@ -94,7 +105,12 @@ CREATE TABLE ORDER_LIST
 	ORDER_MEMBER_ZIP varchar2(10) NOT NULL,
 	ORDER_MEMBER_ADDR_1 varchar2(50) NOT NULL,
 	ORDER_MEMBER_ADDR_2 varchar2(50) NOT NULL,
-	ORDER_MEMO varchar2(500) NOT NULL,
+	ORDER_NAME varchar2(20) NOT NULL,
+	ORDER_TEL varchar2(20) NOT NULL,
+	ORDER_ZIP varchar2(10) NOT NULL,
+	ORDER_ADDR_1 varchar2(50) NOT NULL,
+	ORDER_ADDR_2 varchar2(50) NOT NULL,
+	ORDER_MEMO varchar2(500),
 	ORDER_TRADE_TYPE varchar2(20) NOT NULL,
 	ORDER_TRADE_PAYER varchar2(20) NOT NULL,
 	ORDER_DATE date NOT NULL,
@@ -145,6 +161,3 @@ CREATE TABLE REVIEW
 	REVIEW_LEV number(5),
 	REVIEW_FILE varchar2(50)
 );
-
-
-
