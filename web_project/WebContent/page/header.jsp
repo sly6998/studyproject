@@ -9,13 +9,13 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="<%=request.getContextPath()%>/mainpage.jsp">홈페이지 소개</a></li>
-                                <li><a href="<%=request.getContextPath()%>/#">공지사항</a></li>
-                                <li><a href="<%=request.getContextPath()%>/catalogue/catalogue.jsp">카탈로그</a></li>
-                                <li><a href="<%=request.getContextPath()%>/product/product_list.jsp">제품</a></li>
-                                <li><a href="<%=request.getContextPath()%>/#">고객 후기</a></li>
-                                <li><a href="<%=request.getContextPath()%>/#">질문게시판</a></li>
-                                <li><a href="<%=request.getContextPath()%>/advice/advice_request.jsp">상담신청</a></li>
+                                <li><a class="active" href="<%=request.getContextPath()%>/mainpage.html">홈페이지 소개</a></li>
+                                <li><a href="<%=request.getContextPath()%>/noti_list.html">공지사항</a></li>
+                                <li><a href="<%=request.getContextPath()%>/catalogue.html">카탈로그</a></li>
+                                <li><a href="<%=request.getContextPath()%>/product_list.html">제품</a></li>
+                                <li><a href="<%=request.getContextPath()%>/review_list.html">고객 후기</a></li>
+                                <li><a href="<%=request.getContextPath()%>/qna_list.html">질문게시판</a></li>
+                                <li><a href="<%=request.getContextPath()%>/advice_request.html">상담신청</a></li>
                             </ul>
                         </nav>
                     </div>
@@ -30,7 +30,7 @@
             	<div class="container_12">
                 	<div class="grid_9">
                     	<h1>
-                            <a class="logo" href="index.html">Int<strong>e</strong>rior</a>
+                            <a class="logo" href="<%=request.getContextPath()%>/mainpage.html">Int<strong>e</strong>rior</a>
                             <span>Design</span>
                         </h1>
                     </div>

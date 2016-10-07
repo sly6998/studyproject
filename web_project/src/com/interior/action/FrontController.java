@@ -24,21 +24,39 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		
 		if (command.equals("/mainpage.html")) {
 		  forward = new ActionForward();
-      forward.setRedirect(false);
-      forward.setPath("./page/mainpage.jsp");
+		  forward.setRedirect(false);
+		  forward.setPath("./page/mainpage.jsp");
 
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
+		} else if (command.equals("/noti_list.html")) {
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./noti/noti_list.jsp");
+		
+		} else if (command.equals("/catalogue.html")) {
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./catalogue/catalogue.jsp");
+		
+		} else if (command.equals("/product_list.html")) {
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./product/product_list.jsp");
+		
+		} else if (command.equals("/review_list.html")) {
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./review/review_list.jsp");
+		
+		} else if (command.equals("/qna_list.html")) {
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./qnaboard/qna_list.jsp");
+		
+		} else if (command.equals("/advice_request.html")) {
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./advice/advice_request.jsp");
+		
 		} else if (command.equals("")) {
 
 		} else if (command.equals("")) {
