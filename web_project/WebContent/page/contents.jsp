@@ -17,22 +17,22 @@
                                     <div id="thumbs" class="navigation">
                                         <ul class="thumbs noscript">
                                             <li>
-                                                <a class="thumb" href="images/gallery-img1.jpg" title=""> <img src="images/thumb-1.jpg" alt="" /><span></span> </a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img1.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-1.jpg" alt="" /><span></span> </a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img2.jpg" title=""> <img src="images/thumb-2.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img2.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-2.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img3.jpg" title=""> <img src="images/thumb-3.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img3.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-3.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img4.jpg" title=""> <img src="images/thumb-4.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img4.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-4.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img5.jpg" title=""> <img src="images/thumb-5.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img5.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-5.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="images/gallery-img6.jpg" title=""> <img src="images/thumb-6.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img6.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-6.jpg" alt="" /> <span></span></a>
                                             </li>           
                                         </ul>
                                     </div>
@@ -52,7 +52,7 @@
                                     	<h3 class="color-1">Our Services List</h3>
                                         <div class="wrapper">
                                         	<article class="grid_6 alpha">
-                                                <figure class="img-indent frame"><img src="images/page1-img1.jpg" alt="" /></figure>
+                                                <figure class="img-indent frame"><img src="<%=request.getContextPath()%>/images/page1-img1.jpg" alt="" /></figure>
                                                 <div class="extra-wrap">
                                                     <div class="indent-top">
                                                         <ul class="list-1">
@@ -64,7 +64,7 @@
                                                 <div class="clear"></div>
                                             </article>
                                             <article class="grid_6 omega">
-                                                <figure class="img-indent frame"><img src="images/page1-img2.jpg" alt="" /></figure>
+                                                <figure class="img-indent frame"><img src="<%=request.getContextPath()%>/images/page1-img2.jpg" alt="" /></figure>
                                                 <div class="extra-wrap">
                                                     <div class="indent-top">
                                                         <ul class="list-1">

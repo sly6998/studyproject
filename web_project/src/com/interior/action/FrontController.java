@@ -1,5 +1,6 @@
 package com.interior.action;
 
+
 import java.io.IOException;
 
 import javax.servlet.RequestDispatcher;
@@ -24,7 +25,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		if (command.equals("/mainpage.html")) {
 		  forward = new ActionForward();
       forward.setRedirect(false);
-      forward.setPath("./mainpage.jsp");
+      forward.setPath("./page/mainpage.jsp");
 
 		} else if (command.equals("")) {
 

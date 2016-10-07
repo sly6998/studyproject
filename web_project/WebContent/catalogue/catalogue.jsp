@@ -5,14 +5,14 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-    <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="../css/style.css" type="text/css" media="screen">
-    <link rel="stylesheet" href="../css/grid.css" type="text/css" media="screen">   
-    <script src="../js/jquery-1.6.2.min.js" type="text/javascript"></script> 
-    <script src="../js/jquery.easing.1.3.js" type="text/javascript"></script>
-    <script src="../js/jcarousellite_1.0.1.js" type="text/javascript"></script>
-    <script src="../js/jquery.galleriffic.js" type="text/javascript"></script>
-    <script src="../js/jquery.opacityrollover.js" type="text/javascript"></script> 
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css" media="screen">
+    <link rel="stylesheet" href="<%=request.getContextPath()%>/css/grid.css" type="text/css" media="screen">   
+    <script src="<%=request.getContextPath()%>/js/jquery-1.6.2.min.js" type="text/javascript"></script> 
+    <script src="<%=request.getContextPath()%>/js/jquery.easing.1.3.js" type="text/javascript"></script>
+    <script src="<%=request.getContextPath()%>/js/jcarousellite_1.0.1.js" type="text/javascript"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.galleriffic.js" type="text/javascript"></script>
+    <script src="<%=request.getContextPath()%>/js/jquery.opacityrollover.js" type="text/javascript"></script> 
     <script type="text/javascript">
 		$(document).ready(function() { 
 			$(".jCarouselLite").jCarouselLite({
@@ -59,22 +59,22 @@
                                     <div id="thumbs" class="navigation">
                                         <ul class="thumbs noscript">
                                             <li>
-                                                <a class="thumb" href="../images/gallery-img1.jpg" title=""> <img src="../images/thumb-1.jpg" alt="" /><span></span> </a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img1.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-1.jpg" alt="" /><span></span> </a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="../images/gallery-img2.jpg" title=""> <img src="../images/thumb-2.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img2.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-2.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="../images/gallery-img3.jpg" title=""> <img src="../images/thumb-3.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img3.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-3.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="../images/gallery-img4.jpg" title=""> <img src="../images/thumb-4.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img4.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-4.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="../images/gallery-img5.jpg" title=""> <img src="../images/thumb-5.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img5.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-5.jpg" alt="" /> <span></span></a>
                                             </li> 
                                             <li>
-                                                <a class="thumb" href="../images/gallery-img6.jpg" title=""> <img src="../images/thumb-6.jpg" alt="" /> <span></span></a>
+                                                <a class="thumb" href="<%=request.getContextPath()%>/images/gallery-img6.jpg" title=""> <img src="<%=request.getContextPath()%>/images/thumb-6.jpg" alt="" /> <span></span></a>
                                             </li>           
                                         </ul>
                                     </div>

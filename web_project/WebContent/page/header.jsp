@@ -1,3 +1,5 @@
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+    pageEncoding="UTF-8"%>
 <div>
 
 <header>
@@ -7,12 +9,13 @@
                 	<div class="grid_12">
                     	<nav>
                             <ul class="menu">
-                                <li><a class="active" href="<%=request.getContextPath()%>/mainpage.jsp">About Us</a></li>
-                                <li><a href="services.html">Services</a></li>
-                                <li><a href="<%=request.getContextPath()%>/catalogue/catalogue.jsp">Catalogue</a></li>
-                                <li><a href="<%=request.getContextPath()%>/product/product_list.jsp">Pricing</a></li>
-                                <li><a href="<%=request.getContextPath()%>/advice/advice_request.jsp">Contacts</a></li>
-                                <li><a href="<%=request.getContextPath()%>/member/member_join.jsp">Sign up</a></li>
+                                <li><a class="active" href="<%=request.getContextPath()%>/mainpage.jsp">홈페이지 소개</a></li>
+                                <li><a href="<%=request.getContextPath()%>/#">공지사항</a></li>
+                                <li><a href="<%=request.getContextPath()%>/catalogue/catalogue.jsp">카탈로그</a></li>
+                                <li><a href="<%=request.getContextPath()%>/product/product_list.jsp">제품</a></li>
+                                <li><a href="<%=request.getContextPath()%>/#">고객 후기</a></li>
+                                <li><a href="<%=request.getContextPath()%>/#">질문게시판</a></li>
+                                <li><a href="<%=request.getContextPath()%>/advice/advice_request.jsp">상담신청</a></li>
                             </ul>
                         </nav>
                     </div>
