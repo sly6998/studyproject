@@ -41,7 +41,8 @@
                                                     <form id="contact-form" method="post" enctype="multipart/form-data">                    
                                                         <fieldset>
                                                         	  
-                                                        	  <label><span class="text-form">Email:</span><input name="id" type="text" /></label>
+                                                        	  
+                                                        	  <label><span class="text-form">ID</span><input name="id" type="text" /></label>
                                                               <label><span class="text-form">이름 </span><input name="name" type="text"  /></label>
                                                               </label>
                                                               
