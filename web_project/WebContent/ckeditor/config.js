@@ -8,12 +8,16 @@ CKEDITOR.editorConfig = function( config ) {
 	// config.language = 'fr';
 	// config.uiColor = '#AADC6E';
 	
+	config.font_names = '굴림; 돋움; 궁서; HY견고딕; HY견명조; 휴먼둥근헤드라인;' 
+		+ '휴먼매직체; 휴먼모음T; 휴먼아미체; 휴먼엑스포; 휴먼옛체; 휴먼편지체;' 
+		+  CKEDITOR.config.font_names;
 	
-
-	config.toolbar = 'Full';
-
-	config.toolbar_Full =
-	[
+	config.extraPlugins += (config.extraPlugins.length == 0 ? '' : ',') + 'youtube';
+	config.allowedContent = true;
+	config.toolbar = 'my';
+	
+	config.toolbar_my = 
+		[
 	    ['Source','-','Save','NewPage','Preview','-','Templates'],
 	    ['Undo','Redo','-','Find','Replace','-','Maximize', 'ShowBlocks'],
 	    ['Cut','Copy','Paste','-','Print', 'SpellChecker', 'Scayt'],
@@ -24,9 +28,8 @@ CKEDITOR.editorConfig = function( config ) {
 	    ['Styles','Format','Font','FontSize'],
 	    ['TextColor','BGColor'],
 	    ['JustifyLeft','JustifyCenter','JustifyRight','JustifyBlock'],
-	    ['Image','youtube','Table','HorizontalRule','Smiley','SpecialChar','PageBreak']
+	    ['Image','Youtube','Table','HorizontalRule','Smiley','SpecialChar','PageBreak']
 	];
-	config.extraPlugins = 'youtube';
 
 /* //디폴트
 	config.toolbar = 'Full';
@@ -52,16 +55,12 @@ CKEDITOR.editorConfig = function( config ) {
 */
 	
 	
-/*	config.font_names = '굴림; 돋움; 궁서; HY견고딕; HY견명조; 휴먼둥근헤드라인;' 
-        + '휴먼매직체; 휴먼모음T; 휴먼아미체; 휴먼엑스포; 휴먼옛체; 휴먼편지체;' 
-        +  CKEDITOR.config.font_names;*/
 	
-	//config.filebrowserUploadUrl = '/upload/upload.php'
 	/*
 	 	http://igotit.tistory.com/entry/CKEditor-Plugin-%EC%A7%81%EC%A0%91-%EB%A7%8C%EB%93%A4%EA%B8%B0-%EC%98%88-Cy-GistInsert
 		http://ojava.tistory.com/1 사용법
 	*/
-	};
+};
 
 
 
