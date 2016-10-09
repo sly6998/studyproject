@@ -1,53 +1,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
-<div>
+	pageEncoding="UTF-8"%>
+<%
+  String id = "admisn";
+%>
+<body>
 
-<header>
-    	<div class="row-1">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="grid_12">
-                    	<nav>
-                            <ul class="menu">
-                                <li><a class="active" href="<%=request.getContextPath()%>/mainpage.html">홈페이지 소개</a></li>
-                                <li><a href="<%=request.getContextPath()%>/noti_list.html">공지사항</a></li>
-                                <li><a href="<%=request.getContextPath()%>/catalogue.html">카탈로그</a></li>
-                                <li><a href="<%=request.getContextPath()%>/product_list.html">제품</a></li>
-                                <li><a href="<%=request.getContextPath()%>/review_list.html">고객 후기</a></li>
-                                <li><a href="<%=request.getContextPath()%>/qna_list.html">질문게시판</a></li>
-                                <li><a href="<%=request.getContextPath()%>/advice_request.html">상담신청</a></li>
-                            </ul>
-                        </nav>
-                    </div>
-                </div>
-                <div class="clear"></div>
-            </div>
-        </div>
-        
-       
-        <div class="row-2">
-        	<div class="main">
-            	<div class="container_12">
-                	<div class="grid_9">
-                    	<h1>
-                            <a class="logo" href="<%=request.getContextPath()%>/mainpage.html">Int<strong>e</strong>rior
-                            	<span>Design</span>
-                            </a>
-                        </h1>
-                    </div>
-                    <div class="grid_3">
-                    	<form id="search-form" method="post" enctype="multipart/form-data">
-                            <fieldset>	
-                                <div class="search-field">
-                                    <input name="search" type="text" />
-                                    <a class="search-button" href="#" onClick="document.getElementById('search-form').submit()"><span>search</span></a>	
-                                </div>						
-                            </fieldset>
-                        </form>
-                     </div>
-                     <div class="clear"></div>
-                </div>
-            </div>
-        </div>    	
-    </header>
-</div>
+	<div class="menu_bg"></div>
+	<header>
+	<div class="navigation">
+		<div align="right" id="member_top"
+			style="width: 80%; margin-bottom: 20px; margin-top: 0px">
+
+			<%
+					  if (id == null || id == "") {
+					%>
+			<a href="#"><font size="4">Join</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">Login</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">Email /</a>&nbsp;<a href="#">Password Find</font>
+			</a>
+			<%
+					  } else if (id.equals("admin")) {
+					%>
+			<a href="#"><font size="4">MemberManagement</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">OrderManagement</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">AdviceManagement</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">MyPage</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">Logout</font></a>
+			<%
+					  } else {
+					%>
+			<a href="#"><font size="4">MyPage</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">OrderLookUp</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">AdviceLookUp</font></a>&nbsp;&nbsp;&nbsp;
+			<a href="#"><font size="4">Logout</font></a>
+			<%
+					  }
+					%>
+		</div>
+		<div class="container_12">
+			<div class="grid_12">
+				<h1 class="logo">
+					<a href="index.html" style="margin-left: 15%"><img
+						src="<%=request.getContextPath()%>/images/logo.png" alt=""> </a>
+				</h1>
+
+			</div>
+			<nav>
+			<ul>
+				<li><a href="#services">Notice</a></li>
+				<li><a href="#portfolio">Catalog</a></li>
+				<li><a href="#about">product</a></li>
+				<li><a href="#contacts">Review</a></li>
+				<li><a href="#contacts">QnA</a></li>
+				<li><a href="#contacts">Advice</a></li>
+			</ul>
+			</nav>
+		</div>
+	</div>
+	</div>
+	</header>
+
+

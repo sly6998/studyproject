@@ -15,6 +15,7 @@ body {font-family:Arial, Helvetica, sans-serif;font-size:100%;color:#262626;min-
 .bg-bot {width:100%; background:url(../images/bg-bot-tail.gif) center top repeat-x #fff; padding:30px 0 55px}
 	#page3 .bg-bot, #page4 .bg-bot {padding:30px 0 49px}
 .main {width:980px;padding:0;margin:0 auto;font-size:0.8125em;line-height:1.6153em}
+
 a {color:#ff9601; outline:none}
 a:hover {text-decoration:none}
 .col-1, .col-2 {float:left}
@@ -94,7 +95,7 @@ h1 {padding:15px 0 0 0;position:relative;font-weight:normal;text-transform:upper
  div.content {/* The display of content is enabled using jQuery so that the slideshow content won't display unless javascript is enabled. */
 	display: none;width: 620px;height: 403px;margin:  0;padding: 0px;float: left;overflow: hidden}
  div.content img {position: relative;z-index: 2}
- div.content a, div.navigation a {text-decoration: none;display:block;position:relative;cursor:pointer}
+ /* div.content a, div.navigation a {text-decoration: none; display:block; position:relative; cursor:pointer} */
 	div.content a img, div.navigation a img {position:relative;	z-index:1}
 	div.content a span, div.navigation a span {display:block;	width:140px;	height:121px;	background:#000;	position:absolute;	left:0;	top:0;	z-index:2}
 	div.content a span.selected,

@@ -32,9 +32,9 @@ CKEDITOR.editorConfig = function( config ) {
 	];
 
 /* //디폴트
-	config.toolbar = 'Full';
-
-    config.toolbar_Full =
+		config.toolbar = 'Full';
+	
+	    config.toolbar_Full =
 	[
 	    ['Source','-','Save','NewPage','Preview','-','Templates'],
 	    ['Cut','Copy','Paste','PasteText','PasteFromWord','-','Print', 'SpellChecker', 'Scayt'],

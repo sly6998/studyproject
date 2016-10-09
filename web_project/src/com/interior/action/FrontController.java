@@ -21,7 +21,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		String command = RequestURI.substring(contextPath.length());
 		ActionForward forward = null;
 		Action action = null;
-		
 		if (command.equals("/mainpage.html")) {
 		  forward = new ActionForward();
 		  forward.setRedirect(false);
