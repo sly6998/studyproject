@@ -17,7 +17,7 @@
   </resource-ref>
   <servlet>
     <servlet-name>FrontController</servlet-name>
-    <servlet-class>com.interior.action.FrontController</servlet-class>
+    <servlet-class>com.interior.controller.FrontController</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>FrontController</servlet-name>

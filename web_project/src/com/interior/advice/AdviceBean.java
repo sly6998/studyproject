@@ -1,4 +1,4 @@
-package com.advice.db;
+package com.interior.advice;
 
 import java.sql.Date;
 

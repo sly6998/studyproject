@@ -1,4 +1,4 @@
-package com.interior.action;
+package com.interior.controller;
 
 import javax.servlet.http.*;
 

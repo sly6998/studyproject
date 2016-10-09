@@ -1,4 +1,4 @@
-package com.basket.db;
+package com.interior.basket;
 
 import java.sql.Date;
 

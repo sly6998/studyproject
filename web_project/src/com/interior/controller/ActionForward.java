@@ -1,4 +1,4 @@
-package com.interior.action;
+package com.interior.controller;
 
 public class ActionForward {
   private boolean isRedirect = false;

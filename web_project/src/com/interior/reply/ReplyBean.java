@@ -1,4 +1,4 @@
-package com.reply.db;
+package com.interior.reply;
 
 import java.sql.Date;
 

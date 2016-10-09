@@ -1,4 +1,4 @@
-package com.noti.db;
+package com.interior.noti;
 
 import java.sql.Date;
 

@@ -1,4 +1,4 @@
-package com.review.db;
+package com.interior.review;
 
 import java.sql.Date;
 

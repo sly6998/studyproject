@@ -1,4 +1,4 @@
-package com.order.db;
+package com.interior.order;
 
 import java.sql.Date;
 
