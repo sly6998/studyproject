@@ -24,6 +24,11 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		String command = RequestURI.substring(contextPath.length());
 		ActionForward forward = null;
 		Action action = null;
+		
+		
+		
+		/* Move */
+		
 		if (command.equals("/mainpage.html")) {//메인페이지 이동
 		  forward = new ActionForward();
 		  forward.setRedirect(false);
@@ -49,6 +54,32 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			  forward.setRedirect(false);
 			  forward.setPath("./member/member_find_pw.jsp");
 
+		}else if (command.equals("/memberdelete.html")) {//회원탈퇴 페이지 이동
+			  forward = new ActionForward();
+			  forward.setRedirect(false);
+			  forward.setPath("./member/member_delete.jsp");
+
+		}else if (command.equals("/member_modify.html")) {//마이페이지 이동 & action
+			action = new MemberModifyViewAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		}else if (command.equals("/member_view.html")) {//회원정보 보기 페이지 이동 & action
+			action = new MemberViewAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		}else if (command.equals("/member_management.html")) {//회원관리 페이지 이동 & action(관리자)
+			action = new MemberManagementAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
 		}else if (command.equals("/noti_list.html")) {//공지사항페이지 이동
 			  forward = new ActionForward();
 			  forward.setRedirect(false);
@@ -78,7 +109,11 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			  forward = new ActionForward();
 			  forward.setRedirect(false);
 			  forward.setPath("./advice/advice_request.jsp");
-		
+
+			  
+			  
+		/* Action */	  
+			  
 		} else if (command.equals("/MemberJoinAction.html")) {//회원가입 action
 			action = new MemberJoinAction();
 		      try {
@@ -93,7 +128,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		     } catch (Exception e) {
 		       e.printStackTrace();
 		     }
-		} else if (command.equals("/MemberFindEmail.html")) {//이메일 찾기 action
+		} else if (command.equals("/MemberFindEmailAction.html")) {//이메일 찾기 action
 			action = new MemberFindEmailAction();
 		      try {
 		       forward = action.execute(request, response);
@@ -101,20 +136,35 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		       e.printStackTrace();
 		     }
 
-		} else if (command.equals("/MemberFindPWD.html")) {//비밀번호 찾기 action
-			action = new MemberFindPWD();
+		} else if (command.equals("/MemberFindPWDAction.html")) {//비밀번호 찾기 action
+			action = new MemberFindPWDAction();
 		      try {
 		       forward = action.execute(request, response);
 		     } catch (Exception e) {
 		       e.printStackTrace();
 		     }
 
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
+		} else if (command.equals("/MemberDeleteAction.html")) {//회원탈퇴 action
+			action = new MemberDeleteAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		} else if (command.equals("/MemberModifyAction.html")) {//마이페이지 수정 action
+			action = new MemberModifyAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		} else if (command.equals("/MemberManagementModify.html")) {//회원정보 수정(관리자)
+			action = new MemberManagementModifyAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
 		} else if (command.equals("")) {
 
 		} else if (command.equals("")) {

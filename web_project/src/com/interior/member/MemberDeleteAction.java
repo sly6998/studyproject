@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.controller.Action;
 import com.interior.controller.ActionForward;
 
-public class MemberFindPWD implements Action {
+public class MemberDeleteAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -21,23 +21,19 @@ public class MemberFindPWD implements Action {
 
 		int result = 1;
 
-		member.setMEMBER_EMAIL(request.getParameter("MEMBER_EMAIL"));
+		member.setMEMBER_NAME(request.getParameter("MEMBER_EMAIL"));
+		member.setMEMBER_NAME(request.getParameter("MEMBER_PWD"));
 		member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
-		member.setMEMBER_TEL(request.getParameter("MEMBER_TEL"));
-		member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
 		
-		
-		memberdao.pwdfind(member);
+		memberdao.emaildelete(member);
 
 		if (result == 0) {
-
-			String pwd = (String) request.getAttribute("MEMBER_PWD");
 
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('회원님의 비밀번호는 '+pwd+' 입니다.');");
-			out.println("location.href='./login.html';");
+			out.println("alert('회원탈퇴가 완료 되었습니다.');");
+			out.println("location.href='./mainpage.html';");
 			out.println("</script>");
 			out.close();
 			return null;
@@ -45,13 +41,13 @@ public class MemberFindPWD implements Action {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('가입되지 않은 회원정보 입니다.');");
-			out.println("location.href='./login.html';");
+			out.println("alert('입력하신 정보가 일치하지 않습니다.');");
 			out.println("</script>");
 			out.close();
 			return null;
 		}
-		System.out.println("비밀번호 찾기 오류");
+		System.out.println("회원탈퇴 시스템 오류");
 		return null;
 	}
+
 }
