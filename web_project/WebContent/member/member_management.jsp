@@ -34,7 +34,12 @@
                                             <div class="grid_12">
                                             	<div class="indent-left">
                                                 	<h3 class="p2">회원관리 (관리자용)</h3>
-        <table width="870" >
+        
+        
+        <table width="870">
+		
+		
+		<!-- 임시로 넣은 회원검색기능... 지워도 됨 -->
 		<tr >
 		<td valign="middle" style="font-family:Tahoma;font-size:10pt; border:0px solid #000; " align="right" colspan="4" >
 				<input type="radio" name="member_search" value="member_search_name" style="width:15px; " >이름 &nbsp;&nbsp;
@@ -55,8 +60,10 @@
 			</form>
 			</div>
 		</td>
-		
-	</tr>	
+		</tr>
+		<!-- ---------------------------------------  -->	
+	
+	
 	
 	
 	<tr>
