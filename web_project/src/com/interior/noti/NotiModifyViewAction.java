@@ -1,4 +1,4 @@
-package com.interior.member;
+package com.interior.noti;
 
 import java.io.PrintWriter;
 
@@ -8,24 +8,21 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.controller.Action;
 import com.interior.controller.ActionForward;
 
-public class MemberViewAction implements Action {
+public class NotiModifyViewAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
-
+		ActionForward forward = new ActionForward();
 		request.setCharacterEncoding("utf-8");
 
-		ActionForward forward = new ActionForward();
+		NotiDAO notidao = new NotiDAO();
+		NotiBean notidata = new NotiBean();
 
-		MemberDAO_d memberdao = new MemberDAO_d();
-		MemberBean member = new MemberBean();
-
-
-		String email = (String) request.getParameter("MEMBER_EMAIL");
-
-		member = memberdao.memberview(email);
-
-		if (member == null) {
+		int num = Integer.parseInt(request.getParameter("NOTI_NUM"));
+		
+		notidata = notidao.notimodifyview(num);
+		
+		if (notidata == null) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
@@ -35,13 +32,15 @@ public class MemberViewAction implements Action {
 			return null;
 		}
 
-		System.out.println("회원정보 보기 성공");
+		System.out.println("공지사항 수정페이지 보기 성공");
 
-		request.setAttribute("boarddata", member);
+		request.setAttribute("notidata", notidata);
 
 		forward.setRedirect(false);
-		forward.setPath("./member/member_view.jsp");
+		forward.setPath("./noti/noti_modify_view.jsp");
 
 		return forward;
+
 	}
+
 }

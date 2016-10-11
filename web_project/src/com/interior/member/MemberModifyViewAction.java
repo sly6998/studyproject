@@ -18,7 +18,7 @@ public class MemberModifyViewAction implements Action {
 		ActionForward forward = new ActionForward();
 		HttpSession session = request.getSession();
 		
-		MemberDAO memberdao = new MemberDAO();
+		MemberDAO_d memberdao = new MemberDAO_d();
 		MemberBean member = new MemberBean();
 
 

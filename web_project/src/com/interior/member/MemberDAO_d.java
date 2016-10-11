@@ -10,14 +10,14 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MemberDAO {
+public class MemberDAO_d {
 	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	DataSource ds;
 	
-	public MemberDAO(){
+	public MemberDAO_d(){
 		try{
 			Context init = new InitialContext();
 			ds=(DataSource)init.lookup("java:comp/env/jdbc/OracleDB");

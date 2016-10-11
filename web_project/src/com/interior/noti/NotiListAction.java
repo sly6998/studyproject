@@ -1,30 +1,22 @@
-package com.interior.member;
+package com.interior.noti;
 
 import java.util.ArrayList;
 import java.util.List;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 import com.interior.controller.Action;
 import com.interior.controller.ActionForward;
 
-public class MemberManagementAction implements Action {
+public class NotiListAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
+		
 		ActionForward forward = new ActionForward();
-		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("MEMBER_EMAIL");
 
-		if (email == null || !(email.equals("admin"))) {
-			forward.setRedirect(true);
-			forward.setPath("./member/mainpage.html");
-			return forward;
-		}
-
-		MemberDAO_d memberdao = new MemberDAO_d();
+		NotiDAO notidao = new NotiDAO();
 		List boardlist = new ArrayList();
 
 		int page = 1;
@@ -33,8 +25,8 @@ public class MemberManagementAction implements Action {
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		int listcount = memberdao.getListCount();// 총 리스트 수를 받아 옴
-		boardlist = memberdao.getBoardList(page, limit);// 리스트를 받아옴
+		int listcount = notidao.getListCount();// 총 리스트 수를 받아 옴
+		boardlist = notidao.getNotiList(page, limit);// 리스트를 받아옴
 
 		// 총 페이지 수
 		int maxpage = (int) ((double) listcount / limit + 0.95);// 0.95를 더해서 올림
@@ -55,8 +47,9 @@ public class MemberManagementAction implements Action {
 		request.setAttribute("boardlist", boardlist);
 
 		forward.setRedirect(false);
-		forward.setPath("./member/member_management_view.jsp");
+		forward.setPath("./noti/noti_list.jsp");
 
 		return forward;
 	}
+
 }

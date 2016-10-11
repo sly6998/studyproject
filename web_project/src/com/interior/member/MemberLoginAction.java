@@ -17,7 +17,7 @@ public class MemberLoginAction implements Action {
 		ActionForward forward = new ActionForward();
 		  
 	    HttpSession session= null;
-	    MemberDAO memberdao = new MemberDAO();
+	    MemberDAO_d memberdao = new MemberDAO_d();
 	    MemberBean member = new MemberBean();
 	    
 	    int result = -1;

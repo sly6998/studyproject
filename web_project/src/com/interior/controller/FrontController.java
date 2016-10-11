@@ -9,7 +9,22 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-import com.interior.member.*;
+import com.interior.member.MemberDeleteAction;
+import com.interior.member.MemberFindEmailAction;
+import com.interior.member.MemberFindPWDAction;
+import com.interior.member.MemberJoinAction;
+import com.interior.member.MemberLoginAction;
+import com.interior.member.MemberManagementAction;
+import com.interior.member.MemberManagementModifyAction;
+import com.interior.member.MemberModifyAction;
+import com.interior.member.MemberModifyViewAction;
+import com.interior.member.MemberViewAction;
+import com.interior.noti.NotiDeleteAction;
+import com.interior.noti.NotiDetailAction;
+import com.interior.noti.NotiListAction;
+import com.interior.noti.NotiModifyAction;
+import com.interior.noti.NotiModifyViewAction;
+import com.interior.noti.NotiWriteAction;
 
 
 @WebServlet("/ForntController")
@@ -80,12 +95,32 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		     } catch (Exception e) {
 		       e.printStackTrace();
 		     }
-		}else if (command.equals("/noti_list.html")) {//공지사항페이지 이동
-			  forward = new ActionForward();
+		}else if (command.equals("/noti_list.html")) {//공지사항페이지 이동 & action
+			action = new NotiListAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		}else if (command.equals("/noti_detail.html")){ //공지사항 상세보기 페이지 이동 & action
+			action = new NotiDetailAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		}else if (command.equals("/noti_write.html")){ //공지사항 글 쓰기 페이지 이동
+			forward = new ActionForward();
 			  forward.setRedirect(false);
-			  forward.setPath("./noti/noti_list.jsp");
-		
-		} else if (command.equals("/catalogue.html")) {//카탈로그페이지 이동
+			  forward.setPath("./noti/noti_write.jsp");
+		}else if (command.equals("/noti_modify_view.html")){ //공지사항 글 수정 페이지 이동 & action
+			action = new NotiModifyViewAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		}else if (command.equals("/catalogue.html")) {//카탈로그페이지 이동
 			  forward = new ActionForward();
 			  forward.setRedirect(false);
 			  forward.setPath("./catalogue/catalogue.jsp");
@@ -165,10 +200,27 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		     } catch (Exception e) {
 		       e.printStackTrace();
 		     }
-		} else if (command.equals("")) {
-
-		} else if (command.equals("")) {
-
+		} else if (command.equals("/NotiWriteAction.html")) {//공지사항 글쓰기(관리자)
+			action = new NotiWriteAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		} else if (command.equals("/NotiModifyAction.html")) {//공지사항 글수정(관리자)
+			action = new NotiModifyAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
+		}else if (command.equals("/NotiDeleteAction.html")) {//공지사항 글 삭제(관리자)
+			action = new NotiDeleteAction();
+		      try {
+		       forward = action.execute(request, response);
+		     } catch (Exception e) {
+		       e.printStackTrace();
+		     }
 		} else if (command.equals("")) {
 
 		} else if (command.equals("")) {
