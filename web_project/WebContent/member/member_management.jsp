@@ -2,7 +2,7 @@
     pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html lang="en">
-<head>
+<head>  
     <title></title>
     <meta charset="utf-8">
     <link rel="stylesheet" href="../css/reset.css" type="text/css" media="screen">
@@ -34,6 +34,7 @@
                                             <div class="grid_12">
                                             	<div class="indent-left">
                                                 	<h3 class="p2">회원관리 (관리자용)</h3>
+         
         
         
         <table width="870">
