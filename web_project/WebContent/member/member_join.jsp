@@ -48,7 +48,7 @@
 
 																			<label><span class="text-form">이름 </span><input
 																				name="name" type="text" /></label> <label><span
-																				class="text-form">ID</span><input name="id"
+																				class="text-form">Email</span><input name="email"
 																				type="text" /></label> <label><span
 																				class="text-form">비밀번호</span><input name="pwd"
 																				type="password" /></label> <label><span
@@ -58,7 +58,7 @@
 
 																				<table>
 																					<tr>
-																						<td width=100px>남자 <input type="radio"
+																					<td width=100px>남자 <input type="radio"
 																							name="gender" value="남자"
 																							style="width: 15px; padding: 1px; margin: 1px;">
 																						</td>
@@ -70,8 +70,6 @@
 																					</tr>
 																				</table> </label> <label><span class="text-form">생년.월.일</span>
 																				<input name="birthday" type="text" /> </label> <label><span
-																				class="text-form">Email:</span><input name="email"
-																				type="text" /></label> <label><span
 																				class="text-form">전화번호</span><input name="phone"
 																				type="text" /></label>
 																			<div class="buttons">

@@ -78,6 +78,21 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_DATE date NOT NULL
 );
 
+CREATE TABLE MEMBER_INFO
+(
+	MEMBER_NAME varchar2(20) ,
+	MEMBER_EMAIL varchar2(35)  UNIQUE,
+	MEMBER_PWD varchar2(30) ,
+	MEMBER_ADDR_1 varchar2(50) ,
+	MEMBER_ADDR_2 varchar2(50) ,
+	MEMBER_ADDR_ZIP varchar2(10) ,
+	MEMBER_TEL varchar2(20) ,
+	MEMBER_GENDER varchar2(5) ,
+	MEMBER_BIRTH varchar2(20) ,
+	MEMBER_DATE date 
+);
+
+insert into member_info (member_email) values ('admin');
 
 CREATE TABLE NOTI
 (
