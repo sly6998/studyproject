@@ -57,35 +57,46 @@
 																			
 																			
 																			 
-																			<label><span class="text-form">비밀번호</span><input name="pwd" type="password" /></label> <label><span
-																				class="text-form">비밀번호확인</span><input name="pwdchk"
-																				type="password" /></label> <label><span
-																				class="text-form">성별 </span>
-
+																			<label>
+																				<span class="text-form">비밀번호</span>
+																				<input name="pwd" type="password" />
+																			</label> 
+																			
+																			<label>
+																				<span class="text-form">비밀번호확인</span>
+																				<input name="pwdchk"type="password" />
+																			</label> 
+																			
+																			<label>
+																				<span class="text-form">성별 </span>
 																				<table>
 																					<tr>
-																					<td width=100px>남자 <input type="radio"
-																							name="gender" value="남자"
-																							style="width: 15px; padding: 1px; margin: 1px;">
+																						<td width=100px>남자 
+																						<input type="radio" name="gender" value="남자"
+																								style="width: 15px; padding: 1px; margin: 1px;">
 																						</td>
 
-																						<td>여자 <input type="radio" name="gender"
-																							value="여자"
+																						<td>여자 
+																						<input type="radio" name="gender" value="여자"
 																							style="width: 15px; padding: 1px; margin: 1px;">
 																						</td>
 																					</tr>
-																				</table> </label> <label><span class="text-form">생년.월.일</span>
-																				<input name="birthday" type="text" /> </label> <label><span
-																				class="text-form">전화번호</span><input name="phone"
-																				type="text" /></label>
+																				</table> 
+																			</label> 
+																			
+																			<label>
+																				<span class="text-form">생년.월.일</span>
+																				<input name="birthday" type="text" /> 
+																			</label> 
+																			
+																			<label>
+																				<span class="text-form">전화번호</span>
+																				<input name="phone" type="text" />
+																			</label>
+																			
 																			<div class="buttons">
 																				<a class="button" href="#"
 																					onClick="document.getElementById('contact-form').submit()">Create</a>
-																					
-																					
-																					
-																					
-																					
 																					<input type="submit" value="전송">
 																				<a class="button" href="#"
 																					onClick="document.getElementById('contact-form').reset()">Clear</a>
