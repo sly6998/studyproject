@@ -16,7 +16,7 @@ public class MemberFindPWDAction implements Action {
 
 		ActionForward forward = new ActionForward();
 
-		MemberDAO_d memberdao = new MemberDAO_d();
+		MemberDAO memberdao = new MemberDAO();
 		MemberBean member = new MemberBean();
 
 		int result = 1;

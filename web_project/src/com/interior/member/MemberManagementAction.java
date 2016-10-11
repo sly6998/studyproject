@@ -24,7 +24,7 @@ public class MemberManagementAction implements Action {
 			return forward;
 		}
 
-		MemberDAO_d memberdao = new MemberDAO_d();
+		MemberDAO memberdao = new MemberDAO();
 		List boardlist = new ArrayList();
 
 		int page = 1;

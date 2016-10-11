@@ -18,7 +18,7 @@ public class MemberManagementModifyAction implements Action {
 		ActionForward forward = new ActionForward();
 		HttpSession session = null;
 		
-		MemberDAO_d memberdao = new MemberDAO_d();
+		MemberDAO memberdao = new MemberDAO();
 		MemberBean member = new MemberBean();
 
 		String email = (String)session.getAttribute("MEMBER_EMAIL");

@@ -11,14 +11,14 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-public class MemberDAO_d {
+public class MemberDAO {
 	
 	Connection con;
 	PreparedStatement pstmt;
 	ResultSet rs;
 	DataSource ds;
 	
-	public MemberDAO_d(){
+	public MemberDAO(){
 		try{
 			Context init = new InitialContext();
 			ds=(DataSource)init.lookup("java:comp/env/jdbc/OracleDB");
@@ -155,25 +155,25 @@ public class MemberDAO_d {
 		return null;
 	}
 
-	public boolean emaildelete(String member_email) {// 회원탈퇴 action
+	public boolean emaildelete(MemberBean member) {// 회원탈퇴 action
 		// TODO Auto-generated method stub
 		String sql1 = "delete from bakset where basket_member_email=?";
 		String sql2 = "delete from member_info where member_email=?";
+		String email = member.getMEMBER_EMAIL();
 		boolean isSuccess = false;
 			int result1 = 0;
 			int result2 = 0;
 		boolean result = false;
-			System.out.println("deleteEmail = "+member_email);
 		
 			try{
 				con = ds.getConnection();
 				con.setAutoCommit(false);
 				pstmt=con.prepareStatement(sql1);
-				pstmt.setString(1, member_email);
+				pstmt.setString(1, email);
 				result1 = pstmt.executeUpdate();
 			
 			pstmt = con.prepareStatement(sql2);
-			pstmt.setString(1, member_email);
+			pstmt.setString(1, email);
 			
 			result2 = pstmt.executeUpdate();
 			
