@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.naming.Context;
@@ -89,36 +90,113 @@ public class MemberDAO_d {
 		return result;
 	}
 
-	public void emailfind(MemberBean member) {// 이메일 찾기 action
+	public List emailfind(MemberBean member) { // 이메일 찾기 action
 		// TODO Auto-generated method stub
-		String MEMBER_NAME = member.getMEMBER_NAME();
-		String MEMBER_EMAIL = member.getMEMBER_EMAIL();
-		String MEMBER_TEL = member.getMEMBER_TEL();
-		String MEMBER_BIRTH = member.getMEMBER_BIRTH();
 		String sql = "select * from member_info where member_name=? and member_tel=? and member_birth=?";
+		List emailfind = new ArrayList();
 		
-		pstmt = con.prepareStatement(sql);
-		pstmt.setString(1, MEMBER_NAME);
-		pstmt.setString(2, MEMBER_TEL);
-		pstmt.setString(3, MEMBER_BIRTH);
-		rs = pstmt.executeQuery();
-		
-		if(rs.next()){
-			System.out.println("이메일 주소는 "+ MEMBER_EMAIL +" 입니다.");
-		}else{
-			System.out.println();
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				MemberBean mb = new MemberBean();
+				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
+				mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+				
+				emailfind.add(mb);
+				
+			}else{
+				System.out.println("god damn");
+			}
+			return emailfind;
+		}catch(Exception e){
+			System.out.println("emailfind error : "+e);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
 		}
+		return null;
 	}
 
-	public void pwdfind(MemberBean member) {// 비밀번호 찾기 action
+	public List pwdfind(MemberBean member) { // 비밀번호 찾기 action
 		// TODO Auto-generated method stub
-
+		String sql = "select * from member_info where member_email and member_name and member_tel and member_birth";
+		List pwdfind = new ArrayList();
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				MemberBean mb = new MemberBean();
+				mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
+				mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+				
+				pwdfind.add(mb);
+				
+			}else{
+				System.out.println("god damn");
+			}
+			return pwdfind;
+		}catch(Exception e){
+			System.out.println("pwdfind error : "+e);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
+		return null;
 	}
 
-	public void emaildelete(MemberBean member) {// 회원탈퇴 action
+	public boolean emaildelete(String member_email) {// 회원탈퇴 action
 		// TODO Auto-generated method stub
-
-	}
+		String sql1 = "delete from bakset where basket_member_email=?";
+		String sql2 = "delete from member_info where member_email=?";
+		boolean isSuccess = false;
+			int result1 = 0;
+			int result2 = 0;
+		boolean result = false;
+			System.out.println("deleteEmail = "+member_email);
+		
+			try{
+				con = ds.getConnection();
+				con.setAutoCommit(false);
+				pstmt=con.prepareStatement(sql1);
+				pstmt.setString(1, member_email);
+				result1 = pstmt.executeUpdate();
+			
+			pstmt = con.prepareStatement(sql2);
+			pstmt.setString(1, member_email);
+			
+			result2 = pstmt.executeUpdate();
+			
+			if(result1>0 && result2>0){
+				result = true;
+			}
+				isSuccess=true;
+			}catch(Exception e){
+				System.out.println("emaildelete error : "+e);
+			}finally{
+				try{
+					if(isSuccess){
+						con.commit();
+					}else{
+						con.rollback();
+					}
+				}catch(Exception e){};
+					if(rs!=null)try{rs.close();}catch(SQLException ex){}
+					if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+					if(con!=null)try{con.close();}catch(SQLException ex){}
+				}
+			return result;
+			}
 
 	public MemberBean memberview(String email) {// 회원정보 보기 action
 		// TODO Auto-generated method stub
