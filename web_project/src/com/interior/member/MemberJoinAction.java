@@ -18,8 +18,12 @@ public class MemberJoinAction implements Action {
 	    MemberDAO memberdao = new MemberDAO();
 	    MemberBean member = new MemberBean();
 	    
-	    boolean result = false;
 	    
+	    boolean result = false;
+	    System.out.println(request.getParameter("MEMBER_NAME"));
+	    System.out.println(request.getParameter("MEMBER_EMAIL"));
+	    
+	    	
 	    member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
 	    member.setMEMBER_EMAIL(request.getParameter("MEMBER_EMAIL"));
 	    member.setMEMBER_PWD(request.getParameter("MEMBER_PWD"));
@@ -29,6 +33,10 @@ public class MemberJoinAction implements Action {
 	    member.setMEMBER_TEL(request.getParameter("MEMBER_TEL"));
 	    member.setMEMBER_GENDER(request.getParameter("MEMBER_GENDER"));
 	    member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
+	    System.out.println("2");
+	    System.out.println(member.getMEMBER_EMAIL());
+	    System.out.println(member.getMEMBER_NAME());
+	    
 
 	    result = memberdao.joinMember(member);
 	    

@@ -42,16 +42,22 @@
 														<table>
 															<tr>
 																<td width=400>
-																	<form id="contact-form" method="post"
-																		enctype="multipart/form-data">
+																	<form id="contact-form" method="post"  action="./MemberJoinAction.html">
 																		<fieldset>
 
-																			<label><span class="text-form">이름 </span><input
-																				name="name" type="text" /></label> <label><span
-																				class="text-form">Email</span><input name="email"
-																				type="text" /></label> <label><span
-																				class="text-form">비밀번호</span><input name="pwd"
-																				type="password" /></label> <label><span
+																			<label>
+																				<span class="text-form">이름 </span>
+																				<input id="MEMBER_NAME" name="MEMBER_NAME"type="text">
+																			</label> 
+																			
+																			<label>
+																				<span class="text-form">Email</span>
+																				<input id="MEMBER_EMAIL" name="MEMBER_EMAIL" type="text">
+																			</label>
+																			
+																			
+																			 
+																			<label><span class="text-form">비밀번호</span><input name="pwd" type="password" /></label> <label><span
 																				class="text-form">비밀번호확인</span><input name="pwdchk"
 																				type="password" /></label> <label><span
 																				class="text-form">성별 </span>
@@ -75,6 +81,12 @@
 																			<div class="buttons">
 																				<a class="button" href="#"
 																					onClick="document.getElementById('contact-form').submit()">Create</a>
+																					
+																					
+																					
+																					
+																					
+																					<input type="submit" value="전송">
 																				<a class="button" href="#"
 																					onClick="document.getElementById('contact-form').reset()">Clear</a>
 																			</div>

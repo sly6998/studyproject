@@ -13,7 +13,7 @@
 					<%
 					  if (id == null || id == "") {
 					%>
-					<a href="#">회원가입</a>
+					<a href="./join.html">회원가입</a>
 					<a href="#">로그인</a>
 					<a href="#">이메일 /</a>&nbsp;<a href="#">패스워드 찾기</a>
 					<%
