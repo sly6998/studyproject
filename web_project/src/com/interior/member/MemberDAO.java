@@ -29,7 +29,7 @@ public class MemberDAO {
 
 	public boolean joinMember(MemberBean member) {  // 회원가입 action
 		// TODO Auto-generated method stub
-		String sql = "Insert into member_info values (?,?,?,?,?,?,?,?)";
+		String sql = "Insert into member_info (member_name, member_email, member_pwd, member_gender, member_ birth, member_tel, member_date)values (?,?,?,?,?,?,?,?,sysdate)";
 		int result = 0;
 		
 		try{
