@@ -93,6 +93,7 @@ CREATE TABLE MEMBER_INFO
 );
 
 insert into member_info (member_email) values ('admin');
+Insert into member_info (member_name, member_email, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_birth, member_date) values ('w','d','w','d','w','s','c','b','a',sysdate);
 
 CREATE TABLE NOTI
 (

@@ -29,7 +29,7 @@ public class MemberDAO {
 
 	public boolean joinMember(MemberBean member) {  // 회원가입 action
 		// TODO Auto-generated method stub
-		String sql = "Insert into member_info (member_name, member_email, member_pwd, member_gender, member_ birth, member_tel, member_date)values (?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "Insert into member_info (member_name, member_email, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_birth, member_date) values (?,?,?,?,?,?,?,?,?,sysdate);";
 		int result = 0;
 		
 		try{
@@ -38,9 +38,12 @@ public class MemberDAO {
 			pstmt.setString(1, member.getMEMBER_NAME());
 			pstmt.setString(2, member.getMEMBER_EMAIL());
 			pstmt.setString(3, member.getMEMBER_PWD());
-			pstmt.setString(4, member.getMEMBER_GENDER());
-			pstmt.setString(5, member.getMEMBER_BIRTH());
+			pstmt.setString(4, member.getMEMBER_ADDR_1());
+			pstmt.setString(5, member.getMEMBER_ADDR_2());
+			pstmt.setString(6, member.getMEMBER_ADDR_ZIP());
 			pstmt.setString(7, member.getMEMBER_TEL());
+			pstmt.setString(8, member.getMEMBER_GENDER());
+			pstmt.setString(9, member.getMEMBER_BIRTH());
 			result = pstmt.executeUpdate();
 			
 			if(result!=0){
