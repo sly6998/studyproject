@@ -57,6 +57,7 @@
      	
      	<input type="submit" value="수정">
      	<input type="reset" value="다시쓰기">
+     	<a href="">목록보기</a>
      </fieldset>						
      </form>
 	                               	

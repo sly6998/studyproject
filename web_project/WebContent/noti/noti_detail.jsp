@@ -102,12 +102,22 @@
 	<td style="border:0px solid #000;" colspan="5" height="20px"> </td>
 	</tr>
 	
-	<tr>
-		<td style="border:0px solid #000;" colspan="5" height="20px"> 
-		<a href="">목록으로 (공지사항으로...)</a>
-	
+	<tr align="center">
+		<td style="border:0px solid #000;"  height="20px"> 
+		<a href="">목록보기</a>
 		</td>
+		
+		<td style="border:0px solid #000;">
+		<a href="">수정하기</a>
+		</td>
+		
+		<td style="border:0px solid #000;">
+		<a href="">삭제하기</a>
+		</td>
+		
 	</tr>
+	
+	
 	
 	
 	

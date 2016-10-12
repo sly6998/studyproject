@@ -97,13 +97,17 @@
 	
 	<!-- [이전] / [1] [2] [3] / [다음] -->
 	<tr align="center" height="20">
-		<td colspan="5" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
+		<td colspan="3" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
 			
 			<a href=""  style='text-decoration: none;'>[이전] </a> &nbsp;&nbsp;
 			
 			<a href="" style='text-decoration: none;'>[1] </a>&nbsp;&nbsp;
 			
 			<a href="" style='text-decoration: none;'>[다음] </a>
+		</td>
+		
+		<td colspan="2" align="right">
+		<a href=""> 글쓰기(관리자용)</a>
 		</td>
 	</tr>
 	
