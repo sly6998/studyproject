@@ -39,18 +39,19 @@
         <table >
 		<tr>
 			<td>아이디 : </td>
-			<td><input type="text"	name="MEMBER_ID"/></td>
+			<td><input type="text"	name="MEMBER_EMAIL"/></td>
 		</tr>
 		
 		<tr>
 			<td> 비밀번호 : </td>
-			<td><input type="password" name="MEMBER_PW"/></td>
+			<td><input type="password" name="MEMBER_PWD"/></td>
 		</tr>
 		
 		<tr>
 			<td colspan="2" align=center>
-				<input type="submit" value="전송" >
+				<input type="submit" value="로그인" >
 				<input type="reset"  value="다시쓰기">
+				<a href=""> 회원가입 </a>
 			</td>
 		</tr>
 		
