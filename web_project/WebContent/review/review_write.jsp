@@ -37,79 +37,52 @@
 											<div class="wrapper">
 												<div class="grid_12">
 													<div class="indent-left">
-														<h3 class="p2">Create Account</h3>
+														<h3 class="p2">Review(write)</h3>
 
-														<table>
-															<tr>
-																<td width=400>
-																	<form id="contact-form" method="post"  action="./MemberJoinAction.html">
-																		<fieldset>
-
-																			<label>
-																				<span class="text-form">이름 </span>
-																				<input id="MEMBER_NAME" name="MEMBER_NAME"type="text">
-																			</label> 
-																			
-																			<label>
-																				<span class="text-form">Email</span>
-																				<input id="MEMBER_EMAIL" name="MEMBER_EMAIL" type="text">
-																			</label>
-																			
-																			
-																			 
-																			<label>
-																				<span class="text-form">비밀번호</span>
-																				<input name="pwd" type="password" />
-																			</label> 
-																			
-																			<label>
-																				<span class="text-form">비밀번호확인</span>
-																				<input name="pwdchk"type="password" />
-																			</label> 
-																			
-																			<label>
-																				<span class="text-form">성별 </span>
-																				<table>
-																					<tr>
-																						<td width=100px>남자 
-																						<input type="radio" name="gender" value="남자"
-																								style="width: 15px; padding: 1px; margin: 1px;">
-																						</td>
-
-																						<td>여자 
-																						<input type="radio" name="gender" value="여자"
-																							style="width: 15px; padding: 1px; margin: 1px;">
-																						</td>
-																					</tr>
-																				</table> 
-																			</label> 
-																			
-																			<label>
-																				<span class="text-form">생년.월.일</span>
-																				<input name="birthday" type="text" /> 
-																			</label> 
-																			
-																			<label>
-																				<span class="text-form">전화번호</span>
-																				<input name="phone" type="text" />
-																			</label>
-																			
-																			<div class="buttons">
-																				<a class="button" href="#"
-																					onClick="document.getElementById('contact-form').submit()">Create</a>
-																					<input type="submit" value="전송">
-																				<a class="button"zhref="#"
-																					onClick="document.getElementById('contact-form').reset()">Clear</a>
-																			</div>
-																		</fieldset>
-																	</form>
-																</td>
-
-																<td border=1 bordercolor="#2ab6ef"><img
-																	src="../images/1.jpg" width="400" height="315"></td>
-															</tr>
-														</table>
-
+<form id="contact-form" method="post" enctype="multipart/form-data">                    
+     <fieldset>
+     
+     	<label>
+     		<span class="text-form">제 목  :</span>
+     		<input name="" type="text" />
+     	</label>
+     	
+     	<label>
+     		<span class="text-form">파일첨부  :	</span>
+     		<input name="" type="file"/>
+     	</label>
+     
+   	
+   			<div class="wrapper">
+     		<div class="text-form">내 용 :</div>
+     		
+     		<textarea>
+     		 
+     		Review_write.jsp
+     		[내용작성부분]
+     		
+     		</textarea>	
+     		
+     		</div>
+     		
+     	
+   		<label>
+   		</label>
+     	
+     	
+		<label>
+		<span class="text-form">	</span>
+    	<input type="submit" value="작성">
+     	<input type="reset" value="다시쓰기">
+     	<a href="">목록보기</a>
+		</label>    
+  
+     </fieldset>						
+     </form>
+     
+     
+     	
+														
 
 													</div>
 												</div>
