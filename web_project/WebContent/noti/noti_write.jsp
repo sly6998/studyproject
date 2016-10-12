@@ -33,7 +33,7 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">공지사항 수정</h3>
+                                                	<h3 class="p2">공지사항 작성</h3>
          
         
         
@@ -47,11 +47,17 @@
      	<div class="wrapper">
      		<div class="text-form">내 용 :</div>
      		<textarea>
-     		공지사항 수정
+     		공지사항 작성!! 
+     		noti_write.jsp
      		
-     		noti_modify.jsp
+     		내용@!!!@!@!@!@!@!@!@!@!@
      		
-     		내용내용내용내용~!~~!
+     		내용@!!!@!@!@!@!@!@!@!@!@
+     		
+     		내용@!!!@!@!@!@!@!@!@!@!@
+     		
+     		내용@!!!@!@!@!@!@!@!@!@!@
+     		
      		</textarea>
      	</div>
      	
