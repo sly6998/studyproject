@@ -200,11 +200,40 @@ public class MemberDAO {
 
 	public MemberBean memberview(String email) {// 회원정보 보기 action
 		// TODO Auto-generated method stub
+		String sql = "select * from member_info where member_email=?";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			MemberBean mb = new MemberBean();
+			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMEMBER_PWD(rs.getString("MEMBER_PWD"));
+			mb.setMEMBER_ADDR_1(rs.getString("MEMBER_ADDR_1"));
+			mb.setMEMBER_ADDR_2(rs.getString("MEMBER_ADDR_2"));
+			mb.setMEMBER_ADDR_ZIP(rs.getString("MEMBER_ADDR_ZIP"));
+			mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
+			mb.setMEMBER_GENDER(rs.getString("MEMBER_GENDER"));
+			mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+
+			return mb;
+		}catch(Exception e){
+			System.out.println("memberview error : "+e);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
 		return null;
 	}
 
 	public MemberBean membermodifyview(String email) {// 마이페이지 보기 action
 		// TODO Auto-generated method stub
+		String sql = "select * from member_info where member_email=?";
 		return null;
 	}
 
