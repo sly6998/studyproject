@@ -234,21 +234,96 @@ public class MemberDAO {
 	public MemberBean membermodifyview(String email) {// 마이페이지 보기 action
 		// TODO Auto-generated method stub
 		String sql = "select * from member_info where member_email=?";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, email);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			MemberBean mb = new MemberBean();
+			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMEMBER_PWD(rs.getString("MEMBER_PWD"));
+			mb.setMEMBER_ADDR_1(rs.getString("MEMBER_ADDR_1"));
+			mb.setMEMBER_ADDR_2(rs.getString("MEMBER_ADDR_2"));
+			mb.setMEMBER_ADDR_ZIP(rs.getString("MEMBER_ADDR_ZIP"));
+			mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
+			mb.setMEMBER_GENDER(rs.getString("MEMBER_GENDER"));
+			mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+
+			return mb;
+		}catch(Exception e){
+			System.out.println("memberview error : "+e);
+		}finally{
+			if(rs!=null)try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null)try{con.close();}catch(SQLException ex){}
+		}
 		return null;
 	}
 
 	public void membermodify(String email, MemberBean member) {// 마이페이지 수정 action
 		// TODO Auto-generated method stub
-
+		String sql = "update MEMER_INFO set MEMBER_PWD=?,";
+		sql+="member_addr_1=? where member_email=?,";
+		sql+="member_addr_2=? where member_email=?,";
+		sql+="member_addr_zip=? where member_email=?,";
+		sql+="member_tel=? where member_email=?,";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, member.getMEMBER_PWD());
+			pstmt.setString(2, member.getMEMBER_ADDR_1());
+			pstmt.setString(3, member.getMEMBER_ADDR_2());
+			pstmt.setString(4, member.getMEMBER_ADDR_ZIP());
+			pstmt.setString(5, member.getMEMBER_TEL());
+			pstmt.executeUpdate();
+			return;
+		}catch(Exception e){
+			System.out.println("membermodify error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return;
 	}
 
 	public int getListCount() {//총 회원 수
 		// TODO Auto-generated method stub
+		String sql = "select count(*) from member_info";
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			rs = pstmt.executeQuery();
+			rs.next();
+			
+			pstmt.setInt(1, getListCount());
+			
+		}catch(Exception e){
+			System.out.println("getListCount error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
 		return 0;
 	}
 
-	public List getBoardList(int page, int limit) {//회원 리스트
+	public List getMemberList(int page, int limit) {//회원 리스트
 		// TODO Auto-generated method stub
+		String sql = "select * from member_info";
+		List getBoardList = new ArrayList();
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			rs=pstmt.executeQuery();
+		}
 		return null;
 	}
 }
