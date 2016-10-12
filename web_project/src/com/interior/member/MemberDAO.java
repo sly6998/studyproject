@@ -317,12 +317,27 @@ public class MemberDAO {
 	public List getMemberList(int page, int limit) {//회원 리스트
 		// TODO Auto-generated method stub
 		String sql = "select * from member_info";
-		List getBoardList = new ArrayList();
+		List getMemberList = new ArrayList();
 		
 		try{
 			con=ds.getConnection();
 			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, page);
+			pstmt.setInt(2, limit);
 			rs=pstmt.executeQuery();
+			
+			MemberBean mb = new MemberBean();
+			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			
+			return null;
+			
+		}catch(Exception e){
+			System.out.println("getMemberList error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}
 		return null;
 	}

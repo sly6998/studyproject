@@ -34,7 +34,7 @@ public class MemberManagementAction implements Action {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
 		int listcount = memberdao.getListCount();// 총 리스트 수를 받아 옴
-		boardlist = memberdao.getBoardList(page, limit);// 리스트를 받아옴
+		boardlist = memberdao.getMemberList(page, limit);// 리스트를 받아옴
 
 		// 총 페이지 수
 		int maxpage = (int) ((double) listcount / limit + 0.95);// 0.95를 더해서 올림
