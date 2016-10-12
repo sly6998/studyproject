@@ -42,13 +42,23 @@
 <form id="contact-form" method="post" enctype="multipart/form-data">                    
      <fieldset>
      	<label>
+     		<span class="text-form">작성자  :</span>
+     		작성자 ID<% %>
+     	</label>
+     
+     	<label>
      		<span class="text-form">제 목  :</span>
-     		<input name="" type="text" />
+     		<input name="QnA_SUBJECT" type="text" />
+     	</label>
+     	
+     	<label>
+     		<span class="text-form">파일첨부  :	</span>
+     		<input name="QnA_FILE" type="file"/>
      	</label>
      
      	<div class="wrapper">
      		<div class="text-form">내 용 :</div>
-     		<textarea>
+     		<textarea name="QnA_CONTENT">
      		 
      		qna_write.jsp
      		[내용부분]
@@ -56,9 +66,17 @@
      		</textarea>
      	</div>
      	
-     	<input type="submit" value="완료">
+     	<label>
+   		</label>
+     	
+     	
+		<label>
+		<span class="text-form">	</span>
+     	
+     	<input type="submit" value="작성">
      	<input type="reset" value="다시쓰기">
      	<a href="">목록보기</a>
+     	</label>
      </fieldset>						
      </form>
 														

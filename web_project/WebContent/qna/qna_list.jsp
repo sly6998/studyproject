@@ -40,11 +40,13 @@
 														<h3 class="p2">QnA</h3>
 
 	<table width="870" >
+	<!-- 임의로 넣은 검색기능 (지워도됨)  -->
+	<!-- 			name="abc"  		  -->
 	<tr >
 		<td valign="middle" style="font-family:Tahoma;font-size:10pt; border:0px solid #000; " align="right" colspan="4" >
-				<input type="radio" name="" value="이름" style="width:15px; " >이름 &nbsp;&nbsp;
-				<input type="radio" name="" value="제목" style="width:15px; ">제목 &nbsp;&nbsp;
-				<input type="radio" name="" value="내용" style="width:15px; ">내용 &nbsp;&nbsp;
+				<input type="radio" name="abc" value="이름" style="width:15px; " >이름 &nbsp;&nbsp;
+				<input type="radio" name="abc" value="제목" style="width:15px; ">제목 &nbsp;&nbsp;
+				<input type="radio" name="abc" value="내용" style="width:15px; ">내용 &nbsp;&nbsp;
 		
 		</td>
 		

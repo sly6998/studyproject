@@ -33,37 +33,50 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">공지사항 작성</h3>
+                                                	<h3 class="p2">공지사항(write)</h3>
          
         
         
      <form id="contact-form" method="post" enctype="multipart/form-data">                    
      <fieldset>
      	<label>
-     		<span class="text-form">제 목  :</span>
-     		<input name="" type="text" />
+     		<span class="text-form">작성자  :</span>
+     		작성자 ID(아마 admin?)<% %>
      	</label>
+     
+     	<label>
+     		<span class="text-form">제 목  :</span>
+     		<input name="NOTI_SUBJECT" type="text" />
+     	</label>
+     	
+     	<label>
+     		<span class="text-form">파일첨부  :	</span>
+     		<input name="NOTI_FILE" type="file"/>
+     	</label>
+     
      
      	<div class="wrapper">
      		<div class="text-form">내 용 :</div>
-     		<textarea>
-     		공지사항 작성!! 
+     		<textarea name="NOTI_CONTENT">
+     		공지사항 작성
+     		
      		noti_write.jsp
      		
-     		내용@!!!@!@!@!@!@!@!@!@!@
-     		
-     		내용@!!!@!@!@!@!@!@!@!@!@
-     		
-     		내용@!!!@!@!@!@!@!@!@!@!@
-     		
-     		내용@!!!@!@!@!@!@!@!@!@!@
-     		
+     		내용내용내용내용~!~~!
      		</textarea>
      	</div>
      	
-     	<input type="submit" value="완료">
+     	<label>
+   		</label>
+     	
+     	
+		<label>
+		<span class="text-form">	</span>
+     	
+     	<input type="submit" value="작성">
      	<input type="reset" value="다시쓰기">
      	<a href="">목록보기</a>
+     	</label>
      </fieldset>						
      </form>
 	                               	
