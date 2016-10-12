@@ -24,8 +24,18 @@ import com.interior.noti.NotiListAction;
 import com.interior.noti.NotiModifyAction;
 import com.interior.noti.NotiModifyViewAction;
 import com.interior.noti.NotiWriteAction;
+import com.interior.qna.QnaDeleteAction;
 import com.interior.qna.QnaDetailAction;
 import com.interior.qna.QnaListAction;
+import com.interior.qna.QnaModifyAction;
+import com.interior.qna.QnaModifyView;
+import com.interior.qna.QnaWriteAction;
+import com.interior.review.ReviewDeleteAction;
+import com.interior.review.ReviewDetailAction;
+import com.interior.review.ReviewListAction;
+import com.interior.review.ReviewModifyAction;
+import com.interior.review.ReviewModifyView;
+import com.interior.review.ReviewWriteAction;
 
 @WebServlet("/ForntController")
 public class FrontController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
@@ -185,14 +195,14 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/NotiWriteAction.html")) {// 공지사항 글쓰기 & action(관리자)
+		} else if (command.equals("/NotiWriteAction.html")) {// 공지사항 글쓰기 페이지 이동 & action(관리자)
 			action = new NotiWriteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/NotiModifyAction.html")) {// 공지사항 글수정(관리자)
+		} else if (command.equals("/NotiModifyAction.html")) {// 공지사항 글 수정(관리자)
 			action = new NotiModifyAction();
 			try {
 				forward = action.execute(request, response);
@@ -235,10 +245,53 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			
 			/* 후기 */
 
-		} else if (command.equals("/review_list.html")) {// 후기페이지 이동
+		} else if (command.equals("/review_list.html")) {// review 게시판 이동 & action
+			action = new ReviewListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/review_detail.html")) {// review 게시판 상세보기 페이지 이동 & action
+			action = new ReviewDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/review_write.html")) {// review 게시판 글쓰기 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./review/review_list.jsp");
+			forward.setPath("./review/qna_write.jsp");
+			
+		} else if (command.equals("/ReviewWriteAction.html")) {// review 게시판 글쓰기 action
+			action = new ReviewWriteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/review_modify.html")) {// review 게시판 글 수정 페이지 이동 & action
+			action = new ReviewModifyView();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/ReviewModifyAction.html")) {// review 게시판 글 수정 action
+			action = new ReviewModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/ReviewDeleteAction.html")) {// review 게시판 글 삭제 action
+			action = new ReviewDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 
 			
 			
@@ -272,12 +325,33 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/qna_modify.html")) {// 질문게시판 글 수정 페이지 이동 & action
+			action = new QnaModifyView();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/QnaModifyAction.html")) {// 질문게시판 글 수정 action
+			action = new QnaModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/QnaDeleteAction.html")) {// 질문게시판 글 삭제 action
+			action = new QnaDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 
 			
 			
 			
-			/* 상담신청 */
+		/* 상담신청 */
 
 		} else if (command.equals("/advice_request.html")) {// 상담신청페이지 이동
 			forward = new ActionForward();

@@ -24,4 +24,24 @@ public class QnaDAO {
 		return null;
 	}
 
+	public boolean qnaInsert(QnaBean qnadata) {//qna 글쓰기 action
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public QnaBean qnamodifyView(int num) {//qna 게시글 수정 페이지
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+	public boolean qnaModify(QnaBean qnadata) {//qna 게시글 수정 action
+		// TODO Auto-generated method stub
+		return false;
+	}
+
+	public boolean qnadelete(int num) {//qna 게시글 삭제 action
+		// TODO Auto-generated method stub
+		return false;
+	}
+
 }
