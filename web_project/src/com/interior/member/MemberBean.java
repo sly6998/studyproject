@@ -14,8 +14,17 @@ public class MemberBean {
 	private String MEMBER_GENDER;
 	private String MEMBER_BIRTH;
 	private Date MEMBER_DATE;
+	private int MEMBER_NUM;
 	
 	
+	
+	
+	public int getMEMBER_NUM() {
+		return MEMBER_NUM;
+	}
+	public void setMEMBER_NUM(int mEMBER_NUM) {
+		MEMBER_NUM = mEMBER_NUM;
+	}
 	public String getMEMBER_NAME() {
 		return MEMBER_NAME;
 	}
