@@ -77,7 +77,7 @@
                                                           <label style="padding:20px 0px 0px 0px">
                                                           	<a class="button" href="#" onClick="">바로구매</a>
                                                             <a class="button" href="#" onClick="">장바구니</a>
-                                                            <a class="button" href="#" onClick="">목록으로</a>
+                                                            <a class="button" href="product_list.jsp" onClick="">목록으로</a>
                                                           </label>
                                                           
                                                         </td>
