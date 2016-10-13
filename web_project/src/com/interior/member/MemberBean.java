@@ -15,9 +15,7 @@ public class MemberBean {
 	private String MEMBER_BIRTH;
 	private Date MEMBER_DATE;
 	private int MEMBER_NUM;
-	
-	
-	
+
 	
 	public int getMEMBER_NUM() {
 		return MEMBER_NUM;
