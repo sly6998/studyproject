@@ -9,8 +9,15 @@ public class AdviceBean {
 	private String ADVICE_MEMBER_TEL;
 	private String ADVICE_CONTENT;
 	private Date ADVICE_DATE;
+	private int ADVICE_NUM;
 	
 	
+	public int getADVICE_NUM() {
+		return ADVICE_NUM;
+	}
+	public void setADVICE_NUM(int aDVICE_NUM) {
+		ADVICE_NUM = aDVICE_NUM;
+	}
 	public String getADVICE_MEMBER_EMAIL() {
 		return ADVICE_MEMBER_EMAIL;
 	}
