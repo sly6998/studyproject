@@ -318,7 +318,12 @@ public class MemberDAO {
 
 	public List getMemberList(int page, int limit) {//회원 리스트
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info ";
+		String sql = "select * from " +
+		"(select rownum rnum, member_num, member_email, member_name," + 
+		"member_date from " +
+		"(select * from member_info order by " +
+		"member_date asc, member_email asc, member_name asc)) " +
+		"where rnum>=? and rnum<=?";
 		List getMemberList = new ArrayList();
 		
 		try{
@@ -329,8 +334,9 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			
 			MemberBean mb = new MemberBean();
-			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+			mb.setMEMBER_NUM(rs.getInt("MEMBER_NUM"));
 			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
 			
 			return null;
 			

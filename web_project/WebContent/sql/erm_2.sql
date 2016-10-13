@@ -12,6 +12,19 @@ DROP TABLE REPLY CASCADE CONSTRAINTS;
 DROP TABLE REVIEW CASCADE CONSTRAINTS;
 
 
+/* Select Tables */
+
+Select * from advice;
+Select * from basket;
+Select * from item;
+Select * from member_info;
+Select * from noti;
+Select * from order_list;
+Select * from qna_board;
+Select * from reply;
+Select * from review;
+
+
 
 
 /* Create Tables */
@@ -152,5 +165,14 @@ CREATE TABLE REVIEW
 	REVIEW_FILE varchar2(50)
 );
 
+/* Create Sequence(시퀀스 생성) */
 
+create sequence member_info_seq
+start with 1
+nomaxvalue
+increment by 1
+nocycle
 
+/* drop sequence(시퀀스 삭제)*/
+
+drop sequence member_info_seq;
