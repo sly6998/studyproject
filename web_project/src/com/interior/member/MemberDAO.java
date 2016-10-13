@@ -295,6 +295,7 @@ public class MemberDAO {
 	public int getListCount() {//총 회원 수
 		// TODO Auto-generated method stub
 		String sql = "select count(*) from member_info";
+		int count = 0;
 		
 		try{
 			con = ds.getConnection();
@@ -302,7 +303,8 @@ public class MemberDAO {
 			rs = pstmt.executeQuery();
 			rs.next();
 			
-			pstmt.setInt(1, getListCount());
+			count = rs.getInt(1);
+			
 			
 		}catch(Exception e){
 			System.out.println("getListCount error : "+e);
@@ -311,12 +313,12 @@ public class MemberDAO {
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}
-		return 0;
+		return count;
 	}
 
 	public List getMemberList(int page, int limit) {//회원 리스트
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info";
+		String sql = "select * from member_info ";
 		List getMemberList = new ArrayList();
 		
 		try{
