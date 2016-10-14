@@ -20,7 +20,17 @@
 	int maxpage = ((Integer)request.getAttribute("maxpage")).intValue();
 	int startpage = ((Integer)request.getAttribute("startpage")).intValue();
 	int endpage = ((Integer)request.getAttribute("endpage")).intValue();
- 	
+ 	System.out.println(listcount);
+ 	System.out.println(nowpage);
+ 	System.out.println(maxpage);
+ 	System.out.println(startpage);
+ 	System.out.println(endpage);
+ 	System.out.println();
+ 	System.out.println();
+ 	System.out.println();
+ 	System.out.println();
+ 	System.out.println();
+ 	System.out.println();
 
 
 %>

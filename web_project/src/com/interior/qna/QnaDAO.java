@@ -121,27 +121,140 @@ public class QnaDAO {
 
 	public QnaBean getDetail(int num) {//qna 게시글 상세보기
 		// TODO Auto-generated method stub
+		QnaBean qna = null;
+		String sql = "select * from qna_board where qna_num=?";
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				qna = new QnaBean();
+				qna.setQnA_NUM(rs.getInt("QNA_NUM"));
+				qna.setQnA_MEMBER_EMAIL(rs.getString("QNA_MEMBER_EMAIL"));
+				qna.setQnA_MEMBER_NAME(rs.getString("QNA_MEMBER_NAME"));
+				qna.setQnA_SUBJECT(rs.getString("QNA_SUBJECT"));
+				qna.setQnA_CONTENT(rs.getString("QNA_CONTENT"));
+				qna.setQnA_DATE(rs.getDate("QNA_DATE"));
+				qna.setQnA_SEQ(rs.getInt("QNA_SEQ"));
+				qna.setQnA_REF(rs.getInt("QNA_REF"));
+				qna.setQnA_LEV(rs.getInt("QNA_LEV"));
+				qna.setQnA_READCOUNT(rs.getInt("QNA_READCOUNT"));
+				qna.setQnA_FILE(rs.getString("QNA_FILE"));
+			}
+			return qna;
+		}catch(Exception e){
+			System.out.println("getDetail error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
 		return null;
 	}
 
 	public boolean qnaInsert(QnaBean qnadata) {//qna 글쓰기 action
 		// TODO Auto-generated method stub
+		int num =0;
+		String sql="";
+		int result = 0;
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement("select max(qna_num) from qna_board");
+			rs = pstmt.executeQuery();
+			
+			if(rs.next()){
+				num = rs.getInt(1)+1;
+			}else{
+				num=1;
+			}
+			sql="insert into qna_board (qna_num, qna_member_email, qna_member_name,";
+			sql+="qna_subject, qna_content, qna_seq, qna_ref, qna_lev, qna_readcount, qna_file, qna_date) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			pstmt.setString(2, qnadata.getQnA_MEMBER_EMAIL());
+			pstmt.setString(3, qnadata.getQnA_MEMBER_NAME());
+			pstmt.setString(4, qnadata.getQnA_SUBJECT());
+			pstmt.setString(5, qnadata.getQnA_CONTENT());
+			pstmt.setInt(6, 0);
+			pstmt.setInt(7, num);
+			pstmt.setInt(8, 0);
+			pstmt.setInt(9, 0);
+			pstmt.setString(10, qnadata.getQnA_FILE());
+			
+			result = pstmt.executeUpdate();
+			if(result==0){
+				return false;
+			}
+			return true;
+		}catch(Exception e){
+			System.out.println("qna_boardInsert error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
 		return false;
 	}
 
 	public QnaBean qnamodifyView(int num) {//qna 게시글 수정 페이지
 		// TODO Auto-generated method stub
+		
 		return null;
 	}
 
 	public boolean qnaModify(QnaBean qnadata) {//qna 게시글 수정 action
 		// TODO Auto-generated method stub
+		String sql = "update qna_board set qna_subject=?,";
+		sql+="qna_content=? where qna_num=?";
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, qnadata.getQnA_SUBJECT());
+			pstmt.setString(2, qnadata.getQnA_CONTENT());
+			pstmt.setInt(3, qnadata.getQnA_NUM());
+			pstmt.executeUpdate();
+			return true;
+		}catch(Exception e){
+			System.out.println("qnaModify error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
 		return false;
 	}
 
 	public boolean qnadelete(int num) {//qna 게시글 삭제 action
 		// TODO Auto-generated method stub
+		String sql = "delete from qna_board where qna_num=?";
+		
+		int result = 0;
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			if(result==0){
+				return true;
+			}
+		}catch(Exception e){
+			System.out.println("qnadelete error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
 		return false;
 	}
-
 }
