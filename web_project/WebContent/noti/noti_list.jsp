@@ -9,7 +9,7 @@
     
 <%@ page import="com.interior.noti.*" %>
  
-<%
+<%-- <%
 	String id = null;
 	if(session.getAttribute("id")!=null){
 		id = (String)session.getAttribute("id");
@@ -23,7 +23,7 @@
  	
 
 
-%>
+%> --%>
  
 
  
@@ -74,59 +74,44 @@
 	</tr>
 	
 
-	<%
-		for(int i =0; i<boardList.size(); i++){
-			 NotiBean bl = (NotiBean)boardList.get(i);
-	%>
 	
 	<!-- 내용 (번호/아이디/이름/수정/탈퇴) -->
 	<tr align="center" valign="middle"  style="border:1px solid #ddd;"
 		onmouseover="this.style.backgroundColor='#F8F8F8'">
 		<td height="23" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<%= bl.getNOTI_NUM() %>
+			
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<a href="" style='text-decoration: none;'> 	<%= bl.getNOTI_SUBJECT() %></a>
+			<a href="" style='text-decoration: none;'>
+			 </a>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">  <%= bl.getNOTI_MEMBER_EMAIL() %></div>
+			<div align="center">  </div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">  <%= bl.getNOTI_DATE() %></div>
+			<div align="center">  </div>
 		</td>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">  <%= bl.getNOTI_READCOUNT() %></div>
+			<div align="center"> </div>
 		</td>
 		</td>
 	</tr>
-	<%
-		}
-	/*  for문 끝 */
-	%>
+	
 	
 	
 	<!-- [이전] / [1] [2] [3] / [다음] -->
 	<tr align="center" height="20">
 		<td colspan="3" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
 			
-			<% for(int a = startpage; a<= endpage; a++){ 
-					if(a == nowpage){ %>
-					[<%= a %>]&nbsp;
-				<% }else{ %>
-					<a href="./BoardList.bo?page=<%= a %>">[<%= a %>]</a>&nbsp;
-					<% } %>
-				<%} %>
+			
 				
 				
-				<!-- [다음] -->
-				<% if(nowpage >= maxpage){ %>
-				[다음]
-				<% }else{ %>
-					<a href="./BoardList.bo?page=<%= nowpage+1 %>">[다음]</a>
-				<% } %>
+				
+				[1]
+				
 			
 		</td>
 		
