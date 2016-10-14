@@ -3,6 +3,28 @@
     
 
     
+<%@ page import="java.util.*" %>
+    
+<%@ page import="java.text.SimpleDateFormat" %>
+    
+<%@ page import="com.interior.noti.*" %>
+ 
+<%
+	String id = null;
+	if(session.getAttribute("id")!=null){
+		id = (String)session.getAttribute("id");
+	}
+	List boardList = (List)request.getAttribute("boardlist");
+	int listcount = ((Integer)request.getAttribute("listcount")).intValue();
+	int nowpage = ((Integer)request.getAttribute("page")).intValue();
+	int maxpage = ((Integer)request.getAttribute("maxpage")).intValue();
+	int startpage = ((Integer)request.getAttribute("startpage")).intValue();
+	int endpage = ((Integer)request.getAttribute("endpage")).intValue();
+ 	
+
+
+%>
+ 
 
  
 
@@ -84,11 +106,11 @@
 	<tr align="center" height="20">
 		<td colspan="3" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
 			
-			<a href=""  style='text-decoration: none;'>[이전] </a> &nbsp;&nbsp;
+			<a href=""  style='text-decoration: none;'>[이전] </a>
+			<a href="" style='text-decoration: none;'>[1] </a>
+			<a href="" style='text-decoration: none;'>[2] </a>
+			<a href="" style='text-decoration: none;'>[이전] </a>
 			
-			<a href="" style='text-decoration: none;'>[1] </a>&nbsp;&nbsp;
-			
-			<a href="" style='text-decoration: none;'>[다음] </a>
 		</td>
 		
 		<td colspan="2" align="right">
