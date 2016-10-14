@@ -9,7 +9,7 @@
     
 <%@ page import="com.interior.noti.*" %>
  
-<%-- <%
+<%
 	String id = null;
 	if(session.getAttribute("id")!=null){
 		id = (String)session.getAttribute("id");
@@ -23,7 +23,7 @@
  	
 
 
-%> --%>
+%>
  
 
  
@@ -73,32 +73,38 @@
 		</td>
 	</tr>
 	
-
 	
-	<!-- 내용 (번호/아이디/이름/수정/탈퇴) -->
+	
+
+	<%
+		for(int i=0; i<boardList.size(); i++) {
+			NotiBean bl=(NotiBean)boardList.get(i);
+	%>
+	<!-- 내용 -->
 	<tr align="center" valign="middle"  style="border:1px solid #ddd;"
 		onmouseover="this.style.backgroundColor='#F8F8F8'">
 		<td height="23" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			
+			<%=bl.getNOTI_NUM() %>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<a href="" style='text-decoration: none;'>
-			 </a>
+			<a href="" style='text-decoration: none;'><%=bl.getNOTI_SUBJECT() %> </a>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">  </div>
+			<div align="center"><%=bl.getNOTI_MEMBER_NAME() %>  </div>
 		</td>
+		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">  </div>
+			<div align="center">  <%=bl.getNOTI_DATE() %></div>
 		</td>
-		</td>
+		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> </div>
+			<div align="center"><%=bl.getNOTI_READCOUNT() %> </div>
 		</td>
-		</td>
+		
 	</tr>
+		<%} %>
 	
 	
 	
@@ -107,10 +113,26 @@
 		<td colspan="3" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
 			
 			
-				
-				
-				
-				[1]
+				<%if(nowpage<=1){ %>
+			[이전]&nbsp;
+			<%}else{ %>
+			<a href="./BoardList.bo?page=<%=nowpage-1%>">[이전]</a>&nbsp;
+			<%} %>
+			
+			<%for(int a=startpage; a<=endpage; a++){
+				if(a==nowpage){%>
+				[<%=a %>]
+				<%}else{ %>
+				<a href="./BoardList.bo?page=<%=a %>">[<%=a %>]</a>
+				&nbsp;
+				<%} %>
+			<%} %>
+
+ 			<%if(nowpage>=maxpage){ %>
+ 				[다음]
+ 				<%}else{ %>
+  					<a href="./BoardList.bo?page=<%=nowpage+1 %>">[다음]</a>
+  				<%} %>
 				
 			
 		</td>
