@@ -33,72 +33,50 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">상품보기</h3>
+                                                	<h3 class="p2">상품목록(list)</h3>
                                                     <form id="contact-form" method="post" enctype="multipart/form-data">                    
-                                                        <fieldset>
-                                                        <table>
-                                                        <tr>
-                                                        	<td  style='border:0px solid #000; ' width="450" >
-                                                       		<img src="../images/sofa1.jpg" width="400" height="315">
-                                                       		</td>
-                                                        
-                                                        <td style='border:0px solid #000;' width="350">
-                                                          <hr >
-                                                          <label><span class="text-form">상품명  : </span><h2>엄청난 엄청난 엄청난 소파</h3></label>		
-                                                          <label><span class="text-form">가  격  : </span><h2>500,000,000,000원</h3></label>
-                                                          <label><span class="text-form">사이즈  : </span>
-                                                          <select id="" style="width:170px; height:25px">
-                                                          	<option selected="selected">사이즈(선택)</option>
-															<option>중</option>
-															<option>대</option>
-															<option>특대</option>
-															<option>기타...</option>
-                                                          </select>                           
-                                                          </label>
-                                                          <label><span class="text-form">수  량  : </span>
-                                                          <select id="" style="width:170px; height:25px" >
-                                                          	<option selected="selected">수량(선택)</option>
-															<option>1</option>
-															<option>2</option>
-															<option>3</option>
-															<option>4</option>
-															<option>5</option>
-                                                          </select>
-                                                          </label>   
-                                                          
-                                                    
-                                                          <hr >
-                                                          <label style="padding:30px 0px 0px 0px">
-                                                          <span class="text-form">총금액  : </span><h2>원</h3>
-                                                          </label>
-                                                          
-                                                          
-                                                          
-                                                          <label style="padding:20px 0px 0px 0px">
-                                                          	<a class="button" href="#" onClick="">바로구매</a>
-                                                            <a class="button" href="#" onClick="">장바구니</a>
-                                                            <a class="button" href="#" onClick="">목록으로</a>
-                                                          </label>
-                                                          
-                                                        </td>
-                                                        <td style='border:0px solid #000; '>
-                                                        </td>
-                                                        </tr>
-                                                        
-                                                        <tr height="50px">
-                                                        </tr>
-                                                         
-                                                        <tr> 
-                                                        	<td style='border:0px solid #000; background-color:#efefef;' colspan="3" height="500">
-                                                        	 <h3>제품 상세내용 표시부분</h3><br/>
-                                                        	 <center>
-                                                        	 <img src="../images/sofa1_1.jpg">
-                                                        	 <img src="../images/sofa1_2.jpg">
-                                                        	 </center>
-                                                        	</td>
-                                                        </tr>  
-                                                        </table>
-                                                        </fieldset>						
+
+
+<table width=900 align="center">
+	<tr>
+		<!-- 첫번재 소파 이미지  -->
+		<td width="300" style="border:1px solid #ddd;" align=center>
+			<a href="product_detail.jsp">
+			<img src="../images/sofa1.jpg" width="250" height="200">
+			</a>
+		</td>
+		
+		<!-- 두번째 소파 이미지 -->
+		<td width="300" style="border:1px solid #ddd;"  align=center>
+			<a href="">
+			<img src="../images/sofa2.jpg" width="250" height="200" >
+			</a>
+		</td>
+		<td width="300" style="border:1px solid #ddd;" >1</td>
+	
+	</tr>
+	
+	<tr>
+		<!-- 첫번재 소파 이름, 가격 -->
+		<td style="border:1px solid #ddd;" align="center">
+			Wendelbo Edge sofa (웬델보 엣지 소파)
+			<br/>
+			300,000,000원
+		</td>
+		
+		<!-- 첫번재 소파 이름, 가격 -->
+		<td style="border:1px solid #ddd;" align=center>
+			엘리체 리클라이너 가죽 소파
+			<br/>
+			500,000,000원
+			
+		</td>
+		<td style="border:1px solid #ddd;" >1</td>
+	</tr>
+	
+</table>
+
+                                                        				
                                                     </form>
                                                 </div>
                                             </div>
