@@ -13,9 +13,11 @@
 					<%
 					  if (id == null || id == "") {
 					%>
-					<a href="./join.html">회원가입</a>
-					<a href="#">로그인</a>
-					<a href="#">이메일 /</a>&nbsp;<a href="#">패스워드 찾기</a>
+					
+					<a href="./join.html" data-toggle="modal" data-target="#myModal">회원가입</a>
+					<a href="./login.html" data-toggle="modal" data-target="#myModal">로그인</a>
+					<a href="./emailfind.html" data-toggle="modal" data-target="#myModal">이메일 /</a>&nbsp;
+					<a href="./pwdfind.html" data-toggle="modal" data-target="#myModal">패스워드 찾기</a>
 					<%
 					  } else if (id.equals("admin")) {
 					%>
