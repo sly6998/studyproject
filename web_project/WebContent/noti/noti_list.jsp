@@ -74,42 +74,59 @@
 	</tr>
 	
 
+	<%
+		for(int i =0; i<boardList.size(); i++){
+			 NotiBean bl = (NotiBean)boardList.get(i);
+	%>
+	
 	<!-- 내용 (번호/아이디/이름/수정/탈퇴) -->
 	<tr align="center" valign="middle"  style="border:1px solid #ddd;"
 		onmouseover="this.style.backgroundColor='#F8F8F8'">
 		<td height="23" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			10
+			<%= bl.getNOTI_NUM() %>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">
-			
-			<a href="" style='text-decoration: none;'> 공지사항 1111</a>
-			</div>
+			<a href="" style='text-decoration: none;'> 	<%= bl.getNOTI_SUBJECT() %></a>
 		</td>
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> gogo1212</div>
+			<div align="center">  <%= bl.getNOTI_MEMBER_EMAIL() %></div>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> 10/12</div>
+			<div align="center">  <%= bl.getNOTI_DATE() %></div>
 		</td>
 		</td>
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> 5</div>
+			<div align="center">  <%= bl.getNOTI_READCOUNT() %></div>
 		</td>
 		</td>
 	</tr>
+	<%
+		}
+	/*  for문 끝 */
+	%>
 	
 	
 	<!-- [이전] / [1] [2] [3] / [다음] -->
 	<tr align="center" height="20">
 		<td colspan="3" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
 			
-			<a href=""  style='text-decoration: none;'>[이전] </a>
-			<a href="" style='text-decoration: none;'>[1] </a>
-			<a href="" style='text-decoration: none;'>[2] </a>
-			<a href="" style='text-decoration: none;'>[이전] </a>
+			<% for(int a = startpage; a<= endpage; a++){ 
+					if(a == nowpage){ %>
+					[<%= a %>]&nbsp;
+				<% }else{ %>
+					<a href="./BoardList.bo?page=<%= a %>">[<%= a %>]</a>&nbsp;
+					<% } %>
+				<%} %>
+				
+				
+				<!-- [다음] -->
+				<% if(nowpage >= maxpage){ %>
+				[다음]
+				<% }else{ %>
+					<a href="./BoardList.bo?page=<%= nowpage+1 %>">[다음]</a>
+				<% } %>
 			
 		</td>
 		
