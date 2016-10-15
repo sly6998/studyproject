@@ -42,7 +42,7 @@ public class NotiWriteAction implements Action {
 		    System.out.println("게시판 등록 완료");
 
 		    forward.setRedirect(true);
-		    forward.setPath("./noti/noti_write.html");
+		    forward.setPath("./noti_list.html");
 		    return forward;
 		  } catch (Exception e) {
 		    e.printStackTrace();
