@@ -52,7 +52,7 @@ public class QnaDAO {
 	public List getQnaList(int page, int limit) {//qna 게시글 목록 불러오기
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, qna_num, qna_member_email, qna_member_name" +
+		"(select rownum rnum, qna_num, qna_member_ID, qna_member_name" +
 		"qna_subject, qna_content, qna_date, qna_seq, qna_ref, qna_lev" +
 		"qna_readcount, qna_file from " +
 		"(select * from qna_board order by " +
@@ -73,7 +73,7 @@ public class QnaDAO {
 			while(rs.next()){
 				QnaBean qna = new QnaBean();
 				qna.setQnA_NUM(rs.getInt("QNA_NUM"));
-				qna.setQnA_MEMBER_EMAIL(rs.getString("QNA_MEMBER_EMAIL"));
+				qna.setQnA_MEMBER_ID(rs.getString("QNA_MEMBER_ID"));
 				qna.setQnA_MEMBER_NAME(rs.getString("QNA_MEMBER_NAME"));
 				qna.setQnA_SUBJECT(rs.getString("QNA_SUBJECT"));
 				qna.setQnA_CONTENT(rs.getString("QNA_CONTENT"));
@@ -134,7 +134,7 @@ public class QnaDAO {
 			if(rs.next()){
 				qna = new QnaBean();
 				qna.setQnA_NUM(rs.getInt("QNA_NUM"));
-				qna.setQnA_MEMBER_EMAIL(rs.getString("QNA_MEMBER_EMAIL"));
+				qna.setQnA_MEMBER_ID(rs.getString("QNA_MEMBER_ID"));
 				qna.setQnA_MEMBER_NAME(rs.getString("QNA_MEMBER_NAME"));
 				qna.setQnA_SUBJECT(rs.getString("QNA_SUBJECT"));
 				qna.setQnA_CONTENT(rs.getString("QNA_CONTENT"));
@@ -172,7 +172,7 @@ public class QnaDAO {
 			}else{
 				num=1;
 			}
-			sql="insert into qna_board (qna_num, qna_member_email, qna_member_name,";
+			sql="insert into qna_board (qna_num, qna_member_ID, qna_member_name,";
 			sql+="qna_subject, qna_content, qna_seq, qna_ref, qna_lev, qna_readcount, qna_file, qna_date) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
@@ -180,7 +180,7 @@ public class QnaDAO {
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2, qnadata.getQnA_MEMBER_EMAIL());
+			pstmt.setString(2, qnadata.getQnA_MEMBER_ID());
 			pstmt.setString(3, qnadata.getQnA_MEMBER_NAME());
 			pstmt.setString(4, qnadata.getQnA_SUBJECT());
 			pstmt.setString(5, qnadata.getQnA_CONTENT());

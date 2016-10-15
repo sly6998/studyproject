@@ -22,7 +22,7 @@ public class MemberLoginAction implements Action {
 	    
 	    int result = -1;
 	    
-	    member.setMEMBER_EMAIL(request.getParameter("MEMBER_EMAIL"));
+	    member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
 	    member.setMEMBER_PWD(request.getParameter("MEMBER_PWD"));
 	    
 	    result = memberdao.isMember(member);
@@ -48,7 +48,7 @@ public class MemberLoginAction implements Action {
 	      return null;
 	    }
 	    //로그인 성공
-	    session.setAttribute("id", member.getMEMBER_EMAIL());
+	    session.setAttribute("id", member.getMEMBER_ID());
 	    System.out.println("로그인 성공");
 	    forward.setRedirect(true);
 	    forward.setPath("./mainpage.html");

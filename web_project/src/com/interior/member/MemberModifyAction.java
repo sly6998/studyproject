@@ -21,7 +21,7 @@ public class MemberModifyAction implements Action {
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean member = new MemberBean();
 
-		String email = (String)session.getAttribute("MEMBER_EMAIL");
+		String ID = (String)session.getAttribute("MEMBER_ID");
 	
 		
 		int result = 1;
@@ -36,7 +36,7 @@ public class MemberModifyAction implements Action {
 	    member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
 		
 		
-		memberdao.membermodify(email, member);
+		memberdao.membermodify(ID, member);
 
 		if (result == 0) {
 

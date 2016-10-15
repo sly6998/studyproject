@@ -8,7 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.controller.Action;
 import com.interior.controller.ActionForward;
 
-public class MemberFindEmailAction implements Action {
+public class MemberFindIDAction implements Action {
 
 	@Override
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
@@ -26,16 +26,16 @@ public class MemberFindEmailAction implements Action {
 		member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
 		
 		
-		memberdao.emailfind(member);
+		memberdao.IDfind(member);
 
 		if (result == 0) {
 
-			String email = (String) request.getAttribute("MEMBER_EMAIL");
+			String ID = (String) request.getAttribute("MEMBER_ID");
 
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
-			out.println("alert('회원님의 Email은 '+email+' 입니다.');");
+			out.println("alert('회원님의 ID은 '+ID+' 입니다.');");
 			out.println("location.href='./login.html';");
 			out.println("</script>");
 			out.close();

@@ -5,7 +5,7 @@ import java.sql.Date;
 public class ReplyBean {
 
 	private String REPLY_BOARD;
-	private String REPLY_MEMBER_EMAIL;
+	private String REPLY_MEMBER_ID;
 	private String REPLY_MEMBER_NAME;
 	private String REPLY_CONTENT;
 	private Date REPLY_DATE;
@@ -20,11 +20,11 @@ public class ReplyBean {
 	public void setREPLY_BOARD(String rEPLY_BOARD) {
 		REPLY_BOARD = rEPLY_BOARD;
 	}
-	public String getREPLY_MEMBER_EMAIL() {
-		return REPLY_MEMBER_EMAIL;
+	public String getREPLY_MEMBER_ID() {
+		return REPLY_MEMBER_ID;
 	}
-	public void setREPLY_MEMBER_EMAIL(String rEPLY_MEMBER_EMAIL) {
-		REPLY_MEMBER_EMAIL = rEPLY_MEMBER_EMAIL;
+	public void setREPLY_MEMBER_ID(String rEPLY_MEMBER_ID) {
+		REPLY_MEMBER_ID = rEPLY_MEMBER_ID;
 	}
 	public String getREPLY_MEMBER_NAME() {
 		return REPLY_MEMBER_NAME;

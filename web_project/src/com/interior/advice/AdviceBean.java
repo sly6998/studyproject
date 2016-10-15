@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class AdviceBean {
 
-	private String ADVICE_MEMBER_EMAIL;
+	private String ADVICE_MEMBER_ID;
 	private String ADVICE_MEMBER_NAME;
 	private String ADVICE_MEMBER_TEL;
 	private String ADVICE_CONTENT;
@@ -18,11 +18,11 @@ public class AdviceBean {
 	public void setADVICE_NUM(int aDVICE_NUM) {
 		ADVICE_NUM = aDVICE_NUM;
 	}
-	public String getADVICE_MEMBER_EMAIL() {
-		return ADVICE_MEMBER_EMAIL;
+	public String getADVICE_MEMBER_ID() {
+		return ADVICE_MEMBER_ID;
 	}
-	public void setADVICE_MEMBER_EMAIL(String aDVICE_MEMBER_EMAIL) {
-		ADVICE_MEMBER_EMAIL = aDVICE_MEMBER_EMAIL;
+	public void setADVICE_MEMBER_ID(String aDVICE_MEMBER_ID) {
+		ADVICE_MEMBER_ID = aDVICE_MEMBER_ID;
 	}
 	public String getADVICE_MEMBER_NAME() {
 		return ADVICE_MEMBER_NAME;

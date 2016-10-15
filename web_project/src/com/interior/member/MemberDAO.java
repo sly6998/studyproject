@@ -30,14 +30,14 @@ public class MemberDAO {
 
 	public boolean joinMember(MemberBean member) {  // 회원가입 action
 		// TODO Auto-generated method stub
-		String sql = "Insert into member_info (member_name, member_email, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_birth, member_date) values (?,?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "Insert into member_info (member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_birth, member_date) values (?,?,?,?,?,?,?,?,?,sysdate)";
 		int result = 0;
 		
 		try{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, member.getMEMBER_NAME());
-			pstmt.setString(2, member.getMEMBER_EMAIL());
+			pstmt.setString(2, member.getMEMBER_ID());
 			pstmt.setString(3, member.getMEMBER_PWD());
 			pstmt.setString(4, member.getMEMBER_ADDR_1());
 			pstmt.setString(5, member.getMEMBER_ADDR_2());
@@ -68,7 +68,7 @@ public class MemberDAO {
 		try{
 			con=ds.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, member.getMEMBER_EMAIL());
+			pstmt.setString(1, member.getMEMBER_ID());
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -90,10 +90,10 @@ public class MemberDAO {
 		return result;
 	}
 
-	public List emailfind(MemberBean member) { // 이메일 찾기 action
+	public List IDfind(MemberBean member) { // 이메일 찾기 action
 		// TODO Auto-generated method stub
 		String sql = "select * from member_info where member_name=? and member_tel=? and member_birth=?";
-		List emailfind = new ArrayList();
+		List IDfind = new ArrayList();
 		
 		try{
 			con=ds.getConnection();
@@ -106,14 +106,14 @@ public class MemberDAO {
 				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
 				mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
 				
-				emailfind.add(mb);
+				IDfind.add(mb);
 				
 			}else{
 				System.out.println("god damn");
 			}
-			return emailfind;
+			return IDfind;
 		}catch(Exception e){
-			System.out.println("emailfind error : "+e);
+			System.out.println("IDfind error : "+e);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
@@ -124,7 +124,7 @@ public class MemberDAO {
 
 	public List pwdfind(MemberBean member) { // 비밀번호 찾기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_email and member_name and member_tel and member_birth";
+		String sql = "select * from member_info where member_ID and member_name and member_tel and member_birth";
 		List pwdfind = new ArrayList();
 		
 		try{
@@ -134,7 +134,7 @@ public class MemberDAO {
 			
 			if(rs.next()){
 				MemberBean mb = new MemberBean();
-				mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
 				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
 				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
 				mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
@@ -155,11 +155,11 @@ public class MemberDAO {
 		return null;
 	}
 
-	public boolean emaildelete(MemberBean member) {// 회원탈퇴 action
+	public boolean IDdelete(MemberBean member) {// 회원탈퇴 action
 		// TODO Auto-generated method stub
-		String sql1 = "delete from bakset where basket_member_email=?";
-		String sql2 = "delete from member_info where member_email=?";
-		String email = member.getMEMBER_EMAIL();
+		String sql1 = "delete from bakset where basket_member_ID=?";
+		String sql2 = "delete from member_info where member_ID=?";
+		String ID = member.getMEMBER_ID();
 		boolean isSuccess = false;
 			int result1 = 0;
 			int result2 = 0;
@@ -169,11 +169,11 @@ public class MemberDAO {
 				con = ds.getConnection();
 				con.setAutoCommit(false);
 				pstmt=con.prepareStatement(sql1);
-				pstmt.setString(1, email);
+				pstmt.setString(1, ID);
 				result1 = pstmt.executeUpdate();
 			
 			pstmt = con.prepareStatement(sql2);
-			pstmt.setString(1, email);
+			pstmt.setString(1, ID);
 			
 			result2 = pstmt.executeUpdate();
 			
@@ -182,7 +182,7 @@ public class MemberDAO {
 			}
 				isSuccess=true;
 			}catch(Exception e){
-				System.out.println("emaildelete error : "+e);
+				System.out.println("IDdelete error : "+e);
 			}finally{
 				try{
 					if(isSuccess){
@@ -198,20 +198,20 @@ public class MemberDAO {
 			return result;
 			}
 
-	public MemberBean memberview(String email) {// 회원정보 보기 action
+	public MemberBean memberview(String ID) {// 회원정보 보기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_email=?";
+		String sql = "select * from member_info where member_ID=?";
 		
 		try{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, email);
+			pstmt.setString(1, ID);
 			rs = pstmt.executeQuery();
 			rs.next();
 			
 			MemberBean mb = new MemberBean();
 			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
 			mb.setMEMBER_PWD(rs.getString("MEMBER_PWD"));
 			mb.setMEMBER_ADDR_1(rs.getString("MEMBER_ADDR_1"));
 			mb.setMEMBER_ADDR_2(rs.getString("MEMBER_ADDR_2"));
@@ -231,20 +231,20 @@ public class MemberDAO {
 		return null;
 	}
 
-	public MemberBean membermodifyview(String email) {// 마이페이지 보기 action
+	public MemberBean membermodifyview(String ID) {// 마이페이지 보기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_email=?";
+		String sql = "select * from member_info where member_ID=?";
 		
 		try{
 			con = ds.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setString(1, email);
+			pstmt.setString(1, ID);
 			rs = pstmt.executeQuery();
 			rs.next();
 			
 			MemberBean mb = new MemberBean();
 			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
 			mb.setMEMBER_PWD(rs.getString("MEMBER_PWD"));
 			mb.setMEMBER_ADDR_1(rs.getString("MEMBER_ADDR_1"));
 			mb.setMEMBER_ADDR_2(rs.getString("MEMBER_ADDR_2"));
@@ -264,13 +264,13 @@ public class MemberDAO {
 		return null;
 	}
 
-	public void membermodify(String email, MemberBean member) {// 마이페이지 수정 action
+	public void membermodify(String ID, MemberBean member) {// 마이페이지 수정 action
 		// TODO Auto-generated method stub
 		String sql = "update MEMER_INFO set MEMBER_PWD=?,";
-		sql+="member_addr_1=? where member_email=?,";
-		sql+="member_addr_2=? where member_email=?,";
-		sql+="member_addr_zip=? where member_email=?,";
-		sql+="member_tel=? where member_email=?,";
+		sql+="member_addr_1=? where member_ID=?,";
+		sql+="member_addr_2=? where member_ID=?,";
+		sql+="member_addr_zip=? where member_ID=?,";
+		sql+="member_tel=? where member_ID=?,";
 		
 		try{
 			con = ds.getConnection();
@@ -319,10 +319,10 @@ public class MemberDAO {
 	public List getMemberList(int page, int limit) {//회원 리스트
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, member_num, member_email, member_name," + 
+		"(select rownum rnum, member_num, member_ID, member_name," + 
 		"member_date from " +
 		"(select * from member_info order by " +
-		"member_date asc, member_email asc, member_name asc)) " +
+		"member_date asc, member_ID asc, member_name asc)) " +
 		"where rnum>=? and rnum<=?";
 		List getMemberList = new ArrayList();
 		
@@ -335,7 +335,7 @@ public class MemberDAO {
 			
 			MemberBean mb = new MemberBean();
 			mb.setMEMBER_NUM(rs.getInt("MEMBER_NUM"));
-			mb.setMEMBER_EMAIL(rs.getString("MEMBER_EMAIL"));
+			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
 			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
 			
 			return null;

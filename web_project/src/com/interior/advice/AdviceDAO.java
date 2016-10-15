@@ -71,7 +71,7 @@ public class AdviceDAO {
 			
 			while(rs.next()){
 				AdviceBean advice = new AdviceBean();
-				advice.setADVICE_MEMBER_EMAIL(rs.getString("ADVICE_MEMBER_EMAIL"));
+				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_EMAIL"));
 				advice.setADVICE_MEMBER_NAME(rs.getString("ADVICE_MEMBER_NAME"));
 				advice.setADVICE_MEMBER_TEL(rs.getString("ADVICE_MEMBER_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));
@@ -104,7 +104,7 @@ public class AdviceDAO {
 			if(rs.next()){
 				advice = new AdviceBean();
 				advice.setADVICE_NUM(rs.getInt("ADVICE_NUM"));
-				advice.setADVICE_MEMBER_EMAIL(rs.getString("ADVICE_MEMBER_EMAIL"));
+				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_EMAIL"));
 				advice.setADVICE_MEMBER_NAME(rs.getString("ADVICE_MEMBER_NAME"));
 				advice.setADVICE_MEMBER_TEL(rs.getString("ADVICE_MEMBER_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));

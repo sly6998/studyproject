@@ -52,7 +52,7 @@ public class NotiDAO {
 	public List getNotiList(int page, int limit) {//게시판 리스트를 받아옴
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, noti_num, noti_member_email, noti_member_name, noti_subject, noti_content," +
+		"(select rownum rnum, noti_num, noti_member_ID, noti_member_name, noti_subject, noti_content," +
 		"noti_readcount, noti_file, noti_date from " +
 		"(select * from noti order by " +
 		"noti_date desc)) " +
@@ -72,7 +72,7 @@ public class NotiDAO {
 			while(rs.next()){
 				NotiBean noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
-				noti.setNOTI_MEMBER_EMAIL(rs.getString("NOTI_MEMBER_EMAIL"));
+				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
 				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
@@ -126,7 +126,7 @@ public class NotiDAO {
 			if(rs.next()){
 				noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
-				noti.setNOTI_MEMBER_EMAIL(rs.getString("NOTI_MEMBER_EMAIL"));
+				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
 				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
@@ -162,12 +162,12 @@ public class NotiDAO {
 				num=1;
 			}
 			
-			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_EMAIL, NOTI_MEMBER_NAME,";
+			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_MEMBER_NAME,";
 			sql+="NOTI_SUBJECT, NOTI_CONTENT, NOTI_FILE, NOTI_READCOUNT, NOTI_DATE) values(?,?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
-			pstmt.setString(2, notidata.getNOTI_MEMBER_EMAIL());
+			pstmt.setString(2, notidata.getNOTI_MEMBER_ID());
 			pstmt.setString(3, notidata.getNOTI_MEMBER_NAME());
 			pstmt.setString(4, notidata.getNOTI_SUBJECT());
 			pstmt.setString(5, notidata.getNOTI_CONTENT());
@@ -203,7 +203,7 @@ public class NotiDAO {
 			if(rs.next()){
 				noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
-				noti.setNOTI_MEMBER_EMAIL(rs.getString("NOTI_MEMBER_EMAIL"));
+				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
 				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));

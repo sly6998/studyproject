@@ -22,9 +22,9 @@ public class MemberModifyViewAction implements Action {
 		MemberBean member = new MemberBean();
 
 
-		String email = (String) session.getAttribute("MEMBER_EMAIL");
+		String ID = (String) session.getAttribute("MEMBER_ID");
 
-		member = memberdao.membermodifyview(email);
+		member = memberdao.membermodifyview(ID);
 
 		if (member == null) {
 			response.setContentType("text/html;charset=utf-8");

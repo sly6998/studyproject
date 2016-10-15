@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class BasketBean {
 
-	private String BASKET_MEMBER_EMAIL;
+	private String BASKET_MEMBER_ID;
 	private String BASKET_MEMBER_NAME;
 	private String BASKET_ITEM_NAME;
 	private int BASKET_ITEM_PRICE;
@@ -17,10 +17,10 @@ public class BasketBean {
 	
 	
 	public String getBASKET_MEMBER_EMAIL() {
-		return BASKET_MEMBER_EMAIL;
+		return BASKET_MEMBER_ID;
 	}
 	public void setBASKET_MEMBER_EMAIL(String bASKET_MEMBER_EMAIL) {
-		BASKET_MEMBER_EMAIL = bASKET_MEMBER_EMAIL;
+		BASKET_MEMBER_ID = bASKET_MEMBER_EMAIL;
 	}
 	public String getBASKET_MEMBER_NAME() {
 		return BASKET_MEMBER_NAME;

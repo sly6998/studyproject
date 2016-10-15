@@ -20,7 +20,7 @@ public class ReviewWriteAction implements Action {
 
 		try {
 
-			reviewdata.setREVIEW_MEMBER_EMAIL("REVIEW_MEMBER_EMAIL");
+			reviewdata.setREVIEW_MEMBER_ID("REVIEW_MEMBER_ID");
 			reviewdata.setREVIEW_SUBJECT("REIVEW_SUBJECT");
 			reviewdata.setREVIEW_CONTENT("REVIEW_CONTENT");
 

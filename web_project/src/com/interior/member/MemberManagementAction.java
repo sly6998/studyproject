@@ -16,9 +16,9 @@ public class MemberManagementAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		ActionForward forward = new ActionForward();
 		HttpSession session = request.getSession();
-		String email = (String) session.getAttribute("MEMBER_EMAIL");
+		String ID = (String) session.getAttribute("MEMBER_ID");
 
-		if (email == null || !(email.equals("admin"))) {
+		if (ID == null || !(ID.equals("admin"))) {
 			forward.setRedirect(true);
 			forward.setPath("./member/mainpage.html");
 			return forward;

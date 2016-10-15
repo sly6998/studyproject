@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class OrderBean {
 
-	private String ORDER_MEMBER_EMAIL;
+	private String ORDER_MEMBER_ID;
 	private String ORDER_ITEM_MODEL;
 	private String ORDER_ITEM_NAME;
 	private int ORDER_ITEM_AMOUNT;
@@ -28,11 +28,11 @@ public class OrderBean {
 	private String ORDER_TRADE_NUM;
 	
 	
-	public String getORDER_MEMBER_EMAIL() {
-		return ORDER_MEMBER_EMAIL;
+	public String getORDER_MEMBER_ID() {
+		return ORDER_MEMBER_ID;
 	}
-	public void setORDER_MEMBER_EMAIL(String oRDER_MEMBER_EMAIL) {
-		ORDER_MEMBER_EMAIL = oRDER_MEMBER_EMAIL;
+	public void setORDER_MEMBER_ID(String oRDER_MEMBER_ID) {
+		ORDER_MEMBER_ID = oRDER_MEMBER_ID;
 	}
 	public String getORDER_ITEM_MODEL() {
 		return ORDER_ITEM_MODEL;

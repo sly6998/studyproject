@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class NotiBean {
 
-	private String NOTI_MEMBER_EMAIL;
+	private String NOTI_MEMBER_ID;
 	private String NOTI_MEMBER_NAME;
 	private String NOTI_SUBJECT;
 	private String NOTI_CONTENT;
@@ -14,11 +14,11 @@ public class NotiBean {
 	private String NOTI_FILE;
 	
 	
-	public String getNOTI_MEMBER_EMAIL() {
-		return NOTI_MEMBER_EMAIL;
+	public String getNOTI_MEMBER_ID() {
+		return NOTI_MEMBER_ID;
 	}
-	public void setNOTI_MEMBER_EMAIL(String nOTI_MEMBER_EMAIL) {
-		NOTI_MEMBER_EMAIL = nOTI_MEMBER_EMAIL;
+	public void setNOTI_MEMBER_ID(String nOTI_MEMBER_ID) {
+		NOTI_MEMBER_ID = nOTI_MEMBER_ID;
 	}
 	public String getNOTI_MEMBER_NAME() {
 		return NOTI_MEMBER_NAME;

@@ -21,11 +21,11 @@ public class MemberDeleteAction implements Action {
 
 		int result = 1;
 
-		member.setMEMBER_NAME(request.getParameter("MEMBER_EMAIL"));
+		member.setMEMBER_NAME(request.getParameter("MEMBER_ID"));
 		member.setMEMBER_NAME(request.getParameter("MEMBER_PWD"));
 		member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
 		
-		memberdao.emaildelete(member);
+		memberdao.IDdelete(member);
 
 		if (result == 0) {
 

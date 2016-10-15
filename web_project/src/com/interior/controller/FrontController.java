@@ -11,7 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.advice.AdviceDetailAction;
 import com.interior.advice.AdviceListAction;
 import com.interior.member.MemberDeleteAction;
-import com.interior.member.MemberFindEmailAction;
+import com.interior.member.MemberFindIDAction;
 import com.interior.member.MemberFindPWDAction;
 import com.interior.member.MemberJoinAction;
 import com.interior.member.MemberLoginAction;
@@ -79,10 +79,10 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			forward.setRedirect(false);
 			forward.setPath("./member/member_join.jsp");
 
-		} else if (command.equals("/emailfind.html")) {// 이메일 찾기 페이지 이동
+		} else if (command.equals("/IDfind.html")) {// 이메일 찾기 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./member/member_find_email.jsp");
+			forward.setPath("./member/member_find_ID.jsp");
 
 		} else if (command.equals("/pwdfind.html")) {// 비밀번호 찾기 페이지 이동
 			forward = new ActionForward();
@@ -129,8 +129,8 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/MemberFindEmailAction.html")) {// 이메일 찾기 action
-			action = new MemberFindEmailAction();
+		} else if (command.equals("/MemberFindIDAction.html")) {// 이메일 찾기 action
+			action = new MemberFindIDAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

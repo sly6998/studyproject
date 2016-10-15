@@ -21,7 +21,7 @@ public class MemberFindPWDAction implements Action {
 
 		int result = 1;
 
-		member.setMEMBER_EMAIL(request.getParameter("MEMBER_EMAIL"));
+		member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
 		member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
 		member.setMEMBER_TEL(request.getParameter("MEMBER_TEL"));
 		member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));

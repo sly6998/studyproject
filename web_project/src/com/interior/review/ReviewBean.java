@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class ReviewBean {
 	
-	private String REVIEW_MEMBER_EMAIL;
+	private String REVIEW_MEMBER_ID;
 	private String REVIEW_MEMBER_NAME;
 	private String REVIEW_SUBJECT;
 	private String REVIEW_CONTENT;
@@ -17,11 +17,11 @@ public class ReviewBean {
 	private String REVIEW_FILE;
 	
 	
-	public String getREVIEW_MEMBER_EMAIL() {
-		return REVIEW_MEMBER_EMAIL;
+	public String getREVIEW_MEMBER_ID() {
+		return REVIEW_MEMBER_ID;
 	}
-	public void setREVIEW_MEMBER_EMAIL(String rEVIEW_MEMBER_EMAIL) {
-		REVIEW_MEMBER_EMAIL = rEVIEW_MEMBER_EMAIL;
+	public void setREVIEW_MEMBER_ID(String rEVIEW_MEMBER_ID) {
+		REVIEW_MEMBER_ID = rEVIEW_MEMBER_ID;
 	}
 	public String getREVIEW_MEMBER_NAME() {
 		return REVIEW_MEMBER_NAME;

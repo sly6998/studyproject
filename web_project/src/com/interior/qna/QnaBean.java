@@ -4,7 +4,7 @@ import java.sql.Date;
 
 public class QnaBean {
 
-	private String QnA_MEMBER_EMAIL;
+	private String QnA_MEMBER_ID;
 	private String QnA_MEMBER_NAME;
 	private int QnA_NUM;
 	private String QnA_SUBJECT;
@@ -17,11 +17,11 @@ public class QnaBean {
 	private String QnA_FILE;
 	
 	
-	public String getQnA_MEMBER_EMAIL() {
-		return QnA_MEMBER_EMAIL;
+	public String getQnA_MEMBER_ID() {
+		return QnA_MEMBER_ID;
 	}
-	public void setQnA_MEMBER_EMAIL(String qnA_MEMBER_EMAIL) {
-		QnA_MEMBER_EMAIL = qnA_MEMBER_EMAIL;
+	public void setQnA_MEMBER_ID(String qnA_MEMBER_ID) {
+		QnA_MEMBER_ID = qnA_MEMBER_ID;
 	}
 	public String getQnA_MEMBER_NAME() {
 		return QnA_MEMBER_NAME;

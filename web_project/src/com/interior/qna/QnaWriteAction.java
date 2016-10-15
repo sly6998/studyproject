@@ -20,7 +20,7 @@ public class QnaWriteAction implements Action {
 
 		try {
 
-			qnadata.setQnA_MEMBER_EMAIL("QNA_MEMBER_EMAIL");
+			qnadata.setQnA_MEMBER_ID("QNA_MEMBER_ID");
 			qnadata.setQnA_SUBJECT("QNA_SUBJECT");
 			qnadata.setQnA_CONTENT("QNA_CONTENT");
 
