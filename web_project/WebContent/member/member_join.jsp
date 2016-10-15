@@ -118,7 +118,41 @@
 			
 			<tr>
 				<td align="right" valign="middle">생년월일&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="MEMBER_" class="borderColor" id="MEMBER_BIRTH" type="text"><p/></td>
+				<td>
+					<select size="1" name="MEMBER_YEAR">
+							<option value="">년도</option>
+							<%
+								for (int i = 2010; i >= 1930; i--) {
+							%>
+							<option value="<%=i%>"><%=i%></option>
+							<%
+								}
+							%>
+						</select>년 
+						
+						<select size="1" name="MEMBER_MONTH">
+							<option value="">월</option>
+							<%
+								for (int i = 1; i <= 12; i++) {
+							%>
+							<option value="<%=i%>"><%=i%></option>
+							<%
+								}
+							%>
+						</select>월 
+						
+						<select size="1" name="MEMBER_DAY">
+							<option value="">일</option>
+							<%
+								for (int i = 1; i <= 31; i++) {
+							%>
+							<option value="<%=i%>"><%=i%></option>
+							<%
+								}
+							%>
+						</select>일
+				<p/>
+				</td>
 			</tr>
 			<tr>
 				<td colspan="3">
