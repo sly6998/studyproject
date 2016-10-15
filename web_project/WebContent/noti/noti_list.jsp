@@ -5,9 +5,9 @@
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="com.interior.noti.*"%>
 <%
-  String MEMBER_EMAIL = null;
-  if (session.getAttribute("MEMBER_EMAIL") != null) {
-  MEMBER_EMAIL =(String)session.getAttribute("MEMBER_EMAIL");
+  String MEMBER_ID = null;
+  if (session.getAttribute("MEMBER_ID") != null) {
+  MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
   }
   
   List boardList = (List)request.getAttribute("boardlist");
@@ -81,7 +81,7 @@
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <div align="center"><%=bl.getNOTI_MEMBER_NAME()%>
+            <div align="center"><%=bl.getNOTI_MEMBER_ID()%>
             </div>
          </td>
 

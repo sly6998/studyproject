@@ -6,7 +6,10 @@
 		<div id="topmember">
 			<%
 			  String id = "";
-			  System.out.println(id);
+				if(session.getAttribute("MEMBER_ID")!=null){
+					id=(String)session.getAttribute("MEMBER_ID");
+				}
+			
 			%>
 			<div align="right"
 				style="width: 90%; margin-bottom: 10px; margin-top: 10px">

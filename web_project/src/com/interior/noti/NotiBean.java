@@ -5,26 +5,16 @@ import java.sql.Date;
 public class NotiBean {
 
 	private String NOTI_MEMBER_ID;
-	private String NOTI_MEMBER_NAME;
 	private String NOTI_SUBJECT;
 	private String NOTI_CONTENT;
 	private int NOTI_READCOUNT;
 	private Date NOTI_DATE;
 	private int NOTI_NUM;
-	private String NOTI_FILE;
-	
-	
 	public String getNOTI_MEMBER_ID() {
 		return NOTI_MEMBER_ID;
 	}
 	public void setNOTI_MEMBER_ID(String nOTI_MEMBER_ID) {
 		NOTI_MEMBER_ID = nOTI_MEMBER_ID;
-	}
-	public String getNOTI_MEMBER_NAME() {
-		return NOTI_MEMBER_NAME;
-	}
-	public void setNOTI_MEMBER_NAME(String nOTI_MEMBER_NAME) {
-		NOTI_MEMBER_NAME = nOTI_MEMBER_NAME;
 	}
 	public String getNOTI_SUBJECT() {
 		return NOTI_SUBJECT;
@@ -55,11 +45,5 @@ public class NotiBean {
 	}
 	public void setNOTI_NUM(int nOTI_NUM) {
 		NOTI_NUM = nOTI_NUM;
-	}
-	public String getNOTI_FILE() {
-		return NOTI_FILE;
-	}
-	public void setNOTI_FILE(String nOTI_FILE) {
-		NOTI_FILE = nOTI_FILE;
 	}
 }

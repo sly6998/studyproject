@@ -87,13 +87,11 @@ CREATE TABLE MEMBER_INFO
 CREATE TABLE NOTI
 (
 	NOTI_MEMBER_ID varchar2(15),
-	NOTI_MEMBER_NAME varchar2(20),
 	NOTI_SUBJECT varchar2(100),
 	NOTI_CONTENT varchar2(2000),
 	NOTI_READCOUNT number(5),
 	NOTI_DATE date,
-	NOTI_NUM number(10),
-	NOTI_FILE varchar2(50)
+	NOTI_NUM number(10)
 );
 
 
@@ -167,7 +165,6 @@ CREATE TABLE REVIEW
 	REVIEW_FILE varchar2(50)
 );
 
-
 /* Create Sequence(시퀀스 생성) */
 
 create sequence member_info_seq start with 1 increment by 1
@@ -176,4 +173,6 @@ create sequence noti_seq start with 1 increment by 1
 /* drop sequence(시퀀스 삭제)*/
 
 drop sequence member_info_seq;
+drop sequence noti_seq;
+
 

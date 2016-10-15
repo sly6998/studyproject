@@ -30,7 +30,7 @@ public class MemberDAO {
 
 	public boolean joinMember(MemberBean member) {  // 회원가입 action
 		// TODO Auto-generated method stub
-		String sql = "Insert into member_info (member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_year, member_month, member_day, member_date) values (?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "Insert into member_info (member_num, member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_year, member_month, member_day, member_date) values (member_info_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 		int result = 0;
 		
 		try{
@@ -77,7 +77,7 @@ public class MemberDAO {
 				if(rs.getString("member_pwd").equals(member.getMEMBER_PWD())){
 					result = 1; //일치
 				}else{
-					result=0; //불일치
+					result=0; //불일치(아이디는 존재)
 				}
 			}else{
 				result=-1; //아이디가 존재하지 않음.

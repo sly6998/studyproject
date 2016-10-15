@@ -16,7 +16,7 @@ public class MemberLoginAction implements Action {
 		
 		ActionForward forward = new ActionForward();
 		  
-	    HttpSession session= null;
+	    HttpSession session= request.getSession();
 	    MemberDAO memberdao = new MemberDAO();
 	    MemberBean member = new MemberBean();
 	    
@@ -26,7 +26,7 @@ public class MemberLoginAction implements Action {
 	    member.setMEMBER_PWD(request.getParameter("MEMBER_PWD"));
 	    
 	    result = memberdao.isMember(member);
-	    System.out.println(result);
+	    
 	    if(result == 0){
 	      response.setContentType("text/html;charset=utf-8");
 	      PrintWriter out =response.getWriter();
@@ -37,7 +37,6 @@ public class MemberLoginAction implements Action {
 	      out.close();
 	      return null;
 	    }else if(result == -1){
-	      System.out.println("2");
 	      response.setContentType("text/html;charset=utf-8");
 	      PrintWriter out =response.getWriter();
 	      out.println("<script>");
@@ -48,7 +47,7 @@ public class MemberLoginAction implements Action {
 	      return null;
 	    }
 	    //로그인 성공
-	    session.setAttribute("id", member.getMEMBER_ID());
+	    session.setAttribute("MEMBER_ID", member.getMEMBER_ID());
 	    System.out.println("로그인 성공");
 	    forward.setRedirect(true);
 	    forward.setPath("./mainpage.html");

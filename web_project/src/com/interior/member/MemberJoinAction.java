@@ -20,14 +20,6 @@ public class MemberJoinAction implements Action {
 	    
 	    
 	    boolean result = false;
-	    System.out.println(request.getParameter("MEMBER_NAME"));
-	    System.out.println(request.getParameter("MEMBER_ID"));
-	    System.out.println(request.getParameter("MEMBER_PWD"));
-	    System.out.println(request.getParameter("MEMBER_ADDR_1"));
-	    System.out.println(request.getParameter("MEMBER_ADDR_2"));
-	    System.out.println(request.getParameter("MEMBER_ADDR_ZIP"));
-	    System.out.println(request.getParameter("MEMBER_TEL"));
-	    System.out.println(request.getParameter("MEMBER_GENDER"));
 	    
 	    	
 	    member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));

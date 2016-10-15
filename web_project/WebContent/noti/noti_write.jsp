@@ -1,5 +1,13 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
+   <%
+  String MEMBER_ID = null;
+  if (session.getAttribute("MEMBER_ID") != null) {
+  MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
+
+  
+  }
+    %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -16,6 +24,7 @@
    <div width="100%" align="center">
       <h3>공지사항 글쓰기</h3>
       <form name="noti_write_form" method="post" action="./NotiWriteAction.html">
+         <input type="hidden" name="NOTI_MEMBER_ID" value="<%=MEMBER_ID %>"/>
          <table>
             <tr>
                <td><input name="NOTI_SUBJECT" type="text"

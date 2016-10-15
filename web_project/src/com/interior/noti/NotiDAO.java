@@ -52,8 +52,8 @@ public class NotiDAO {
 	public List getNotiList(int page, int limit) {//게시판 리스트를 받아옴
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, noti_num, noti_member_ID, noti_member_name, noti_subject, noti_content," +
-		"noti_readcount, noti_file, noti_date from " +
+		"(select rownum rnum, noti_num, noti_member_ID, noti_subject, noti_content," +
+		"noti_readcount, noti_date from " +
 		"(select * from noti order by " +
 		"noti_date desc)) " +
 		"where rnum>=? and rnum<=?";
@@ -73,11 +73,9 @@ public class NotiDAO {
 				NotiBean noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
 				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
-				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
-				noti.setNOTI_FILE(rs.getString("NOTI_FILE"));
 				noti.setNOTI_DATE(rs.getDate("NOTI_DATE"));
 				list.add(noti);
 			}
@@ -132,7 +130,6 @@ public class NotiDAO {
 				noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
 				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
-				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
@@ -156,17 +153,16 @@ public class NotiDAO {
 		int result = 0;
 		
 		try{
-			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_MEMBER_NAME, NOTI_SUBJECT, NOTI_CONTENT, NOTI_READCOUNT, NOTI_DATE) values (noti_seq.nextval,?,?,?,?,?,sysdate)";
+			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_SUBJECT, NOTI_CONTENT, NOTI_READCOUNT, NOTI_DATE) values (noti_seq.nextval,?,?,?,?,sysdate)";
 			
 			con=ds.getConnection();
 			
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, notidata.getNOTI_MEMBER_ID());
-			pstmt.setString(2, notidata.getNOTI_MEMBER_NAME());
-			pstmt.setString(3, notidata.getNOTI_SUBJECT());
-			pstmt.setString(4, notidata.getNOTI_CONTENT());
-			pstmt.setInt(5, notidata.getNOTI_READCOUNT());
+			pstmt.setString(2, notidata.getNOTI_SUBJECT());
+			pstmt.setString(3, notidata.getNOTI_CONTENT());
+			pstmt.setInt(4, notidata.getNOTI_READCOUNT());
 			
 			result = pstmt.executeUpdate();
 			if(result==0){
@@ -198,10 +194,8 @@ public class NotiDAO {
 				noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
 				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
-				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
-				noti.setNOTI_FILE(rs.getString("NOTI_FILE"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
 				noti.setNOTI_DATE(rs.getDate("NOTI_DATE"));
 			}
