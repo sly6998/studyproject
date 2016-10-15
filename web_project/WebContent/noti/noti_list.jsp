@@ -135,7 +135,7 @@
  %> [다음] <%
     } else {
  %> <a
-            href="./BoardList.bo?page=<%=nowpage + 1%>">[다음]</a> <%
+            href="./noti_list.html?page=<%=nowpage + 1%>">[다음]</a> <%
     }
  %>
 
