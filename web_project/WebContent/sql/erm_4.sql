@@ -172,9 +172,7 @@ CREATE TABLE REVIEW
 
 create sequence member_info_seq
 start with 1
-nomaxvalue
 increment by 1
-nocycle
 
 /* drop sequence(시퀀스 삭제)*/
 

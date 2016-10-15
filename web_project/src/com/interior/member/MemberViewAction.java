@@ -21,9 +21,9 @@ public class MemberViewAction implements Action {
 		MemberBean member = new MemberBean();
 
 
-		String email = (String) request.getParameter("MEMBER_EMAIL");
+		String ID = (String) request.getParameter("MEMBER_ID");
 
-		member = memberdao.memberview(email);
+		member = memberdao.memberview(ID);
 
 		if (member == null) {
 			response.setContentType("text/html;charset=utf-8");
