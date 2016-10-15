@@ -117,7 +117,7 @@
             %> [이전]&nbsp; <%
     } else {
  %> <a
-            href="./BoardList.bo?page=<%=nowpage - 1%>">[이전]</a>&nbsp; <%
+            href="./noti_list.html?page=<%=nowpage - 1%>">[이전]</a>&nbsp; <%
     }
  %> <%
     for (int a = startpage; a <= endpage; a++) {
@@ -125,7 +125,7 @@
  %> [<%=a%>] <%
     } else {
  %> <a
-            href="./BoardList.bo?page=<%=a%>">[<%=a%>]
+            href="./noti_list.html?page=<%=a%>">[<%=a%>]
          </a> &nbsp; <%
     }
  %> <%
