@@ -75,8 +75,10 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_ADDR_2 varchar2(50),
 	MEMBER_ADDR_ZIP varchar2(10),
 	MEMBER_TEL varchar2(20),
-	MEMBER_GENDER varchar2(5),
-	MEMBER_BIRTH varchar2(20),
+	MEMBER_GENDER varchar2(6),
+	MEMBER_YEAR number(4),
+	MEMBER_MONTH number(2),
+	MEMBER_DAY number(2),
 	MEMBER_DATE date,
 	MEMBER_NUM number(10)
 );
@@ -174,5 +176,4 @@ create sequence noti_seq start with 1 increment by 1
 /* drop sequence(시퀀스 삭제)*/
 
 drop sequence member_info_seq;
-
 

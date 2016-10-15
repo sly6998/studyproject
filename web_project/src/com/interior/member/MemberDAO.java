@@ -30,7 +30,7 @@ public class MemberDAO {
 
 	public boolean joinMember(MemberBean member) {  // 회원가입 action
 		// TODO Auto-generated method stub
-		String sql = "Insert into member_info (member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_birth, member_date) values (?,?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "Insert into member_info (member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_year, member_month, member_day, member_date) values (?,?,?,?,?,?,?,?,?,?,?,sysdate)";
 		int result = 0;
 		
 		try{
@@ -44,7 +44,9 @@ public class MemberDAO {
 			pstmt.setString(6, member.getMEMBER_ADDR_ZIP());
 			pstmt.setString(7, member.getMEMBER_TEL());
 			pstmt.setString(8, member.getMEMBER_GENDER());
-			pstmt.setString(9, member.getMEMBER_BIRTH());
+			pstmt.setInt(9, member.getMEMBER_YEAR());
+			pstmt.setInt(10, member.getMEMBER_MONTH());
+			pstmt.setInt(11, member.getMEMBER_DAY());
 			result = pstmt.executeUpdate();
 			
 			if(result!=0){
@@ -92,7 +94,7 @@ public class MemberDAO {
 
 	public List IDfind(MemberBean member) { // 이메일 찾기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_name=? and member_tel=? and member_birth=?";
+		String sql = "select * from member_info where member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
 		List IDfind = new ArrayList();
 		
 		try{
@@ -104,7 +106,9 @@ public class MemberDAO {
 				MemberBean mb = new MemberBean();
 				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
 				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
-				mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+				mb.setMEMBER_YEAR(rs.getInt("MEMBER_YEAR"));
+				mb.setMEMBER_MONTH(rs.getInt("MEMBER_MONTH"));
+				mb.setMEMBER_DAY(rs.getInt("MEMBER_DAY"));
 				
 				IDfind.add(mb);
 				
@@ -124,7 +128,7 @@ public class MemberDAO {
 
 	public List pwdfind(MemberBean member) { // 비밀번호 찾기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_ID and member_name and member_tel and member_birth";
+		String sql = "select * from member_info where member_ID=? and member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
 		List pwdfind = new ArrayList();
 		
 		try{
@@ -137,7 +141,9 @@ public class MemberDAO {
 				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
 				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
 				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
-				mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+				mb.setMEMBER_YEAR(rs.getInt("MEMBER_YEAR"));
+				mb.setMEMBER_MONTH(rs.getInt("MEMBER_MONTH"));
+				mb.setMEMBER_DAY(rs.getInt("MEMBER_DAY"));
 				
 				pwdfind.add(mb);
 				
@@ -218,7 +224,9 @@ public class MemberDAO {
 			mb.setMEMBER_ADDR_ZIP(rs.getString("MEMBER_ADDR_ZIP"));
 			mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
 			mb.setMEMBER_GENDER(rs.getString("MEMBER_GENDER"));
-			mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+			mb.setMEMBER_YEAR(rs.getInt("MEMBER_YEAR"));
+			mb.setMEMBER_MONTH(rs.getInt("MEMBER_MONTH"));
+			mb.setMEMBER_DAY(rs.getInt("MEMBER_DAY"));
 
 			return mb;
 		}catch(Exception e){
@@ -251,7 +259,9 @@ public class MemberDAO {
 			mb.setMEMBER_ADDR_ZIP(rs.getString("MEMBER_ADDR_ZIP"));
 			mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
 			mb.setMEMBER_GENDER(rs.getString("MEMBER_GENDER"));
-			mb.setMEMBER_BIRTH(rs.getString("MEMBER_BIRTH"));
+			mb.setMEMBER_YEAR(rs.getInt("MEMBER_YEAR"));
+			mb.setMEMBER_MONTH(rs.getInt("MEMBER_MONTH"));
+			mb.setMEMBER_DAY(rs.getInt("MEMBER_DAY"));
 
 			return mb;
 		}catch(Exception e){

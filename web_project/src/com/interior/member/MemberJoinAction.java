@@ -22,6 +22,12 @@ public class MemberJoinAction implements Action {
 	    boolean result = false;
 	    System.out.println(request.getParameter("MEMBER_NAME"));
 	    System.out.println(request.getParameter("MEMBER_ID"));
+	    System.out.println(request.getParameter("MEMBER_PWD"));
+	    System.out.println(request.getParameter("MEMBER_ADDR_1"));
+	    System.out.println(request.getParameter("MEMBER_ADDR_2"));
+	    System.out.println(request.getParameter("MEMBER_ADDR_ZIP"));
+	    System.out.println(request.getParameter("MEMBER_TEL"));
+	    System.out.println(request.getParameter("MEMBER_GENDER"));
 	    
 	    	
 	    member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
@@ -32,7 +38,9 @@ public class MemberJoinAction implements Action {
 	    member.setMEMBER_ADDR_ZIP(request.getParameter("MEMBER_ADDR_ZIP"));
 	    member.setMEMBER_TEL(request.getParameter("MEMBER_TEL"));
 	    member.setMEMBER_GENDER(request.getParameter("MEMBER_GENDER"));
-	    member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
+	    member.setMEMBER_YEAR(Integer.parseInt(request.getParameter("MEMBER_YEAR")));
+	    member.setMEMBER_MONTH(Integer.parseInt(request.getParameter("MEMBER_MONTH")));
+	    member.setMEMBER_DAY(Integer.parseInt(request.getParameter("MEMBER_DAY")));
 	
 	    
 

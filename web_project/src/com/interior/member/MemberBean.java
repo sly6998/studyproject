@@ -12,17 +12,14 @@ public class MemberBean {
 	private String MEMBER_ADDR_ZIP;
 	private String MEMBER_TEL;
 	private String MEMBER_GENDER;
-	private String MEMBER_BIRTH;
+	private int MEMBER_YEAR;
+	private int MEMBER_MONTH;
+	private int MEMBER_DAY;
 	private Date MEMBER_DATE;
 	private int MEMBER_NUM;
-
 	
-	public int getMEMBER_NUM() {
-		return MEMBER_NUM;
-	}
-	public void setMEMBER_NUM(int mEMBER_NUM) {
-		MEMBER_NUM = mEMBER_NUM;
-	}
+	
+	
 	public String getMEMBER_NAME() {
 		return MEMBER_NAME;
 	}
@@ -71,11 +68,23 @@ public class MemberBean {
 	public void setMEMBER_GENDER(String mEMBER_GENDER) {
 		MEMBER_GENDER = mEMBER_GENDER;
 	}
-	public String getMEMBER_BIRTH() {
-		return MEMBER_BIRTH;
+	public int getMEMBER_YEAR() {
+		return MEMBER_YEAR;
 	}
-	public void setMEMBER_BIRTH(String mEMBER_BIRTH) {
-		MEMBER_BIRTH = mEMBER_BIRTH;
+	public void setMEMBER_YEAR(int mEMBER_YEAR) {
+		MEMBER_YEAR = mEMBER_YEAR;
+	}
+	public int getMEMBER_MONTH() {
+		return MEMBER_MONTH;
+	}
+	public void setMEMBER_MONTH(int mEMBER_MONTH) {
+		MEMBER_MONTH = mEMBER_MONTH;
+	}
+	public int getMEMBER_DAY() {
+		return MEMBER_DAY;
+	}
+	public void setMEMBER_DAY(int mEMBER_DAY) {
+		MEMBER_DAY = mEMBER_DAY;
 	}
 	public Date getMEMBER_DATE() {
 		return MEMBER_DATE;
@@ -83,5 +92,12 @@ public class MemberBean {
 	public void setMEMBER_DATE(Date mEMBER_DATE) {
 		MEMBER_DATE = mEMBER_DATE;
 	}
+	public int getMEMBER_NUM() {
+		return MEMBER_NUM;
+	}
+	public void setMEMBER_NUM(int mEMBER_NUM) {
+		MEMBER_NUM = mEMBER_NUM;
+	}
 
+	
 }

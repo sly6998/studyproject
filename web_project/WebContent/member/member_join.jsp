@@ -12,13 +12,13 @@
 	<h4 class="modal-title" align="left">Member Join</h4>
 </div>
 <div class="modal-body" align="center">
-<input type="hidden" id="email_isChk" value="1"/>
+<input type="hidden" id="id_isChk" value="1"/>
 	<form id="joinform" method="post" action="./MemberJoinAction.html">
 		<table>
 			<tr>
 				<td align="right" valign="middle">이름&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<input id="MEMBER_NAME" class="borderColor" type="text" onblur="valchk(this)"/><p/>
+					<input name="MEMBER_NAME" id="MEMBER_NAME" class="borderColor" type="text" onblur="valchk(this)"/><p/>
 				</td>
 			</tr>
 			<tr>
@@ -28,21 +28,21 @@
 			</tr>
 
 			<tr>
-				<td align="right" valign="middle">이메일&nbsp;&nbsp;&nbsp;</td>
+				<td align="right" valign="middle">아이디&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<input id="MEMBER_EMAIL" class="borderColor"  type="text" onblur="valchk(this)">&nbsp;&nbsp;&nbsp;
-					<input type="button" id="overlap_email" onclick="isChk_email()" value="중복확인"/><p/>
+					<input name="MEMBER_ID" id="MEMBER_ID" class="borderColor"  type="text" onblur="valchk(this)">&nbsp;&nbsp;&nbsp;
+					<input type="button" id="overlap_id" onclick="isChk_id()" value="중복확인"/><p/>
 				</td>
 			</tr>
 			<tr>
 				<td colspan="3">
-					<span class="collapse" id="email_cl" align="center"><font color="red">이메일 형식이 올바르지 않습니다.</font></span>
+					<span class="collapse" id="id_cl" align="center"><font color="red">아이디 형식이 올바르지 않습니다.</font></span>
 				</td>
 			</tr>
 			
 			<tr>
 				<td align="right" valign="middle">비밀번호&nbsp;&nbsp;&nbsp;</td>
-				<td><input id="MEMBER_PWD" class="borderColor"  type="password" onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_PWD" id="MEMBER_PWD" class="borderColor"  type="password" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -52,7 +52,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">비밀번호확인&nbsp;&nbsp;&nbsp;</td>
-				<td><input id="MEMBER_PWD2" class="borderColor" type="password" onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_PWD2" id="MEMBER_PWD2" class="borderColor" type="password" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -63,7 +63,7 @@
 			<tr>
 				<td align="right" valign="middle">우편번호&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<input id="MEMBER_ADDR_ZIP" class="borderColor" type="text"  onblur="valchk(this)" placeholder="검색버튼을 이용하여 주세요.">&nbsp;&nbsp;&nbsp;
+					<input name="MEMBER_ADDR_ZIP" id="MEMBER_ADDR_ZIP" class="borderColor" type="text"  onblur="valchk(this)" placeholder="검색버튼을 이용하여 주세요.">&nbsp;&nbsp;&nbsp;
 					<input type="button" value="검색" onclick="execDaumPost()">
 				</td>
 			</tr>
@@ -75,7 +75,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">주소&nbsp;&nbsp;&nbsp;</td>
-				<td><input id="MEMBER_ADDR_1" class="borderColor"  type="text"  onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_ADDR_1" id="MEMBER_ADDR_1" class="borderColor"  type="text"  onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -85,7 +85,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">상세주소&nbsp;&nbsp;&nbsp;</td>
-				<td><input id="MEMBER_ADDR_2" class="borderColor"  type="text"  onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_ADDR_2" id="MEMBER_ADDR_2" class="borderColor"  type="text"  onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -95,7 +95,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">전화번호&nbsp;&nbsp;&nbsp;</td>
-				<td><input id="MEMBER_TEL" class="borderColor" type="text"  onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_TEL" id="MEMBER_TEL" class="borderColor" type="text"  onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -118,7 +118,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">생년월일&nbsp;&nbsp;&nbsp;</td>
-				<td><input class="borderColor" id="MEMBER_BIRTH" type="text"><p/></td>
+				<td><input name="MEMBER_" class="borderColor" id="MEMBER_BIRTH" type="text"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">

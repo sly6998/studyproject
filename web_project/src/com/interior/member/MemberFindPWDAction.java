@@ -24,7 +24,9 @@ public class MemberFindPWDAction implements Action {
 		member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
 		member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
 		member.setMEMBER_TEL(request.getParameter("MEMBER_TEL"));
-		member.setMEMBER_BIRTH(request.getParameter("MEMBER_BIRTH"));
+		member.setMEMBER_YEAR(Integer.parseInt(request.getParameter("MEMBER_YEAR")));
+		member.setMEMBER_MONTH(Integer.parseInt(request.getParameter("MEMBER_MONTH")));
+		member.setMEMBER_DAY(Integer.parseInt(request.getParameter("MEMBER_DAY")));
 		
 		
 		memberdao.pwdfind(member);

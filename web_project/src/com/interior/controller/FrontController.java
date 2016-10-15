@@ -173,7 +173,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			/* 공지사항 */
 
 		} else if (command.equals("/noti_list.html")){// 공지사항페이지 이동 & action
-			System.out.println("1");
 			action = new NotiListAction();
 			try {
 				forward = action.execute(request, response);
