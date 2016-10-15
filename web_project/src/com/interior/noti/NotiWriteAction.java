@@ -28,9 +28,9 @@ public class NotiWriteAction implements Action {
 		    //MultipartRequest multi = null;
 		    //multi = new MultipartRequest(request, realFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 
-		    notidata.setNOTI_MEMBER_ID((String)request.getParameter("MEMBER_ID"));
-		    notidata.setNOTI_SUBJECT((String)request.getParameter("BOARD_SUBJECT"));
-		    notidata.setNOTI_CONTENT((String)request.getParameter("BOARD_CONTENT"));
+		    notidata.setNOTI_MEMBER_ID((String)request.getParameter("NOTI_MEMBER_ID"));
+		    notidata.setNOTI_SUBJECT((String)request.getParameter("NOTI_SUBJECT"));
+		    notidata.setNOTI_CONTENT((String)request.getParameter("NOTI_CONTENT"));
 
 		    result = notidao.notiInsert(notidata);
 
