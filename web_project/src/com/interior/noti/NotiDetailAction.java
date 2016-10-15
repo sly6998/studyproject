@@ -17,7 +17,7 @@ public class NotiDetailAction implements Action {
 		  NotiDAO notidao = new NotiDAO();
 		  NotiBean notidata = new NotiBean();
 
-		  int num = Integer.parseInt(request.getParameter("num"));
+		  int num = Integer.parseInt(request.getParameter("NOTI_NUM"));
 		  notidao.setReadCountUpdate(num);//조회수 업데이트
 		  notidata = notidao.getDetail(num);//게시글 보기
 

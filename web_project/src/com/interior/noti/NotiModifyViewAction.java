@@ -21,6 +21,7 @@ public class NotiModifyViewAction implements Action {
 		int num = Integer.parseInt(request.getParameter("NOTI_NUM"));
 		
 		notidata = notidao.notimodifyview(num);
+		System.out.println(notidata.getNOTI_NUM());
 		
 		if (notidata == null) {
 			response.setContentType("text/html;charset=utf-8");

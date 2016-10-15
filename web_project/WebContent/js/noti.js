@@ -18,3 +18,12 @@ function noti_write_chek(){
    }
    document.noti_write_form.submit();
 }
+
+
+
+
+function noti_modify_check(){
+	
+	document.noti_modify_form.submit();
+
+}

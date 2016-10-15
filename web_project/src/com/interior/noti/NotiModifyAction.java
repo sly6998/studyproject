@@ -36,7 +36,7 @@ public class NotiModifyAction implements Action {
 		  System.out.println("공지사항 수정 완료");
 		  
 		  forward.setRedirect(true);
-		  forward.setPath("./BoardDetailAction.html?num="+notidata.getNOTI_NUM());
+		  forward.setPath("./noti_detail.html?NOTI_NUM="+notidata.getNOTI_NUM());
 		  
 		  }catch(Exception e){
 		    e.printStackTrace();

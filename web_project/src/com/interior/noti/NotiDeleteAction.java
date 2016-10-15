@@ -15,7 +15,7 @@ public class NotiDeleteAction implements Action {
 		request.setCharacterEncoding("utf-8");
 
 		boolean result = false;
-		int num = Integer.parseInt(request.getParameter("num"));
+		int num = Integer.parseInt(request.getParameter("NOTI_NUM"));
 
 		NotiDAO notidao = new NotiDAO();
 		result = notidao.notidelete(num);
@@ -28,7 +28,7 @@ public class NotiDeleteAction implements Action {
 		System.out.println("게시판 삭제 완료");
 
 		forward.setRedirect(true);
-		forward.setPath("/noti_list.html");
+		forward.setPath("./noti_list.html");
 		return forward;
 	}
 }

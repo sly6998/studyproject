@@ -92,15 +92,19 @@ public class NotiDAO {
 		return null;
 	}
 
-	public void setReadCountUpdate(int num) {//공지사항 조회수 업데이트
+	public boolean setReadCountUpdate(int num) {//공지사항 조회수 업데이트
 		// TODO Auto-generated method stub
 		String sql = "update noti set noti_readcount = "+
 		"noti_readcount+1 where noti_num = "+num;
-		
+		int result = 0;
 		try{
 			con=ds.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.executeQuery();
+			result = pstmt.executeUpdate();
+			if(result==0){
+				return false;
+			}
+			return true;
 		}catch(Exception e){
 			System.out.println("setReadCount error : "+e);
 		}finally{
@@ -111,6 +115,7 @@ public class NotiDAO {
 				if(con!=null)con.close();
 			}catch(Exception e) {}
 		}
+		return false;
 	}
 
 	public NotiBean getDetail(int num) throws Exception {//공지사항 글 보기(상세보기)
@@ -130,7 +135,6 @@ public class NotiDAO {
 				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
-				noti.setNOTI_FILE(rs.getString("NOTI_FILE"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
 				noti.setNOTI_DATE(rs.getDate("NOTI_DATE"));
 			}
@@ -216,14 +220,19 @@ public class NotiDAO {
 		// TODO Auto-generated method stub
 		String sql = "update noti set NOTI_SUBJECT=?,";
 		sql+="NOTI_CONTENT=? where NOTI_NUM=?";
-		
+		int result =0;
 		try{
 			con=ds.getConnection();
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, notidata.getNOTI_SUBJECT());
 			pstmt.setString(2, notidata.getNOTI_CONTENT());
 			pstmt.setInt(3, notidata.getNOTI_NUM());
-			pstmt.executeUpdate();
+			result=pstmt.executeUpdate();
+			
+			if(result==0){
+				return false;
+			}
+			
 			return true;
 		}catch(Exception e){
 			System.out.println("boardModify error : "+e);
