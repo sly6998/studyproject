@@ -78,7 +78,7 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_GENDER varchar2(5),
 	MEMBER_BIRTH varchar2(20),
 	MEMBER_DATE date,
-	MEMBER_NUM number(100)
+	MEMBER_NUM number(10)
 );
 
 
@@ -169,9 +169,7 @@ CREATE TABLE REVIEW
 
 create sequence member_info_seq
 start with 1
-nomaxvalue
 increment by 1
-nocycle
 
 /* drop sequence(시퀀스 삭제)*/
 
