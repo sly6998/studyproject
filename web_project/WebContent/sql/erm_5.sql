@@ -12,7 +12,6 @@ DROP TABLE REPLY CASCADE CONSTRAINTS;
 DROP TABLE REVIEW CASCADE CONSTRAINTS;
 
 
-
 /* Select Tables */
 
 Select * from advice;
@@ -31,7 +30,7 @@ Select * from review;
 
 CREATE TABLE ADVICE
 (
-	ADVICE_NUM number(100),
+	ADVICE_NUM number(10),
 	ADVICE_MEMBER_ID varchar2(15),
 	ADVICE_MEMBER_NAME varchar2(20),
 	ADVICE_MEMBER_TEL varchar2(20),
@@ -79,7 +78,7 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_GENDER varchar2(5),
 	MEMBER_BIRTH varchar2(20),
 	MEMBER_DATE date,
-	MEMBER_NUM number(100)
+	MEMBER_NUM number(10)
 );
 
 
@@ -127,14 +126,14 @@ CREATE TABLE QnA_BOARD
 (
 	QnA_MEMBER_ID varchar2(15),
 	QnA_MEMBER_NAME varchar2(20),
-	QnA_NUM number(5),
+	QnA_NUM number(10),
 	QnA_SUBJECT varchar2(50),
 	QnA_CONTENT varchar2(2000),
 	QnA_DATE date,
 	QnA_SEQ number(5),
 	QnA_REF number(5),
 	QnA_LEV number(5),
-	QnA_READCOUNT number(5),
+	QnA_READCOUNT number(10),
 	QnA_FILE varchar2(50)
 );
 
@@ -158,7 +157,7 @@ CREATE TABLE REVIEW
 	REVIEW_MEMBER_NAME varchar2(20),
 	REVIEW_SUBJECT varchar2(100),
 	REVIEW_CONTENT varchar2(2000),
-	REVIEW_READCOUNT number(5),
+	REVIEW_READCOUNT number(10),
 	REVIEW_DATE date,
 	REVIEW_NUM number(10),
 	REVIEW_SEQ number(5),
@@ -167,14 +166,13 @@ CREATE TABLE REVIEW
 );
 
 
-
 /* Create Sequence(시퀀스 생성) */
 
-create sequence member_info_seq
-start with 1
-increment by 1
+create sequence member_info_seq start with 1 increment by 1
+create sequence noti_seq start with 1 increment by 1
 
 /* drop sequence(시퀀스 삭제)*/
 
 drop sequence member_info_seq;
+
 

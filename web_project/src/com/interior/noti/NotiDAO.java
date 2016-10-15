@@ -152,36 +152,26 @@ public class NotiDAO {
 		int result = 0;
 		
 		try{
+			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_MEMBER_NAME, NOTI_SUBJECT, NOTI_CONTENT, NOTI_READCOUNT, NOTI_DATE) values (noti_seq.nextval,?,?,?,?,?,sysdate)";
+			
 			con=ds.getConnection();
-			pstmt=con.prepareStatement("select max(board_num) from noti");
-			rs=pstmt.executeQuery();
 			
-			if(rs.next()){
-				num = rs.getInt(1)+1;
-			}else{
-				num=1;
-			}
-			
-			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_MEMBER_NAME,";
-			sql+="NOTI_SUBJECT, NOTI_CONTENT, NOTI_FILE, NOTI_READCOUNT, NOTI_DATE) values(?,?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, notidata.getNOTI_MEMBER_ID());
-			pstmt.setString(3, notidata.getNOTI_MEMBER_NAME());
-			pstmt.setString(4, notidata.getNOTI_SUBJECT());
-			pstmt.setString(5, notidata.getNOTI_CONTENT());
-			pstmt.setString(6, notidata.getNOTI_FILE());
-			pstmt.setInt(7, notidata.getNOTI_READCOUNT());
-			pstmt.setDate(8, notidata.getNOTI_DATE());
+			pstmt.setString(1, notidata.getNOTI_MEMBER_ID());
+			pstmt.setString(2, notidata.getNOTI_MEMBER_NAME());
+			pstmt.setString(3, notidata.getNOTI_SUBJECT());
+			pstmt.setString(4, notidata.getNOTI_CONTENT());
+			pstmt.setInt(5, notidata.getNOTI_READCOUNT());
 			
 			result = pstmt.executeUpdate();
 			if(result==0){
-				return false;
+				return false; //0이 실패
 			}
-			
+			return true;
 		}catch(Exception e){
 			System.out.println("notiInsert error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
