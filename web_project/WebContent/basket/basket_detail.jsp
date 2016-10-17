@@ -9,6 +9,8 @@
 <body >
 	
 <h3>주문상세정보(detail)</h3>
+ 
+<a href=basket_list.jsp>주문리스트 페이지로 이동</a>
 
 <h4>[상품정보]</h4>
 <table style="border-top:2px solid #111; width:850px;" >
@@ -41,9 +43,7 @@
 		<td>2016.10.13</td>
 		
 		<td width=160>
-			<a href="basket_detail.jsp">
-				<img src="../images/sofa1.jpg" width="150" height="100">
-			</a>
+			<img src="../images/sofa1.jpg" width="150" height="100">
 		</td>
 		
 		<td width=290>다이애나 리클라이너 가죽 소파(3B_2)</td>
@@ -58,7 +58,7 @@
 		
 	</tr>
 	
-</table>
+</table><br/>
 
 
 
