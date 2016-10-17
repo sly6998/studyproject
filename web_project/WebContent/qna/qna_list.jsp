@@ -1,135 +1,147 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="com.interior.qna.*"%>
+
+<%
+  String MEMBER_ID = null;
+  if (session.getAttribute("MEMBER_ID") != null) {
+  MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
+  }
+  
+  List boardList = (List)request.getAttribute("boardlist");
+  int listcount = ((Integer)request.getAttribute("listcount")).intValue();
+  int nowpage = ((Integer)request.getAttribute("page")).intValue();
+  int maxpage = ((Integer)request.getAttribute("maxpage")).intValue();
+  int startpage = ((Integer)request.getAttribute("startpage")).intValue();
+  int endpage = ((Integer)request.getAttribute("endpage")).intValue();
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
 <title></title>
 <meta charset="utf-8">
 
+
+
 	<h3 >QnA</h3>
+	<table width="870">
+      <!-- 빈공간(여백) -->
+      <tr>
+         <td style="border: 0px solid #000;" colspan="5" height="20px"></td>
+      </tr>
+      <!-- 항목 (번호/제목 / 글쓴이 / 날짜 / 조회수 ) -->
+      <tr align="center" style="border: 1px solid #ddd; background-color: #EFEFEF">
+         <td
+            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
+            height="26">
+            <div align="center">번호</div>
+         </td>
 
-	<table width="870" >
-	<!-- 임의로 넣은 검색기능 (지워도됨)  -->
-	<!-- 			name="abc"  		  -->
-	<tr >
-		<td valign="middle" style="font-family:Tahoma;font-size:10pt; border:0px solid #000; " align="right" colspan="4" >
-				<input type="radio" name="abc" value="이름" style="width:15px; " >이름 &nbsp;&nbsp;
-				<input type="radio" name="abc" value="제목" style="width:15px; ">제목 &nbsp;&nbsp;
-				<input type="radio" name="abc" value="내용" style="width:15px; ">내용 &nbsp;&nbsp;
-		
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000; " valign="middle">
-		<div class="grid_3" style="float:right;">
-		<form id="search-form" method="post" enctype="multipart/form-data" style="padding:0px 0px 0 0px">
-			<fieldset style="position:relative;">
-				<div class="search-field"  style="height:25px">
-				<input name="search" type="text" />
-				 <a class="search-button" href="#" onClick="">
-				 <span>search</span></a>
-				</div>
-			</fieldset>
-		</form>
-		</div>
-		
-		
-		
-		
-		</td>
-	</tr>
-	<tr align="center" valign="middle">
-		<td style="font-family:Tahoma;font-size:10pt;" width="8%" height="26">
-			<div align="center"> 번호 </div>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;" width="50%" height="26">
-			<div align="center"> 제목 </div>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;" width="14%" height="26">
-			<div align="center"> 작성자 </div>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;" width="17%" height="26">
-			<div align="center">날짜 </div>
-		</td>
-		<td style="font-family:Tahoma;font-size:10pt;" width="11%" height="26">
-			<div align="center"> 조회수 </div>
-		</td>
-	</tr>
-	
+         <td style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="400" height="26">
+            <div align="center">제목</div>
+         </td>
 
-	
-	<tr align="center" valign="middle" 
-		onmouseover="this.style.backgroundColor='#F8F8F8'">
-		
-		<td height="23" style="font-family:Tahoma;font-size:10pt;">
-			10
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center">
-			<a href="">내용내용</a>
-			</div>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"> gogo1212</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"> 10/10</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:10pt;">
-			<div align="center"> 35</div>
-		</td>
-	</tr>
-	
-	<tr align="center" valign="middle" onmouseover="this.style.backgroundColor='#F8F8F8'">
-		<td height="23" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			10
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center">
-			
-			<a href="">내용내용</a>
-			</div>
-		</td>
-		
-		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> gogo1212</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> 10/10</div>
-		</td>
-		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			<div align="center"> 35</div>
-		</td>
-	</tr>
-	
-	<tr align="center" height="20">
-		<td>
-		</td>
-		
-		<td colspan="3" style="font-family:Tahoma;font-size:10pt; border:0px solid #000;">
-			
-			<a href=""  style='text-decoration: none;'>[이전] </a>
-			<a href="" style='text-decoration: none;'>[1] </a>
-			<a href="" style='text-decoration: none;'>[2] </a>
-			<a href="" style='text-decoration: none;'>[이전] </a>
-			
-			
-		</td>
-		
-		<td style="border:0px solid #000;" align="center">
-			<a href="" style='text-decoration: none;' > 글쓰기</a>
-		</td>
-	</tr>
-	
-	
-		
-	
-	</table>
+         <td
+            style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="190" height="26">
+            <div align="center">글쓴이</div>
+         </td>
+
+         <td
+            style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="100" height="26">
+            <div align="center">날짜</div>
+         </td>
+         <td
+            style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="100" height="26">
+            <div align="center">조회수</div>
+         </td>
+      </tr>
+      <%
+         for (int i = 0; i < boardList.size(); i++) {
+            QnaBean bl = (QnaBean) boardList.get(i);
+      %>
+      <!-- 내용 -->
+      <tr align="center" valign="middle" style="border: 1px solid #ddd;"
+         onmouseover="this.style.backgroundColor='#F8F8F8'">
+         <td height="23"
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <%=bl.getQnA_NUM() %>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <a href="./qna_detail.html?QNA_NUM=<%=bl.getQnA_NUM()%>" style='text-decoration: none;'><%=bl.getQnA_SUBJECT()%>
+         </a>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center"><%=bl.getQnA_MEMBER_ID()%>
+            </div>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center">
+               <%=bl.getQnA_DATE()%></div>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center"><%=bl.getQnA_READCOUNT()%>
+            </div>
+         </td>
+
+      </tr>
+      <%
+         }
+      %>
+
+
+
+      <!-- [이전] / [1] [2] [3] / [다음] -->
+      <tr align="center" height="20">
+         <td colspan="3"
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+
+
+            <%
+               if (nowpage <= 1) {
+            %> [이전]&nbsp; <%
+    } else {
+ %> <a
+            href="./qna_list.html?page=<%=nowpage - 1%>">[이전]</a>&nbsp; <%
+    }
+ %> <%
+    for (int a = startpage; a <= endpage; a++) {
+       if (a == nowpage) {
+ %> [<%=a%>] <%
+    } else {
+ %> <a
+            href="./qna_list.html?page=<%=a%>">[<%=a%>]
+         </a> &nbsp; <%
+    }
+ %> <%
+    }
+ %> <%
+    if (nowpage >= maxpage) {
+ %> [다음] <%
+    } else {
+ %> <a
+            href="./qna_list.html?page=<%=nowpage + 1%>">[다음]</a> <%
+    }
+ %>
+
+
+         </td>
+         <td colspan="2" align="right"><a href="./qna_write.html"> 글쓰기(관리자용)</a></td>
+      </tr>
+   </table>
 	
 </body>
 </html>
