@@ -25,7 +25,6 @@ Select * from reply;
 Select * from review;
 
 
-
 /* Create Tables */
 
 CREATE TABLE ADVICE
@@ -71,8 +70,8 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_NAME varchar2(20),
 	MEMBER_ID varchar2(15),
 	MEMBER_PWD varchar2(30),
-	MEMBER_ADDR_1 varchar2(50),
-	MEMBER_ADDR_2 varchar2(50),
+	MEMBER_ADDR_1 varchar2(100),
+	MEMBER_ADDR_2 varchar2(100),
 	MEMBER_ADDR_ZIP varchar2(10),
 	MEMBER_TEL varchar2(20),
 	MEMBER_GENDER varchar2(6),
@@ -133,8 +132,7 @@ CREATE TABLE QnA_BOARD
 	QnA_SEQ number(5),
 	QnA_REF number(5),
 	QnA_LEV number(5),
-	QnA_READCOUNT number(10),
-	QnA_FILE varchar2(50)
+	QnA_READCOUNT number(10)
 );
 
 
@@ -165,6 +163,7 @@ CREATE TABLE REVIEW
 	REVIEW_FILE varchar2(50)
 );
 
+
 /* Create Sequence(시퀀스 생성) */
 
 create sequence member_info_seq start with 1 increment by 1
@@ -178,5 +177,4 @@ drop sequence member_info_seq;
 drop sequence noti_seq;
 drop sequence review_seq;
 drop sequence qna_board_seq;
-
 

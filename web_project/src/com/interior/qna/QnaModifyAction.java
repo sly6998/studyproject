@@ -36,7 +36,7 @@ public class QnaModifyAction implements Action {
 		  System.out.println("질문게시판 수정 완료");
 		  
 		  forward.setRedirect(true);
-		  forward.setPath("./qna_detail.html?num="+qnadata.getQnA_NUM());
+		  forward.setPath("./qna_detail.html?QNA_NUM="+qnadata.getQnA_NUM());
 		  
 		  }catch(Exception e){
 		    e.printStackTrace();

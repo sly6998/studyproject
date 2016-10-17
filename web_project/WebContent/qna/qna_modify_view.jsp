@@ -26,7 +26,7 @@
          
         
         
-    <form name="qna_modify_form" method="post" action="./qnaModifyAction.html?qna_NUM=<%=qna.getQnA_NUM()%>">                    
+    <form name="qna_modify_form" method="post" action="./QnaModifyAction.html?QNA_NUM=<%=qna.getQnA_NUM()%>">                    
     <table>
      	<tr>
      		<td>제 목  :</td>
