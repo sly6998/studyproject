@@ -17,6 +17,7 @@ public class QnaWriteAction implements Action {
 		QnaBean qnadata = new QnaBean();
 
 		boolean result = false;
+		System.out.println("1");
 
 		try {
 

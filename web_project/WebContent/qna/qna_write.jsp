@@ -23,7 +23,7 @@
 <body>
    <div width="100%" align="center">
       <h3>QnA 글쓰기</h3>
-      <form name="qna_write_form" method="post" action="./qnaWriteAction.html">
+      <form name="qna_write_form" method="post" action="./QnaWriteAction.html">
          <input type="hidden" name="qna_MEMBER_ID" value="<%=MEMBER_ID %>"/>
          <table>
             <tr>
