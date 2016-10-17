@@ -158,44 +158,29 @@ public class QnaDAO {
 
 	public boolean qnaInsert(QnaBean qnadata) {//qna 글쓰기 action
 		// TODO Auto-generated method stub
-		int num =0;
-		String sql="";
+		int num = 0;
+		String sql = "";
 		int result = 0;
 		
 		try{
+			sql = "insert into qna_board (qna_NUM, qna_MEMBER_ID, qna_SUBJECT, qna_CONTENT, qna_READCOUNT, qna_DATE) values (qna_board_seq.nextval,?,?,?,?,sysdate)";
+			
 			con=ds.getConnection();
-			pstmt=con.prepareStatement("select max(qna_num) from qna_board");
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()){
-				num = rs.getInt(1)+1;
-			}else{
-				num=1;
-			}
-			sql="insert into qna_board (qna_num, qna_member_ID, qna_member_name,";
-			sql+="qna_subject, qna_content, qna_ref, qna_lev, qna_readcount, qna_file, qna_date) values(qna_board_seq.nextval,?,?,?,?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			
-			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, qnadata.getQnA_MEMBER_ID());
-			pstmt.setString(3, qnadata.getQnA_MEMBER_NAME());
-			pstmt.setString(4, qnadata.getQnA_SUBJECT());
-			pstmt.setString(5, qnadata.getQnA_CONTENT());
-			pstmt.setInt(6, num);
-			pstmt.setInt(7, 0);
-			pstmt.setInt(8, 0);
-			pstmt.setString(9, qnadata.getQnA_FILE());
+			pstmt.setString(1, qnadata.getQnA_MEMBER_ID());
+			pstmt.setString(2, qnadata.getQnA_SUBJECT());
+			pstmt.setString(3, qnadata.getQnA_CONTENT());
+			pstmt.setInt(4, qnadata.getQnA_READCOUNT());
 			
 			result = pstmt.executeUpdate();
 			if(result==0){
-				return false;
+				return false; //0이 실패
 			}
 			return true;
 		}catch(Exception e){
-			System.out.println("qna_boardInsert error : "+e);
+			System.out.println("notiInsert error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}

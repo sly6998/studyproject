@@ -17,10 +17,9 @@ public class QnaWriteAction implements Action {
 		QnaBean qnadata = new QnaBean();
 
 		boolean result = false;
-		System.out.println("1");
 
 		try {
-
+			
 			qnadata.setQnA_MEMBER_ID("QNA_MEMBER_ID");
 			qnadata.setQnA_SUBJECT("QNA_SUBJECT");
 			qnadata.setQnA_CONTENT("QNA_CONTENT");
@@ -35,7 +34,7 @@ public class QnaWriteAction implements Action {
 			System.out.println("질문 게시판 등록 완료");
 
 			forward.setRedirect(true);
-			forward.setPath("./qna/qna_write.html");
+			forward.setPath("./qna_list.html");
 			return forward;
 		} catch (Exception e) {
 			e.printStackTrace();
