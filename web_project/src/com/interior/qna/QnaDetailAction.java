@@ -19,7 +19,7 @@ public class QnaDetailAction implements Action {
 		  QnaDAO qnadao = new QnaDAO();
 		  QnaBean qnadata = new QnaBean();
 
-		  int num = Integer.parseInt(request.getParameter("num"));
+		  int num = Integer.parseInt(request.getParameter("QNA_NUM"));
 		  qnadao.setReadCountUpdate(num);//조회수 업데이트
 		  qnadata = qnadao.getDetail(num);//게시글 보기
 
