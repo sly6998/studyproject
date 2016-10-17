@@ -56,7 +56,7 @@ public class QnaDAO {
 		"qna_subject, qna_content, qna_date, qna_seq, qna_ref, qna_lev," +
 		"qna_readcount from " +
 		"(select * from qna_board order by " +
-		"qna_ref desc, qna_seq asc))" +
+		"qna_date desc))" +
 		"where rnum>=? and rnum<=?";
 		
 		List list = new ArrayList();
