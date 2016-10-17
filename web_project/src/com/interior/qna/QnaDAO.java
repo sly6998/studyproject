@@ -207,7 +207,37 @@ public class QnaDAO {
 
 	public QnaBean qnamodifyView(int num) {//qna 게시글 수정 페이지
 		// TODO Auto-generated method stub
+		QnaBean qna = null;
 		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement("select * from qna_board where qna_num=?");
+			pstmt.setInt(1, num);
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				qna = new QnaBean();
+				qna.setQnA_NUM(rs.getInt("QNA_NUM"));
+				qna.setQnA_MEMBER_ID(rs.getString("QNA_MEMBER_ID"));
+				qna.setQnA_MEMBER_NAME(rs.getString("QNA_MEMBER_NAME"));
+				qna.setQnA_SUBJECT(rs.getString("QNA_SUBJECT"));
+				qna.setQnA_CONTENT(rs.getString("QNA_CONTENT"));
+				qna.setQnA_FILE(rs.getString("QNA_FILE"));
+				qna.setQnA_REF(rs.getInt("QNA_REF"));
+				qna.setQnA_LEV(rs.getInt("QNA_LEV"));
+				qna.setQnA_SEQ(rs.getInt("QNA_SEQ"));
+				qna.setQnA_READCOUNT(rs.getInt("QNA_READCOUNT"));
+				qna.setQnA_DATE(rs.getDate("QNA_DATE"));
+			}
+			return qna;
+		}catch(Exception e){
+			System.out.println("qnamodifyView error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
 		return null;
 	}
 
