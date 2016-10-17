@@ -173,7 +173,7 @@ public class QnaDAO {
 				num=1;
 			}
 			sql="insert into qna_board (qna_num, qna_member_ID, qna_member_name,";
-			sql+="qna_subject, qna_content, qna_seq, qna_ref, qna_lev, qna_readcount, qna_file, qna_date) values(?,?,?,?,?,?,?,?,?,?,sysdate)";
+			sql+="qna_subject, qna_content, qna_ref, qna_lev, qna_readcount, qna_file, qna_date) values(qna_board_seq.nextval,?,?,?,?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -184,11 +184,10 @@ public class QnaDAO {
 			pstmt.setString(3, qnadata.getQnA_MEMBER_NAME());
 			pstmt.setString(4, qnadata.getQnA_SUBJECT());
 			pstmt.setString(5, qnadata.getQnA_CONTENT());
-			pstmt.setInt(6, 0);
-			pstmt.setInt(7, num);
+			pstmt.setInt(6, num);
+			pstmt.setInt(7, 0);
 			pstmt.setInt(8, 0);
-			pstmt.setInt(9, 0);
-			pstmt.setString(10, qnadata.getQnA_FILE());
+			pstmt.setString(9, qnadata.getQnA_FILE());
 			
 			result = pstmt.executeUpdate();
 			if(result==0){
