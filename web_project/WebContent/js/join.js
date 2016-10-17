@@ -1,8 +1,8 @@
 /**
- 회원가입 JS
+ * 회원가입 JS
  */
 
-//우편번호 검색
+// 우편번호 검색
  function execDaumPost() {
   new daum.Postcode(
     {
@@ -39,23 +39,89 @@
  }
 
  
- //유효성 검사
- function valchk(element){
-	 
-	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
-     /*
-		한글이름 2~4글자,
-		영문이름은 Fistname Lastname 을 사용하므로
-		2~10글자 입력 후 한칸 띄고 2~10글자를 입력 받는다
-		(영문 2~10글자 (공백) 영문 2~10글자 형식)*/
+ // 유효성 검사(인포커스)
+function infocus(element){
+	var el_id = element.id;// Element id
+	var el_v = element.value;// Element value
+	
+	var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+    /*
+		 * 한글이름 2~4글자, 영문이름은 Fistname Lastname 을 사용하므로 2~10글자 입력 후 한칸 띄고 2~10글자를
+		 * 입력 받는다 (영문 2~10글자 (공백) 영문 2~10글자 형식)
+		 */
 	 
 	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 	 var id_re =  /^[A-za-z0-9]{5,15}/g;
 	 var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-	/*  특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식 */
+	/* 특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식 */
+	
+	 if(el_id == 'MEMBER_NAME'){
+		 if(el_v == '' || !name_re.test(el_v)){
+			 $('#name_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_ID'){
+		 if(el_v == '' || !id_re.test(el_v)){
+			 $('#id_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_PWD'){
+		 if(el_v == '' || !pwd_re.test(el_v)){
+			 $('#pwd_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_PWD2'){
+		 if(el_v != document.getElementById('MEMBER_PWD').value){
+			 $('#pwd2_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_TEL'){
+		 if(el_v == '' || !tel_re.test(el_v)){
+			 $('#tel_cl').collapse('show');
+			 el_v = el_v.replace(/-/gi,'');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_ZIP'){
+		 if(el_v == ''){
+			 $('#zip_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_ADDR_1'){
+		 if(el_v == ''){
+			 $('#addr1_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }else if(el_id == 'MEMBER_ADDR_2'){
+		 if(el_v == ''){
+			 $('#addr2_cl').collapse('show');
+			 element.style.borderBottomColor='red';
+			 return;
+		 }
+	 }
+} 
+ // 유효성 검사(아웃포커스)
+ function valchk(element){
 	 
-	 var el_id = element.id;//Element id
-	 var el_v = element.value;//Element value
+	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+     /*
+		 * 한글이름 2~4글자, 영문이름은 Fistname Lastname 을 사용하므로 2~10글자 입력 후 한칸 띄고 2~10글자를
+		 * 입력 받는다 (영문 2~10글자 (공백) 영문 2~10글자 형식)
+		 */
+	 
+	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+	 var id_re =  /^[A-za-z0-9]{5,15}/g;
+	 var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+	/* 특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식 */
+	 
+	 var el_id = element.id;// Element id
+	 var el_v = element.value;// Element value
 	 
 	 if(el_id == 'MEMBER_NAME'){
 		 if(el_v == '' || !name_re.test(el_v)){
@@ -127,7 +193,7 @@
 	 }
  }
  
- //회원가입 버튼
+ // 회원가입 버튼
  function join(){
 	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
 	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
@@ -164,7 +230,7 @@
 	}
  }
  
- //아이디 중복체크
+ // 아이디 중복체크
  function isChk_id(){
 	 var MEMBER_ID = document.getElementById('MEMBER_ID').value;                
      if(MEMBER_ID == ""){
@@ -175,7 +241,7 @@
      }
  }
  
- //중복체크창 닫기
+ // 중복체크창 닫기
  function overlapClose(value){
 	 var result = value;
 	 if(result==1){

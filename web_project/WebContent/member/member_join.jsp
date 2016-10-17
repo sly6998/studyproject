@@ -19,7 +19,7 @@
 			<tr>
 				<td align="right" valign="middle">이름&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<input name="MEMBER_NAME" id="MEMBER_NAME" class="borderColor" type="text" onblur="valchk(this)"/><p/>
+					<input name="MEMBER_NAME" id="MEMBER_NAME" class="borderColor" type="text" onfocus="infocus(this)" onblur="valchk(this)"/><p/>
 				</td>
 			</tr>
 			<tr>
@@ -31,7 +31,7 @@
 			<tr>
 				<td align="right" valign="middle">아이디&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<input name="MEMBER_ID" id="MEMBER_ID" class="borderColor"  type="text" onblur="valchk(this)">&nbsp;&nbsp;&nbsp;
+					<input name="MEMBER_ID" id="MEMBER_ID" class="borderColor"  type="text" onfocus="infocus(this)" onblur="valchk(this)">&nbsp;&nbsp;&nbsp;
 					<button type="button" id="overlap_id" onclick="isChk_id()">중복체크</button>
 				</td>
 			</tr>
@@ -43,7 +43,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">비밀번호&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="MEMBER_PWD" id="MEMBER_PWD" class="borderColor"  type="password" onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_PWD" id="MEMBER_PWD" class="borderColor"  type="password" onfocus="infocus(this)" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -53,7 +53,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">비밀번호확인&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="MEMBER_PWD2" id="MEMBER_PWD2" class="borderColor" type="password" onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_PWD2" id="MEMBER_PWD2" class="borderColor" type="password" onfocus="infocus(this)" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -64,7 +64,7 @@
 			<tr>
 				<td align="right" valign="middle">우편번호&nbsp;&nbsp;&nbsp;</td>
 				<td>
-					<input name="MEMBER_ADDR_ZIP" id="MEMBER_ADDR_ZIP" class="borderColor" type="text"  onblur="valchk(this)" placeholder="검색버튼을 이용하여 주세요.">&nbsp;&nbsp;&nbsp;
+					<input name="MEMBER_ADDR_ZIP" id="MEMBER_ADDR_ZIP" class="borderColor" type="text" onfocus="infocus(this)" onblur="valchk(this)" placeholder="검색버튼을 이용하여 주세요.">&nbsp;&nbsp;&nbsp;
 					<input type="button" value="검색" onclick="execDaumPost()">
 				</td>
 			</tr>
@@ -76,7 +76,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">주소&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="MEMBER_ADDR_1" id="MEMBER_ADDR_1" class="borderColor"  type="text"  onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_ADDR_1" id="MEMBER_ADDR_1" class="borderColor"  type="text" onfocus="infocus(this)" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -86,7 +86,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">상세주소&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="MEMBER_ADDR_2" id="MEMBER_ADDR_2" class="borderColor"  type="text"  onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_ADDR_2" id="MEMBER_ADDR_2" class="borderColor"  type="text" onfocus="infocus(this)" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
@@ -96,7 +96,7 @@
 			
 			<tr>
 				<td align="right" valign="middle">전화번호&nbsp;&nbsp;&nbsp;</td>
-				<td><input name="MEMBER_TEL" id="MEMBER_TEL" class="borderColor" type="text"  onblur="valchk(this)"><p/></td>
+				<td><input name="MEMBER_TEL" id="MEMBER_TEL" class="borderColor" type="text" onfocus="infocus(this)" onblur="valchk(this)"><p/></td>
 			</tr>
 			<tr>
 				<td colspan="3">
