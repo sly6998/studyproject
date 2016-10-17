@@ -5,7 +5,7 @@
 	<header>
 		<div id="topmember">
 			<%
-			  String id = "";
+			  String id = null;
 				if(session.getAttribute("MEMBER_ID")!=null){
 					id=(String)session.getAttribute("MEMBER_ID");
 				}

@@ -31,6 +31,8 @@
 
       document.getElementById('MEMBER_ADDR_ZIP').value = data.zonecode; 
       document.getElementById('MEMBER_ADDR_1').value = fullAddr;
+      document.getElementById('MEMBER_ADDR_ZIP').style.borderColor="green";
+      document.getElementById('MEMBER_ADDR_1').style.borderColor="green";
       document.getElementById('MEMBER_ADDR_2').focus();
      }
     }).open();
@@ -40,17 +42,17 @@
  //유효성 검사
  function valchk(element){
 	 
-/*	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
-     
+	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+     /*
 		한글이름 2~4글자,
 		영문이름은 Fistname Lastname 을 사용하므로
 		2~10글자 입력 후 한칸 띄고 2~10글자를 입력 받는다
-		(영문 2~10글자 (공백) 영문 2~10글자 형식)
+		(영문 2~10글자 (공백) 영문 2~10글자 형식)*/
 	 
 	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
-	 var id_re =  /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+	 var id_re =  /^[A-za-z0-9]{5,15}/g;
 	 var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
-	  특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식 
+	/*  특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식 */
 	 
 	 var el_id = element.id;//Element id
 	 var el_v = element.value;//Element value
@@ -93,9 +95,11 @@
 			 element.style.borderBottomColor='red';
 			 return;
 		 }
+		 el_v = el_v.replace(/-/gi,'');
 		 $('#tel_cl').collapse('hide');
 		 element.style.borderColor="green";
-	 }else if(el_id == 'MEMBER_ADDR_ZIP'){
+		 
+	 }else if(el_id == 'MEMBER_ZIP'){
 		 if(el_v == ''){
 			 $('#zip_cl').collapse('show');
 			 element.style.borderBottomColor='red';
@@ -110,7 +114,8 @@
 			 return;
 		 }
 		 $('#addr1_cl').collapse('hide');
-		 element.style.borderColor="green";
+		 document.getElementById('MEMBER_ADDR_ZIP').style.borderColor="green";
+		 document.getElementById('MEMBER_ADDR_1').style.borderColor="green";
 	 }else if(el_id == 'MEMBER_ADDR_2'){
 		 if(el_v == ''){
 			 $('#addr2_cl').collapse('show');
@@ -119,35 +124,47 @@
 		 }
 		 $('#addr2_cl').collapse('hide');
 		 element.style.borderColor="green";
-	 }*/
+	 }
  }
  
  //회원가입 버튼
  function join(){
+	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
+	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
+	 var id_re =  /^[A-za-z0-9]{5,15}/g;
+	 var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
  
-	/*if(document.getElementById('MEMBER_NAME').value==''){
-		alert('이름을 입력하여 주세요.');
-	}else if(document.getElementById('MEMBER_ID').value==''){
-		alert('아이디를 입력하여 주세요.');
+ 
+	if(document.getElementById('MEMBER_NAME').value=='' || !name_re.test(document.getElementById('MEMBER_NAME').value)){
+		alert('이름을 형식에 맞게 입력하여 주세요.');
+		return;
+	}else if(document.getElementById('MEMBER_ID').value=='' || !id_re.test(document.getElementById('MEMBER_ID').value)){
+		alert('아이디를 형식에 맞게 입력하여 주세요.');
+		return;
 	}else if(document.getElementById('id_isChk').value == 1){
 		alert('아이디를 중복 체크하여 주세요.');
-	}else if(document.getElementById('MEMBER_PWD').value==''||document.getElementById('MEMBER_PWD2').value==null){
-		alert('비밀번호를 입력하여 주세요.');
+		return;
+	}else if(document.getElementById('MEMBER_PWD').value==''||document.getElementById('MEMBER_PWD2').value=='' || document.getElementById('MEMBER_PWD').value != document.getElementById('MEMBER_PWD2').value || !pwd_re.test(document.getElementById('MEMBER_PWD').value)){
+		alert('비밀번호를 형식에 맞게 입력하여 주세요.');
+		return;
 	}else if(document.getElementById('MEMBER_ADDR_ZIP').value==''||document.getElementById('MEMBER_ADDR_1').value==''||document.getElementById('MEMBER_ADDR_2').value==''){
 		alert('주소를 입력하여 주세요.');
-	}else if(document.getElementById('MEMBER_TEL').value==''){
-		alert('전화번호를 입력하여 주세요.');
+		return;
+	}else if(document.getElementById('MEMBER_TEL').value==''|| !tel_re.test(document.getElementById('MEMBER_TEL').value)){
+		alert('전화번호를 형식에 맞게 입력하여 주세요.');
+		return;
 	}else if($(':input[name=MEMBER_GENDER]:radio:checked').val()!='남자'&&$(':input[name=MEMBER_GENDER]:radio:checked').val()!='여자'){
 		alert('성별을 선택하여 주세요.');
-	}else if(document.getElementById('MEMBER_BIRTH').value==''||document.getElementById('MEMBER_BIRTH').value==null){
+		return;
+	}else if(document.joinform.MEMBER_YEAR.value==''|| document.joinform.MEMBER_MONTH.value==''|| document.joinform.MEMBER_DAY.value==''){
 		alert('생년월일을 선택하여 주세요.');
+		return;
 	}else{
 		document.getElementById('joinform').submit();
-	}*/
-	document.getElementById('joinform').submit();
+	}
  }
  
- //이메일 중복체크
+ //아이디 중복체크
  function isChk_id(){
 	 var MEMBER_ID = document.getElementById('MEMBER_ID').value;                
      if(MEMBER_ID == ""){
