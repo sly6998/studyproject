@@ -78,10 +78,12 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_YEAR number(4),
 	MEMBER_MONTH number(2),
 	MEMBER_DAY number(2),
-	MEMBER_DATE date,
 	MEMBER_NUM number(10)
+	MEMBER_DATE date,
 );
 
+insert into MEMBER_INFO (MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_NUM, MEMBER_DATE) values('관리자', 'admin', 'admin',member_info_seq.nextval,sysdate);
+delete from member_info where member_id='user01';
 
 CREATE TABLE NOTI
 (
