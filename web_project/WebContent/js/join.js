@@ -171,6 +171,11 @@
       alert("중복체크 할 아이디를 입력하여 주세요.");   
       document.getElementById('MEMBER_ID').focus();
      }else{
-    	 window.open("overlapId.html?MEMBER_ID="+MEMBER_ID,"","width=400 height=150");
+    	 window.open("./overlapId.html?MEMBER_ID="+MEMBER_ID,"",'left='+(screen.availWidth-270)/2+',top='+(screen.availHeight-20)/4+', width=270px,height=20px');
      }
+ }
+ 
+ //중복체크창 닫기
+ function overlapClose(){
+	 window.close();
  }

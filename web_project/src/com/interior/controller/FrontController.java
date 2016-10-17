@@ -20,6 +20,7 @@ import com.interior.member.MemberManagementModifyAction;
 import com.interior.member.MemberModifyAction;
 import com.interior.member.MemberModifyViewAction;
 import com.interior.member.MemberViewAction;
+import com.interior.member.OverlapIdAction;
 import com.interior.noti.NotiDeleteAction;
 import com.interior.noti.NotiDetailAction;
 import com.interior.noti.NotiListAction;
@@ -54,8 +55,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 
 		
 		
-		
-		
 		/* Main */
 
 		if (command.equals("/mainpage.html")) {// 메인페이지 이동
@@ -74,17 +73,24 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			
 		/* MEMBER */
 
-		} else if (command.equals("/join.html")) {// 회원가입 페이지 이동
+		}else if (command.equals("/join.html")) {// 회원가입 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/member_join.jsp");
 
+		}else if (command.equals("/overlapId.html")) {// 아이디 중복체크 페이지 이동 & action
+			action = new OverlapIdAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if (command.equals("/login.html")) {// 로그인 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./page/login.jsp");
 
-		}else if (command.equals("/IDfind.html")) {// 이메일 찾기 페이지 이동
+		}else if (command.equals("/idfind.html")) {// 아이디 찾기 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/member_find_ID.jsp");
@@ -134,7 +140,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/MemberFindIDAction.html")) {// 이메일 찾기 action
+		} else if (command.equals("/MemberFindIDAction.html")) {// 아이디 찾기 action
 			action = new MemberFindIDAction();
 			try {
 				forward = action.execute(request, response);

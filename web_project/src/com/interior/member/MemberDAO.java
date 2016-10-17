@@ -359,4 +359,31 @@ public class MemberDAO {
 		}
 		return null;
 	}
+
+	public int isoverlap(String id) {//아이디 중복체크
+		String sql = "select * from member_info where member_id = ?";
+		int result = 1;
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			rs=pstmt.executeQuery();
+			
+			
+			if(rs.next()){
+				result = 1;//이미 가입되어있는 아이디
+			}else{
+				result = 2;//가입가능
+			}
+			return result;
+			
+		}catch(Exception e){
+			System.out.println("getMemberList error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return result;
+	}
 }

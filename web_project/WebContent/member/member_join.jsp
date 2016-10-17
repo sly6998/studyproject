@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+	
 <style>
  .borderColor{
  	border-top: 0px;
@@ -31,7 +32,7 @@
 				<td align="right" valign="middle">아이디&nbsp;&nbsp;&nbsp;</td>
 				<td>
 					<input name="MEMBER_ID" id="MEMBER_ID" class="borderColor"  type="text" onblur="valchk(this)">&nbsp;&nbsp;&nbsp;
-					<input type="button" id="overlap_id" onclick="isChk_id()" value="중복확인"/><p/>
+					<button type="button" id="overlap_id" onclick="isChk_id()">중복체크</button>
 				</td>
 			</tr>
 			<tr>
@@ -168,5 +169,3 @@
 			</tr>
 		</table>
 	</form>
-</div>
-<div class="modal-footer"></div>
