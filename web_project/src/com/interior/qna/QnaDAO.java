@@ -54,7 +54,7 @@ public class QnaDAO {
 		String sql = "select * from " +
 		"(select rownum rnum, qna_num, qna_member_ID, qna_member_name," +
 		"qna_subject, qna_content, qna_date, qna_seq, qna_ref, qna_lev," +
-		"qna_readcount, qna_file from " +
+		"qna_readcount from " +
 		"(select * from qna_board order by " +
 		"qna_ref desc, qna_seq asc))" +
 		"where rnum>=? and rnum<=?";
@@ -82,7 +82,6 @@ public class QnaDAO {
 				qna.setQnA_REF(rs.getInt("qnA_REF"));
 				qna.setQnA_LEV(rs.getInt("qnA_LEV"));
 				qna.setQnA_READCOUNT(rs.getInt("qnA_READCOUNT"));
-				qna.setQnA_FILE(rs.getString("qnA_FILE"));
 				list.add(qna);
 			}
 			return list;
@@ -143,7 +142,6 @@ public class QnaDAO {
 				qna.setQnA_REF(rs.getInt("QNA_REF"));
 				qna.setQnA_LEV(rs.getInt("QNA_LEV"));
 				qna.setQnA_READCOUNT(rs.getInt("QNA_READCOUNT"));
-				qna.setQnA_FILE(rs.getString("QNA_FILE"));
 			}
 			return qna;
 		}catch(Exception e){
@@ -207,7 +205,6 @@ public class QnaDAO {
 				qna.setQnA_MEMBER_NAME(rs.getString("QNA_MEMBER_NAME"));
 				qna.setQnA_SUBJECT(rs.getString("QNA_SUBJECT"));
 				qna.setQnA_CONTENT(rs.getString("QNA_CONTENT"));
-				qna.setQnA_FILE(rs.getString("QNA_FILE"));
 				qna.setQnA_REF(rs.getInt("QNA_REF"));
 				qna.setQnA_LEV(rs.getInt("QNA_LEV"));
 				qna.setQnA_SEQ(rs.getInt("QNA_SEQ"));
