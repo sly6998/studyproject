@@ -164,7 +164,7 @@
 
 			<tr>
 				<td colspan="3" align="center" valign="middle">
-					<input type="button" value="회원가입" class="btn btn-default" data-dismiss="modal" onclick="join()"/>
+					<input type="button" value="회원가입" class="btn btn-default" onclick="join()"/>
 				</td>
 			</tr>
 		</table>
