@@ -26,7 +26,7 @@
 		<%
 			}
 		%><p/>
-	<button class="btn" onclick="overlapClose()">Close</a>
+	<button class="btn" onclick="overlapClose(<%=result%>)">Close</a>
 	</div>
 </body>
 </html>

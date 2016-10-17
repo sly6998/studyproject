@@ -13,8 +13,8 @@
 	<h4 class="modal-title" align="left">Member Join</h4>
 </div>
 <div class="modal-body" align="center">
-<input type="hidden" id="id_isChk" value="1"/>
-	<form id="joinform" method="post" action="./MemberJoinAction.html">
+	<form name="joinform" id="joinform" method="post" action="./MemberJoinAction.html">
+		<input type="hidden" id="id_isChk" name="id_isChk"value="1"/>
 		<table>
 			<tr>
 				<td align="right" valign="middle">이름&nbsp;&nbsp;&nbsp;</td>
@@ -164,7 +164,7 @@
 
 			<tr>
 				<td colspan="3" align="center" valign="middle">
-					<input type="button" value="회원가입" onclick="join()"/>
+					<input type="button" value="회원가입" class="btn btn-default" data-dismiss="modal" onclick="join()"/>
 				</td>
 			</tr>
 		</table>

@@ -93,7 +93,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		}else if (command.equals("/idfind.html")) {// 아이디 찾기 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./member/member_find_ID.jsp");
+			forward.setPath("./member/member_find_id.jsp");
 
 		} else if (command.equals("/pwdfind.html")) {// 비밀번호 찾기 페이지 이동
 			forward = new ActionForward();

@@ -176,6 +176,12 @@
  }
  
  //중복체크창 닫기
- function overlapClose(){
+ function overlapClose(value){
+	 var result = value;
+	 if(result==1){
+		 
+	 }else{
+		 opener.joinform.id_isChk.value = result;
+	 }
 	 window.close();
  }
