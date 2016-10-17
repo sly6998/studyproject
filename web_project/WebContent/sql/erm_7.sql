@@ -169,10 +169,14 @@ CREATE TABLE REVIEW
 
 create sequence member_info_seq start with 1 increment by 1
 create sequence noti_seq start with 1 increment by 1
+create sequence review_seq start with 1 increment by 1
+create sequence qna_board_seq start with 1 increment by 1
 
 /* drop sequence(시퀀스 삭제)*/
 
 drop sequence member_info_seq;
 drop sequence noti_seq;
+drop sequence review_seq;
+drop sequence qna_board_seq;
 
 

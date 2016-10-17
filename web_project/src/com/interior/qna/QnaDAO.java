@@ -52,11 +52,11 @@ public class QnaDAO {
 	public List getQnaList(int page, int limit) {//qna 게시글 목록 불러오기
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, qna_num, qna_member_ID, qna_member_name" +
-		"qna_subject, qna_content, qna_date, qna_seq, qna_ref, qna_lev" +
+		"(select rownum rnum, qna_num, qna_member_ID, qna_member_name," +
+		"qna_subject, qna_content, qna_date, qna_seq, qna_ref, qna_lev," +
 		"qna_readcount, qna_file from " +
 		"(select * from qna_board order by " +
-		"board_ref_number desc, board_seq_number asc))" +
+		"qna_ref desc, qna_seq asc))" +
 		"where rnum>=? and rnum<=?";
 		
 		List list = new ArrayList();
