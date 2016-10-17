@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.interior.controller.Action;
 import com.interior.controller.ActionForward;
-import com.interior.noti.NotiDAO;
 
 public class QnaListAction implements Action {
 

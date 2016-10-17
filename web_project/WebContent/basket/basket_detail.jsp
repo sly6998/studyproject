@@ -5,105 +5,141 @@
 <head>
 <title></title>
 <meta charset="utf-8">
-<link rel="stylesheet" href="../css/reset.css" type="text/css"
-	media="screen">
-<link rel="stylesheet" href="../css/style.css" type="text/css"
-	media="screen">
-<link rel="stylesheet" href="../css/grid.css" type="text/css"
-	media="screen">
-<script src="../js/jquery-1.6.2.min.js" type="text/javascript"></script>
-<!--[if lt IE 7]>
-        <div style=' clear: both; text-align:center; position: relative;'>
-            <a href="http://www.microsoft.com/windows/internet-explorer/default.aspx?ocid=ie6_countdown_bannercode"><img src="http://storage.ie6countdown.com/assets/100/images/banners/warning_bar_0000_us.jpg" border="0"  alt="" /></a>
-        </div>
-	<![endif]-->
-<!--[if lt IE 9]>
-   		<script type="text/javascript" src="js/html5.js"></script>
-        <link rel="stylesheet" href="css/ie.css" type="text/css" media="screen">
-	<![endif]-->
 </head>
-<body id="page5">
-	<%@ include file="../page/header.jsp"%>
-	<div>
-		<section id="content">
-			<div class="bg-top">
-				<div class="bg-top-2">
-					<div class="bg">
-						<div class="bg-top-shadow">
-							<div class="main">
-								<div class="box">
-									<div class="padding">
-										<div class="container_12">
-											<div class="wrapper">
-												<div class="grid_12">
-													<div class="indent-left">
-														<h3 class="p2">주문상세정보(detail)</h3>
-
-
-                
+<body >
 	
-	
-	
-														
+<h3>주문상세정보(detail)</h3>
 
-													</div>
-												</div>
-											</div>
-										</div>
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</div>
-			<div class="bg-bot">
-				<div class="main">
-					<div class="container_12">
-						<div class="wrapper">
-							<article class="grid_3">
-								<h3 class="prev-indent-bot">Our Address</h3>
-								<dl>
-									<dt class="indent-bot">
-										8901 Marmora Road,<br>Glasgow, D04 89GR.
-									</dt>
-									<dd>
-										<span>Freephone:</span> +1 800 559 6580
-									</dd>
-									<dd>
-										<span>Telephone:</span> +1 959 603 6035
-									</dd>
-									<dd>
-										<span>FAX:</span> +1 504 889 9898
-									</dd>
-									<dd>
-										<strong>E-mail:</strong> <a href="../#">mail@demolink.org</a>
-									</dd>
-								</dl>
-							</article>
-							<article class="grid_9">
-								<h3 class="prev-indent-bot">Miscellaneous Info</h3>
-								<strong>At vero eos et accusamus et iusto odio
-									dignissimos ducimus qui blanditiis praesentium voluptatum
-									deleniti atque corrupti quos dolores et quas molestias
-									excepturi</strong> sint occaecati cupiditate non provident, similique
-								sunt in culpa qui officia deserunt mollitia animi, id est
-								laborum et dolorum fuga. Et harum quidem rerum facilis est et
-								expedita distinctio. Nam libero tempore, cum soluta nobis est
-								eligendi optio cumque nihil impedit quo minus id quod maxime
-								placeat facere possimus, omnis voluptas assumenda est, omnis
-								dolor repellendus. Temporibus autem quibusdam et aut officiis
-								debitis aut rerum necessitatibus saepe eveniet ut et voluptates
-								repudiandae sint et molestiae non recusandae. Itaque earum rerum
-								hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus.
-							</article>
-						</div>
-					</div>
-				</div>
-			</div>
-		</section>
+<h4>[상품정보]</h4>
+<table style="border-top:2px solid #111; width:850px;" >
+	<tr align="center" style="background-color:#EFEFEF ">
+		<td style="font-size:12pt; font-weight:bold;" width="80"  >
+			[주문일자]
+		</td>
+		
+		<td style="font-size:12pt; font-weight:bold;" colspan="2" width="200">
+			[상품정보] 
+		</td>
+		
+		<td style="font-size:12pt; font-weight:bold;" colspan="2"  >
+			[상품금액 및 수량] 
+		</td>
+		
+		<td style="font-size:12pt; font-weight:bold;" width="100">
+			[총 금액] 
+		</td>
+		
+		<td style="font-size:12pt; font-weight:bold;" width="100">
+			[주문상태] 
+		</td>
+		
+	</tr>
+	
 
-	</div>
-	<%@ include file="../page/footer.jsp"%>
+	<!-- 내용  -->
+	<tr style="border:1px solid #ddd; height:100px "onmouseover="this.style.backgroundColor='#F8F8F8'">
+		<td>2016.10.13</td>
+		
+		<td width=160>
+			<a href="basket_detail.jsp">
+				<img src="../images/sofa1.jpg" width="150" height="100">
+			</a>
+		</td>
+		
+		<td width=290>다이애나 리클라이너 가죽 소파(3B_2)</td>
+		
+		<td width=100>50,000</td>
+		
+		<td width=50>5</td>
+		
+		<td> 150,000</td>
+		
+		<td> 배송 준비중</td>
+		
+	</tr>
+	
+</table>
+
+
+
+		<h4>[결제금액정보]</h4>
+<table style="width:850px; border-top:2px solid #111; ">
+	<tr>
+		<td bgcolor="#efefef"  width=100>결제금액</td>
+		<td>50,000원</td>
+	</tr>
+	
+	<tr >
+		<td bgcolor="#efefef"  width=100>입금방법</td>
+		<td>무통장 입금</td>
+	</tr>
+	
+	<tr>
+		<Td bgcolor="#efefef"  width=100>입금자명 </Td>
+		<td> 이순자 </td>
+	</tr>
+	
+	<tr>
+		<td bgcolor="#efefef"  width=100>입금날짜</td>
+		<td>2016. 12. 12</td>
+	</tr>
+	
+	<tr>
+		<td bgcolor="#efefef"  width=100>카드/통장 번호</td>
+		<Td>444-444-44444 </Td>
+	</tr>
+</table><br/>
+
+
+<h4 >[배송정보-수령지]</h4>
+
+<table style="width:850px; border-top:2px solid #111; ">
+	<tr >
+		<td bgcolor="#efefef" height="150" rowspan="4" width=100>받는사람</td>
+		<td>김순자</td>
+	</tr>
+	
+	<tr><Td>010-111-1111 </Td></tr>
+
+	<tr><Td>121-121 </Td></tr>
+
+	<tr><Td>서울시 서대문구 ~~ </Td></tr>
+
+	<tr>
+		<td bgcolor="#efefef" height="50" >요청사항</td>
+		<td colspan=2>경비실에 맡겨주세요. 오시기전에 전화/문자 부탁드립니다.</td>
+	</tr>
+</table><br/>
+
+
+<h4>[회원정보]</h4>
+<table style="width:850px; border-top:2px solid #111; ">
+	<tr >
+		<td bgcolor="#efefef"  width=100>ID</td>
+		<td>sky7777</td>
+	</tr>
+	
+	<tr>
+		<Td bgcolor="#efefef"  width=100>이름 </Td>
+		<td> 이순자 </td>
+	</tr>
+	
+	<tr>
+		<td bgcolor="#efefef"  width=100>전화번호</td>
+		<td>010-2222-2222</td>
+	</tr>
+	
+	<tr>
+		<td bgcolor="#efefef"  width=100>우편번호</td>
+		<Td>121-121 </Td>
+	</tr>
+
+	<tr>
+		<td bgcolor="#efefef"  width=100>주소</td>
+		<Td>서울시 서대문구 ~~ </Td>
+	</tr>
+
+</table>
+
 </body>
 </html>
