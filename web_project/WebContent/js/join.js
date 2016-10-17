@@ -225,6 +225,11 @@ function infocus(element){
 	}else if(document.joinform.MEMBER_YEAR.value==''|| document.joinform.MEMBER_MONTH.value==''|| document.joinform.MEMBER_DAY.value==''){
 		alert('생년월일을 선택하여 주세요.');
 		return;
+	}else if(document.joinform.MEMBER_ID.value != old_id){
+		console.log(old_id+" b");
+		alert('아이디를 중복 체크하여 주세요1');
+		
+		return;
 	}else{
 		document.getElementById('joinform').submit();
 	}
@@ -248,6 +253,10 @@ function infocus(element){
 		 
 	 }else{
 		 opener.joinform.id_isChk.value = result;
+		 
+		 old_id = opener.joinform.MEMBER_ID.value;
+		 console.log(old_id +" a");
+		 console.log(opener.joinform.MEMBER_ID.value + " b");
 	 }
 	 window.close();
  }
