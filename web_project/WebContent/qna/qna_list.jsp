@@ -6,7 +6,7 @@
 <title></title>
 <meta charset="utf-8">
 
-	<h3 class="p2">QnA</h3>
+	<h3 >QnA</h3>
 
 	<table width="870" >
 	<!-- 임의로 넣은 검색기능 (지워도됨)  -->
