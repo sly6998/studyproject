@@ -97,7 +97,6 @@ public class ReviewDAO {
 				review = new ReviewBean();
 				review.setREVIEW_NUM(rs.getInt("REVIEW_NUM"));
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
-				review.setREVIEW_SEQ(rs.getInt("REVIEW_SEQ"));
 				review.setREVIEW_MEMBER_ID(rs.getString("REVIEW_MEMBER_ID"));
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
@@ -142,7 +141,7 @@ public class ReviewDAO {
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
 		"(select rownum rnum, review_num, review_member_id, review_member_name," +
-		"review_subject, review_content, review_seq, review_readcount," +
+		"review_subject, review_content, review_readcount," +
 		"review_date from " +
 		"(select * from review order by review_date desc)) " +
 		"where rnum>=? and rnum<=?";
@@ -162,7 +161,6 @@ public class ReviewDAO {
 			while(rs.next()){
 				ReviewBean review = new ReviewBean();
 				review.setREVIEW_NUM(rs.getInt("REVIEW_NUM"));
-				review.setREVIEW_SEQ(rs.getInt("REVIEW_SEQ"));
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
 				review.setREVIEW_MEMBER_ID(rs.getString("REVIEW_MEMBER_ID"));
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
@@ -222,7 +220,6 @@ public class ReviewDAO {
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
 				review.setREVIEW_CONTENT(rs.getString("REVIEW_CONTENT"));
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
-				review.setREVIEW_SEQ(rs.getInt("REVIEW_SEQ"));
 				review.setREVIEW_DATE(rs.getDate("REVIEW_DATE"));
 			}
 			return review;
@@ -254,19 +251,15 @@ public class ReviewDAO {
 			}
 			
 			sql="insert into review (review_num, review_member_id, review_member_name,";
-			sql+="review_subject, review_content, review_ref, review_lev,"+
-				"review_seq, review_readcount, review_date) values(review_seq.nextval,?,?,?,?,?,?,?,?,sysdate)";
+			sql+="review_subject, review_content," +
+				"review_readcount, review_date) values(review_seq.nextval,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, num);
-			pstmt.setString(2, reviewdata.getREVIEW_MEMBER_ID());
-			pstmt.setString(3, reviewdata.getREVIEW_MEMBER_NAME());
-			pstmt.setString(4, reviewdata.getREVIEW_SUBJECT());
-			pstmt.setString(5, reviewdata.getREVIEW_CONTENT());
-			pstmt.setInt(6, num);
-			pstmt.setInt(7, num);
-			pstmt.setInt(8, num);
-			pstmt.setInt(9, num);
+			pstmt.setString(1, reviewdata.getREVIEW_MEMBER_ID());
+			pstmt.setString(2, reviewdata.getREVIEW_MEMBER_NAME());
+			pstmt.setString(3, reviewdata.getREVIEW_SUBJECT());
+			pstmt.setString(4, reviewdata.getREVIEW_CONTENT());
+			pstmt.setInt(5, num);
 			
 			result=pstmt.executeUpdate();
 			if(result==0){

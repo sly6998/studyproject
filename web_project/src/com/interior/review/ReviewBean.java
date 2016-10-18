@@ -11,10 +11,6 @@ public class ReviewBean {
 	private int REVIEW_READCOUNT;
 	private Date REVIEW_DATE;
 	private int REVIEW_NUM;
-	private int REVIEW_SEQ;
-	private int REVIEW_REF;
-	private int REVIEW_LEV;
-	private String REVIEW_FILE;
 	
 	
 	public String getREVIEW_MEMBER_ID() {
@@ -58,30 +54,6 @@ public class ReviewBean {
 	}
 	public void setREVIEW_NUM(int rEVIEW_NUM) {
 		REVIEW_NUM = rEVIEW_NUM;
-	}
-	public int getREVIEW_SEQ() {
-		return REVIEW_SEQ;
-	}
-	public void setREVIEW_SEQ(int rEVIEW_SEQ) {
-		REVIEW_SEQ = rEVIEW_SEQ;
-	}
-	public int getREVIEW_REF() {
-		return REVIEW_REF;
-	}
-	public void setREVIEW_REF(int rEVIEW_REF) {
-		REVIEW_REF = rEVIEW_REF;
-	}
-	public int getREVIEW_LEV() {
-		return REVIEW_LEV;
-	}
-	public void setREVIEW_LEV(int rEVIEW_LEV) {
-		REVIEW_LEV = rEVIEW_LEV;
-	}
-	public String getREVIEW_FILE() {
-		return REVIEW_FILE;
-	}
-	public void setREVIEW_FILE(String rEVIEW_FILE) {
-		REVIEW_FILE = rEVIEW_FILE;
 	}
 
 }
