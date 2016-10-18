@@ -1,5 +1,7 @@
 package com.interior.qna;
 
+import java.io.PrintWriter;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
@@ -21,15 +23,16 @@ public class QnaModifyView implements Action {
 	    qnadata = qnadao.qnamodifyView(num);
 	    
 	    if(qnadata == null){
-	      System.out.println("질문게시판 수정페이지 이동 시스템 에러");
-	      return null;
+	    	System.out.println("질문게시판 수정페이지 이동 시스템 에러");
+	    	return null;
 	    }
 	    
+	    System.out.println("11");
 	    System.out.println("질문게시판 수정페이지 보기 성공");
 	    
 	    request.setAttribute("qnadata", qnadata);
 	    forward.setRedirect(false);
-	    forward.setPath("./qna/qna_modify.jsp");
+	    forward.setPath("./qna/qna_modify_view.jsp");
 	    
 	    return forward;
 	  }

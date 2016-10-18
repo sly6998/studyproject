@@ -31,14 +31,14 @@
      	<tr>
      		<td>제 목  :</td>
      		<td>
-     		<input name="qna_SUBJECT" type="text" value="<%=qna.getQnA_SUBJECT()%>"/>
+     		<input name="QNA_SUBJECT" type="text" value="<%=qna.getQnA_SUBJECT()%>"/>
      		</td>
      	</tr>
      	  
      	<TR	>
      		<td>내 용 :</td>
      		<td>
-     		<textarea id="contents" name="qna_CONTENT">
+     		<textarea id="contents" name="QNA_CONTENT">
      		<%=qna.getQnA_CONTENT() %>
      		</textarea>
      		</td>
@@ -49,7 +49,7 @@
 		<tr>
 			<td><input type="button" value="수정" onclick="qna_modify_check()">
 			<input type="reset" value="다시쓰기"></td>
-			<td><a href="./qna_list.html">목록보기</td>
+			<td><a href="./qna_list.html">목록보기</a></td>
 		</tr>     					
     </table>
      </form>

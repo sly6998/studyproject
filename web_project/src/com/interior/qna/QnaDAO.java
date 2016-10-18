@@ -213,6 +213,7 @@ public class QnaDAO {
 			}
 			return qna;
 		}catch(Exception e){
+			System.out.println("2");
 			System.out.println("qnamodifyView error : "+e);
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
