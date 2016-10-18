@@ -373,10 +373,10 @@ label:hover:before {
 					</div>
 					
 					<div class="form-group login-group-checkbox">
-						<input type="radio" class="" name="reg_gender" id="male" placeholder="username">
+						<input type="radio" class="" name="reg_gender" id="male" >
 						<label for="male">male</label>
 						
-						<input type="radio" class="" name="reg_gender" id="female" placeholder="username">
+						<input type="radio" class="" name="reg_gender" id="female" >
 						<label for="female">female</label>
 					</div>
 					
