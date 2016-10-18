@@ -166,6 +166,7 @@ public class ReviewDAO {
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
 				review.setREVIEW_CONTENT(rs.getString("REVIEW_CONTENT"));
+				review.setREVIEW_DATE(rs.getDate("REVIEW_DATE"));
 				list.add(review);
 			}
 			return list;
