@@ -164,7 +164,7 @@ public class ReviewDAO {
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
 				review.setREVIEW_MEMBER_ID(rs.getString("REVIEW_MEMBER_ID"));
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
-				review.setREVIEW_SUBJECT(rs.getString("REVIEW_MEMBER_SUBJECT"));
+				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
 				review.setREVIEW_CONTENT(rs.getString("REVIEW_CONTENT"));
 				list.add(review);
 			}
