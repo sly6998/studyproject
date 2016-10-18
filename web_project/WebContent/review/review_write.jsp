@@ -24,7 +24,7 @@
    <div width="100%" align="center">
       <h3>review 글쓰기</h3>
       <form name="review_write_form" method="post" action="./ReviewWriteAction.html">
-         <input type="hidden" name="REIVEW_MEMBER_ID" value="<%=MEMBER_ID %>"/>
+         <input type="hidden" name="REVIEW_MEMBER_ID" value="<%=MEMBER_ID %>"/>
          <table>
             <tr>
                <td><input name="REVIEW_SUBJECT" type="text"
