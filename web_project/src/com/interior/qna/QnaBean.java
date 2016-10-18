@@ -14,7 +14,6 @@ public class QnaBean {
 	private int QnA_REF;
 	private int QnA_LEV;
 	private int QnA_READCOUNT;
-	private String QnA_FILE;
 	
 	
 	public String getQnA_MEMBER_ID() {
@@ -76,11 +75,5 @@ public class QnaBean {
 	}
 	public void setQnA_READCOUNT(int qnA_READCOUNT) {
 		QnA_READCOUNT = qnA_READCOUNT;
-	}
-	public String getQnA_FILE() {
-		return QnA_FILE;
-	}
-	public void setQnA_FILE(String qnA_FILE) {
-		QnA_FILE = qnA_FILE;
 	}
 }

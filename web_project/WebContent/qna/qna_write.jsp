@@ -24,20 +24,20 @@
    <div width="100%" align="center">
       <h3>QnA 글쓰기</h3>
       <form name="qna_write_form" method="post" action="./QnaWriteAction.html">
-         <input type="hidden" name="qna_MEMBER_ID" value="<%=MEMBER_ID %>"/>
+         <input type="hidden" name="QNA_MEMBER_ID" value="<%=MEMBER_ID %>"/>
          <table>
             <tr>
-               <td><input name="qna_SUBJECT" type="text"
+               <td><input name="QNA_SUBJECT" type="text"
                   placeholder="제목을 입력하세요." size="100%" />
                <p></td>
             </tr>
 
             <TR>
-               <td><textarea name="qna_CONTENT" id="contents">
+               <td><textarea name="QNA_CONTENT" id="contents">
               </textarea></td>
             </TR>
             <tr>
-               <td><input type="button" value="글등록" onclick="qna_write_chek()"> <input
+               <td><input type="button" value="글등록" onclick="qna_write_check()"> <input
                   type="reset" value="취소"> <a href="./qna_list.html">목록보기</a></td>
             </tr>
          </table>
