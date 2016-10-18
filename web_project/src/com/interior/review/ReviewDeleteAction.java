@@ -28,7 +28,7 @@ public class ReviewDeleteAction implements Action {
 		System.out.println("Review 게시판 글 삭제 완료");
 
 		forward.setRedirect(true);
-		forward.setPath("./review/review_list.html");
+		forward.setPath("./review_list.html");
 		return forward;
 	}
 }

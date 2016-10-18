@@ -20,9 +20,9 @@ public class ReviewWriteAction implements Action {
 
 		try {
 
-			reviewdata.setREVIEW_MEMBER_ID("REVIEW_MEMBER_ID");
-			reviewdata.setREVIEW_SUBJECT("REIVEW_SUBJECT");
-			reviewdata.setREVIEW_CONTENT("REVIEW_CONTENT");
+			reviewdata.setREVIEW_MEMBER_ID((String)request.getParameter("REVIEW_MEMBER_ID"));
+			reviewdata.setREVIEW_SUBJECT((String)request.getParameter("REVIEW_SUBJECT"));
+			reviewdata.setREVIEW_CONTENT((String)request.getParameter("REVIEW_CONTENT"));
 
 			result = reviewdao.reviewInsert(reviewdata);
 
@@ -34,7 +34,7 @@ public class ReviewWriteAction implements Action {
 			System.out.println("Review 게시판 등록 완료");
 
 			forward.setRedirect(true);
-			forward.setPath("./review/review_write.html");
+			forward.setPath("./review_list.html");
 			return forward;
 		} catch (Exception e) {
 			e.printStackTrace();
