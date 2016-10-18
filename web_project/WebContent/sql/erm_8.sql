@@ -161,7 +161,6 @@ CREATE TABLE REVIEW
 	REVIEW_DATE date,
 	REVIEW_NUM number(10),
 	REVIEW_SEQ number(5),
-	REVIEW_LEV number(5)
 );
 
 

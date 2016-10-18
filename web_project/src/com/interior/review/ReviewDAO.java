@@ -98,8 +98,6 @@ public class ReviewDAO {
 				review.setREVIEW_NUM(rs.getInt("REVIEW_NUM"));
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
 				review.setREVIEW_SEQ(rs.getInt("REVIEW_SEQ"));
-				review.setREVIEW_REF(rs.getInt("REVIEW_REF"));
-				review.setREVIEW_LEV(rs.getInt("REVIEW_LEV"));
 				review.setREVIEW_MEMBER_ID(rs.getString("REVIEW_MEMBER_ID"));
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
@@ -144,9 +142,9 @@ public class ReviewDAO {
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
 		"(select rownum rnum, review_num, review_member_id, review_member_name," +
-		"review_subject, review_content, review_ref, review_seq, review_readcount," +
-		"review_lev, review_date from " +
-		"(review_ref desc, review_seq asc)) " +
+		"review_subject, review_content, review_seq, review_readcount," +
+		"review_date from " +
+		"(select * from review order by review_date desc)) " +
 		"where rnum>=? and rnum<=?";
 		
 		List list = new ArrayList();
@@ -165,8 +163,6 @@ public class ReviewDAO {
 				ReviewBean review = new ReviewBean();
 				review.setREVIEW_NUM(rs.getInt("REVIEW_NUM"));
 				review.setREVIEW_SEQ(rs.getInt("REVIEW_SEQ"));
-				review.setREVIEW_REF(rs.getInt("REVIEW_REF"));
-				review.setREVIEW_LEV(rs.getInt("REVIEW_LEV"));
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
 				review.setREVIEW_MEMBER_ID(rs.getString("REVIEW_MEMBER_ID"));
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
@@ -225,11 +221,8 @@ public class ReviewDAO {
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
 				review.setREVIEW_CONTENT(rs.getString("REVIEW_CONTENT"));
-				review.setREVIEW_FILE(rs.getString("REVIEW_CONTENT"));
 				review.setREVIEW_READCOUNT(rs.getInt("REVIEW_READCOUNT"));
 				review.setREVIEW_SEQ(rs.getInt("REVIEW_SEQ"));
-				review.setREVIEW_LEV(rs.getInt("REVIEW_LEV"));
-				review.setREVIEW_REF(rs.getInt("REVIEW_REF"));
 				review.setREVIEW_DATE(rs.getDate("REVIEW_DATE"));
 			}
 			return review;
