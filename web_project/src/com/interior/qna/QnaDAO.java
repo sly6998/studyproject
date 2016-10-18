@@ -258,8 +258,9 @@ public class QnaDAO {
 			pstmt.setInt(1, num);
 			result = pstmt.executeUpdate();
 			if(result==0){
-				return true;
+				return false;
 			}
+			return true;
 		}catch(Exception e){
 			System.out.println("qnadelete error : "+e);
 		}finally{
