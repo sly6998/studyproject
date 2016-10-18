@@ -29,7 +29,7 @@ public class ReviewModifyView implements Action {
 	    
 	    request.setAttribute("reviewdata", reviewdata);
 	    forward.setRedirect(false);
-	    forward.setPath("./review/review_modify.jsp");
+	    forward.setPath("./review/review_modify_view.jsp");
 	    
 	    return forward;
 	  }
