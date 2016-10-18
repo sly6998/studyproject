@@ -55,8 +55,8 @@
    <tr align="center" valign="middle">
     <td colspan="5">
      <font size=2>
-      <a href="./qna_modify_view.html?qna_NUM=<%=qna.getQnA_NUM() %>">[수정]</a>&nbsp;&nbsp;
-      <a href="./QnaDeleteAction.html?qna_NUM=<%=qna.getQnA_NUM() %>">[삭제]</a>&nbsp;&nbsp;
+      <a href="./qna_modify_view.html?QNA_NUM=<%=qna.getQnA_NUM() %>">[수정]</a>&nbsp;&nbsp;
+      <a href="./QnaDeleteAction.html?QNA_NUM=<%=qna.getQnA_NUM() %>">[삭제]</a>&nbsp;&nbsp;
       <a href="./qna_list.html">[목록]</a>&nbsp;&nbsp;
      </font>
     </td>
