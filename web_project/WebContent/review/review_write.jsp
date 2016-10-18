@@ -27,13 +27,13 @@
          <input type="hidden" name="REIVEW_MEMBER_ID" value="<%=MEMBER_ID %>"/>
          <table>
             <tr>
-               <td><input name="REIVEW_SUBJECT" type="text"
+               <td><input name="REVIEW_SUBJECT" type="text"
                   placeholder="제목을 입력하세요." size="100%" />
                <p></td>
             </tr>
 
             <TR>
-               <td><textarea name="REIVEW_CONTENT" id="contents">
+               <td><textarea name="REVIEW_CONTENT" id="contents">
               </textarea></td>
             </TR>
             <tr>
