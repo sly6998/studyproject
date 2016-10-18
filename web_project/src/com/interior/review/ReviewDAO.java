@@ -104,7 +104,6 @@ public class ReviewDAO {
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_SUBJECT"));
 				review.setREVIEW_CONTENT(rs.getString("REVIEW_CONTENT"));
-				review.setREVIEW_FILE(rs.getString("REVIEW_FILE"));
 				review.setREVIEW_DATE(rs.getDate("REVIEW_DATE"));
 			}
 			return review;
@@ -146,7 +145,7 @@ public class ReviewDAO {
 		String sql = "select * from " +
 		"(select rownum rnum, review_num, review_member_id, review_member_name," +
 		"review_subject, review_content, review_ref, review_seq, review_readcount," +
-		"review_lev, review_file, review_date from " +
+		"review_lev, review_date from " +
 		"(review_ref desc, review_seq asc)) " +
 		"where rnum>=? and rnum<=?";
 		
@@ -173,7 +172,6 @@ public class ReviewDAO {
 				review.setREVIEW_MEMBER_NAME(rs.getString("REVIEW_MEMBER_NAME"));
 				review.setREVIEW_SUBJECT(rs.getString("REVIEW_MEMBER_SUBJECT"));
 				review.setREVIEW_CONTENT(rs.getString("REVIEW_CONTENT"));
-				review.setREVIEW_FILE(rs.getString("REVIEW_FILE"));
 				list.add(review);
 			}
 			return list;
@@ -263,8 +261,8 @@ public class ReviewDAO {
 			}
 			
 			sql="insert into review (review_num, review_member_id, review_member_name,";
-			sql+="review_subject, review_content, review_file, review_ref, review_lev,"+
-				"review_seq, review_readcount, review_date) values(review_seq.nextval,?,?,?,?,?,?,?,?,?,sysdate)";
+			sql+="review_subject, review_content, review_ref, review_lev,"+
+				"review_seq, review_readcount, review_date) values(review_seq.nextval,?,?,?,?,?,?,?,?,sysdate)";
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
@@ -272,11 +270,10 @@ public class ReviewDAO {
 			pstmt.setString(3, reviewdata.getREVIEW_MEMBER_NAME());
 			pstmt.setString(4, reviewdata.getREVIEW_SUBJECT());
 			pstmt.setString(5, reviewdata.getREVIEW_CONTENT());
-			pstmt.setString(6, reviewdata.getREVIEW_FILE());
+			pstmt.setInt(6, num);
 			pstmt.setInt(7, num);
 			pstmt.setInt(8, num);
 			pstmt.setInt(9, num);
-			pstmt.setInt(10, num);
 			
 			result=pstmt.executeUpdate();
 			if(result==0){
