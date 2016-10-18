@@ -29,7 +29,7 @@ public class QnaDeleteAction implements Action {
 		System.out.println("QnA게시판 글 삭제 완료");
 
 		forward.setRedirect(true);
-		forward.setPath("./qna/qna_list.html");
+		forward.setPath("./qna_list.html");
 		return forward;
 	}
 }

@@ -18,7 +18,7 @@
   int endpage = ((Integer)request.getAttribute("endpage")).intValue();
 %>
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <title></title>
 <meta charset="utf-8">
