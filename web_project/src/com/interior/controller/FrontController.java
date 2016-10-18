@@ -275,7 +275,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		} else if (command.equals("/review_write.html")) {// review 게시판 글쓰기 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
-			forward.setPath("./review/qna_write.jsp");
+			forward.setPath("./review/review_write.jsp");
 			
 		} else if (command.equals("/ReviewWriteAction.html")) {// review 게시판 글쓰기 action
 			action = new ReviewWriteAction();
