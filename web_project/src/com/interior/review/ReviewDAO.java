@@ -208,8 +208,9 @@ public class ReviewDAO {
 		ReviewBean review = null;
 		try{
 			con=ds.getConnection();
-			pstmt = con.prepareStatement("select * from noti where REVIEW_NUM=?");
+			pstmt = con.prepareStatement("select * from review where REVIEW_NUM=?");
 			pstmt.setInt(1, num);
+			
 			
 			rs=pstmt.executeQuery();
 			
