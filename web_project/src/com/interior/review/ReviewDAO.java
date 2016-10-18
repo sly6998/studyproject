@@ -261,7 +261,7 @@ public class ReviewDAO {
 			pstmt.setString(2, reviewdata.getREVIEW_MEMBER_NAME());
 			pstmt.setString(3, reviewdata.getREVIEW_SUBJECT());
 			pstmt.setString(4, reviewdata.getREVIEW_CONTENT());
-			pstmt.setInt(5, num);
+			pstmt.setInt(5, reviewdata.getREVIEW_READCOUNT());
 			
 			result=pstmt.executeUpdate();
 			if(result==0){
