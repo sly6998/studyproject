@@ -141,6 +141,15 @@
 	  </div>
 	</div>
 </div>
+<!-- id찾기 모달_결과 -->
+<div class="container">
+	<div class="modal fade" id="idModal_result" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	    </div>
+	  </div>
+	</div>
+</div>
 <!-- pw찾기 모달 -->
 <div class="container">
 	<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >

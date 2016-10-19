@@ -45,7 +45,7 @@ public class MemberJoinAction implements Action {
 	    
 	    //회원가입 성공
 	    forward.setRedirect(true);
-	    forward.setPath("./login.html");
+	    forward.setPath("./mainpage.html");
 	    return forward;
 	}
 }

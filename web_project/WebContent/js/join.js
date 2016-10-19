@@ -54,7 +54,6 @@ function infocus(element){
 	 var id_re =  /^[A-za-z0-9]{5,15}/g;
 	 var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
 	/* 특수문자 / 문자 / 숫자 포함 형태의 8~15자리 이내의 암호 정규식 */
-	
 	 if(el_id == 'MEMBER_NAME'){
 		 if(el_v == '' || !name_re.test(el_v)){
 			 $('#name_cl').collapse('show');
@@ -86,7 +85,7 @@ function infocus(element){
 			 element.style.borderBottomColor='red';
 			 return;
 		 }
-	 }else if(el_id == 'MEMBER_ZIP'){
+	 }/*else if(el_id == 'MEMBER_ADDR_ZIP'){
 		 if(el_v == ''){
 			 $('#zip_cl').collapse('show');
 			 element.style.borderBottomColor='red';
@@ -98,7 +97,7 @@ function infocus(element){
 			 element.style.borderBottomColor='red';
 			 return;
 		 }
-	 }else if(el_id == 'MEMBER_ADDR_2'){
+	 }*/else if(el_id == 'MEMBER_ADDR_2'){
 		 if(el_v == ''){
 			 $('#addr2_cl').collapse('show');
 			 element.style.borderBottomColor='red';
@@ -122,6 +121,7 @@ function infocus(element){
 	 
 	 var el_id = element.id;// Element id
 	 var el_v = element.value;// Element value
+	 
 	 
 	 if(el_id == 'MEMBER_NAME'){
 		 if(el_v == '' || !name_re.test(el_v)){
@@ -200,36 +200,36 @@ function infocus(element){
 	 var id_re =  /^[A-za-z0-9]{5,15}/g;
 	 var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
  
- 
-	if(document.getElementById('MEMBER_NAME').value=='' || !name_re.test(document.getElementById('MEMBER_NAME').value)){
-		alert('이름을 형식에 맞게 입력하여 주세요.');
-		return;
-	}else if(document.getElementById('MEMBER_ID').value=='' || !id_re.test(document.getElementById('MEMBER_ID').value)){
-		alert('아이디를 형식에 맞게 입력하여 주세요.');
-		return;
+	 if(document.getElementById('MEMBER_ID').value=='' || !id_re.test(document.getElementById('MEMBER_ID').value)){
+			alert('아이디를 형식에 맞게 입력하여 주세요.');
+			document.getElementById('MEMBER_ID').value='';
+			document.getElementById('MEMBER_ID').focus();
 	}else if(document.getElementById('id_isChk').value == 1){
 		alert('아이디를 중복 체크하여 주세요.');
-		return;
+	}else if(document.getElementById('MEMBER_NAME').value=='' || !name_re.test(document.getElementById('MEMBER_NAME').value)){
+		alert('이름을 형식에 맞게 입력하여 주세요.');
+		document.getElementById('MEMBER_NAME').value='';
+		document.getElementById('MEMBER_NAME').focus();
 	}else if(document.getElementById('MEMBER_PWD').value==''||document.getElementById('MEMBER_PWD2').value=='' || document.getElementById('MEMBER_PWD').value != document.getElementById('MEMBER_PWD2').value || !pwd_re.test(document.getElementById('MEMBER_PWD').value)){
 		alert('비밀번호를 형식에 맞게 입력하여 주세요.');
-		return;
-	}else if(document.getElementById('MEMBER_ADDR_ZIP').value==''||document.getElementById('MEMBER_ADDR_1').value==''||document.getElementById('MEMBER_ADDR_2').value==''){
-		alert('주소를 입력하여 주세요.');
-		return;
+		document.getElementById('MEMBER_PWD').value='';
+		document.getElementById('MEMBER_PWD2').value='';
+		document.getElementById('MEMBER_PWD').focus();
+		
 	}else if(document.getElementById('MEMBER_TEL').value==''|| !tel_re.test(document.getElementById('MEMBER_TEL').value)){
 		alert('전화번호를 형식에 맞게 입력하여 주세요.');
-		return;
+		document.getElementById('MEMBER_TEL').value='';
+		document.getElementById('MEMBER_TEL').focus();
 	}else if($(':input[name=MEMBER_GENDER]:radio:checked').val()!='남자'&&$(':input[name=MEMBER_GENDER]:radio:checked').val()!='여자'){
 		alert('성별을 선택하여 주세요.');
-		return;
+	}else if(document.getElementById('MEMBER_ADDR_ZIP').value==''||document.getElementById('MEMBER_ADDR_1').value==''||document.getElementById('MEMBER_ADDR_2').value==''){
+		alert('주소를 입력하여 주세요.');
+		document.getElementById('MEMBER_ADDR_ZIP').value='';
+		document.getElementById('MEMBER_ADDR_1').value='';
+		document.getElementById('MEMBER_ADDR_2').value='';
+		document.getElementById('MEMBER_ADDR_ZIP').focus();
 	}else if(document.joinform.MEMBER_YEAR.value==''|| document.joinform.MEMBER_MONTH.value==''|| document.joinform.MEMBER_DAY.value==''){
 		alert('생년월일을 선택하여 주세요.');
-		return;
-	}else if(document.joinform.MEMBER_ID.value != old_id){
-		console.log(old_id+" b");
-		alert('아이디를 중복 체크하여 주세요1');
-		
-		return;
 	}else{
 		document.getElementById('joinform').submit();
 	}
@@ -253,10 +253,6 @@ function infocus(element){
 		 
 	 }else{
 		 opener.joinform.id_isChk.value = result;
-		 
-		 old_id = opener.joinform.MEMBER_ID.value;
-		 console.log(old_id +" a");
-		 console.log(opener.joinform.MEMBER_ID.value + " b");
 	 }
 	 window.close();
  }

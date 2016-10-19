@@ -92,30 +92,30 @@ public class MemberDAO {
 		return result;
 	}
 
-	public List IDfind(MemberBean member) { // 이메일 찾기 action
+	public MemberBean IDfind(MemberBean member) { // 아이디 찾기 action
 		// TODO Auto-generated method stub
 		String sql = "select * from member_info where member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
-		List IDfind = new ArrayList();
+		MemberBean mb = new MemberBean();
 		
 		try{
 			con=ds.getConnection();
 			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, member.getMEMBER_NAME());
+			pstmt.setString(2, member.getMEMBER_TEL());
+			pstmt.setInt(3, member.getMEMBER_YEAR());
+			pstmt.setInt(4, member.getMEMBER_MONTH());
+			pstmt.setInt(5, member.getMEMBER_DAY());
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
-				MemberBean mb = new MemberBean();
-				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
-				mb.setMEMBER_YEAR(rs.getInt("MEMBER_YEAR"));
-				mb.setMEMBER_MONTH(rs.getInt("MEMBER_MONTH"));
-				mb.setMEMBER_DAY(rs.getInt("MEMBER_DAY"));
-				
-				IDfind.add(mb);
-				
+				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
+			}else if(!rs.next()){
+				mb.setMEMBER_ID("");
 			}else{
 				System.out.println("god damn");
+				return null;
 			}
-			return IDfind;
+			return mb;
 		}catch(Exception e){
 			System.out.println("IDfind error : "+e);
 		}finally{

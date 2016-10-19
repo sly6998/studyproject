@@ -13,7 +13,7 @@
 <script src="<%=request.getContextPath()%>/js/jquery.galleriffic.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/js/jquery.opacityrollover.js" type="text/javascript"></script>
 <script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>
-<script src="<%=request.getContextPath()%>/js/join.js"></script>
+
 </head>
 <body id="page1">
 	<%@ include file="./header.jsp"%>

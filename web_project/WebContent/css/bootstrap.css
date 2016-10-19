@@ -2985,6 +2985,13 @@ select[multiple].form-group-lg .form-control {
   border: 1px solid transparent;
   border-radius: 4px;
 }
+.btn-default-1 {
+  color: #333;
+  background-color: #ccc;
+  border-color: #ccc;
+
+}
+
 .btn:focus,
 .btn:active:focus,
 .btn.active:focus,
