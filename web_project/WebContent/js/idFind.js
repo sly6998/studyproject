@@ -62,11 +62,7 @@ function infocus(element){
 	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
 	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
  
-	 if(document.getElementById('MEMBER_ID').value=='' || !id_re.test(document.getElementById('MEMBER_ID').value)){
-			alert('아이디를 형식에 맞게 입력하여 주세요.');
-			document.getElementById('MEMBER_ID').value='';
-			document.getElementById('MEMBER_ID').focus();
-	}else if(document.getElementById('MEMBER_NAME').value=='' || !name_re.test(document.getElementById('MEMBER_NAME').value)){
+	if(document.getElementById('MEMBER_NAME').value=='' || !name_re.test(document.getElementById('MEMBER_NAME').value)){
 		alert('이름을 형식에 맞게 입력하여 주세요.');
 		document.getElementById('MEMBER_NAME').value='';
 		document.getElementById('MEMBER_NAME').focus();
@@ -77,9 +73,21 @@ function infocus(element){
 	}else if(document.id_search_form.MEMBER_YEAR.value==''|| document.id_search_form.MEMBER_MONTH.value==''|| document.id_search_form.MEMBER_DAY.value==''){
 		alert('생년월일을 선택하여 주세요.');
 	}else{
-		document.getElementById('id_search_form').submit();
+		var name = document.getElementsByName("MEMBER_NAME")[0].value;
+		var tel = document.getElementsByName("MEMBER_TEL")[0].value;
+		var year = document.getElementsByName("MEMBER_YEAR")[0].value;
+		var month = document.getElementsByName("MEMBER_MONTH")[0].value;
+		var day = document.getElementsByName("MEMBER_DAY")[0].value;
+		
+		window.open("./MemberFindIDAction.html?MEMBER_NAME="+name+"&MEMBER_TEL="+tel+"&MEMBER_YEAR="+year+"&MEMBER_MONTH="+month+"&MEMBER_DAY="+day,"",'left='+(screen.availWidth-300)/2+',top='+(screen.availHeight-120)/4+', width=300,height=120px');
+		
 	}
 	 
+ }
+ 
+ 
+ function result_close(){
+	 window.close();
  }
 
 
