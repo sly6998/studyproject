@@ -19,8 +19,6 @@ public class MemberFindPWDAction implements Action {
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean member = new MemberBean();
 
-		int result = 1;
-
 		member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
 		member.setMEMBER_NAME(request.getParameter("MEMBER_NAME"));
 		member.setMEMBER_TEL(request.getParameter("MEMBER_TEL"));
@@ -28,32 +26,24 @@ public class MemberFindPWDAction implements Action {
 		member.setMEMBER_MONTH(Integer.parseInt(request.getParameter("MEMBER_MONTH")));
 		member.setMEMBER_DAY(Integer.parseInt(request.getParameter("MEMBER_DAY")));
 		
-		
-		memberdao.pwdfind(member);
+		member = memberdao.pwdfind(member);
 
-		if (result == 0) {
+		if (!(member.getMEMBER_PWD().equals("")) || member.getMEMBER_PWD() != null) {
 
-			String pwd = (String) request.getAttribute("MEMBER_PWD");
+			String pwd = (String) member.getMEMBER_PWD();
 
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('회원님의 비밀번호는 '+pwd+' 입니다.');");
-			out.println("location.href='./login.html';");
-			out.println("</script>");
-			out.close();
-			return null;
-		} else if (result == -1) {
-			response.setContentType("text/html;charset=utf-8");
-			PrintWriter out = response.getWriter();
-			out.println("<script>");
-			out.println("alert('가입되지 않은 회원정보 입니다.');");
-			out.println("location.href='./login.html';");
-			out.println("</script>");
-			out.close();
-			return null;
+			forward.setRedirect(false);
+			request.setAttribute("pwd", pwd);
+		    forward.setPath("./member/member_pwdfind_result.jsp");
+			return forward;
+		} else if (member.getMEMBER_PWD().equals("")) {
+			forward.setRedirect(true);
+		    forward.setPath("./member/member_pwdfind_result.jsp");
+			return forward;
 		}
-		System.out.println("비밀번호 찾기 오류");
+		else{
+		System.out.println("패스워드 찾기 시스템 오류");
+		}
 		return null;
 	}
 }
