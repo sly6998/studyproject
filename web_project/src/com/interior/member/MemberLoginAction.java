@@ -2,6 +2,7 @@ package com.interior.member;
 
 import java.io.PrintWriter;
 
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -21,6 +22,7 @@ public class MemberLoginAction implements Action {
 	    MemberBean member = new MemberBean();
 	    
 	    int result = -1;
+	    boolean save_cookie = Boolean.parseBoolean(request.getParameter("save_id"));
 	    
 	    member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
 	    member.setMEMBER_PWD(request.getParameter("MEMBER_PWD"));
@@ -32,7 +34,7 @@ public class MemberLoginAction implements Action {
 	      PrintWriter out =response.getWriter();
 	      out.println("<script>");
 	      out.println("alert('비밀번호가 일치하지 않습니다.');");
-	      out.println("location.href='./login.html';");
+	      out.println("location.href='./mainpage.html';");
 	      out.println("</script>");
 	      out.close();
 	      return null;
@@ -40,8 +42,8 @@ public class MemberLoginAction implements Action {
 	      response.setContentType("text/html;charset=utf-8");
 	      PrintWriter out =response.getWriter();
 	      out.println("<script>");
-	      out.println("alert('이메일이 존재하지 않습니다.');");
-	      out.println("location.href='./login.html';");
+	      out.println("alert('아이디가 존재하지 않습니다.');");
+	      out.println("location.href='./mainpage.html';");
 	      out.println("</script>");
 	      out.close();
 	      return null;
@@ -49,6 +51,18 @@ public class MemberLoginAction implements Action {
 	    //로그인 성공
 	    session.setAttribute("MEMBER_ID", member.getMEMBER_ID());
 	    System.out.println("로그인 성공");
+	    
+		if(save_cookie==true){
+			Cookie cookie = new Cookie("save_id",member.getMEMBER_ID());
+			cookie.setMaxAge(60*60*24*30);//한달
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		}else{
+			Cookie cookie = new Cookie("save_id",null);
+			cookie.setMaxAge(0);
+			cookie.setPath("/");
+			response.addCookie(cookie);
+		}
 	    forward.setRedirect(true);
 	    forward.setPath("./mainpage.html");
 	    return forward;

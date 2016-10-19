@@ -1,8 +1,21 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<%
+	request.setCharacterEncoding("utf-8");
+	Cookie[] cookie = request.getCookies();
+	String save_id = "";
+	if (cookie != null) {
+		for (int i = 0; i < cookie.length; i++) {
+			if ("save_id".equals(cookie[i].getName().trim())) {
+				save_id = cookie[i].getValue();
+			}
+		}
+	}
+%>
 <!DOCTYPE html>
 <html>
 <head>
+<script src="<%=request.getContextPath()%>/js/login.js"></script>
 <title></title>
 <meta charset="utf-8">
 <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
@@ -18,17 +31,17 @@
 				<div class="main-login-form">
 					<div class="login-group">
 						<div class="form-group">
-							<input type="text" class="form-control" name="MEMBER_ID" id="MEMBER_ID" placeholder="userID">
+							<input type="text" class="form-control" name="MEMBER_ID" id="MEMBER_ID" placeholder="userID" value="<%=save_id%>">
 						</div>
 						<div class="form-group">
 							<input type="password" class="form-control" name="MEMBER_PWD" id="MEMBER_PWD" placeholder="password">
 						</div>
 						<div class="form-group login-group-checkbox">
-							<input type="checkbox" id="lg_remember" name="lg_remember">
-							<label for="lg_remember">remember ID</label>
+							<input type="checkbox" id="save_id" name="save_id" <%="".equals(save_id) ? "" : "checked"%>>
+							<label for="save_id">remember ID</label>
 						</div>
 					</div>
-					<button type="submit" class="login-button">
+					<button type="button" class="login-button" onclick="login()">
 						<i class="fa fa-chevron-right"></i>
 					</button>
 				</div>
