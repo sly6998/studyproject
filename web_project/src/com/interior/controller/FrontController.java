@@ -392,9 +392,12 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		/* 주문 내역 조회 */
 			
 		} else if (command.equals("/basket_list.html")) {// 주문내역 페이지 이동
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./basket/basket_list.jsp");
+			action = new BasketListAction(); 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) { 
+				e.printStackTrace();
+			} 
 			
 		} else if (command.equals("/basket_detail.html")) {// 주문내역 상세피이지 이동 & action
 			action = new BasketDetailAction(); 
