@@ -24,7 +24,7 @@ public class AdviceDetailAction implements Action {
 
 		if (advicedata == null) {
 		  System.out.println("Advice 상세보기 시스템 에러");
-		  return null;
+		  return null;   
 		}
 
 		System.out.println("Advice 상세보기 성공");
