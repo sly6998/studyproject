@@ -54,8 +54,8 @@ public class BasketDAO {
 
 	public List getBasketList(int page, int limit) {//Basket 리스트 불러오기
 		// TODO Auto-generated method stub
-		String sql = "select * from Basket " +
-		"(select rownum rnum, Basket_member_email, Basket_member_name, Basket_member_tel, Basket_content, Basket_date from " +
+		String sql = "select * from Basket where " +
+		"(select rownum rnum, Basket_member_ID, Basket_member_name from " +
 		"(select * from Basket order by " +
 		"Basket_date desc)) " +
 		"where rnum>=? and rnum<=?";
@@ -74,9 +74,9 @@ public class BasketDAO {
 			
 			while(rs.next()){
 				BasketBean basket = new BasketBean();
-				basket.setBASKET_MEMBER_ID(rs.getString("BASKET_MEMBER_EMAIL"));
+				basket.setBASKET_MEMBER_ID(rs.getString("BASKET_MEMBER_ID"));
 				basket.setBASKET_MEMBER_NAME(rs.getString("BASKET_MEMBER_NAME"));
-				basket.setBASKET_DATE(rs.getDate("BASKET_DATE"));
+				
 				list.add(basket);
 			}
 			
