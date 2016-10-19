@@ -125,7 +125,7 @@
 		</td>
 		
 		<td colspan="2" align="right">
-		<a href=""> 글쓰기(관리자용)</a>
+		<a href="./mainpage.html"> 메인페이지로 </a>
 		</td>
 	</tr>
 	

@@ -39,6 +39,9 @@ import com.interior.review.ReviewListAction;
 import com.interior.review.ReviewModifyAction;
 import com.interior.review.ReviewModifyView;
 import com.interior.review.ReviewWriteAction;
+import com.interior.basket.BasketDetailAction;
+import com.interior.basket.BasketListAction;
+
 
 @WebServlet("/ForntController")
 public class FrontController extends javax.servlet.http.HttpServlet implements javax.servlet.Servlet {
@@ -385,6 +388,21 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
+		/* 주문 내역 조회 */
+			
+		} else if (command.equals("/basket_list.html")) {// 주문내역 페이지 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./basket/basket_list.jsp");
+			
+		} else if (command.equals("/basket_detail.html")) {// 주문내역 상세피이지 이동 & action
+			action = new BasketDetailAction(); 
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) { 
+				e.printStackTrace();
+			} 
 
 		} else if (command.equals("")) {
 

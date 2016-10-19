@@ -16,6 +16,12 @@ public class BasketBean {
 	private String BASKET_ITEM_MODEL;
 	
 	
+	public String getBASKET_MEMBER_ID() {
+		return BASKET_MEMBER_ID;
+	}
+	public void setBASKET_MEMBER_ID(String bASKET_MEMBER_ID) {
+		BASKET_MEMBER_ID = bASKET_MEMBER_ID;
+	}
 	public String getBASKET_MEMBER_EMAIL() {
 		return BASKET_MEMBER_ID;
 	}
