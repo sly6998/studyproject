@@ -25,7 +25,7 @@
 					  } else if (id.equals("admin")) {
 					%>
 					<a href="#">회원관리</a>
-					<a href="#">주문조회</a>
+					<a href="./basket/basket_list.html">주문조회</a>
 					<a href="#">상담조회</a>
 					<a href="#">마이페이지</a>
 					<a href="#">로그아웃</a>
