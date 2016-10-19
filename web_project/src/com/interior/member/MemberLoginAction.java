@@ -54,7 +54,7 @@ public class MemberLoginAction implements Action {
 	    
 		if(save_cookie==true){
 			Cookie cookie = new Cookie("save_id",member.getMEMBER_ID());
-			cookie.setMaxAge(60*60*24*30);//한달
+			cookie.setMaxAge(60*60*24*7);//일주일
 			cookie.setPath("/");
 			response.addCookie(cookie);
 		}else{
