@@ -9,7 +9,6 @@
 				if(session.getAttribute("MEMBER_ID")!=null){
 					id=(String)session.getAttribute("MEMBER_ID");
 				}
-			
 			%>
 			<div align="right"
 				style="width: 90%; margin-bottom: 10px; margin-top: 10px">
@@ -28,12 +27,12 @@
 					<a href="./basket_list.html">주문조회</a>
 					<a href="#">상담조회</a>
 					<a href="#">마이페이지</a>
-					<a href="#">로그아웃</a>
+					<a href="./logout.html">로그아웃</a>
 					<%
 					  } else {
 					%>
 					<a href="#">마이페이지</a>
-					<a href="#">로그아웃</a>
+					<a href="./logout.html">로그아웃</a>
 					<%
 					  }
 					%>

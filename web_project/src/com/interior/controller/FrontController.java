@@ -69,10 +69,10 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./page/login.jsp");
-
-			
-			
-			
+		} else if (command.equals("/logout.html")) {// 로그아웃페이지 이동
+			forward = new ActionForward();
+			forward.setRedirect(false);
+			forward.setPath("./page/logout.jsp");
 			
 		/* MEMBER */
 
