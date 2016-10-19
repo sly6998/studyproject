@@ -9,10 +9,9 @@
 
 
 <div class="text-center" style="padding:50px 0">
-	<div class="member_logo">ID Search</div>
+	<div class="member_logo">Search</div>
 	<div class="login-form-1">
 		<form id="id_search_form" name="id_search_form" class="text-left" method="post" action="./MemberFindIDAction.html">
-			<input type="hidden" id="id_isChk" name="id_isChk" value="1" />
 			<div class="login-form-main-message"></div>
 			<div class="main-login-form">
 				<div class="login-group">

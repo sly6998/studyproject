@@ -126,33 +126,33 @@ public class MemberDAO {
 		return null;
 	}
 
-	public List pwdfind(MemberBean member) { // 비밀번호 찾기 action
+	public MemberBean pwdfind(MemberBean member) { // 비밀번호 찾기 action
 		// TODO Auto-generated method stub
 		String sql = "select * from member_info where member_ID=? and member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
-		List pwdfind = new ArrayList();
+		MemberBean mb = new MemberBean();
 		
 		try{
 			con=ds.getConnection();
 			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, member.getMEMBER_ID());
+			pstmt.setString(2, member.getMEMBER_NAME());
+			pstmt.setString(3, member.getMEMBER_TEL());
+			pstmt.setInt(4, member.getMEMBER_YEAR());
+			pstmt.setInt(5, member.getMEMBER_MONTH());
+			pstmt.setInt(6, member.getMEMBER_DAY());
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
-				MemberBean mb = new MemberBean();
-				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-				mb.setMEMBER_TEL(rs.getString("MEMBER_TEL"));
-				mb.setMEMBER_YEAR(rs.getInt("MEMBER_YEAR"));
-				mb.setMEMBER_MONTH(rs.getInt("MEMBER_MONTH"));
-				mb.setMEMBER_DAY(rs.getInt("MEMBER_DAY"));
-				
-				pwdfind.add(mb);
-				
+				mb.setMEMBER_PWD(rs.getString("MEMBER_PWD"));
+			}else if(!rs.next()){
+				mb.setMEMBER_PWD("");
 			}else{
 				System.out.println("god damn");
+				return null;
 			}
-			return pwdfind;
+			return mb;
 		}catch(Exception e){
-			System.out.println("pwdfind error : "+e);
+			System.out.println("PWDfind error : "+e);
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
