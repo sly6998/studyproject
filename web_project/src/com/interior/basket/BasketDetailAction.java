@@ -18,10 +18,9 @@ public class BasketDetailAction implements Action {
 		  BasketDAO basketdao = new BasketDAO();
 		  BasketBean basketdata = new BasketBean();
 
-		  int num = Integer.parseInt(request.getParameter("BASKET_NUM"));
-		  basketdao.setReadCountUpdate(num);//조회수 업데이트
-		  basketdata = basketdao.getDetail(num);//게시글 보기
-
+		 int num = Integer.parseInt(request.getParameter("BASKET_NUM"));
+		 basketdata = basketdao.getDetail(num);//게시글 보기
+	
 		  if (basketdata == null) {
 		    System.out.println("질문게시판 상세보기 시스템 에러");
 		    return null;

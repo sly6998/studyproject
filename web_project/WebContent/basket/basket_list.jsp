@@ -51,7 +51,7 @@
 		
 		<td style="font-family:Tahoma;font-size:10pt; border:0px solid #ddd;" width=160>
 			
-			<a href="basket_detail.jsp">
+			<a href="basket_detail.html">
 			<img src="../images/sofa1.jpg" width="150" height="100">
 			</a>
 			
