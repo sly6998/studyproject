@@ -3,6 +3,7 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%@ page import="com.interior.advice.*"%>
+
 <%
   String MEMBER_ID = null;
   if (session.getAttribute("MEMBER_ID") != null) {
@@ -66,6 +67,13 @@
             height="26">
             <div align="center">상담방법</div>
          </td>
+         
+         
+         <td
+            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
+            height="26">
+            <div align="center">상담방법</div>
+         </td>
 
          <td style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
             width="400" height="26">
@@ -114,7 +122,7 @@
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border:0px solid #000;">
-           <%=bl.getADVICE_MEMBER_ID()%>
+           <%=bl.getADVICE_DATE()%>
          </td>
       </tr>
       
