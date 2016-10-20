@@ -48,13 +48,14 @@
                                                     
 <form id="contact-form" method="post" action="./AdviceWriteAction.html">                    
 <fieldset>
-                                                  
+              
 <label><div class="text-form">Name:</div><input name="ADVICE_NAME" type="text" /></label>
 <label><div class="text-form">Tel:</div><input name="ADVICE_TEL" type="text" /></label>
                                  
 <div class="wrapper">
 	<div class="text-form">Message:</div>
-	<textarea name="ADVICE_CONTENT" id="contents"></textarea>
+	<input style="height:150px; width:300px;  " name="ADVICE_CONTENT" type="text" />
+	
 </div>
 <div class="buttons">
 	<!-- <input type="button" value="글등록" onclick="document.getElementById('contact-form').submit()">  -->

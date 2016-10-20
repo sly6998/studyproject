@@ -50,7 +50,7 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">상담리스트 (관리자)</h3>
+                                                	<h3 class="p2">contact us list (관리자)</h3>
                                                     
 <form id="contact-form" method="post" enctype="multipart/form-data">                    
 <fieldset>
@@ -65,14 +65,14 @@
          <td
             style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
             height="26">
-            <div align="center">번호</div>
+            <div align="center">Num</div>
          </td>
          
          
          <td
             style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
             height="26">
-            <div align="center">상담방법</div>
+            <div align="center"> - </div>
          </td>
 
          <td style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
@@ -83,13 +83,19 @@
          <td
             style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
             width="190" height="26">
-            <div align="center">신청자(ID)</div>
+            <div align="center">Name</div>
          </td>
 
          <td
             style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
             width="100" height="26">
-            <div align="center">날짜</div>
+            <div align="center">Tel</div>
+         </td>
+
+         <td
+            style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="100" height="26">
+            <div align="center">Date</div>
          </td>
       </tr>
     
@@ -109,8 +115,7 @@
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            
-         
+            <a href=""></a>
          </td>
          
          <TD></TD>
@@ -118,7 +123,7 @@
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
             <div align="center">
-            <%=bl.getADVICE_MEMBER_ID()%>
+           <%=bl.getADVICE_TEL() %>
             </div>
          </td>
 
@@ -132,9 +137,6 @@
          }
       %>
 </table>                                                        
-
-
-                      
 </fieldset>						
 </form>                          
                                                        
