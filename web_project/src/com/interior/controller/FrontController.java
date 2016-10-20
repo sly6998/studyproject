@@ -347,7 +347,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		} else if (command.equals("/qna_modify_view.html")) {// 질문게시판 글 수정 페이지 이동 & action
 			action = new QnaModifyView();
 			try {
-				System.out.println("1");
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();

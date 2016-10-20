@@ -73,9 +73,8 @@ public class AdviceDAO {
 			
 			while(rs.next()){
 				AdviceBean advice = new AdviceBean();
-				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_ID"));
-				advice.setADVICE_MEMBER_NAME(rs.getString("ADVICE_MEMBER_NAME"));
-				advice.setADVICE_MEMBER_TEL(rs.getString("ADVICE_MEMBER_TEL"));
+				advice.setADVICE_NAME(rs.getString("ADVICE_NAME"));
+				advice.setADVICE_TEL(rs.getString("ADVICE_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));
 				advice.setADVICE_DATE(rs.getDate("ADVICE_DATE"));
 				list.add(advice);
@@ -106,9 +105,8 @@ public class AdviceDAO {
 			if(rs.next()){
 				advice = new AdviceBean();
 				advice.setADVICE_NUM(rs.getInt("ADVICE_NUM"));
-				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_ID"));
-				advice.setADVICE_MEMBER_NAME(rs.getString("ADVICE_MEMBER_NAME"));
-				advice.setADVICE_MEMBER_TEL(rs.getString("ADVICE_MEMBER_TEL"));
+				advice.setADVICE_NAME(rs.getString("ADVICE_NAME"));
+				advice.setADVICE_TEL(rs.getString("ADVICE_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));
 				advice.setADVICE_DATE(rs.getDate("ADVICE_DATE"));
 			}
@@ -156,16 +154,14 @@ public class AdviceDAO {
 		int result = 0;
 		
 		try{
-			sql = "insert into Advice (advice_NUM, advice_MEMBER_ID, advice_member_name, advice_member_tel, advice_CONTENT, advice_DATE) values (?,?,?,?,?,sysdate)";
+			sql = "insert into Advice (advice_NUM, advice_name, advice_tel, advice_CONTENT, advice_DATE) values (advice_seq.nextval,?,?,?,sysdate)";
 			
 			con=ds.getConnection();
 			
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, advicedata.getADVICE_NUM());
-			pstmt.setString(2, advicedata.getADVICE_MEMBER_ID());
-			pstmt.setString(3, advicedata.getADVICE_MEMBER_NAME());
-			pstmt.setString(4, advicedata.getADVICE_MEMBER_TEL());
-			pstmt.setString(5, advicedata.getADVICE_CONTENT());
+			pstmt.setString(1, advicedata.getADVICE_NAME());
+			pstmt.setString(2, advicedata.getADVICE_TEL());
+			pstmt.setString(3, advicedata.getADVICE_CONTENT());
 			
 			result = pstmt.executeUpdate();
 			if(result==0){

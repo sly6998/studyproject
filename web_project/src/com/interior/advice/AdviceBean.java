@@ -4,37 +4,24 @@ import java.sql.Date;
 
 public class AdviceBean {
 
-	private String ADVICE_MEMBER_ID;
-	private String ADVICE_MEMBER_NAME;
-	private String ADVICE_MEMBER_TEL;
+	private String ADVICE_NAME;
+	private String ADVICE_TEL;
 	private String ADVICE_CONTENT;
 	private Date ADVICE_DATE;
 	private int ADVICE_NUM;
 	
 	
-	public int getADVICE_NUM() {
-		return ADVICE_NUM;
+	public String getADVICE_NAME() {
+		return ADVICE_NAME;
 	}
-	public void setADVICE_NUM(int aDVICE_NUM) {
-		ADVICE_NUM = aDVICE_NUM;
+	public void setADVICE_NAME(String aDVICE_NAME) {
+		ADVICE_NAME = aDVICE_NAME;
 	}
-	public String getADVICE_MEMBER_ID() {
-		return ADVICE_MEMBER_ID;
+	public String getADVICE_TEL() {
+		return ADVICE_TEL;
 	}
-	public void setADVICE_MEMBER_ID(String aDVICE_MEMBER_ID) {
-		ADVICE_MEMBER_ID = aDVICE_MEMBER_ID;
-	}
-	public String getADVICE_MEMBER_NAME() {
-		return ADVICE_MEMBER_NAME;
-	}
-	public void setADVICE_MEMBER_NAME(String aDVICE_MEMBER_NAME) {
-		ADVICE_MEMBER_NAME = aDVICE_MEMBER_NAME;
-	}
-	public String getADVICE_MEMBER_TEL() {
-		return ADVICE_MEMBER_TEL;
-	}
-	public void setADVICE_MEMBER_TEL(String aDVICE_MEMBER_TEL) {
-		ADVICE_MEMBER_TEL = aDVICE_MEMBER_TEL;
+	public void setADVICE_TEL(String aDVICE_TEL) {
+		ADVICE_TEL = aDVICE_TEL;
 	}
 	public String getADVICE_CONTENT() {
 		return ADVICE_CONTENT;
@@ -48,4 +35,12 @@ public class AdviceBean {
 	public void setADVICE_DATE(Date aDVICE_DATE) {
 		ADVICE_DATE = aDVICE_DATE;
 	}
+	public int getADVICE_NUM() {
+		return ADVICE_NUM;
+	}
+	public void setADVICE_NUM(int aDVICE_NUM) {
+		ADVICE_NUM = aDVICE_NUM;
+	}
+	
+	
 }

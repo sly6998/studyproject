@@ -20,9 +20,8 @@ public class AdviceWriteAction implements Action {
 
 		try {
 			
-			advicedata.setADVICE_MEMBER_ID((String)request.getParameter("ADVICE_MEMBER_ID"));
-			advicedata.setADVICE_MEMBER_NAME((String)request.getParameter("ADVICE_MEMBER_NAME"));
-			advicedata.setADVICE_MEMBER_TEL((String)request.getParameter("ADVICE_MEMBER_TEL"));
+			advicedata.setADVICE_NAME((String)request.getParameter("ADVICE_MEMBER_NAME"));
+			advicedata.setADVICE_TEL((String)request.getParameter("ADVICE_MEMBER_TEL"));
 			advicedata.setADVICE_CONTENT((String)request.getParameter("ADVICE_CONTENT"));
 
 			result = advicedao.AdviceInsert(advicedata);
