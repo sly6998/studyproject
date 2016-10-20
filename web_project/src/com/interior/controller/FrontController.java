@@ -8,6 +8,7 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+import com.interior.advice.AdviceDeleteAction;
 import com.interior.advice.AdviceDetailAction;
 import com.interior.advice.AdviceListAction;
 import com.interior.member.MemberDeleteAction;
@@ -370,24 +371,35 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			
 		/* 상담신청 */
 
-		} else if (command.equals("/advice_request.html")) {// 상담신청 페이지 이동
+		} else if (command.equals("/advice_request.html")) { // 상담신청 페이지 이동
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./advice/advice_request.jsp");
-		} else if (command.equals("/AdviceList.html")) {//상담신청 리스트 페이지 이동(관리자)
+		} else if (command.equals("/AdviceList.html")) { //상담신청 리스트 페이지 이동(관리자)
 			action = new AdviceListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/AdviceList.html")) {//상담신청 글 상세보기 (관리자)
+		} else if (command.equals("/AdviceList.html")) { //상담신청 글 상세보기 (관리자)
 			action = new AdviceDetailAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+		} else if (command.equals("/AdviceDeleteAction.html")) { // 상담신청 글 삭제(관리자)
+			action = new AdviceDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
+			
+			
 			
 		/* 주문 내역 조회 */
 			
@@ -397,7 +409,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 				forward = action.execute(request, response);
 			} catch (Exception e) { 
 				e.printStackTrace();
-			} 
+			}
 			
 		} else if (command.equals("/basket_detail.html")) {// 주문내역 상세피이지 이동 & action
 			action = new BasketDetailAction(); 
