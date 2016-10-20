@@ -2,15 +2,13 @@
     pageEncoding="UTF-8"%>
     <%
   String MEMBER_ID = null;
-
-
+  String MEMBER_NAME = null;
+  String MEMBER_TEL = null;
   if (session.getAttribute("MEMBER_ID") != null) {
   MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
  
   }
-  
-
-    %>
+%>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -44,34 +42,71 @@
                                         <div class="wrapper">
                                             <div class="grid_12">
                                             	<div class="indent-left">
-                                                	<h3 class="p2">Contact Form</h3>
+                                                	<h3 class="p2">상담리스트 (관리자)</h3>
                                                     
-<form id="contact-form" method="post" enctype="multipart/form-data" action="./AdviceWriteAction.html">                    
+<form id="contact-form" method="post" enctype="multipart/form-data">                    
 <fieldset>
-                                                  
+<table width="870">
+      <!-- 빈공간(여백) -->
+      <tr>
+         <td style="border: 0px solid #000;" colspan="5" height="20px"></td>
+      </tr>
+      
+      <!-- 항목 -->
+      <tr align="center" style="border: 1px solid #ddd; background-color: #EFEFEF">
+         <td
+            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
+            height="26">
+            <div align="center">상담방법</div>
+         </td>
 
-<input type="hidden" name="ADVICE_MEMBER_ID" value="<%=MEMBER_ID %>"/>
+         <td style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="400" height="26">
+            <div align="center">-</div>
+         </td>
 
-<label><span class="text-form">아 이 디:</span>  <%= MEMBER_ID %> </label>
-                                  
+         <td
+            style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="190" height="26">
+            <div align="center">신청자(ID)</div>
+         </td>
 
- <label><span class="text-form">상담방법:</span>
-		<select >
-			<option>--------</option>
-			<option>방문상담</option>
-			<option>전화상담</option>
-		</select>
-</label>                                    
-<label><span class="text-form">날    짜:</span> - </label>                                    
-<div class="wrapper">
-	<div class="text-form">Message:</div>
-	<textarea name="ADVICE_CONTENT" id="contents"></textarea>
-</div>
-<div class="buttons">
-	<input type="button" value="글등록" onclick="document.getElementById('contact-form').submit()"> 
-	<a class="button" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
-	<!-- <a class="button" href="#" onClick="document.getElementById('contact-form').submit()">Send</a> -->
-</div>    
+         <td
+            style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
+            width="100" height="26">
+            <div align="center">날짜</div>
+         </td>
+      </tr>
+    
+      <!-- 내용 -->
+      <tr align="center" valign="middle" style="border:0px solid #ddd;"
+         onmouseover="this.style.backgroundColor='#F8F8F8'">
+         <td height="23"
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+          1
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            
+         2
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center">
+            3
+            </div>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border:0px solid #000;">
+           4
+         </td>
+      </tr>
+</table>                                                        
+
+
                       
 </fieldset>						
 </form>                          
