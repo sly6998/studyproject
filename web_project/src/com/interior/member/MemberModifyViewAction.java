@@ -38,7 +38,7 @@ public class MemberModifyViewAction implements Action {
 
 		System.out.println("마이페이지 보기 성공");
 
-		request.setAttribute("boarddata", member);
+		request.setAttribute("member", member);
 
 		forward.setRedirect(false);
 		forward.setPath("./member/member_modify_view.jsp");

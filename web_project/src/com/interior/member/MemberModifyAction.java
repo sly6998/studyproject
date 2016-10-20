@@ -15,8 +15,7 @@ public class MemberModifyAction implements Action {
 	public ActionForward execute(HttpServletRequest request, HttpServletResponse response) throws Exception {
 		request.setCharacterEncoding("utf-8");
 
-		ActionForward forward = new ActionForward();
-		HttpSession session = null;
+		HttpSession session = request.getSession(false);
 		
 		MemberDAO memberdao = new MemberDAO();
 		MemberBean member = new MemberBean();
@@ -37,10 +36,9 @@ public class MemberModifyAction implements Action {
 		member.setMEMBER_MONTH(Integer.parseInt(request.getParameter("MEMBER_MONTH")));
 		member.setMEMBER_DAY(Integer.parseInt(request.getParameter("MEMBER_DAY")));
 		
-		
-		memberdao.membermodify(ID, member);
+		result = memberdao.membermodify(ID, member);
 
-		if (result == 0) {
+		if (result == 1) {
 
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
@@ -50,7 +48,7 @@ public class MemberModifyAction implements Action {
 			out.println("</script>");
 			out.close();
 			return null;
-		} else if (result == -1) {
+		} else if (result == 0) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");

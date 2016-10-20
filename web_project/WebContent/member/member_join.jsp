@@ -5,6 +5,10 @@
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/member_form.css">
 <script src="<%=request.getContextPath()%>/js/join.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>	
+
+
+
 
 <div class="text-center" style="padding:50px 0">
 	<div class="member_logo">register</div>

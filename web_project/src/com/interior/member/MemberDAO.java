@@ -251,9 +251,8 @@ public class MemberDAO {
 			rs.next();
 			
 			MemberBean mb = new MemberBean();
+			mb.setMEMBER_ID(ID);
 			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-			mb.setMEMBER_PWD(rs.getString("MEMBER_PWD"));
 			mb.setMEMBER_ADDR_1(rs.getString("MEMBER_ADDR_1"));
 			mb.setMEMBER_ADDR_2(rs.getString("MEMBER_ADDR_2"));
 			mb.setMEMBER_ADDR_ZIP(rs.getString("MEMBER_ADDR_ZIP"));
@@ -274,13 +273,13 @@ public class MemberDAO {
 		return null;
 	}
 
-	public void membermodify(String ID, MemberBean member) {// 마이페이지 수정 action
+	public int membermodify(String ID, MemberBean member) {// 마이페이지 수정 action
 		// TODO Auto-generated method stub
-		String sql = "update MEMER_INFO set MEMBER_PWD=?,";
-		sql+="member_addr_1=? where member_ID=?,";
-		sql+="member_addr_2=? where member_ID=?,";
-		sql+="member_addr_zip=? where member_ID=?,";
-		sql+="member_tel=? where member_ID=?,";
+		
+		int result = -1;
+		
+		String sql = "update member_info set MEMBER_PWD=?,";
+		sql+="member_addr_1=?, member_addr_2=?, member_addr_zip=?, member_tel=?, member_gender=? where member_ID=?";
 		
 		try{
 			con = ds.getConnection();
@@ -290,16 +289,21 @@ public class MemberDAO {
 			pstmt.setString(3, member.getMEMBER_ADDR_2());
 			pstmt.setString(4, member.getMEMBER_ADDR_ZIP());
 			pstmt.setString(5, member.getMEMBER_TEL());
-			pstmt.executeUpdate();
-			return;
+			pstmt.setString(6, member.getMEMBER_GENDER());
+			pstmt.setString(7, ID);
+			
+			result = pstmt.executeUpdate();
+			
+			return result;
 		}catch(Exception e){
 			System.out.println("membermodify error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}
-		return;
+		return result;
 	}
 
 	public int getListCount() {//총 회원 수

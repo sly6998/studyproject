@@ -1,7 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
+<!DOCTYPE html>
+<html>
+<head>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/grid.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css" type="text/css">
+<script src="<%=request.getContextPath()%>/js/jquery.js"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.galleriffic.js" type="text/javascript"></script>
+<script src="<%=request.getContextPath()%>/js/jquery.opacityrollover.js" type="text/javascript"></script>
+<title></title>
+<meta charset="utf-8">
+</head>
+<body id="page1">
 <div>
-
 	<header>
 		<div id="topmember">
 			<%
@@ -26,12 +39,12 @@
 					<a href="#">회원관리</a>
 					<a href="./basket_list.html">주문조회</a>
 					<a href="#">상담조회</a>
-					<a href="#">마이페이지</a>
+					<a href="./member_modify.html">마이페이지</a>
 					<a href="./logout.html">로그아웃</a>
 					<%
 					  } else {
 					%>
-					<a href="#">마이페이지</a>
+					<a href="./member_modify.html">마이페이지</a>
 					<a href="./logout.html">로그아웃</a>
 					<%
 					  }
