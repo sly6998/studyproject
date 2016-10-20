@@ -47,7 +47,7 @@
                                                 	<h3 class="p2">Contact Form</h3>
                                                     
 <form id="contact-form" method="post" action="./AdviceWriteAction.html">                    
-<fieldset>
+<fieldset> 
               
 <label><div class="text-form">Name:</div><input name="ADVICE_NAME" type="text" /></label>
 <label><div class="text-form">Tel:</div><input name="ADVICE_TEL" type="text" /></label>
