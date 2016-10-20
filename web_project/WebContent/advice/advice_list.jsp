@@ -1,13 +1,20 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    <%
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
+<%@ page import="com.interior.advice.*"%>
+<%
   String MEMBER_ID = null;
-  String MEMBER_NAME = null;
-  String MEMBER_TEL = null;
   if (session.getAttribute("MEMBER_ID") != null) {
   MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
- 
   }
+  
+  List boardList = (List)request.getAttribute("boardlist");
+  int listcount = ((Integer)request.getAttribute("listcount")).intValue();
+  int nowpage = ((Integer)request.getAttribute("page")).intValue();
+  int maxpage = ((Integer)request.getAttribute("maxpage")).intValue();
+  int startpage = ((Integer)request.getAttribute("startpage")).intValue();
+  int endpage = ((Integer)request.getAttribute("endpage")).intValue();
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -78,6 +85,12 @@
          </td>
       </tr>
     
+    	
+    	<%
+         for (int i = 0; i < boardList.size(); i++) {
+            AdviceBean bl = (AdviceBean) boardList.get(i);
+      %>
+    
       <!-- 내용 -->
       <tr align="center" valign="middle" style="border:0px solid #ddd;"
          onmouseover="this.style.backgroundColor='#F8F8F8'">
@@ -95,15 +108,19 @@
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
             <div align="center">
-            3
+            <%=bl.getADVICE_MEMBER_ID()%>
             </div>
          </td>
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border:0px solid #000;">
-           4
+           <%=bl.getADVICE_MEMBER_ID()%>
          </td>
       </tr>
+      
+      <%
+         }
+      %>
 </table>                                                        
 
 

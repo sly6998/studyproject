@@ -375,14 +375,14 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./advice/advice_request.jsp");
-		} else if (command.equals("/AdviceList.html")) { //상담신청 리스트 페이지 이동(관리자)
+		} else if (command.equals("/advice_list.html")) { //상담신청 리스트 페이지 이동(관리자)
 			action = new AdviceListAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-		} else if (command.equals("/AdviceList.html")) { //상담신청 글 상세보기 (관리자)
+		} else if (command.equals("/advice_detail.html")) { //상담신청 글 상세보기 (관리자)
 			action = new AdviceDetailAction();
 			try {
 				forward = action.execute(request, response);
