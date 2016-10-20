@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import com.interior.qna.QnaBean;
+
 public class AdviceDAO {
 	Connection con;
 	PreparedStatement pstmt;
@@ -52,7 +54,7 @@ public class AdviceDAO {
 	public List getAdviceList(int page, int limit) {//Advice 리스트 불러오기
 		// TODO Auto-generated method stub
 		String sql = "select * from Advice " +
-		"(select rownum rnum, advice_member_email, advice_member_name, advice_member_tel, advice_content, advice_date from " +
+		"(select rownum rnum, advice_member_id, advice_member_name, advice_member_tel, advice_content, advice_date from " +
 		"(select * from advice order by " +
 		"advice_date desc)) " +
 		"where rnum>=? and rnum<=?";
@@ -71,7 +73,7 @@ public class AdviceDAO {
 			
 			while(rs.next()){
 				AdviceBean advice = new AdviceBean();
-				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_EMAIL"));
+				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_ID"));
 				advice.setADVICE_MEMBER_NAME(rs.getString("ADVICE_MEMBER_NAME"));
 				advice.setADVICE_MEMBER_TEL(rs.getString("ADVICE_MEMBER_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));
@@ -104,7 +106,7 @@ public class AdviceDAO {
 			if(rs.next()){
 				advice = new AdviceBean();
 				advice.setADVICE_NUM(rs.getInt("ADVICE_NUM"));
-				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_EMAIL"));
+				advice.setADVICE_MEMBER_ID(rs.getString("ADVICE_MEMBER_ID"));
 				advice.setADVICE_MEMBER_NAME(rs.getString("ADVICE_MEMBER_NAME"));
 				advice.setADVICE_MEMBER_TEL(rs.getString("ADVICE_MEMBER_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));
@@ -138,6 +140,41 @@ public class AdviceDAO {
 			return true;
 		}catch(Exception e){
 			System.out.println("advicedelete error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return false;
+	}
+	
+	
+	public boolean AdviceInsert(AdviceBean advicedata) {//advice 글쓰기 action
+		// TODO Auto-generated method stub
+		int num = 0;
+		String sql = "";
+		int result = 0;
+		
+		try{
+			sql = "insert into Advice (advice_NUM, advice_MEMBER_ID, advice_member_name, advice_member_tel, advice_CONTENT, advice_DATE) values (?,?,?,?,?,sysdate)";
+			
+			con=ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setInt(1, advicedata.getADVICE_NUM());
+			pstmt.setString(2, advicedata.getADVICE_MEMBER_ID());
+			pstmt.setString(3, advicedata.getADVICE_MEMBER_NAME());
+			pstmt.setString(4, advicedata.getADVICE_MEMBER_TEL());
+			pstmt.setString(5, advicedata.getADVICE_CONTENT());
+			
+			result = pstmt.executeUpdate();
+			if(result==0){
+				return false; //0이 실패
+			}
+			return true;
+		}catch(Exception e){
+			System.out.println("AdviceInsert error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}

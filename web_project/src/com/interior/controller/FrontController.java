@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.advice.AdviceDeleteAction;
 import com.interior.advice.AdviceDetailAction;
 import com.interior.advice.AdviceListAction;
+import com.interior.advice.AdviceWriteAction;
 import com.interior.member.MemberDeleteAction;
 import com.interior.member.MemberFindIDAction;
 import com.interior.member.MemberFindPWDAction;
@@ -309,6 +310,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
+			
 
 			
 			
@@ -367,8 +369,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			
 
 			
-			
-			
 		/* 상담신청 */
 
 		} else if (command.equals("/advice_request.html")) { // 상담신청 페이지 이동
@@ -391,6 +391,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			}
 		} else if (command.equals("/AdviceDeleteAction.html")) { // 상담신청 글 삭제(관리자)
 			action = new AdviceDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/AdviceWriteAction.html")) {// advice 게시판 글쓰기 action
+			action = new AdviceWriteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
