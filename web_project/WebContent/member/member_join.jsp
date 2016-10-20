@@ -15,25 +15,25 @@
 			<div class="main-login-form">
 				<div class="login-group">
 					<div>
-						<input type="text" class="form-control-1" id="MEMBER_ID" name="MEMBER_ID" placeholder="user ID" onfocus="infocus(this)" onblur="valchk(this)">
+						<input type="text" class="form-control-1" id="MEMBER_ID" name="MEMBER_ID" placeholder="User ID" onfocus="infocus(this)" onblur="valchk(this)">
 						&nbsp;&nbsp;<button type="button" id="overlap_id" onclick="isChk_id()" class="btn-default-1 btn">Check</button>
 						<span class="collapse" id="id_cl">
 							<font color="red">아이디 형식이 올바르지 않습니다.</font>
 						</span>
 					</div>
 					<div>
-						<input type="text" class="form-control-1" size="30" id="MEMBER_NAME" name="MEMBER_NAME" placeholder="username" onfocus="infocus(this)" onblur="valchk(this)">
+						<input type="text" class="form-control-1" size="30" id="MEMBER_NAME" name="MEMBER_NAME" placeholder="User Name" onfocus="infocus(this)" onblur="valchk(this)">
 						<span class="collapse" id="name_cl">
 							<font color="red">한글 2~4 글자 / 영문 first last </font>
 						</span>
 					</div>
 					<div>
-						<input type="password" class="form-control-1" size="30" id="MEMBER_PWD" name="MEMBER_PWD" placeholder="password" onfocus="infocus(this)" onblur="valchk(this)">
+						<input type="password" class="form-control-1" size="30" id="MEMBER_PWD" name="MEMBER_PWD" placeholder="Password" onfocus="infocus(this)" onblur="valchk(this)">
 						<span class="collapse" id="pwd_cl"><font color="red">특수문자/문자/숫자 포함하여
 							8~15자리 이내의 비밀번호</font></span>
 					</div>
 					<div>
-						<input type="password" class="form-control-1" size="30" id="MEMBER_PWD2" name="MEMBER_PWD2" placeholder="confirm password" onfocus="infocus(this)" onblur="valchk(this)">
+						<input type="password" class="form-control-1" size="30" id="MEMBER_PWD2" name="MEMBER_PWD2" placeholder="Confirm Password" onfocus="infocus(this)" onblur="valchk(this)">
 						<span class="collapse" id="pwd2_cl"><font color="red">비밀번호가 일치하지 않습니다.</font></span>
 					</div>
 					

@@ -24,17 +24,17 @@
 </head>
 <body>
 	<div class="text-center" style="padding: 50px 0">
-		<div class="member_logo">login</div>
+		<div class="member_logo">Login</div>
 		<div class="login-form-1">
 			<form name="loginform" class="text-left" method="post" action="./MemberLoginAction.html">
 				<div class="login-form-main-message"></div>
 				<div class="main-login-form">
 					<div class="login-group">
 						<div class="form-group">
-							<input type="text" class="form-control" name="MEMBER_ID" id="MEMBER_ID" placeholder="userID" value="<%=save_id%>">
+							<input type="text" class="form-control" name="MEMBER_ID" id="MEMBER_ID" placeholder="User ID" value="<%=save_id%>">
 						</div>
 						<div class="form-group">
-							<input type="password" class="form-control" name="MEMBER_PWD" id="MEMBER_PWD" placeholder="password">
+							<input type="password" class="form-control" name="MEMBER_PWD" id="MEMBER_PWD" placeholder="Password">
 						</div>
 						<div class="form-group login-group-checkbox">
 							<input type="checkbox" id="save_id" name="save_id" <%="".equals(save_id) ? "" : "checked"%>>

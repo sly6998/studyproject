@@ -16,7 +16,7 @@
 			<div class="main-login-form">
 				<div class="login-group">
 					<div>
-						<input type="text" class="form-control-1" size="30" id="MEMBER_NAME" name="MEMBER_NAME" placeholder="username" onfocus="infocus(this)" onblur="valchk(this)">
+						<input type="text" class="form-control-1" size="30" id="MEMBER_NAME" name="MEMBER_NAME" placeholder="UserName" onfocus="infocus(this)" onblur="valchk(this)">
 						<span class="collapse" id="name_cl"><font color="red">한글 2~4 글자 / 영문 first last </font></span>
 					</div>
 					<div>
