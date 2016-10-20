@@ -65,7 +65,7 @@
          <td
             style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
             height="26">
-            <div align="center">상담방법</div>
+            <div align="center">번호</div>
          </td>
          
          
@@ -104,14 +104,16 @@
          onmouseover="this.style.backgroundColor='#F8F8F8'">
          <td height="23"
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-          1
+         <%= bl.getADVICE_NUM() %>
          </td>
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
             
-         2
+         
          </td>
+         
+         <TD></TD>
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
@@ -122,7 +124,7 @@
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border:0px solid #000;">
-           <%=bl.getADVICE_DATE()%>
+           <%=bl.getADVICE_DATE() %>
          </td>
       </tr>
       

@@ -49,20 +49,9 @@
 <form id="contact-form" method="post" action="./AdviceWriteAction.html">                    
 <fieldset>
                                                   
-
-<input type="hidden" name="ADVICE_MEMBER_ID" value="<%=MEMBER_ID %>"/>
-
-<label><span class="text-form">아 이 디:</span>  <%= MEMBER_ID %> </label>
-                                  
-
- <label><span class="text-form">상담방법:</span>
-		<select >
-			<option>--------</option>
-			<option>방문상담</option>
-			<option>전화상담</option>
-		</select>
-</label>                                    
-<label><span class="text-form">날    짜:</span> - </label>                                    
+<label><div class="text-form">Name:</div><input name="ADVICE_NAME" type="text" /></label>
+<label><div class="text-form">Tel:</div><input name="ADVICE_TEL" type="text" /></label>
+                                 
 <div class="wrapper">
 	<div class="text-form">Message:</div>
 	<textarea name="ADVICE_CONTENT" id="contents"></textarea>
