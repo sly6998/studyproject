@@ -121,4 +121,28 @@ public class AdviceDAO {
 		return null;
 	}
 
+	public boolean advicedelete(int num) {//advice 게시글 삭제 action
+		// TODO Auto-generated method stub
+		String sql = "delete from advice where advice_num=?";
+		
+		int result = 0;
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num);
+			result = pstmt.executeUpdate();
+			if(result==0){
+				return false;
+			}
+			return true;
+		}catch(Exception e){
+			System.out.println("advicedelete error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return false;
+	}
 }
