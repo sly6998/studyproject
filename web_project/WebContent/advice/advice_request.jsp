@@ -46,7 +46,7 @@
                                             	<div class="indent-left">
                                                 	<h3 class="p2">Contact Form</h3>
                                                     
-<form id="contact-form" method="post" enctype="multipart/form-data" action="./AdviceWriteAction.html">                    
+<form id="contact-form" method="post" action="./AdviceWriteAction.html">                    
 <fieldset>
                                                   
 
