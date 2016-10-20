@@ -25,14 +25,16 @@ Select * from reply;
 Select * from review;
 
 
+
+
+
 /* Create Tables */
 
 CREATE TABLE ADVICE
 (
 	ADVICE_NUM number(10),
-	ADVICE_MEMBER_ID varchar2(15),
-	ADVICE_MEMBER_NAME varchar2(20),
-	ADVICE_MEMBER_TEL varchar2(20),
+	ADVICE_NAME varchar2(20),
+	ADVICE_TEL varchar2(20),
 	ADVICE_CONTENT varchar2(2000),
 	ADVICE_DATE date
 );
@@ -78,12 +80,10 @@ CREATE TABLE MEMBER_INFO
 	MEMBER_YEAR number(4),
 	MEMBER_MONTH number(2),
 	MEMBER_DAY number(2),
-	MEMBER_NUM number(10)
 	MEMBER_DATE date,
+	MEMBER_NUM number(10)
 );
 
-insert into MEMBER_INFO (MEMBER_NAME, MEMBER_ID, MEMBER_PWD, MEMBER_NUM, MEMBER_DATE) values('관리자', 'admin', 'admin',member_info_seq.nextval,sysdate);
-delete from member_info where member_id='user01';
 
 CREATE TABLE NOTI
 (
@@ -163,13 +163,14 @@ CREATE TABLE REVIEW
 );
 
 
+
 /* Create Sequence(시퀀스 생성) */
 
 create sequence member_info_seq start with 1 increment by 1
 create sequence noti_seq start with 1 increment by 1
 create sequence review_seq start with 1 increment by 1
 create sequence qna_board_seq start with 1 increment by 1
-/*seq 생성...삭제 해주세요 이 글*/
+create sequence advice_seq start with 1 increment by 1
 
 
 
@@ -179,3 +180,5 @@ drop sequence member_info_seq;
 drop sequence noti_seq;
 drop sequence review_seq;
 drop sequence qna_board_seq;
+drop sequence advice_seq;
+
