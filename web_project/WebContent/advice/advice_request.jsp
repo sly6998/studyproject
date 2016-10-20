@@ -6,13 +6,10 @@
   String MEMBER_TEL = null;
   if (session.getAttribute("MEMBER_ID") != null) {
   MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
-  MEMBER_TEL =(String)session.getAttribute("MEMBER_TEL");
+ 
   }
   
-  if (session.getAttribute("MEMBER_NAME") != null) {
-  MEMBER_NAME =(String)session.getAttribute("MEMBER_NAME");
-	  
-  }
+
     %>
 <!DOCTYPE html>
 <html lang="en">
@@ -54,12 +51,8 @@
                                                         
 
 <input type="hidden" name="ADVICE_MEMBER_ID" value="<%=MEMBER_ID %>"/>
-<input type="hidden" name="ADVICE_MEMBER_NAME" value="<%=MEMBER_NAME %>"/>
-<input type="hidden" name="ADVICE_MEMBER_TEL" value="<%=MEMBER_TEL %>"/>
 
 <label><span class="text-form">아 이 디:</span>  <%= MEMBER_ID %> </label>
-<label><span class="text-form">이    름:</span> <%=MEMBER_NAME %> </label>   
-<label><span class="text-form">전화번호:</span> <%=MEMBER_TEL %> </label>  
                                   
 
  <label><span class="text-form">상담방법:</span>
