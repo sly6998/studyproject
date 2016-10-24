@@ -16,19 +16,13 @@ public class NotiWriteAction implements Action {
 		  NotiDAO notidao = new NotiDAO();
 		  NotiBean notidata = new NotiBean();
 
-		  //String realFolder = "";
-		  //String savaFolder = "/boardupload";
-		  //int fileSize = 5 * 1024 * 1024;
-
-		  //realFolder = request.getSession().getServletContext().getRealPath(savaFolder);
 
 		  boolean result = false;
 
 		  try {
-		    //MultipartRequest multi = null;
-		    //multi = new MultipartRequest(request, realFolder, fileSize, "UTF-8", new DefaultFileRenamePolicy());
 
 		    notidata.setNOTI_MEMBER_ID((String)request.getParameter("NOTI_MEMBER_ID"));
+		    notidata.setNOTI_MEMBER_NAME((String)request.getParameter("NOTI_MEMBER_NAME"));
 		    notidata.setNOTI_SUBJECT((String)request.getParameter("NOTI_SUBJECT"));
 		    notidata.setNOTI_CONTENT((String)request.getParameter("NOTI_CONTENT"));
 

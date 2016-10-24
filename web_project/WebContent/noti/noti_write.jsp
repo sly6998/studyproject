@@ -1,12 +1,19 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
    pageEncoding="UTF-8"%>
    <%
-  String MEMBER_ID = null;
-  if (session.getAttribute("MEMBER_ID") != null) {
-  MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
+   String MEMBER_ID = "";
+   String MEMBER_NAME = "";
+   if (session.getAttribute("MEMBER_ID") != null) {
+   MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
+   System.out.println("아이디 : "+MEMBER_ID);
+   }
 
-  
-  }
+   if (session.getAttribute("MEMBER_NAME") != null) {
+   MEMBER_NAME =(String)session.getAttribute("MEMBER_NAME");
+   System.out.println("이름 : "+MEMBER_NAME);
+   }
+   
+   
     %>
 <!DOCTYPE html>
 <html>
@@ -25,6 +32,7 @@
       <h3>공지사항 글쓰기</h3>
       <form name="noti_write_form" method="post" action="./NotiWriteAction.html">
          <input type="hidden" name="NOTI_MEMBER_ID" value="<%=MEMBER_ID %>"/>
+         <input type="hidden" name="NOTI_MEMBER_NAME" value="<%=MEMBER_NAME %>"/>
          <table>
             <tr>
                <td><input name="NOTI_SUBJECT" type="text"

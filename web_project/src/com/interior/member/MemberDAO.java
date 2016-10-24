@@ -9,6 +9,8 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 public class MemberDAO {
@@ -62,10 +64,13 @@ public class MemberDAO {
 		return false;
 	}
 
-	public int isMember(MemberBean member) {  // 로그인 action
+	public int isMember(MemberBean member,HttpServletRequest request) {  // 로그인 action
 		// TODO Auto-generated method stub
-		String sql = "select member_pwd from member_info where member_id=?";
+		String sql = "select * from member_info where member_id=?";
 		int result = -1;
+		HttpSession session = request.getSession();
+		String id = "";
+		String name = "";
 		
 		try{
 			con=ds.getConnection();
@@ -79,11 +84,14 @@ public class MemberDAO {
 				}else{
 					result=0; //불일치(아이디는 존재)
 				}
+				session.setAttribute("MEMBER_ID", rs.getString("member_id"));
+				session.setAttribute("MEMBER_NAME", rs.getString("member_name"));
 			}else{
 				result=-1; //아이디가 존재하지 않음.
 			}
 		}catch(Exception e){
 			System.out.println("isMember Error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null)try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
@@ -264,9 +272,12 @@ public class MemberDAO {
 		return result;
 	}
 
-	public int getListCount() {//총 회원 수
+	public int getListCount(String cond) {//총 회원 수
 		// TODO Auto-generated method stub
 		String sql = "select count(*) from member_info";
+		if (cond != null && !cond.equals("")) {
+			sql = sql + " where " + cond;
+		}
 		int count = 0;
 		
 		try{
@@ -288,7 +299,7 @@ public class MemberDAO {
 		return count;
 	}
 
-	public List getMemberList(int page, int limit) {//회원 리스트
+	public List getMemberList(int page, int limit, String cond) {//회원 리스트
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
 		"(select rownum rnum, member_num, member_ID, member_name," + 
@@ -296,6 +307,18 @@ public class MemberDAO {
 		"(select * from member_info order by " +
 		"member_date asc, member_ID asc, member_name asc)) " +
 		"where rnum>=? and rnum<=?";
+		
+		String sql_2 = "select * from " +
+				"(select rownum rnum, member_num, member_ID, member_name," + 
+				"member_date from " +
+				"(select * from member_info where %s order by " +
+				"member_date asc, member_ID asc, member_name asc)) " +
+				"where rnum>=? and rnum<=?";
+		
+		if (cond != null && !cond.equals("")) {
+			sql = String.format(sql_2, cond);
+		}
+		
 		List getMemberList = new ArrayList();
 		
 		try{
@@ -305,12 +328,15 @@ public class MemberDAO {
 			pstmt.setInt(2, limit);
 			rs=pstmt.executeQuery();
 			
-			MemberBean mb = new MemberBean();
-			mb.setMEMBER_NUM(rs.getInt("MEMBER_NUM"));
-			mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
-			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
-			
-			return null;
+			while(rs.next()){
+				MemberBean mb = new MemberBean();
+				mb.setMEMBER_NUM(rs.getInt("MEMBER_NUM"));
+				mb.setMEMBER_ID(rs.getString("MEMBER_ID"));
+				mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+				mb.setMEMBER_DATE(rs.getDate("MEMBER_DATE"));
+				getMemberList.add(mb);
+			}
+			return getMemberList;
 			
 		}catch(Exception e){
 			System.out.println("getMemberList error : "+e);

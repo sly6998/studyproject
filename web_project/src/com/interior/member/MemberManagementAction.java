@@ -26,6 +26,33 @@ public class MemberManagementAction implements Action {
 
 		MemberDAO memberdao = new MemberDAO();
 		List boardlist = new ArrayList();
+		
+		/* 검색 기능*/
+		String srchKey = request.getParameter("srchKey");
+		String srchFlds = request.getParameter("srchFlds");
+		String cond = null;
+		if(srchKey == null || srchKey.equals("")){
+			cond = null;
+			
+		}else if(srchFlds.equals("all")){
+			String whereFmt = "upper(MEMBER_NUM) like '%%'|| upper('%s') || '%%'"
+					+"or upper(MEMBER_ID) like '%%'|| upper('%s') || '%%'"
+					+"or upper(MEMBER_NAME) like '%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey, srchKey, srchKey);
+			
+		}else if(srchFlds.equals("num")){
+			String whereFmt="upper(MEMBER_NUM) like'%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey);
+			
+		}else if(srchFlds.equals("id")){
+			String whereFmt="upper(MEMBER_ID) like'%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey);
+			
+		}else if(srchFlds.equals("name")){
+			String whereFmt="upper(MEMBER_NAME) like'%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey);
+		}
+		/* 			*/
 
 		int page = 1;
 		int limit = 10;
@@ -33,8 +60,8 @@ public class MemberManagementAction implements Action {
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		int listcount = memberdao.getListCount();// 총 리스트 수를 받아 옴
-		boardlist = memberdao.getMemberList(page, limit);// 리스트를 받아옴
+		int listcount = memberdao.getListCount(cond);// 총 리스트 수를 받아 옴
+		boardlist = memberdao.getMemberList(page, limit, cond);// 리스트를 받아옴
 
 		// 총 페이지 수
 		int maxpage = (int) ((double) listcount / limit + 0.95);// 0.95를 더해서 올림
@@ -53,9 +80,12 @@ public class MemberManagementAction implements Action {
 		request.setAttribute("endpage", endpage);// 현재 페이지에 표시할 끝 페이지 수
 		request.setAttribute("listcount", listcount);// 글 수
 		request.setAttribute("boardlist", boardlist);
+		
+		request.setAttribute("srchKey", srchKey);
+		request.setAttribute("srchFlds", srchFlds);
 
 		forward.setRedirect(false);
-		forward.setPath("./member/member_management_view.jsp");
+		forward.setPath("./member/member_management.jsp");
 
 		return forward;
 	}

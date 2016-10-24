@@ -18,15 +18,45 @@ public class NotiListAction implements Action {
 
 		NotiDAO notidao = new NotiDAO();
 		List boardlist = new ArrayList();
+		response.setContentType("text/html;charset=utf-8");
 
 		int page = 1;
 		int limit = 10;
 
+		/* 검색 기능*/
+		String srchKey = request.getParameter("srchKey");
+		String srchFlds = request.getParameter("srchFlds");
+		String cond = null;
+		if(srchKey == null || srchKey.equals("")){
+			cond = null;
+			
+		}else if(srchFlds.equals("all")){
+			String whereFmt = "upper(NOTI_SUBJECT) like '%%'|| upper('%s') || '%%'"
+					+"or upper(NOTI_MEMBER_NAME) like '%%'|| upper('%s') || '%%'"
+					+"or upper(NOTI_CONTENT) like '%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey, srchKey, srchKey);
+			
+		}else if(srchFlds.equals("sub")){
+			String whereFmt="upper(NOTI_SUBJECT) like'%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey);
+			
+		}else if(srchFlds.equals("au")){
+			String whereFmt="upper(NOTI_MEMBER_NAME) like'%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey);
+			
+		}else if(srchFlds.equals("con")){
+			String whereFmt="upper(NOTI_CONTENT) like'%%'|| upper('%s') || '%%'";
+			cond = String.format(whereFmt, srchKey);
+		}
+		/* 			*/
+		
+		
+		
 		if (request.getParameter("page") != null) {
 			page = Integer.parseInt(request.getParameter("page"));
 		}
-		int listcount = notidao.getListCount();// 총 리스트 수를 받아 옴
-		boardlist = notidao.getNotiList(page, limit);// 리스트를 받아옴
+		int listcount = notidao.getListCount(cond);// 총 리스트 수를 받아 옴
+		boardlist = notidao.getNotiList(page, limit, cond);// 리스트를 받아옴
 
 		// 총 페이지 수
 		int maxpage = (int) ((double) listcount / limit + 0.95);// 0.95를 더해서 올림
@@ -45,6 +75,9 @@ public class NotiListAction implements Action {
 		request.setAttribute("endpage", endpage);// 현재 페이지에 표시할 끝 페이지 수
 		request.setAttribute("listcount", listcount);// 글 수
 		request.setAttribute("boardlist", boardlist);
+		
+		request.setAttribute("srchKey", srchKey);
+		request.setAttribute("srchFlds", srchFlds);
 
 		forward.setRedirect(false);
 		forward.setPath("./noti/noti_list.jsp");

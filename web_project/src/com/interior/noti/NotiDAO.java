@@ -29,13 +29,16 @@ public class NotiDAO {
 		}
 	}
 
-	public int getListCount() {//총 게시판 리스트 수
+	public int getListCount(String cond) {//총 게시판 리스트 수
 		// TODO Auto-generated method stub
 		int count = 0;
-		
+		String sql = "select count(*) from noti";
+		if (cond != null && !cond.equals("")) {
+			sql = sql + " where " + cond;
+		}
 		try{
 			con = ds.getConnection();
-			pstmt = con.prepareStatement("select count(*) from noti");
+			pstmt = con.prepareStatement(sql);
 			rs = pstmt.executeQuery();
 			
 			if(rs.next()){
@@ -51,7 +54,7 @@ public class NotiDAO {
 		return count;
 	}
 
-	public List getNotiList(int page, int limit) {//게시판 리스트를 받아옴
+	public List getNotiList(int page, int limit, String cond) {//게시판 리스트를 받아옴
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
 		"(select rownum rnum, noti_num, NOTI_MEMBER_NAME, noti_subject, noti_content," +
@@ -59,6 +62,17 @@ public class NotiDAO {
 		"(select * from noti order by " +
 		"noti_date desc)) " +
 		"where rnum>=? and rnum<=?";
+
+		String sql_2 = "select * from " +
+				"(select rownum rnum, noti_num, NOTI_MEMBER_NAME, noti_subject, noti_content," +
+				"noti_readcount, noti_date from " +
+				"(select * from noti where %s order by " +
+				"noti_date desc)) " +
+				"where rnum>=? and rnum<=?";
+		
+		if (cond != null && !cond.equals("")) {
+			sql = String.format(sql_2, cond);
+		}
 		
 		
 		List list = new ArrayList();
@@ -156,16 +170,17 @@ public class NotiDAO {
 		int result = 0;
 		
 		try{
-			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_SUBJECT, NOTI_CONTENT, NOTI_READCOUNT, NOTI_DATE) values (noti_seq.nextval,?,?,?,?,sysdate)";
+			sql = "insert into noti (NOTI_NUM, NOTI_MEMBER_ID, NOTI_MEMBER_NAME, NOTI_SUBJECT, NOTI_CONTENT, NOTI_READCOUNT, NOTI_DATE) values (noti_seq.nextval,?,?,?,?,?,sysdate)";
 			
 			con=ds.getConnection();
 			
 			
 			pstmt = con.prepareStatement(sql);
 			pstmt.setString(1, notidata.getNOTI_MEMBER_ID());
-			pstmt.setString(2, notidata.getNOTI_SUBJECT());
-			pstmt.setString(3, notidata.getNOTI_CONTENT());
-			pstmt.setInt(4, notidata.getNOTI_READCOUNT());
+			pstmt.setString(2, notidata.getNOTI_MEMBER_NAME());
+			pstmt.setString(3, notidata.getNOTI_SUBJECT());
+			pstmt.setString(4, notidata.getNOTI_CONTENT());
+			pstmt.setInt(5, notidata.getNOTI_READCOUNT());
 			
 			result = pstmt.executeUpdate();
 			if(result==0){

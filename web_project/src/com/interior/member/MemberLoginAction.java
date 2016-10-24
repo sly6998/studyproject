@@ -27,8 +27,7 @@ public class MemberLoginAction implements Action {
 	    member.setMEMBER_ID(request.getParameter("MEMBER_ID"));
 	    member.setMEMBER_PWD(request.getParameter("MEMBER_PWD"));
 	    
-	    result = memberdao.isMember(member);
-	    
+	    result = memberdao.isMember(member,request);
 	    if(result == 0){
 	      response.setContentType("text/html;charset=utf-8");
 	      PrintWriter out =response.getWriter();
