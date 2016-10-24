@@ -38,7 +38,7 @@
 					%>
 					<a href="./member_management.html">회원관리</a>
 					<a href="./basket_list.html">주문조회</a>
-					<a href="#">상담조회</a>
+					<a href="./advice_list.html">상담조회</a>
 					<a href="./member_modify.html">마이페이지</a>
 					<a href="./logout.html">로그아웃</a>
 					<%

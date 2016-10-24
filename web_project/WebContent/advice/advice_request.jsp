@@ -88,7 +88,6 @@
 	<!-- <input type="button" value="글등록" onclick="document.getElementById('contact-form').submit()">  -->
 	<a class="button" href="#" onClick="document.getElementById('contact-form').reset()">Clear</a>
 	<a class="button" href="#" onClick="document.getElementById('contact-form').submit()">Send</a>
-	<a class="button" href="./advice_list.html" >목록보기(관리자)</a>
 	
 	
 	
