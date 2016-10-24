@@ -63,38 +63,35 @@
       <!-- 항목 -->
       <tr align="center" style="border: 1px solid #ddd; background-color: #EFEFEF">
          <td
-            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
+            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 30px;"
             height="26">
             <div align="center">Num</div>
          </td>
          
          
          <td
-            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 80px;"
+            style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 180px;"
             height="26">
             <div align="center"> - </div>
          </td>
 
-         <td style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
-            width="400" height="26">
-            <div align="center">-</div>
-         </td>
+        
 
          <td
             style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
-            width="190" height="26">
+            width="70" height="26">
             <div align="center">Name</div>
          </td>
 
          <td
             style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
-            width="100" height="26">
+            width="70" height="26">
             <div align="center">Tel</div>
          </td>
 
          <td
             style="font-size: 12pt; font-weight: bold; border: 1px solid #ddd;"
-            width="100" height="26">
+            width="70" height="26">
             <div align="center">Date</div>
          </td>
       </tr>
