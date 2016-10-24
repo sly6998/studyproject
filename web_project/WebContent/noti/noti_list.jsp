@@ -5,7 +5,7 @@
 <%@ page import="com.interior.noti.*"%>
 
 <%
-  String MEMBER_ID = null;
+  String MEMBER_ID = "";
   if (session.getAttribute("MEMBER_ID") != null) {
   MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
   }
