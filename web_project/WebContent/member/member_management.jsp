@@ -43,22 +43,21 @@
 	<h3>관리자 페이지</h3>
 	<table width="870">
 		<tr>
-			<td colspan="6" align="center"><br />
+			<td colspan="6" align="right"><br />
 				<form name="srchForm" action="./member_management.html"
 					method="post">
 					<select name="srchFlds">
 						<option value="all"
 							<%=srchFlds.equals("all") ? "selected='selected'" : ""%>>모두</option>
-						<option value="sub"
+						<option value="num"
 							<%=srchFlds.equals("num") ? "selected='selected'" : ""%>>회원번호</option>
-						<option value="au"
+						<option value="id"
 							<%=srchFlds.equals("id") ? "selected='selected'" : ""%>>아이디</option>
-						<option value="con"
+						<option value="name"
 							<%=srchFlds.equals("name") ? "selected='selected'" : ""%>>이름</option>
-					</select> <input type="text" name="srchKey" size="20" maxlength="50"
-						value="<%=srchKey%>" /> <input type="button" value="검색"
-						onClick="submitSrchForm()" /> <input type="button" value="리셋"
-						onClick="resetSrchForm()" />
+					</select> 
+					<input type="text" name="srchKey" size="20" maxlength="50" value="<%=srchKey%>" />
+					<input type="button" value="검색" onClick="submitSrchForm()" /> 
 				</form> <br /></td>
 			<td />
 		</tr>
