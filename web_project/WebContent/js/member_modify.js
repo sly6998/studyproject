@@ -178,3 +178,42 @@ function member_modify(){
 	}
 }
 
+
+//회원탈퇴
+function member_leave(){
+	
+	var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+	
+	if(document.getElementById('LEAVE_PWD').value==''||!pwd_re.test(document.getElementById('LEAVE_PWD').value)){
+		alert("비밀번호가 형식에 맞지 않습니다.");
+		$('#leave_pwd_cl').collapse('show');
+		document.getElementById('LEAVE_PWD').value='';
+		document.getElementById('LEAVE_PWD').style.borderBottomColor='red';
+		document.getElementById('MEMBER_PWD').focus();
+		return;
+	}else if(pwd_re.test(document.getElementById('LEAVE_PWD').value)){
+		document.getElementById('LEAVE_PWD').style.borderBottomColor='green';
+		$('#leave_pwd_cl').collapse('hide');
+	}
+	
+	document.leaveform.submit();
+	
+	
+}
+//회원탈퇴 비밀번호 포커스 아웃
+function member_leave_f(){
+	
+	var pwd_re = /^.*(?=^.{8,15}$)(?=.*\d)(?=.*[a-zA-Z])(?=.*[!@#$%^&+=]).*$/;
+	
+	if(document.getElementById('LEAVE_PWD').value==''||!pwd_re.test(document.getElementById('LEAVE_PWD').value)){
+		$('#leave_pwd_cl').collapse('show');
+		document.getElementById('LEAVE_PWD').style.borderBottomColor='red';
+	}else if(pwd_re.test(document.getElementById('LEAVE_PWD').value)){
+		document.getElementById('LEAVE_PWD').style.borderBottomColor='green';
+		$('#leave_pwd_cl').collapse('hide');
+		return;
+	}
+	return;
+	
+}
+

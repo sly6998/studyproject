@@ -161,48 +161,6 @@ public class MemberDAO {
 		return null;
 	}
 
-	public boolean IDdelete(MemberBean member) {// 회원탈퇴 action
-		// TODO Auto-generated method stub
-		String sql1 = "delete from bakset where basket_member_ID=?";
-		String sql2 = "delete from member_info where member_ID=?";
-		String ID = member.getMEMBER_ID();
-		boolean isSuccess = false;
-			int result1 = 0;
-			int result2 = 0;
-		boolean result = false;
-		
-			try{
-				con = ds.getConnection();
-				con.setAutoCommit(false);
-				pstmt=con.prepareStatement(sql1);
-				pstmt.setString(1, ID);
-				result1 = pstmt.executeUpdate();
-			
-			pstmt = con.prepareStatement(sql2);
-			pstmt.setString(1, ID);
-			
-			result2 = pstmt.executeUpdate();
-			
-			if(result1>0 && result2>0){
-				result = true;
-			}
-				isSuccess=true;
-			}catch(Exception e){
-				System.out.println("IDdelete error : "+e);
-			}finally{
-				try{
-					if(isSuccess){
-						con.commit();
-					}else{
-						con.rollback();
-					}
-				}catch(Exception e){};
-					if(rs!=null)try{rs.close();}catch(SQLException ex){}
-					if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
-					if(con!=null)try{con.close();}catch(SQLException ex){}
-				}
-			return result;
-			}
 
 	public MemberBean memberview(String ID) {// 회원정보 보기 action
 		// TODO Auto-generated method stub
@@ -388,6 +346,39 @@ public class MemberDAO {
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
 			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}
+		return result;
+	}
+
+	public int member_leave(String id, String pwd) {//회원탈퇴
+		
+		String sql = "delete from member_info where member_id=? and member_pwd=?";
+		
+		int result = 2;
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			pstmt.setString(2, pwd);
+			result = pstmt.executeUpdate();
+			
+			if(result == 1){
+				System.out.println("회원탈퇴 성공 id : "+ id);
+				return result;//비밀번호 일치
+			
+			}else{
+				System.out.println("회원탈퇴 실패 id : "+ id);
+				return result;//비밀번호 불일치
+			}
+			
+		}catch(Exception e){
+			System.out.println("회원탈퇴 에러 : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		
 		return result;
 	}
 }

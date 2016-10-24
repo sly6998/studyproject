@@ -88,8 +88,9 @@
 						</select>
             		</div><br>
             		<div align="center" class="form-group-1">
-						<button type="button" onclick="member_modify()" class="btn-default-1 btn">OK</button>&nbsp;&nbsp;
-						<button type="button" onclick="javascript:location.href='./mainpage.html'" class="btn-default-1 btn">Cencel</button>
+						<button type="button" data-toggle="modal" data-target="#leaveModal" class="btn-default-1 btn">Member Leave</button>&nbsp;&nbsp;
+						<button type="button" onclick="member_modify()" class="btn-default-1 btn">Save</button>&nbsp;&nbsp;
+						<button type="button" onclick="javascript:location.href='./mainpage.html'" class="btn-default-1 btn">Cancel</button>
 					</div>
 				</div>
 			</div>
@@ -99,3 +100,50 @@
 <div>
 </div>
 <%@ include file="../page/footer.jsp"%>
+
+	<!-- 회원탈퇴 모달 팝업 -->
+	<div class="modal fade" id="leaveModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	  <div class="modal-dialog">
+	    <div class="modal-content">
+	  	  <div class="modal-header">
+      		  <h4 class="modal-title" id="myModalLabel">Member Leave</h4>
+      	  </div>
+	      <div class="modal-body">
+	      <div align="left">
+			<span>
+				<font color="red" size="10"><b>회원탈퇴 신청 전 안내 사항을 확인 해 주세요.</b></font><p/>
+				 회원탈퇴를 신청하시면 신청하신 아이디는 사용하실 수 없습니다.<br>
+				 <div style="padding-left:15px;">
+				 - 회원 정보<br>
+				 - 상품 구입 및 대금 결제에 관한 기록<br>
+				 - 상품 배송에 관한 기록<br>
+ 				 - 소비자 불만 또는 처리 과정에 관한 기록<br>
+				 - 게시판 작성 및 사용후기에 관한 기록<br>
+				 </div>
+			</span><p/>
+			<form name="leaveform" method="post" action="./member_leave.html">
+				<div class="login-form-2">
+					<div class="main-login-form">
+						<div class="login-group">
+							<div class="form-group-1">
+								<div style="padding-left:15px;">
+									<input type="hidden" name="LEAVE_ID" value="<%=member.getMEMBER_ID()%>"/>
+									<input type="password" size="30" class="form-control-1" name="LEAVE_PWD" id="LEAVE_PWD" placeholder="Password" onblur="member_leave_f()">
+									<span class="collapse" id="leave_pwd_cl"><font color="red">특수문자/문자/숫자 포함하여 8~15자리 이내의 비밀번호</font></span>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<p/>
+				<div align="center">
+				<button type="button" onclick="member_leave()" class="btn-default-1 btn">Leave</button>
+				<button type="button" onclick="javascript:location.href='./member_modify.html'" class="btn-default-1 btn">Cancel</button>
+				</div>
+			</form>
+	      </div>
+		  </div>
+	    </div>
+	  </div>
+	</div>
+

@@ -12,10 +12,12 @@ import com.interior.advice.AdviceDeleteAction;
 import com.interior.advice.AdviceDetailAction;
 import com.interior.advice.AdviceListAction;
 import com.interior.advice.AdviceWriteAction;
-import com.interior.member.MemberDeleteAction;
+import com.interior.basket.BasketDetailAction;
+import com.interior.basket.BasketListAction;
 import com.interior.member.MemberFindIDAction;
 import com.interior.member.MemberFindPWDAction;
 import com.interior.member.MemberJoinAction;
+import com.interior.member.MemberLeaveAction;
 import com.interior.member.MemberLoginAction;
 import com.interior.member.MemberManagementAction;
 import com.interior.member.MemberManagementModifyAction;
@@ -41,8 +43,6 @@ import com.interior.review.ReviewListAction;
 import com.interior.review.ReviewModifyAction;
 import com.interior.review.ReviewModifyView;
 import com.interior.review.ReviewWriteAction;
-import com.interior.basket.BasketDetailAction;
-import com.interior.basket.BasketListAction;
 
 
 @WebServlet("/ForntController")
@@ -83,6 +83,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			forward.setRedirect(false);
 			forward.setPath("./member/member_join.jsp");
 
+		}else if (command.equals("/member_leave.html")) {// 회원탈퇴 action
+			action = new MemberLeaveAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 		}else if (command.equals("/overlapId.html")) {// 아이디 중복체크 페이지 이동 & action
 			action = new OverlapIdAction();
 			try {
@@ -104,11 +111,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			forward = new ActionForward();
 			forward.setRedirect(false);
 			forward.setPath("./member/member_find_pw.jsp");
-
-		} else if (command.equals("/memberdelete.html")) {// 회원탈퇴 페이지 이동
-			forward = new ActionForward();
-			forward.setRedirect(false);
-			forward.setPath("./member/member_delete.jsp");
 
 		} else if (command.equals("/member_modify.html")) {// 마이페이지 이동 & action
 			action = new MemberModifyViewAction();
@@ -161,13 +163,6 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 				e.printStackTrace();
 			}
 
-		} else if (command.equals("/MemberDeleteAction.html")) {// 회원탈퇴 action
-			action = new MemberDeleteAction();
-			try {
-				forward = action.execute(request, response);
-			} catch (Exception e) {
-				e.printStackTrace();
-			}
 		} else if (command.equals("/MemberModifyAction.html")) {// 마이페이지 수정 action
 			action = new MemberModifyAction();
 			try {
