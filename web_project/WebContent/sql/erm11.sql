@@ -7,8 +7,7 @@ DROP TABLE ITEM CASCADE CONSTRAINTS;
 DROP TABLE MEMBER_INFO CASCADE CONSTRAINTS;
 DROP TABLE NOTI CASCADE CONSTRAINTS;
 DROP TABLE ORDER_LIST CASCADE CONSTRAINTS;
-DROP TABLE QnA_BOARD CASCADE CONSTRAINTS;
-DROP TABLE REPLY CASCADE CONSTRAINTS;
+DROP TABLE QNA_BOARD CASCADE CONSTRAINTS;
 DROP TABLE REVIEW CASCADE CONSTRAINTS;
 
 
@@ -21,10 +20,7 @@ Select * from member_info;
 Select * from noti;
 Select * from order_list;
 Select * from qna_board;
-Select * from reply;
 Select * from review;
-
-
 
 
 
@@ -63,7 +59,15 @@ CREATE TABLE ITEM
 	ITEM_IMAGE varchar2(50),
 	ITEM_TYPE varchar2(20),
 	ITEM_BRAND varchar2(50),
-	ITEM_CONTENT varchar2(2000)
+	ITEM_CONTENT varchar2(2000),
+	ITEM_REPLY_MEMBER_ID varchar2(20),
+	ITEM_REPLY_MEMBER_NAME varchar2(20),
+	ITEM_REPLY_CONTENT varchar2(500),
+	ITEM_REPLY_NUM number,
+	ITEM_REPLY_SEQ number,
+	ITEM_REPLY_REF number,
+	ITEM_REPLY_LEV number,
+	ITEM_REPLY_DATE date
 );
 
 
@@ -88,11 +92,20 @@ CREATE TABLE MEMBER_INFO
 CREATE TABLE NOTI
 (
 	NOTI_MEMBER_ID varchar2(15),
+	NOTI_MEMBER_NAME varchar2(20),
 	NOTI_SUBJECT varchar2(100),
 	NOTI_CONTENT varchar2(2000),
 	NOTI_READCOUNT number(5),
 	NOTI_DATE date,
-	NOTI_NUM number(10)
+	NOTI_NUM number(10),
+	NOTI_REPLY_MEMBER_NAME varchar2(20),
+	NOTI_REPLY_MEMBER_ID varchar2(20),
+	NOTI_REPLY_CONTENT varchar2(500),
+	NOTI_REPLY_DATE date,
+	NOTI_REPLY_SEQ number,
+	NOTI_REPLY_REF number,
+	NOTI_REPLY_LEV number,
+	NOTI_REPLY_NUM number
 );
 
 
@@ -123,31 +136,26 @@ CREATE TABLE ORDER_LIST
 );
 
 
-CREATE TABLE QnA_BOARD
+CREATE TABLE QNA_BOARD
 (
-	QnA_MEMBER_ID varchar2(15),
-	QnA_MEMBER_NAME varchar2(20),
-	QnA_NUM number(10),
-	QnA_SUBJECT varchar2(50),
-	QnA_CONTENT varchar2(2000),
-	QnA_DATE date,
-	QnA_SEQ number(5),
-	QnA_REF number(5),
-	QnA_LEV number(5),
-	QnA_READCOUNT number(10)
-);
-
-
-CREATE TABLE REPLY
-(
-	REPLY_BOARD varchar2(10),
-	REPLY_MEMBER_ID varchar2(35),
-	REPLY_MEMBER_NAME varchar2(20),
-	REPLY_CONTENT varchar2(200),
-	REPLY_DATE date,
-	REPLY_SEQ number,
-	REPLY_REF number,
-	REPLY_LEV number
+	QNA_MEMBER_ID varchar2(15),
+	QNA_MEMBER_NAME varchar2(20),
+	QNA_NUM number(10),
+	QNA_SUBJECT varchar2(50),
+	QNA_CONTENT varchar2(2000),
+	QNA_DATE date,
+	QNA_SEQ number(5),
+	QNA_REF number(5),
+	QNA_LEV number(5),
+	QNA_READCOUNT number(10),
+	QNA_REPLY_MEMBER_ID varchar2(20),
+	QNA_REPLY_MEMBER_NAME varchar2(20),
+	QNA_REPLY_CONTENT varchar2(500),
+	QNA_REPLY_DATE date,
+	QNA_REPLY_SEQ number,
+	QNA_REPLY_REF number,
+	QNA_REPLY_LEV number,
+	QNA_REPLY_NUM number
 );
 
 
@@ -159,9 +167,16 @@ CREATE TABLE REVIEW
 	REVIEW_CONTENT varchar2(2000),
 	REVIEW_READCOUNT number(10),
 	REVIEW_DATE date,
-	REVIEW_NUM number(10)
+	REVIEW_NUM number(10),
+	REVIEW_REPLY_MEMBER_NAME varchar2(20),
+	REVIEW_REPLY_MEMBER_ID varchar2(20),
+	REVIEW_REPLY_CONTENT varchar2(500),
+	REVIEW_REPLY_DATE date,
+	REVIEW_REPLY_SEQ number,
+	REVIEW_REPLY_REF number,
+	REVIEW_REPLY_LEV number,
+	REVIEW_REPLY_NUM number
 );
-
 
 
 /* Create Sequence(시퀀스 생성) */

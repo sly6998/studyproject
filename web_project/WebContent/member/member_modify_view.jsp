@@ -91,7 +91,6 @@
 						<button type="button" onclick="member_modify()" class="btn-default-1 btn">OK</button>&nbsp;&nbsp;
 						<button type="button" onclick="javascript:location.href='./mainpage.html'" class="btn-default-1 btn">Cencel</button>
 					</div>
-
 				</div>
 			</div>
 		</form>

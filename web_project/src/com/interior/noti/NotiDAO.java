@@ -9,7 +9,9 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
+
 
 public class NotiDAO {
 	
@@ -52,11 +54,12 @@ public class NotiDAO {
 	public List getNotiList(int page, int limit) {//게시판 리스트를 받아옴
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, noti_num, noti_member_ID, noti_subject, noti_content," +
+		"(select rownum rnum, noti_num, NOTI_MEMBER_NAME, noti_subject, noti_content," +
 		"noti_readcount, noti_date from " +
 		"(select * from noti order by " +
 		"noti_date desc)) " +
 		"where rnum>=? and rnum<=?";
+		
 		
 		List list = new ArrayList();
 		
@@ -72,7 +75,7 @@ public class NotiDAO {
 			while(rs.next()){
 				NotiBean noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
-				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
+				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
@@ -267,4 +270,53 @@ public class NotiDAO {
 		}
 		return false;
 	}
+	
+	
+	// 공지사항 글 댓글 쓰기
+			public int NotiReplyWrite(NotiBean notireplywrite){
+				String noti_reply_sql = "select max(noti_reply_num) from noti";
+				String sql="";
+				
+				int num=0;
+				int result=0;
+				
+				int reply_ref = notireplywrite.getNOTI_REPLY_REF();
+				int reply_seq = notireplywrite.getNOTI_REPLY_SEQ();
+				int reply_lev = notireplywrite.getNOTI_REPLY_LEV();
+				
+				try{
+					con=ds.getConnection();
+					pstmt=con.prepareStatement(noti_reply_sql);
+					rs=pstmt.executeQuery();
+					
+					if(rs.next()){
+						num=rs.getInt(1)+1;
+					}else{
+						num=1;
+					}
+					sql = "update NOTI set noti_reply_seq=noti_reply_seq+1 where noti_reply_ref=? and noti_reply_seq>?";
+					
+					pstmt = con.prepareStatement(sql);
+					pstmt.setInt(1, reply_ref);
+					pstmt.setInt(2, reply_seq);
+					
+					sql = "insert into noti (noti_reply_num, noti_reply_member_NAME, noti_reply_content, noti_reply_ref, noti_reply_seq, noti_reply_lev, noti_reply_date) values (noti_reply_seq.nextval,?,?,?,?,?sysdate)";
+					
+					pstmt=con.prepareStatement(sql);
+					pstmt.setString(1, notireplywrite.getNOTI_REPLY_MEMBER_NAME());
+					pstmt.setString(2, notireplywrite.getNOTI_REPLY_CONTENT());
+					pstmt.setInt(3, reply_ref);
+					pstmt.setInt(4, reply_seq);
+					pstmt.setInt(5, reply_lev);
+					pstmt.executeUpdate();
+					return num;
+				}catch(Exception e){
+					System.out.println("NotiReplyWrite error : "+e);
+				}finally{
+					if(rs!=null)try{rs.close();}catch(SQLException e){}
+					if(pstmt!=null)try{pstmt.close();}catch(SQLException e){}
+					if(con!=null)try{con.close();}catch(SQLException e){}
+				}
+				return 0;
+			}
 }

@@ -20,8 +20,8 @@ public class AdviceWriteAction implements Action {
 
 		try {
 			
-			advicedata.setADVICE_NAME((String)request.getParameter("ADVICE_MEMBER_NAME"));
-			advicedata.setADVICE_TEL((String)request.getParameter("ADVICE_MEMBER_TEL"));
+			advicedata.setADVICE_NAME((String)request.getParameter("ADVICE_NAME"));
+			advicedata.setADVICE_TEL((String)request.getParameter("ADVICE_TEL"));
 			advicedata.setADVICE_CONTENT((String)request.getParameter("ADVICE_CONTENT"));
 
 			result = advicedao.AdviceInsert(advicedata);
@@ -31,6 +31,7 @@ public class AdviceWriteAction implements Action {
 				return null;
 			}
 
+			System.out.println(request.getParameter("ADVICE_NAME"));
 			System.out.println("상담 게시판 등록 완료");
 
 			forward.setRedirect(true);
