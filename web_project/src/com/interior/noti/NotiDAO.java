@@ -272,7 +272,7 @@ public class NotiDAO {
 	}
 	
 	
-	// 공지사항 글 댓글 쓰기
+			// 공지사항 글 댓글 쓰기
 			public int NotiReplyWrite(NotiBean notireplywrite){
 				String noti_reply_sql = "select max(noti_reply_num) from noti";
 				String sql="";
@@ -319,4 +319,89 @@ public class NotiDAO {
 				}
 				return 0;
 			}
+			
+			//공지사항 댓글 수정
+			public boolean NotiReplyModify(NotiBean replymodify)throws Exception{
+				String sql = "update noti set noti_reply_content=? where noti_reply_num=?";
+				
+				try{
+					con=ds.getConnection();
+					pstmt=con.prepareStatement(sql);
+					pstmt.setString(1, replymodify.getNOTI_REPLY_CONTENT());
+					pstmt.setInt(2, replymodify.getNOTI_REPLY_NUM());
+					pstmt.executeUpdate();
+					return true;
+				}catch(Exception e){
+					System.out.println("NotiReplyModify error : "+e);
+				}finally{
+					if(rs!=null)try{rs.close();}catch(SQLException ex){}
+					if(pstmt!=null)try{pstmt.close();}catch(SQLException ex){}
+					if(con!=null)try{con.close();}catch(SQLException ex){}
+				}
+				return false;
+			}
+			
+			//공지사항 댓글 삭제
+			public boolean NotiReplyDelete(int num){
+				String sql = "delete from noit where noti_reply_num=?";
+				
+				int result=0;
+				
+				try{
+					con=ds.getConnection();
+					pstmt=con.prepareStatement(sql);
+					pstmt.setInt(1, num);
+					result=pstmt.executeUpdate();
+					if(result==0){
+						return false;
+					}
+					return true;
+				}catch(Exception e){
+					System.out.println("NotiReplyDelete error : "+e);
+				}finally{
+					try{
+						if(pstmt!=null){
+							pstmt.close();
+						}
+						if(con!=null){
+							con.close();
+						}
+					}catch(Exception ex){
+						
+					}
+				}
+				return false;
+			}
+			
+		//공지사항 댓글 글쓴이 인지 확인
+		public boolean isNotiReplyWriter(int num, String ID){
+			System.out.println("ID = "+ID);
+			String sql = "select * from noti where noti_reply_num=?";
+			
+			try{
+				con=ds.getConnection();
+				pstmt=con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				rs=pstmt.executeQuery();
+				rs.next();
+				
+				if(ID.equals(rs.getString("NOTI_REPLY_MEMBER_ID"))){
+					return true;
+				}
+			}catch(Exception e){
+				System.out.println("isNotiReplyWriter error : "+e);
+			}finally{
+				try{
+					if(pstmt!=null){
+						pstmt.close();
+					}
+					if(con!=null){
+						con.close();
+					}
+				}catch(Exception e){
+					
+				}
+			}
+			return false;
+		}
 }
