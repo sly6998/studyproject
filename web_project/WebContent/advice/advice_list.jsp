@@ -66,7 +66,7 @@
             style="font-size: 12pt; border: 1px solid #ddd; font-weight: bold; width: 30px;"
             height="26">
             <div align="center">Num</div>
-         </td>
+         </td> 
          
          
          <td
