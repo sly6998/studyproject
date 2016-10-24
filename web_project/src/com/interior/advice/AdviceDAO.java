@@ -94,8 +94,8 @@ public class AdviceDAO {
 	public AdviceBean getDetail(int num) throws Exception {  //Advice 상세보기
 		// TODO Auto-generated method stub
 		AdviceBean advice = null;
+		
 		String sql = "select * from advice where advice_num=?";
-		pstmt.setInt(1, num);
 		try{
 			con=ds.getConnection();
 			pstmt=con.prepareStatement(sql);

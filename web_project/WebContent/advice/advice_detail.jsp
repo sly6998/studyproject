@@ -49,22 +49,22 @@
 <fieldset>
 <label>
 	<span class="text-form">Name:</span>
-	<table><tr><td style="border:1px solid #ddd; width:150px;">dd</td></tr></table>
+	<table><tr><td style="border:1px solid #ddd; width:150px;"> <%= advice.getADVICE_NAME()%></td></tr></table>
 </label>
 
 <label>
 	<span class="text-form">Tel:</span>
-	<table><tr><td style="border:1px solid #ddd; width:150px;">dd</td></tr></table>
+	<table><tr><td style="border:1px solid #ddd; width:150px;"><%= advice.getADVICE_TEL()%></td></tr></table>
 </label>
 <div class="wrapper">
 	<div class="text-form">Message:</div>
 	<table>
 		<tr>
-			<td style="border:1px solid #ddd; width:500px; height:150px ">dd</td>
+			<td style="border:1px solid #ddd; width:500px; height:150px "><%= advice.getADVICE_CONTENT()%></td>
 		</tr>
 		
 		<tr>
-			<td><a href="advuce_list.html">목록보기 </a></td>
+			<td><a href="advice_list.html">목록보기 </a></td>
 		</tr>
 	</table>
 </div>

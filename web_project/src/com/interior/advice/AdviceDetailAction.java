@@ -18,7 +18,7 @@ public class AdviceDetailAction implements Action {
 
 		AdviceDAO advicedao = new AdviceDAO();
 		AdviceBean advicedata = new AdviceBean();
-
+		
 		int num = Integer.parseInt(request.getParameter("ADVICE_NUM"));
 		advicedata = advicedao.getDetail(num);//게시글 보기
 
