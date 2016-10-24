@@ -73,6 +73,7 @@ public class AdviceDAO {
 			
 			while(rs.next()){
 				AdviceBean advice = new AdviceBean();
+				advice.setADVICE_NUM(rs.getInt("ADVICE_NUM"));
 				advice.setADVICE_NAME(rs.getString("ADVICE_NAME"));
 				advice.setADVICE_TEL(rs.getString("ADVICE_TEL"));
 				advice.setADVICE_CONTENT(rs.getString("ADVICE_CONTENT"));
