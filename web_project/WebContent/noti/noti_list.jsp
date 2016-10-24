@@ -81,7 +81,7 @@
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <div align="center"><%=bl.getNOTI_MEMBER_ID()%>
+            <div align="center"><%=bl.getNOTI_MEMBER_NAME()%>
             </div>
          </td>
 
@@ -139,8 +139,10 @@
 
 
          </td>
-         <td colspan="2" align="right"><a href="./noti_write.html"> 글쓰기(관리자용)</a></td>
-      </tr>
+         <%if(MEMBER_ID.equals("admin")){ %>
+         <td colspan="2" align="right"><a href="./noti_write.html"> 글쓰기</a></td>
+         <%}%>
+      	</tr>
    </table>
 </body>
 </html>

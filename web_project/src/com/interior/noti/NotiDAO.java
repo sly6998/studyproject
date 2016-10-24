@@ -9,6 +9,7 @@ import java.util.List;
 
 import javax.naming.Context;
 import javax.naming.InitialContext;
+import javax.servlet.http.HttpSession;
 import javax.sql.DataSource;
 
 public class NotiDAO {
@@ -58,6 +59,7 @@ public class NotiDAO {
 		"noti_date desc)) " +
 		"where rnum>=? and rnum<=?";
 		
+		
 		List list = new ArrayList();
 		
 		int startrow=(page-1)*10+1;
@@ -72,7 +74,7 @@ public class NotiDAO {
 			while(rs.next()){
 				NotiBean noti = new NotiBean();
 				noti.setNOTI_NUM(rs.getInt("NOTI_NUM"));
-				noti.setNOTI_MEMBER_ID(rs.getString("NOTI_MEMBER_ID"));
+				noti.setNOTI_MEMBER_NAME(rs.getString("NOTI_MEMBER_NAME"));
 				noti.setNOTI_SUBJECT(rs.getString("NOTI_SUBJECT"));
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));

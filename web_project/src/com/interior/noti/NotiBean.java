@@ -10,8 +10,17 @@ public class NotiBean {
 	private int NOTI_READCOUNT;
 	private Date NOTI_DATE;
 	private int NOTI_NUM;
+	private String NOTI_MEMBER_NAME;
 	
 	
+	
+	
+	public String getNOTI_MEMBER_NAME() {
+		return NOTI_MEMBER_NAME;
+	}
+	public void setNOTI_MEMBER_NAME(String nOTI_MEMBER_NAME) {
+		NOTI_MEMBER_NAME = nOTI_MEMBER_NAME;
+	}
 	public String getNOTI_MEMBER_ID() {
 		return NOTI_MEMBER_ID;
 	}
