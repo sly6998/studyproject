@@ -54,7 +54,7 @@ public class AdviceDAO {
 	public List getAdviceList(int page, int limit) {//Advice 리스트 불러오기
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, advice_name, advice_tel, advice_content, advice_date from " +
+		"(select rownum rnum, advice_num, advice_name, advice_tel, advice_content, advice_date from " +
 		"(select * from advice order by " +
 		"advice_date desc)) " +
 		"where rnum>=? and rnum<=?";
