@@ -112,10 +112,12 @@
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <a href=""></a>
          </td>
          
-         <TD></TD>
+         
+         <TD>
+            <a href="./advice_detail.html?ADVICE_NUM=<%=bl.getADVICE_NUM()%>"><%=bl.getADVICE_NAME()%></a>
+         </TD>
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
