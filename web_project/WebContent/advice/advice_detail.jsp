@@ -65,7 +65,7 @@
 		
 		<tr>
 			<td><a href="advice_list.html">목록보기 </a></td>
-		</tr>
+		</tr> 
 	</table>
 </div>
 </fieldset>
