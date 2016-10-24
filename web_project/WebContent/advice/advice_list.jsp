@@ -54,7 +54,7 @@
                                                     
 <form id="contact-form" method="post" enctype="multipart/form-data">                    
 <fieldset>
-<table width="870">
+<table width="870"> 
       <!-- 빈공간(여백) -->
       <tr>
          <td style="border: 0px solid #000;" colspan="5" height="20px"></td>
