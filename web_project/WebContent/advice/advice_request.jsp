@@ -63,7 +63,7 @@
 	<div class="text-form">Message:</div>
 	<input style="height:300px; width:300px;  " name="ADVICE_CONTENT" type="text" />
 	
-</div>
+</div> 
 </div>    
 </td>
 
