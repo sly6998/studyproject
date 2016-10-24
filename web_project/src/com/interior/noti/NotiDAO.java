@@ -53,7 +53,7 @@ public class NotiDAO {
 	public List getNotiList(int page, int limit) {//게시판 리스트를 받아옴
 		// TODO Auto-generated method stub
 		String sql = "select * from " +
-		"(select rownum rnum, noti_num, noti_member_ID, noti_subject, noti_content," +
+		"(select rownum rnum, noti_num, NOTI_MEMBER_NAME, noti_subject, noti_content," +
 		"noti_readcount, noti_date from " +
 		"(select * from noti order by " +
 		"noti_date desc)) " +
