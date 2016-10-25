@@ -71,32 +71,32 @@
   <table>
   	<%
 	  for(int i=0; i<noti_reply.size(); i++){
-		BoardBean bl = (BoardBean)noti_reply.get(i);
+		NotiBean notireply = (NotiBean)noti_reply.get(i);
 	%>
 	
 	  <tr>
   		<td>
-		  <%if(bl.getNOTI_REPLY_LEV() != 0){ %>
-			<% for(int a=0; a<=bl.getNOTI_REPLY_LEV()*2; a++){ %>
+		  <%if(notireply.getNOTI_REPLY_LEV() != 0){ %>
+			<% for(int a=0; a<=notireply.getNOTI_REPLY_LEV()*2; a++){ %>
 			  &nbsp;
 			<%}%>
 			▶
 		  <%}else{%>
 			▶
 		  <%}%>
-		  <a href="#"><%= bl.getNOTI_REPLY_MEMBER_NAME() %></a>
+		  <a href="#"><%= notireply.getNOTI_REPLY_MEMBER_NAME() %></a>
 		</td>
 		<td align="right">
-		  <%= bl.getNOTI_REPLY_DATE() %>
+		  <%= notireply.getNOTI_REPLY_DATE() %>
 		</td>
 	  </tr>
 	  
 	  <tr>
 	    <td>
-		  <% for(int a=0; a<=bl.getNOTI_REPLY_LEV()*2; a++){ %>
+		  <% for(int a=0; a<=notireply.getNOTI_REPLY_LEV()*2; a++){ %>
 			&nbsp;
 		  <%}%>
-		  <%= bl.getNOTI_REPLY_CONTENT() %>
+		  <%= notireply.getNOTI_REPLY_CONTENT() %>
 		</td>
 	  </tr>
 		  <%}%>
