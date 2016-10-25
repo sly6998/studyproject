@@ -63,5 +63,53 @@
    </tr>
   </table>
   <!-- 게시판 수정 -->
+  
+  
+  
+  
+  <!-- 댓글 -->
+  <table>
+  	<%
+	  for(int i=0; i<noti_reply.size(); i++){
+		BoardBean bl = (BoardBean)noti_reply.get(i);
+	%>
+	
+	  <tr>
+  		<td>
+		  <%if(bl.getNOTI_REPLY_LEV() != 0){ %>
+			<% for(int a=0; a<=bl.getNOTI_REPLY_LEV()*2; a++){ %>
+			  &nbsp;
+			<%}%>
+			▶
+		  <%}else{%>
+			▶
+		  <%}%>
+		  <a href="#"><%= bl.getNOTI_REPLY_MEMBER_NAME() %></a>
+		</td>
+		<td align="right">
+		  <%= bl.getNOTI_REPLY_DATE() %>
+		</td>
+	  </tr>
+	  
+	  <tr>
+	    <td>
+		  <% for(int a=0; a<=bl.getNOTI_REPLY_LEV()*2; a++){ %>
+			&nbsp;
+		  <%}%>
+		  <%= bl.getNOTI_REPLY_CONTENT() %>
+		</td>
+	  </tr>
+		  <%}%>
+      <tr>
+        <td>
+		  <textarea rows="80" cols="30"></textarea>
+        </td>
+        <td>
+          <input type="submit" value="확인">
+        </td>
+      </tr>
+  </table>
+  
+  
 </body>
 </html>
