@@ -1,9 +1,12 @@
+<%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ page import="com.interior.noti.*" %>
 <%
  NotiBean noti=(NotiBean)request.getAttribute("notidata");
+	List noti_reply = (List)request.getAttribute("noti_reply");
 %>
+
 <!DOCTYPE html>
 <html>
 <head>

@@ -11,8 +11,8 @@
 	</page_setting>
 	<category_index>0</category_index>
 	<zoom>1.0</zoom>
-	<x>0</x>
-	<y>0</y>
+	<x>5</x>
+	<y>601</y>
 	<default_color>
 		<r>128</r>
 		<g>128</g>
@@ -41,7 +41,7 @@
 		<suspend_validator>false</suspend_validator>
 		<export_setting>
 			<export_ddl_setting>
-				<output_path>WebContent\sql\erm12.sql</output_path>
+				<output_path>WebContent\sql\erm13.sql</output_path>
 				<encoding>UTF-8</encoding>
 				<line_feed>CR+LF</line_feed>
 				<is_open_after_saved>true</is_open_after_saved>
@@ -135,7 +135,7 @@
 			</connections>
 			<display>false</display>
 			<creation_date>2016-10-07 12:09:21</creation_date>
-			<updated_date>2016-10-25 12:22:51</updated_date>
+			<updated_date>2016-10-25 12:28:23</updated_date>
 			<model_property>
 				<name>프로젝트명</name>
 				<value></value>

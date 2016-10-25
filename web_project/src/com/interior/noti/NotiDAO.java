@@ -17,6 +17,7 @@ public class NotiDAO {
 	
 	Connection con;
 	PreparedStatement pstmt;
+	PreparedStatement pstmt2;
 	ResultSet rs;
 	DataSource ds;
 	public NotiDAO(){
@@ -136,9 +137,12 @@ public class NotiDAO {
 	public NotiBean getDetail(int num) throws Exception {//공지사항 글 보기(상세보기)
 		// TODO Auto-generated method stub
 		NotiBean noti = null;
+		
+		String sql = "select * from noti where noti_num=? and noti_reply_num=?";
+		
 		try{
 			con=ds.getConnection();
-			pstmt = con.prepareStatement("select * from noti where noti_num=?");
+			pstmt = con.prepareStatement(sql);
 			pstmt.setInt(1, num);
 			
 			rs = pstmt.executeQuery();
@@ -151,6 +155,13 @@ public class NotiDAO {
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
 				noti.setNOTI_DATE(rs.getDate("NOTI_DATE"));
+				noti.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
+				noti.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));
+				noti.setNOTI_REPLY_CONTENT(rs.getString("NOTI_REPLY_CONTENT"));
+				noti.setNOTI_REPLY_REF(rs.getInt("NOTI_REPLY_REF"));
+				noti.setNOTI_REPLY_SEQ(rs.getInt("NOTI_REPLY_SEQ"));
+				noti.setNOTI_REPLY_LEV(rs.getInt("NOTI_REPLY_LEV"));
+				noti.setNOTI_REPLY_DATE(rs.getDate("NOTI_REPLY_DATE"));
 			}
 			return noti;
 		}catch(Exception e){
@@ -158,6 +169,7 @@ public class NotiDAO {
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(pstmt2!=null) try{pstmt2.close();}catch(SQLException ex){}
 			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}
 		return null;
@@ -309,13 +321,13 @@ public class NotiDAO {
 					}else{
 						num=1;
 					}
-					sql = "update NOTI set noti_reply_seq=noti_reply_seq+1 where noti_reply_ref=? and noti_reply_seq>?";
+					sql = "update NOTI_reply set noti_reply_seq=noti_reply_seq+1 where noti_reply_ref=? and noti_reply_seq>?";
 					
 					pstmt = con.prepareStatement(sql);
 					pstmt.setInt(1, reply_ref);
 					pstmt.setInt(2, reply_seq);
 					
-					sql = "insert into noti (noti_reply_num, noti_reply_member_NAME, noti_reply_content, noti_reply_ref, noti_reply_seq, noti_reply_lev, noti_reply_date) values (noti_reply_seq.nextval,?,?,?,?,?sysdate)";
+					sql = "insert into noti_reply (noti_reply_num, noti_reply_member_NAME, noti_reply_content, noti_reply_ref, noti_reply_seq, noti_reply_lev, noti_reply_date) values (noti_reply_seq.nextval,?,?,?,?,?sysdate)";
 					
 					pstmt=con.prepareStatement(sql);
 					pstmt.setString(1, notireplywrite.getNOTI_REPLY_MEMBER_NAME());
@@ -419,4 +431,6 @@ public class NotiDAO {
 			}
 			return false;
 		}
+		
+		
 }

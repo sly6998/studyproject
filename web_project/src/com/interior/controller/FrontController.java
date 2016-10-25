@@ -31,6 +31,10 @@ import com.interior.noti.NotiDetailAction;
 import com.interior.noti.NotiListAction;
 import com.interior.noti.NotiModifyAction;
 import com.interior.noti.NotiModifyViewAction;
+import com.interior.noti.NotiReplyDeleteAction;
+import com.interior.noti.NotiReplyModifyAction;
+import com.interior.noti.NotiReplyModifyViewAction;
+import com.interior.noti.NotiReplyWriteAction;
 import com.interior.noti.NotiWriteAction;
 import com.interior.qna.QnaDeleteAction;
 import com.interior.qna.QnaDetailAction;
@@ -232,6 +236,34 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			}
 		} else if (command.equals("/NotiDeleteAction.html")) {// 공지사항 글 삭제(관리자)
 			action = new NotiDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/NotiReplyWriteAction.html")) {// 공지사항 댓글 쓰기
+			action = new NotiReplyWriteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/noti_detail.html")) { // 공지사항 댓글 수정 페이지 이동
+			action = new NotiReplyModifyViewAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/NotiReplyModifyAction.html")) {// 공지사항 댓글 수정
+			action = new NotiReplyModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/NotiReplyDeleteAction.html")) {// 공지사항 댓글 삭제
+			action = new NotiReplyDeleteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
