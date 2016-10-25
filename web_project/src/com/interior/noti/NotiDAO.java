@@ -138,7 +138,7 @@ public class NotiDAO {
 		// TODO Auto-generated method stub
 		NotiBean noti = null;
 		
-		String sql = "select * from noti where noti_num=? and noti_reply_num=?";
+		String sql = "select * from noti where noti_num=?";
 		
 		try{
 			con=ds.getConnection();
@@ -155,13 +155,6 @@ public class NotiDAO {
 				noti.setNOTI_CONTENT(rs.getString("NOTI_CONTENT"));
 				noti.setNOTI_READCOUNT(rs.getInt("NOTI_READCOUNT"));
 				noti.setNOTI_DATE(rs.getDate("NOTI_DATE"));
-				noti.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
-				noti.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));
-				noti.setNOTI_REPLY_CONTENT(rs.getString("NOTI_REPLY_CONTENT"));
-				noti.setNOTI_REPLY_REF(rs.getInt("NOTI_REPLY_REF"));
-				noti.setNOTI_REPLY_SEQ(rs.getInt("NOTI_REPLY_SEQ"));
-				noti.setNOTI_REPLY_LEV(rs.getInt("NOTI_REPLY_LEV"));
-				noti.setNOTI_REPLY_DATE(rs.getDate("NOTI_REPLY_DATE"));
 			}
 			return noti;
 		}catch(Exception e){
@@ -169,7 +162,6 @@ public class NotiDAO {
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
-			if(pstmt2!=null) try{pstmt2.close();}catch(SQLException ex){}
 			if(con!=null) try{con.close();}catch(SQLException ex){}
 		}
 		return null;
@@ -430,6 +422,42 @@ public class NotiDAO {
 				}
 			}
 			return false;
+		}
+		
+		//공지사항 글 댓글 보기
+		public NotiBean getReplyDetail(int num) throws Exception {
+			// TODO Auto-generated method stub
+			NotiBean noti = null;
+			
+			String sql = "select * from noti_reply where noti_reply_num=?";
+			
+			try{
+				con=ds.getConnection();
+				pstmt = con.prepareStatement(sql);
+				pstmt.setInt(1, num);
+				
+				rs = pstmt.executeQuery();
+				
+				if(rs.next()){
+					noti = new NotiBean();
+					noti.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
+					noti.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));					
+					noti.setNOTI_REPLY_MEMBER_ID(rs.getString("NOTI_REPLY_MEMBER_ID"));
+					noti.setNOTI_REPLY_CONTENT(rs.getString("NOTI_REPLY_CONTENT"));
+					noti.setNOTI_REPLY_DATE(rs.getDate("NOTI_DATE"));
+					noti.setNOTI_REPLY_REF(rs.getInt("NOTI_REPLY_REF"));
+					noti.setNOTI_REPLY_SEQ(rs.getInt("NOTI_REPLY_SEQ"));
+					noti.setNOTI_REPLY_LEV(rs.getInt("NOTI_REPLY_LEV"));
+				}
+				return noti;
+			}catch(Exception e){
+				System.out.println("getReplyDetail error : "+e);
+			}finally{
+				if(rs!=null) try{rs.close();}catch(SQLException ex){}
+				if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+				if(con!=null) try{con.close();}catch(SQLException ex){}
+			}
+			return null;
 		}
 		
 		

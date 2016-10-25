@@ -32,6 +32,7 @@ import com.interior.noti.NotiListAction;
 import com.interior.noti.NotiModifyAction;
 import com.interior.noti.NotiModifyViewAction;
 import com.interior.noti.NotiReplyDeleteAction;
+import com.interior.noti.NotiReplyDetailAction;
 import com.interior.noti.NotiReplyModifyAction;
 import com.interior.noti.NotiReplyModifyViewAction;
 import com.interior.noti.NotiReplyWriteAction;
@@ -204,6 +205,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			}
 		} else if (command.equals("/noti_detail.html")) { // 공지사항 상세보기 페이지 이동 & action
 			action = new NotiDetailAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/noti_detail.html")) { // 공지사항 상세보기 페이지 이동 & action
+			action = new NotiReplyDetailAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
