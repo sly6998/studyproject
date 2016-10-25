@@ -20,7 +20,6 @@ public class NotiReplyDetailAction implements Action{
 
 		  int num = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
 		  
-		  notidao.setReadCountUpdate(num);//조회수 업데이트
 		  notidata = notidao.getReplyDetail(num);//게시글 보기
 
 		  if (notidata == null) {
