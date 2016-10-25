@@ -32,7 +32,7 @@ public class MemberDAO {
 
 	public boolean joinMember(MemberBean member) {  // 회원가입 action
 		// TODO Auto-generated method stub
-		String sql = "Insert into member_info (member_num, member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_year, member_month, member_day, member_date) values (member_info_seq.nextval,?,?,?,?,?,?,?,?,?,?,?,sysdate)";
+		String sql = "Insert into member_info (member_num, member_name, member_ID, member_pwd, member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_year, member_month, member_day, member_date) values (member_info_seq.nextval,?,?,PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(?),?,?,?,?,?,?,?,?,sysdate)";
 		int result = 0;
 		
 		try{
@@ -136,7 +136,7 @@ public class MemberDAO {
 
 	public MemberBean pwdfind(MemberBean member) { // 비밀번호 찾기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_ID=? and member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
+		String sql = "select PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) from member_info where member_ID=? and member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
 		MemberBean mb = new MemberBean();
 		
 		try{
@@ -391,7 +391,6 @@ public class MemberDAO {
 			if(result == 1){
 				System.out.println("회원탈퇴 성공 id : "+ id);
 				return result;//비밀번호 일치
-			
 			}else{
 				System.out.println("회원탈퇴 실패 id : "+ id);
 				return result;//비밀번호 불일치
