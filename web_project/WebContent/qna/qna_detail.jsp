@@ -13,7 +13,7 @@
 	<h3 class="p2">QnA(detail)</h3>
 	<table cellpadding="0" cellspacing="0">
    <tr align="center" valign="middle">
-    <td colspan="5">MVC 게시판</td>
+    <td colspan="5">QNA 게시판</td>
    </tr>
    
    <tr>
@@ -36,22 +36,53 @@
      <div align="center" valign="middle">내용</div>
     </td>
     <td style="font-family:돋움; font-size:12">
+    
+    
      <table border=0 width=490 height=250 style="table-layout:fixed">
       <tr>
-       <td valign=top style="font-family:돋움; font-size:12">
+       <td valign=top style="font-family:돋움; font-size:12" >
         <%= qna.getQnA_CONTENT() %>
        </td>
       </tr>
      </table>
+     
+     
     </td>
    </tr>
    
    <tr bgcolor="cccccc">
-    <td colspan="2" style="height:1px;"></td>
+    <td colspan="3" style="height:1px;"></td>
    </tr>
    
-   <tr><td colspan="2">&nbsp;</td></tr>
+  
    
+   <tr>
+    <Td colspan=3>
+    	
+    	<table width=500>
+    		<tr>
+				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">gg8888</td>
+			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350"> 댓글댓글댓글인가요</td>
+		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
+		   			<font color="#747474">2016-01-01</font>
+		   		</td>
+    		</tr>
+    		
+    		<tr>
+				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">gg8888</td>
+			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350"> 댓글댓글댓글인가요</td>
+		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
+		   			<font color="#747474">2016-01-01</font>
+		   		</td>
+    		</tr>
+    	</table>
+		   
+	<tr bgcolor="cccccc">
+    <td colspan="3" style="height:1px;"></td>
+   </tr>
+     </Td>
+    </tr>
+
    <tr align="center" valign="middle">
     <td colspan="5">
      <font size=2>
