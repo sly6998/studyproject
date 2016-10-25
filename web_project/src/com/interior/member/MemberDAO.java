@@ -409,4 +409,34 @@ public class MemberDAO {
 		
 		return result;
 	}
+
+	public int manage_member_leave(String id) {
+
+		String sql = "delete from member_info where member_id=?";
+		
+		int result = 2;
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setString(1, id);
+			result = pstmt.executeUpdate();
+			
+			if(result == 1){
+				System.out.println("회원탈퇴 성공 id : "+ id);
+				return result;//비밀번호 일치
+			}else{
+				System.out.println("회원탈퇴 실패 id : "+ id);
+				return result;//비밀번호 불일치
+			}
+			
+		}catch(Exception e){
+			System.out.println("회원탈퇴 에러 : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return result;
+	}
 }

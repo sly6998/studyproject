@@ -116,8 +116,7 @@
 			<%=bl.getMEMBER_NUM()%>
 		</td>
 
-		<td
-			style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+		<td style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
 			<%=bl.getMEMBER_ID()%>
 		</td>
 
@@ -141,7 +140,7 @@
 		</td>
 		<td style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
 			<div align="center">
-				<a href="#">탈퇴</a>
+				<a href="./management_member_leave.html?id=<%=bl.getMEMBER_ID()%>">탈퇴</a>
 			</div>
 		</td>
 

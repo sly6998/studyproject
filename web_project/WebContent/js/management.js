@@ -11,7 +11,7 @@ function resetSrchForm() {
 
 
 
-//우편번호 검색
+// 우편번호 검색
 function execDaumPost() {
  new daum.Postcode(
    {
@@ -55,9 +55,9 @@ function infocus(element){
 	
 	var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
    /*
-		 * 한글이름 2~4글자, 영문이름은 Fistname Lastname 을 사용하므로 2~10글자 입력 후 한칸 띄고 2~10글자를
-		 * 입력 받는다 (영문 2~10글자 (공백) 영문 2~10글자 형식)
-		 */
+	 * 한글이름 2~4글자, 영문이름은 Fistname Lastname 을 사용하므로 2~10글자 입력 후 한칸 띄고 2~10글자를 입력
+	 * 받는다 (영문 2~10글자 (공백) 영문 2~10글자 형식)
+	 */
 	 
 	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 	 var id_re =  /^[A-za-z0-9]{5,15}/g;
@@ -94,19 +94,13 @@ function infocus(element){
 			 element.style.borderBottomColor='red';
 			 return;
 		 }
-	 }/*else if(el_id == 'MEMBER_ADDR_ZIP'){
-		 if(el_v == ''){
-			 $('#zip_cl').collapse('show');
-			 element.style.borderBottomColor='red';
-			 return;
-		 }
-	 }else if(el_id == 'MEMBER_ADDR_1'){
-		 if(el_v == ''){
-			 $('#addr1_cl').collapse('show');
-			 element.style.borderBottomColor='red';
-			 return;
-		 }
-	 }*/else if(el_id == 'MEMBER_ADDR_2'){
+	 }/*
+		 * else if(el_id == 'MEMBER_ADDR_ZIP'){ if(el_v == ''){
+		 * $('#zip_cl').collapse('show'); element.style.borderBottomColor='red';
+		 * return; } }else if(el_id == 'MEMBER_ADDR_1'){ if(el_v == ''){
+		 * $('#addr1_cl').collapse('show');
+		 * element.style.borderBottomColor='red'; return; } }
+		 */else if(el_id == 'MEMBER_ADDR_2'){
 		 if(el_v == ''){
 			 $('#addr2_cl').collapse('show');
 			 element.style.borderBottomColor='red';
@@ -119,9 +113,9 @@ function valchk(element){
 	 
 	 var name_re = /^[가-힣]{2,4}|[a-zA-Z]{2,10}\s[a-zA-Z]{2,10}$/;
     /*
-		 * 한글이름 2~4글자, 영문이름은 Fistname Lastname 을 사용하므로 2~10글자 입력 후 한칸 띄고 2~10글자를
-		 * 입력 받는다 (영문 2~10글자 (공백) 영문 2~10글자 형식)
-		 */
+	 * 한글이름 2~4글자, 영문이름은 Fistname Lastname 을 사용하므로 2~10글자 입력 후 한칸 띄고 2~10글자를 입력
+	 * 받는다 (영문 2~10글자 (공백) 영문 2~10글자 형식)
+	 */
 	 
 	 var tel_re = /^01([0|1|6|7|8|9]?)-?([0-9]{3,4})-?([0-9]{4})$/;
 	 var id_re =  /^[A-za-z0-9]{5,15}/g;
@@ -257,3 +251,23 @@ function isChk_id(){
 function overlapClose(value){
 	 window.close();
 }
+
+
+// 회원탈퇴
+function member_leave(){
+	var id = document.getElementById('m_id').value;
+	var confirm_value = confirm("정말 탈퇴 시키겠습니까?");
+	   if( confirm_value == true ){
+		   
+	   }
+}
+
+
+
+
+
+
+
+
+
+
