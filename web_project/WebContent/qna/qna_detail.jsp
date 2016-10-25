@@ -68,7 +68,7 @@
 		   		</td>
     		</tr>
     		
-    		<tr>
+    		<tr> 
 				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">gg8888</td>
 			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350"> 댓글댓글댓글인가요</td>
 		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
