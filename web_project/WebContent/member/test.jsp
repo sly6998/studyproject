@@ -3,10 +3,8 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <title>Bootstrap 101 Template</title>
+  <script src="<%=request.getContextPath()%>/js/join.js"></script>
+<script src="http://dmaps.daum.net/map_js_init/postcode.v2.js"></script>	
     <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
   </head>
   <body>
@@ -32,6 +30,7 @@
               <h4 class="modal-title">Modal 1</h4>
             </div><div class="container"></div>
             <div class="modal-body">
+  <input type="button" value="Search" onclick="execDaumPostcode()" class="btn-default-1 btn">
               Content for the dialog / modal goes here.
               <br>
               <br>

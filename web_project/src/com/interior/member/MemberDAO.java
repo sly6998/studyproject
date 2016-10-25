@@ -247,7 +247,7 @@ public class MemberDAO {
 		
 		int result = -1;
 		
-		String sql = "update member_info set MEMBER_PWD=?,";
+		String sql = "update member_info set member_pwd=PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT(?),";
 		sql+="member_addr_1=?, member_addr_2=?, member_addr_zip=?, member_tel=?, member_gender=? where member_ID=?";
 		
 		try{

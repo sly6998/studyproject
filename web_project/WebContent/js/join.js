@@ -2,42 +2,40 @@
  * 회원가입 JS
  */
 
-// 우편번호 검색
- function execDaumPost() {
-  new daum.Postcode(
-    {
-     oncomplete : function(data) {
-      var fullAddr = ''; 
-      var extraAddr = ''; 
+//우편번호 검색
+function execDaumPost(){
+ new daum.Postcode({
+    oncomplete : function(data) {
+     var fullAddr = ''; 
+     var extraAddr = ''; 
 
-      if (data.userSelectedType === 'R') { 
-       fullAddr = data.roadAddress;
+     if (data.userSelectedType === 'R') { 
+      fullAddr = data.roadAddress;
 
-      } else { 
-       fullAddr = data.jibunAddress;
-      }
-
-      if (data.userSelectedType === 'R') {
-       if (data.bname !== '') {
-        extraAddr += data.bname;
-       }
-       if (data.buildingName !== '') {
-        extraAddr += (extraAddr !== '' ? ', '
-          + data.buildingName : data.buildingName);
-       }
-       fullAddr += (extraAddr !== '' ? ' (' + extraAddr
-         + ')' : '');
-      }
-
-      document.getElementById('MEMBER_ADDR_ZIP').value = data.zonecode; 
-      document.getElementById('MEMBER_ADDR_1').value = fullAddr;
-      document.getElementById('MEMBER_ADDR_ZIP').style.borderColor="green";
-      document.getElementById('MEMBER_ADDR_1').style.borderColor="green";
-      document.getElementById('MEMBER_ADDR_2').focus();
+     } else { 
+      fullAddr = data.jibunAddress;
      }
-    }).open();
- }
 
+     if (data.userSelectedType === 'R') {
+      if (data.bname !== '') {
+       extraAddr += data.bname;
+      }
+      if (data.buildingName !== '') {
+       extraAddr += (extraAddr !== '' ? ', '
+         + data.buildingName : data.buildingName);
+      }
+      fullAddr += (extraAddr !== '' ? ' (' + extraAddr
+        + ')' : '');
+     }
+
+     document.getElementById('MEMBER_ADDR_ZIP').value = data.zonecode; 
+     document.getElementById('MEMBER_ADDR_1').value = fullAddr;
+     document.getElementById('MEMBER_ADDR_ZIP').style.borderColor="green";
+     document.getElementById('MEMBER_ADDR_1').style.borderColor="green";
+     document.getElementById('MEMBER_ADDR_2').focus();
+    }
+   }).open();
+}
  
  // 유효성 검사(인포커스)
 function infocus(element){

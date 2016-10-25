@@ -213,8 +213,6 @@ function member_modify(){
 			alert('아이디를 형식에 맞게 입력하여 주세요.');
 			document.getElementById('MEMBER_ID').value='';
 			document.getElementById('MEMBER_ID').focus();
-	}else if(document.getElementById('id_isChk').value == 1){
-		alert('아이디를 중복 체크하여 주세요.');
 	}else if(document.getElementById('MEMBER_NAME').value=='' || !name_re.test(document.getElementById('MEMBER_NAME').value)){
 		alert('이름을 형식에 맞게 입력하여 주세요.');
 		document.getElementById('MEMBER_NAME').value='';
@@ -237,10 +235,10 @@ function member_modify(){
 		document.getElementById('MEMBER_ADDR_1').value='';
 		document.getElementById('MEMBER_ADDR_2').value='';
 		document.getElementById('MEMBER_ADDR_ZIP').focus();
-	}else if(document.joinform.MEMBER_YEAR.value==''|| document.joinform.MEMBER_MONTH.value==''|| document.joinform.MEMBER_DAY.value==''){
+	}else if(document.mypage_form.MEMBER_YEAR.value==''|| document.mypage_form.MEMBER_MONTH.value==''|| document.mypage_form.MEMBER_DAY.value==''){
 		alert('생년월일을 선택하여 주세요.');
 	}else{
-		document.getElementById('joinform').submit();
+		document.getElementById('mypage_form').submit();
 	}
 }
 
@@ -257,11 +255,5 @@ function isChk_id(){
 
 // 중복체크창 닫기
 function overlapClose(value){
-	 var result = value;
-	 if(result==1){
-		 
-	 }else{
-		 opener.joinform.id_isChk.value = result;
-	 }
 	 window.close();
 }

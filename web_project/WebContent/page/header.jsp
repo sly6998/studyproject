@@ -6,10 +6,10 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/grid.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
+<link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
 <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.galleriffic.js" type="text/javascript"></script>
-<script src="<%=request.getContextPath()%>/js/jquery.opacityrollover.js" type="text/javascript"></script>
+<script src="http://code.jquery.com/jquery-latest.min.js"></script>
+<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
 <title></title>
 <meta charset="utf-8">
 </head>
@@ -110,41 +110,32 @@
 </div>
 
 <!-- 회원가입 모달 -->
-<div class="container">
 	<div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
 	  </div>
 	</div>
-</div>
 <!-- 로그인 모달 -->
-<div class="container">
 	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
 	  </div>
 	</div>
-</div>
 <!-- id찾기 모달 -->
-<div class="container">
 	<div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
 	  </div>
 	</div>
-</div>
 <!-- pw찾기 모달 -->
-<div class="container">
 	<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
 	  </div>
 	</div>
-</div>
-<script src="http://code.jquery.com/jquery-latest.min.js"></script>
-<script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.2.0/js/bootstrap.min.js"></script>
+
 
