@@ -6,7 +6,7 @@
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/reset.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/grid.css" type="text/css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/style.css" type="text/css">
-<script src="<%=request.getContextPath()%>/css/bootstrap.css"></script>
+<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css">
 <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
 <script src="<%=request.getContextPath()%>/js/jquery.galleriffic.js" type="text/javascript"></script>
 <script src="<%=request.getContextPath()%>/js/jquery.opacityrollover.js" type="text/javascript"></script>
@@ -29,7 +29,7 @@
 					  if (id == null || id == "") {
 					%>
 					
-					<a href="./join.html" data-toggle="modal" data-target="#myModal">회원가입</a>
+					<a href="./join.html" data-toggle="modal" data-target="#joinModal">회원가입</a>
 					<a href="./login.html" data-toggle="modal" data-target="#loginModal">로그인</a>
 					<a href="./idfind.html" data-toggle="modal" data-target="#idModal">아이디 /</a>&nbsp;
 					<a href="./pwdfind.html" data-toggle="modal" data-target="#pwdModal">패스워드 찾기</a>
@@ -111,7 +111,7 @@
 
 <!-- 회원가입 모달 -->
 <div class="container">
-	<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal fade" id="joinModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
@@ -120,7 +120,7 @@
 </div>
 <!-- 로그인 모달 -->
 <div class="container">
-	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
@@ -129,7 +129,7 @@
 </div>
 <!-- id찾기 모달 -->
 <div class="container">
-	<div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal fade" id="idModal" tabindex="-1" role="dialog" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>
@@ -138,7 +138,7 @@
 </div>
 <!-- pw찾기 모달 -->
 <div class="container">
-	<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" >
+	<div class="modal fade" id="pwdModal" tabindex="-1" role="dialog" aria-hidden="true" >
 	  <div class="modal-dialog">
 	    <div class="modal-content">
 	    </div>

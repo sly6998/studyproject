@@ -207,7 +207,9 @@ public class MemberDAO {
 
 	public MemberBean membermodifyview(String ID) {// 마이페이지 보기 action
 		// TODO Auto-generated method stub
-		String sql = "select * from member_info where member_ID=?";
+		String sql = "select member_id, member_name, PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) member_pwd, "
+				+ "member_addr_1, member_addr_2, member_addr_zip, member_tel, member_gender, member_year, "
+				+ "member_month, member_day from member_info where member_ID=?";
 		
 		try{
 			con = ds.getConnection();
@@ -219,6 +221,7 @@ public class MemberDAO {
 			MemberBean mb = new MemberBean();
 			mb.setMEMBER_ID(ID);
 			mb.setMEMBER_NAME(rs.getString("MEMBER_NAME"));
+			mb.setMEMBER_PWD(rs.getString("member_pwd"));
 			mb.setMEMBER_ADDR_1(rs.getString("MEMBER_ADDR_1"));
 			mb.setMEMBER_ADDR_2(rs.getString("MEMBER_ADDR_2"));
 			mb.setMEMBER_ADDR_ZIP(rs.getString("MEMBER_ADDR_ZIP"));

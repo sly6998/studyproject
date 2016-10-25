@@ -21,6 +21,7 @@ import com.interior.member.MemberLeaveAction;
 import com.interior.member.MemberLoginAction;
 import com.interior.member.MemberManagementAction;
 import com.interior.member.MemberManagementModifyAction;
+import com.interior.member.MemberManagementModifyViewAction;
 import com.interior.member.MemberModifyAction;
 import com.interior.member.MemberModifyViewAction;
 import com.interior.member.MemberViewAction;
@@ -172,6 +173,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			}
 		} else if (command.equals("/MemberManagementModify.html")) {// 회원정보 수정(관리자)
 			action = new MemberManagementModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/MemberManagementModifyView.html")) {// 회원정보 수정페이지 &action(관리자 페이지)
+			action = new MemberManagementModifyViewAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

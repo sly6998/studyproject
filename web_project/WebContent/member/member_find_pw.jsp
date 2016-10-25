@@ -3,7 +3,6 @@
 <link href='http://fonts.googleapis.com/css?family=Varela+Round' rel='stylesheet' type='text/css'>
 <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="<%=request.getContextPath()%>/css/member_form.css">
-<link rel="stylesheet" href="<%=request.getContextPath()%>/css/bootstrap.css" type="text/css">
 <script src="<%=request.getContextPath()%>/js/pwdFind.js"></script>
 
 <div class="text-center" style="padding:50px 0">
