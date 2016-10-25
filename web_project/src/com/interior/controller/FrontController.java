@@ -14,12 +14,14 @@ import com.interior.advice.AdviceListAction;
 import com.interior.advice.AdviceWriteAction;
 import com.interior.basket.BasketDetailAction;
 import com.interior.basket.BasketListAction;
+import com.interior.member.ManagementModifyAction;
 import com.interior.member.MemberFindIDAction;
 import com.interior.member.MemberFindPWDAction;
 import com.interior.member.MemberJoinAction;
 import com.interior.member.MemberLeaveAction;
 import com.interior.member.MemberLoginAction;
 import com.interior.member.MemberManagementAction;
+import com.interior.member.MemberManagementLeaveAction;
 import com.interior.member.MemberManagementModifyAction;
 import com.interior.member.MemberManagementModifyViewAction;
 import com.interior.member.MemberModifyAction;
@@ -190,7 +192,20 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			} catch (Exception e) {
 				e.printStackTrace();
 			}
-
+		} else if (command.equals("/ManagementModify.html")) {// 회원정보 수정 action(관리자 페이지)
+			action = new ManagementModifyAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/management_member_leave.html")) {// 회원탈퇴 action(관리자 페이지)
+			action = new MemberManagementLeaveAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
 			
 			
 			
