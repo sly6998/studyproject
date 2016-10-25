@@ -3,7 +3,7 @@
     pageEncoding="UTF-8"%>
 <%@ page import="com.interior.noti.*" %>
 <%
- NotiBean noti=(NotiBean)request.getAttribute("notidata");
+ 	NotiBean noti=(NotiBean)request.getAttribute("notidata");
 	List noti_reply = (List)request.getAttribute("noti_reply");
 %>
 

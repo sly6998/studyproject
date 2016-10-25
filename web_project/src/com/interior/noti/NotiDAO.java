@@ -137,12 +137,10 @@ public class NotiDAO {
 	public NotiBean getDetail(int num) throws Exception {//공지사항 글 보기(상세보기)
 		// TODO Auto-generated method stub
 		NotiBean noti = null;
-		
-		String sql = "select * from noti where noti_num=?";
-		
+				
 		try{
 			con=ds.getConnection();
-			pstmt = con.prepareStatement(sql);
+			pstmt = con.prepareStatement("select * from noti where noti_num=?");
 			pstmt.setInt(1, num);
 			
 			rs = pstmt.executeQuery();
@@ -293,7 +291,7 @@ public class NotiDAO {
 	
 			// 공지사항 글 댓글 쓰기
 			public int NotiReplyWrite(NotiBean notireplywrite){
-				String noti_reply_sql = "select max(noti_reply_num) from noti";
+				String noti_reply_sql = "select max(noti_reply_num) from noti_reply";
 				String sql="";
 				
 				int num=0;
@@ -341,7 +339,7 @@ public class NotiDAO {
 			
 			//공지사항 댓글 수정
 			public boolean NotiReplyModify(NotiBean replymodify)throws Exception{
-				String sql = "update noti set noti_reply_content=? where noti_reply_num=?";
+				String sql = "update noti_reply set noti_reply_content=? where noti_reply_num=?";
 				
 				try{
 					con=ds.getConnection();
@@ -362,7 +360,7 @@ public class NotiDAO {
 			
 			//공지사항 댓글 삭제
 			public boolean NotiReplyDelete(int num){
-				String sql = "delete from noit where noti_reply_num=?";
+				String sql = "delete from noti_reply where noti_reply_num=?";
 				
 				int result=0;
 				
@@ -395,7 +393,7 @@ public class NotiDAO {
 		//공지사항 댓글 글쓴이 인지 확인
 		public boolean isNotiReplyWriter(int num, String ID){
 			System.out.println("ID = "+ID);
-			String sql = "select * from noti where noti_reply_num=?";
+			String sql = "select * from noti_reply where noti_reply_num=?";
 			
 			try{
 				con=ds.getConnection();
@@ -427,29 +425,27 @@ public class NotiDAO {
 		//공지사항 글 댓글 보기
 		public NotiBean getReplyDetail(int num) throws Exception {
 			// TODO Auto-generated method stub
-			NotiBean noti = null;
-			
-			String sql = "select * from noti_reply where noti_reply_num=?";
-			
+			NotiBean notireply = null;
+						
 			try{
 				con=ds.getConnection();
-				pstmt = con.prepareStatement(sql);
+				pstmt = con.prepareStatement("select * from noti_reply where noti_reply_num=?");
 				pstmt.setInt(1, num);
 				
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					noti = new NotiBean();
-					noti.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
-					noti.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));					
-					noti.setNOTI_REPLY_MEMBER_ID(rs.getString("NOTI_REPLY_MEMBER_ID"));
-					noti.setNOTI_REPLY_CONTENT(rs.getString("NOTI_REPLY_CONTENT"));
-					noti.setNOTI_REPLY_DATE(rs.getDate("NOTI_DATE"));
-					noti.setNOTI_REPLY_REF(rs.getInt("NOTI_REPLY_REF"));
-					noti.setNOTI_REPLY_SEQ(rs.getInt("NOTI_REPLY_SEQ"));
-					noti.setNOTI_REPLY_LEV(rs.getInt("NOTI_REPLY_LEV"));
+					notireply = new NotiBean();
+					notireply.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
+					notireply.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));					
+					notireply.setNOTI_REPLY_MEMBER_ID(rs.getString("NOTI_REPLY_MEMBER_ID"));
+					notireply.setNOTI_REPLY_CONTENT(rs.getString("NOTI_REPLY_CONTENT"));
+					notireply.setNOTI_REPLY_DATE(rs.getDate("NOTI_REPLY_DATE"));
+					notireply.setNOTI_REPLY_REF(rs.getInt("NOTI_REPLY_REF"));
+					notireply.setNOTI_REPLY_SEQ(rs.getInt("NOTI_REPLY_SEQ"));
+					notireply.setNOTI_REPLY_LEV(rs.getInt("NOTI_REPLY_LEV"));
 				}
-				return noti;
+				return notireply;
 			}catch(Exception e){
 				System.out.println("getReplyDetail error : "+e);
 			}finally{
@@ -459,6 +455,4 @@ public class NotiDAO {
 			}
 			return null;
 		}
-		
-		
 }

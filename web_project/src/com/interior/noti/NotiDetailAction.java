@@ -27,7 +27,9 @@ public class NotiDetailAction implements Action {
 		    return null;
 		  }
 
+		  System.out.println("asdfasdf");
 		  System.out.println("공지사항 상세보기 성공");
+		  System.out.println("asdfasdfasdfasdf");
 		  
 		  request.setAttribute("notidata", notidata);
 
