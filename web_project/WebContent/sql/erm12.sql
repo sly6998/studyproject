@@ -206,3 +206,7 @@ drop sequence advice_seq;
 /* 데이터베이스 암호화 복호화 (삭제 하지 마세요)*/
 insert into member_info (member_id, member_name, member_pwd) values ('abcd','테스터',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('12345')); /*암호화*/
 select member_id, member_name, PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) from member_info; /*복호화*/
+
+
+
+select PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) from member_info where member_ID='admin' and member_name='관리자' and member_tel='010-4455-4444' and member_year=1995 and member_month=12 and member_day=19;
