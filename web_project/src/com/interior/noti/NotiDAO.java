@@ -17,7 +17,6 @@ public class NotiDAO {
 	
 	Connection con;
 	PreparedStatement pstmt;
-	PreparedStatement pstmt2;
 	ResultSet rs;
 	DataSource ds;
 	public NotiDAO(){
@@ -290,7 +289,7 @@ public class NotiDAO {
 	
 	
 			// 공지사항 글 댓글 쓰기
-			public int NotiReplyWrite(NotiBean notireplywrite){
+			public int NotiReplyWrite(NotiReplyBean notireplywrite){
 				String noti_reply_sql = "select max(noti_reply_num) from noti_reply";
 				String sql="";
 				
@@ -338,7 +337,7 @@ public class NotiDAO {
 			}
 			
 			//공지사항 댓글 수정
-			public boolean NotiReplyModify(NotiBean replymodify)throws Exception{
+			public boolean NotiReplyModify(NotiReplyBean replymodify)throws Exception{
 				String sql = "update noti_reply set noti_reply_content=? where noti_reply_num=?";
 				
 				try{
@@ -423,19 +422,19 @@ public class NotiDAO {
 		}
 		
 		//공지사항 글 댓글 보기
-		public NotiBean getReplyDetail(int num) throws Exception {
+		public NotiReplyBean getReplyDetail(int num2) throws Exception {
 			// TODO Auto-generated method stub
-			NotiBean notireply = null;
+			NotiReplyBean notireply = null;
 						
 			try{
 				con=ds.getConnection();
 				pstmt = con.prepareStatement("select * from noti_reply where noti_reply_num=?");
-				pstmt.setInt(1, num);
+				pstmt.setInt(1, num2);
 				
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					notireply = new NotiBean();
+					notireply = new NotiReplyBean();
 					notireply.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
 					notireply.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));					
 					notireply.setNOTI_REPLY_MEMBER_ID(rs.getString("NOTI_REPLY_MEMBER_ID"));

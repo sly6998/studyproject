@@ -19,12 +19,12 @@ public class NotiReplyModifyAction implements Action{
 		ActionForward forward = new ActionForward();
 		boolean result=false;
 		
-		int num = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
+		int num2 = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
 		
 		NotiDAO notidao = new NotiDAO();
-		NotiBean notidata = new NotiBean();
+		NotiReplyBean notireplydata = new NotiReplyBean();
 		
-		boolean usercheck = notidao.isNotiReplyWriter(num, request.getParameter("NOTI_REPLY_MEMBER_ID"));
+		boolean usercheck = notidao.isNotiReplyWriter(num2, request.getParameter("NOTI_REPLY_MEMBER_ID"));
 		
 		if(usercheck == false){
 			response.setContentType("text/html;charset=utf-8");
@@ -36,10 +36,10 @@ public class NotiReplyModifyAction implements Action{
 			return null;
 		}
 		try{
-			notidata.setNOTI_REPLY_NUM(num);
-			notidata.setNOTI_REPLY_CONTENT(request.getParameter("NOTI_REPLY_CONTENT"));
+			notireplydata.setNOTI_REPLY_NUM(num2);
+			notireplydata.setNOTI_REPLY_CONTENT(request.getParameter("NOTI_REPLY_CONTENT"));
 			
-			result = notidao.NotiReplyModify(notidata);
+			result = notidao.NotiReplyModify(notireplydata);
 			
 			if(result == false){
 				System.out.println("NotiReplyModifyAction failed");
@@ -48,7 +48,7 @@ public class NotiReplyModifyAction implements Action{
 			System.out.println("NotiReplyModifyAction completed!");
 			
 			forward.setRedirect(true);
-			forward.setPath("./NotiDetailAction.bo?num="+notidata.getNOTI_REPLY_NUM());
+			forward.setPath("./NotiReplyDetailAction.bo?num="+notireplydata.getNOTI_REPLY_NUM());
 			//return forward
 		}catch(Exception e){
 			e.printStackTrace();

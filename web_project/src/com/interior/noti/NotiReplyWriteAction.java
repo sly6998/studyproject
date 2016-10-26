@@ -16,17 +16,17 @@ public class NotiReplyWriteAction implements Action{
 		ActionForward forward = new ActionForward();
 		
 		NotiDAO notidao = new NotiDAO();
-		NotiBean notidata = new NotiBean();
+		NotiReplyBean notireplydata = new NotiReplyBean();
 		int result=0;
 		
-		notidata.setNOTI_REPLY_NUM(Integer.parseInt(request.getParameter("NOTI_REPLY_NUM")));
-		notidata.setNOTI_REPLY_MEMBER_NAME(request.getParameter("NOTI_REPLY_MEMBER_NAME"));
-		notidata.setNOTI_REPLY_CONTENT(request.getParameter("NOTI_REPLY_CONTENT"));
-		notidata.setNOTI_REPLY_REF(Integer.parseInt(request.getParameter("NOTI_REPLY_REF")));
-		notidata.setNOTI_REPLY_SEQ(Integer.parseInt(request.getParameter("NOTI_REPLY_SEQ")));
-		notidata.setNOTI_REPLY_LEV(Integer.parseInt(request.getParameter("NOTI_REPLY_LEV")));
+		notireplydata.setNOTI_REPLY_NUM(Integer.parseInt(request.getParameter("NOTI_REPLY_NUM")));
+		notireplydata.setNOTI_REPLY_MEMBER_NAME(request.getParameter("NOTI_REPLY_MEMBER_NAME"));
+		notireplydata.setNOTI_REPLY_CONTENT(request.getParameter("NOTI_REPLY_CONTENT"));
+		notireplydata.setNOTI_REPLY_REF(Integer.parseInt(request.getParameter("NOTI_REPLY_REF")));
+		notireplydata.setNOTI_REPLY_SEQ(Integer.parseInt(request.getParameter("NOTI_REPLY_SEQ")));
+		notireplydata.setNOTI_REPLY_LEV(Integer.parseInt(request.getParameter("NOTI_REPLY_LEV")));
 		
-		result = notidao.NotiReplyWrite(notidata);
+		result = notidao.NotiReplyWrite(notireplydata);
 		
 		if(result==0){
 			System.out.println("NotiReplyWriteAction failed");

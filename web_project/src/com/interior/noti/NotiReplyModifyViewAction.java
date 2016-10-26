@@ -17,13 +17,13 @@ public class NotiReplyModifyViewAction implements Action{
 		request.setCharacterEncoding("utf-8");
 
 		NotiDAO notidao = new NotiDAO();
-		NotiBean notidata = new NotiBean();
+		NotiBean notireplydata = new NotiBean();
 
-		int num = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
+		int num2 = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
 		
-		notidata = notidao.notimodifyview(num);
+		notireplydata = notidao.notimodifyview(num2);
 		
-		if (notidata == null) {
+		if (notireplydata == null) {
 			response.setContentType("text/html;charset=utf-8");
 			PrintWriter out = response.getWriter();
 			out.println("<script>");
@@ -35,7 +35,7 @@ public class NotiReplyModifyViewAction implements Action{
 
 		System.out.println("공지사항 댓글 수정페이지 보기 성공");
 
-		request.setAttribute("notidata", notidata);
+		request.setAttribute("notireplydata", notireplydata);
 
 		forward.setRedirect(false);
 		forward.setPath("./noti/noti_detail.jsp");

@@ -206,6 +206,7 @@ Select * from noti;
 Select * from order_list;
 Select * from qna_board;
 Select * from review;
+select * from NOTI_REPLY;
 
 /* Create Sequence(시퀀스 생성) */
 

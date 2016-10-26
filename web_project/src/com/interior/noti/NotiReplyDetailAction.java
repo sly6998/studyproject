@@ -16,13 +16,14 @@ public class NotiReplyDetailAction implements Action{
 		  ActionForward forward = new ActionForward();
 
 		  NotiDAO notidao = new NotiDAO();
-		  NotiBean notidata = new NotiBean();
+		  NotiReplyBean notireplydata = new NotiReplyBean();
 
-		  int num = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
+		  System.out.println("11111");
+		  int num2 = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
 		  
-		  notidata = notidao.getReplyDetail(num);//게시글에 달린 댓글 보기
+		  notireplydata = notidao.getReplyDetail(num2);//게시글에 달린 댓글 보기
 
-		  if (notidata == null) {
+		  if (notireplydata == null) {
 			System.out.println("rererererererererrerererer errorrrrr");
 		    System.out.println("공지사항 댓글 보기 시스템 에러");
 		    System.out.println("erererererere");
@@ -32,7 +33,7 @@ public class NotiReplyDetailAction implements Action{
 		  System.out.println("gggggggggggggggg");
 		  System.out.println("공지사항 댓글 보기 성공");
 		  
-		  request.setAttribute("notidata", notidata);
+		  request.setAttribute("notireplydata", notireplydata);
 
 		  forward.setRedirect(false);
 		  forward.setPath("./noti/noti_detail.jsp");
