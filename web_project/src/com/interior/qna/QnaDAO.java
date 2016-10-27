@@ -168,7 +168,7 @@ public class QnaDAO {
 			/*pstmt.setInt(1, num2);*/
 			
 			rs=pstmt.executeQuery();
-			
+			 
 			if(rs.next()){
 				qna2 = new QnaBean();
 				qna2.setQnA_REPLY_NUM(rs.getInt("QNA_REPLY_NUM"));
