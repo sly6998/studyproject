@@ -207,7 +207,7 @@ Select * from qna_board;
 Select * from qna_reply where qna_reply_num=2;
 Select * from review;
 select * from NOTI_REPLY;
-
+select count(*) from qna_reply
 /* Create Sequence(시퀀스 생성) */
 
 create sequence member_info_seq start with 1 increment by 1

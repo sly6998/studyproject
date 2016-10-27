@@ -48,6 +48,31 @@ public class QnaDAO {
 		}
 		return count;
 	}
+	
+	
+	public int getReplyListCount() {//qna 댓글 리스트의  수 구하기 
+		// TODO Auto-generated method stub
+		int count=0;
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement("select count(*) from qna_reply");
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				count=rs.getInt(1);
+			}
+		}catch(Exception e){
+			System.out.println("getReplyListCount error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return count;
+	}
+	
+	
 
 	public List getQnaList(int page, int limit) {//qna 게시글 목록 불러오기
 		// TODO Auto-generated method stub
