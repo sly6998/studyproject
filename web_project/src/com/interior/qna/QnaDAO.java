@@ -94,6 +94,8 @@ public class QnaDAO {
 		}
 		return null;
 	}
+	
+	
 
 	public void setReadCountUpdate(int num) throws Exception{//qna 게시글 조회수 업데이트
 		// TODO Auto-generated method stub
@@ -142,7 +144,7 @@ public class QnaDAO {
 				qna.setQnA_REF(rs.getInt("QNA_REF"));
 				qna.setQnA_LEV(rs.getInt("QNA_LEV"));
 				qna.setQnA_READCOUNT(rs.getInt("QNA_READCOUNT"));
-			}
+			} 
 			return qna;
 		}catch(Exception e){
 			System.out.println("getDetail error : "+e);
@@ -153,6 +155,45 @@ public class QnaDAO {
 		}
 		return null;
 	}
+	
+	public QnaBean getQnaReplyDetail(int num2) {//qna 게시글  댓글 상세보기
+	
+		QnaBean qna2 = null;
+		String sql = "select * from qna_reply ";
+		 
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			/*pstmt.setInt(1, num2);*/
+			
+			rs=pstmt.executeQuery();
+			
+			if(rs.next()){
+				qna2 = new QnaBean();
+				qna2.setQnA_REPLY_NUM(rs.getInt("QNA_REPLY_NUM"));
+				qna2.setQnA_REPLY_MEMBER_ID(rs.getString("QNA_REPLY_MEMBER_ID"));
+				qna2.setQnA_REPLY_MEMBER_NAME(rs.getString("QNA_REPLY_MEMBER_NAME"));
+			   	qna2.setQnA_REPLY_CONTENT(rs.getString("QNA_REPLY_CONTENT"));
+				qna2.setQnA_REPLY_DATE(rs.getDate("QNA_REPLY_DATE"));
+				qna2.setQnA_REPLY_SEQ(rs.getInt("QNA_REPLY_SEQ"));
+				qna2.setQnA_REPLY_REF(rs.getInt("QNA_REPLY_REF"));
+				qna2.setQnA_REPLY_LEV(rs.getInt("QNA_REPLY_LEV"));
+				 
+			}
+			return qna2;
+		}catch(Exception e){
+			System.out.println("getREPLY_Detail error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		
+		
+		return null;
+	}
+	
 
 	public boolean qnaInsert(QnaBean qnadata) {//qna 글쓰기 action
 		// TODO Auto-generated method stub

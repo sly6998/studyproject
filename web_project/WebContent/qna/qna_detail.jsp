@@ -3,6 +3,8 @@
 <%@ page import="com.interior.qna.*" %>
 <%
  QnaBean qna=(QnaBean)request.getAttribute("qnadata");
+ QnaBean qna2=(QnaBean)request.getAttribute("qnadata2");
+ 
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -60,19 +62,17 @@
     <Td colspan=3>
     	
     	<table width=500>
-    		<tr>
-				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">gg8888</td>
-			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350"> 댓글댓글댓글인가요</td>
-		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
-		   			<font color="#747474">2016-01-01</font>
-		   		</td>
-    		</tr>
-    		
     		<tr> 
-				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">gg8888</td>
-			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350"> 댓글댓글댓글인가요</td>
+				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">
+					<%= qna2.getQnA_REPLY_MEMBER_ID() %>
+				</td>
+				
+			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350">
+			   		<%= qna2.getQnA_REPLY_CONTENT() %>
+			   	</td>
+			   	
 		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
-		   			<font color="#747474">2016-01-01</font>
+		   			<font color="#747474"><%= qna2.getQnA_REPLY_DATE() %></font>
 		   		</td>
     		</tr>
     	</table>

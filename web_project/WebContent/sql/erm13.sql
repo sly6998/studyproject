@@ -193,8 +193,7 @@ CREATE TABLE REVIEW_REPLY
 );
 
 
-
-
+select * from qna_reply 
 
 /* Select Tables */
 
@@ -205,6 +204,7 @@ Select * from member_info;
 Select * from noti;
 Select * from order_list;
 Select * from qna_board;
+Select * from qna_reply;
 Select * from review;
 select * from NOTI_REPLY;
 
