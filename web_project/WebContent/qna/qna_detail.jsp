@@ -69,7 +69,7 @@
     				<a href="">등록</a>
     			</td>
     		</tr>
-    		
+    		 
     		<tr> 
 				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">
 					
