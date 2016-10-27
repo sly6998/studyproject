@@ -62,8 +62,17 @@
     <Td colspan=3>
     	
     	<table width=500>
+    	
+    		<tr>
+    			<td style="border:0px solid #ddd; font-size:small; font-weight:bold; " colspan=3>
+    				<input style="width:400px; height:50px; " name="" type="text" />
+    				<a href="">등록</a>
+    			</td>
+    		</tr>
+    		
     		<tr> 
 				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">
+					
 					<%= qna2.getQnA_REPLY_MEMBER_ID() %>
 				</td>
 				
@@ -72,16 +81,22 @@
 			   	</td>
 			   	
 		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
-		   			<font color="#747474"><%= qna2.getQnA_REPLY_DATE() %></font>
+		   			<font color="#747474">
+		   			<% if(qna2.getQnA_REPLY_DATE() == null){ %>
+		   			-
+		   			<% }else{ %>
+		   			<%= qna2.getQnA_REPLY_DATE() %>
+		   			<% } %>
+		   			</font>
 		   		</td>
     		</tr>
+    		
     	</table> 
 		   
 	<tr bgcolor="cccccc">
     <td colspan="3" style="height:1px;"></td>
    </tr>
-     </Td>
-    </tr>
+     
 
    <tr align="center" valign="middle">
     <td colspan="5">	

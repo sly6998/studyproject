@@ -1,6 +1,7 @@
 package com.interior.qna;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -206,6 +207,17 @@ public class QnaDAO {
 				qna2.setQnA_REPLY_REF(rs.getInt("QNA_REPLY_REF"));
 				qna2.setQnA_REPLY_LEV(rs.getInt("QNA_REPLY_LEV"));
 			}
+			else{
+				qna2 = new QnaBean();
+				qna2.setQnA_REPLY_NUM(41);
+				qna2.setQnA_REPLY_MEMBER_ID("-");
+				qna2.setQnA_REPLY_MEMBER_NAME("-");
+			   	qna2.setQnA_REPLY_CONTENT("-");
+				
+				qna2.setQnA_REPLY_SEQ(1);
+				qna2.setQnA_REPLY_REF(1);
+				qna2.setQnA_REPLY_LEV(1);
+			}
 			
 			
 			
@@ -246,7 +258,7 @@ public class QnaDAO {
 			}
 			return true;
 		}catch(Exception e){
-			System.out.println("notiInsert error : "+e);
+			System.out.println("qnaInsert error : "+e);
 			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
@@ -255,6 +267,45 @@ public class QnaDAO {
 		}
 		return false;
 	}
+	
+	public boolean qnaReplyInsert(QnaBean qnadata) {//qna 댓글 글쓰기 action
+		// TODO Auto-generated method stub
+		int num = 0;
+		String sql = "";
+		int result = 0;
+		
+		try{
+			sql = "insert into qna_reply "
+					+ "(QNA_REPLY_MEMBER_NAME, QNA_REPLY_MEMBER_ID, QNA_REPLY_CONTENT, "
+					+ " QNA_REPLY_DATE, QNA_REPLY_NUM) "
+					+ "values (?,?,?,sysdate,?)";
+			
+			con=ds.getConnection();
+			
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, qnadata.getQnA_MEMBER_ID());
+			pstmt.setString(2, qnadata.getQnA_SUBJECT());
+			pstmt.setString(3, qnadata.getQnA_CONTENT());
+			pstmt.setInt(4, qnadata.getQnA_READCOUNT());
+			
+			result = pstmt.executeUpdate();
+			if(result==0){
+				return false; //0이 실패
+			}
+			return true;
+		}catch(Exception e){
+			System.out.println("qna reply Insert error : "+e);
+			e.printStackTrace();
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return false;
+	}
+	
+	
+	
 
 	public QnaBean qnamodifyView(int num) {//qna 게시글 수정 페이지
 		// TODO Auto-generated method stub
