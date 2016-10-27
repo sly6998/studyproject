@@ -17,7 +17,6 @@
   
   
   List boardList = (List)request.getAttribute("boardlist");
-  List notireplyList = (List)request.getAttribute("notireplylist");
   int listcount = ((Integer)request.getAttribute("listcount")).intValue();
   int nowpage = ((Integer)request.getAttribute("page")).intValue();
   int maxpage = ((Integer)request.getAttribute("maxpage")).intValue();
@@ -142,47 +141,6 @@ String srchFlds = (String)request.getAttribute("srchFlds");
       <%
          }
       %>
-      
-      
-      
-      <%
-            for(int j=0; j<notireplyList.size(); j++){
-            NotiReplyBean nrl = (NotiReplyBean) notireplyList.get(j);
-      %>
-      
-      <tr align="center" valign="middle" style="border: 1px solid #ddd;"
-         onmouseover="this.style.backgroundColor='#F8F8F8'">
-         
-         <td height="23"
-            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <%=nrl.getNOTI_REPLY_NUM()%>
-         </td>
-      
-         <td
-            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <a href="./noti_detail.html?NOTI_REPLY_NUM=<%=nrl.getNOTI_REPLY_NUM()%>" style='text-decoration: none;'><%=nrl.getNOTI_REPLY_CONTENT()%>
-         </a>
-         </td>
-         
-         <td
-            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <div align="center"><%=nrl.getNOTI_REPLY_MEMBER_NAME()%>
-            </div>
-         </td>
-
-         <td
-            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
-            <div align="center">
-               <%=nrl.getNOTI_REPLY_DATE()%></div>
-         </td>
-         
-      </tr>
-      
-      <%
-         }
-      %>
-
-
 
       <!-- [이전] / [1] [2] [3] / [다음] -->
       <tr align="center" height="20">

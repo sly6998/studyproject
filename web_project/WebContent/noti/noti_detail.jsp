@@ -4,7 +4,7 @@
 <%@ page import="com.interior.noti.*" %>
 <%
  	NotiBean noti=(NotiBean)request.getAttribute("notidata");
-	NotiReplyBean reply = (NotiReplyBean)request.getAttribute("notireplydata");
+	NotiBean renoti=(NotiBean)request.getAttribute("renotidata");
 	List noti_reply = (List)request.getAttribute("noti_reply");
 %>
 
@@ -75,7 +75,7 @@
  <table>
   	<%
 	  for(int i=0; i<noti_reply.size(); i++){
-		NotiReplyBean notireply = (NotiReplyBean)noti_reply.get(i);
+		NotiBean notireply = (NotiBean)noti_reply.get(i);
 	%>
 	
 	  <tr>

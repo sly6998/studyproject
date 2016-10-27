@@ -16,7 +16,7 @@ public class NotiReplyDetailAction implements Action{
 		  ActionForward forward = new ActionForward();
 
 		  NotiDAO notidao = new NotiDAO();
-		  NotiReplyBean notireplydata = new NotiReplyBean();
+		  NotiBean notireplydata = new NotiBean();
 
 		  System.out.println("11111");
 		  int num2 = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
