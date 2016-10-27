@@ -37,6 +37,7 @@ public class NotiDetailAction implements Action {
 		  
 		  NotiReplyBean notireplydata = new NotiReplyBean();
 		  System.out.println("되냐안되냐asdf");
+		  
 		  int num2 = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
 		  notireplydata = notidao.getReplyDetail(num2);//공지사항 글의 댓글 보기
 		  System.out.println("여기서부터안되는건가...asdfasdf");
