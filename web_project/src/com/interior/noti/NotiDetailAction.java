@@ -34,20 +34,19 @@ public class NotiDetailAction implements Action {
 		  request.setAttribute("notidata", notidata);
 		  
 		  System.out.println("11111asdfdsaffdas");
-		  
-		  NotiReplyBean notireplydata = new NotiReplyBean();
 		  System.out.println("되냐안되냐asdf");
+		  
 		  int num2 = Integer.parseInt(request.getParameter("NOTI_REPLY_NUM"));
-		  notireplydata = notidao.getReplyDetail(num2);//공지사항 글의 댓글 보기
+		  notidata = notidao.getReplyDetail(num2);//공지사항 글의 댓글 보기
 		  System.out.println("여기서부터안되는건가...asdfasdf");
 
-		  if(notireplydata == null){
+		  if(notidata == null){
 			  System.out.println("공지사항 댓글 보기 에러");
 			  return null;
 		  }
 		  System.out.println("공지사항 댓글 보기 성공");
 		  
-		  request.setAttribute("notireplydata", notireplydata);
+		  request.setAttribute("notidata", notidata);
 		  
 		  
 		  forward.setRedirect(true);

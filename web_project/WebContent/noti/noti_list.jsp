@@ -116,6 +116,7 @@ String srchFlds = (String)request.getAttribute("srchFlds");
             <a href="./noti_detail.html?NOTI_NUM=<%=bl.getNOTI_NUM()%>" style='text-decoration: none;'><%=bl.getNOTI_SUBJECT()%>
          </a>
          </td>
+         
 
          <td
             style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
@@ -136,11 +137,10 @@ String srchFlds = (String)request.getAttribute("srchFlds");
          </td>
 
       </tr>
+      
       <%
          }
       %>
-
-
 
       <!-- [이전] / [1] [2] [3] / [다음] -->
       <tr align="center" height="20">
