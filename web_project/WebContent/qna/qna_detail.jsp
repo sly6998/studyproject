@@ -75,7 +75,7 @@
 		   			<font color="#747474"><%= qna2.getQnA_REPLY_DATE() %></font>
 		   		</td>
     		</tr>
-    	</table>
+    	</table> 
 		   
 	<tr bgcolor="cccccc">
     <td colspan="3" style="height:1px;"></td>
