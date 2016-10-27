@@ -204,7 +204,7 @@ Select * from member_info;
 Select * from noti;
 Select * from order_list;
 Select * from qna_board;
-Select * from qna_reply where qna_reply_num=2;
+Select * from qna_reply where qna_reply_num=41;
 Select * from review;
 select * from NOTI_REPLY;
 select count(*) from qna_reply

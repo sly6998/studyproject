@@ -184,15 +184,16 @@ public class QnaDAO {
 	public QnaBean getQnaReplyDetail(int num2) {//qna 게시글  댓글 상세보기
 	
 		QnaBean qna2 = null;
-		String sql = "select * from qna_reply ";
+		String sql = "select * from qna_reply where qna_reply_num=?";
 		 
 		
 		try{
 			con=ds.getConnection();
 			pstmt=con.prepareStatement(sql);
-			/*pstmt.setInt(1, num2);*/
+			pstmt.setInt(1, num2);
 			
 			rs=pstmt.executeQuery();
+			
 			 
 			if(rs.next()){
 				qna2 = new QnaBean();
@@ -204,8 +205,10 @@ public class QnaDAO {
 				qna2.setQnA_REPLY_SEQ(rs.getInt("QNA_REPLY_SEQ"));
 				qna2.setQnA_REPLY_REF(rs.getInt("QNA_REPLY_REF"));
 				qna2.setQnA_REPLY_LEV(rs.getInt("QNA_REPLY_LEV"));
-				 
 			}
+			
+			
+			
 			return qna2;
 		}catch(Exception e){
 			System.out.println("getREPLY_Detail error : "+e);
