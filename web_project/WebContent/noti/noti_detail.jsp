@@ -24,7 +24,7 @@
     <td style="font-family:돋움; font-size:12" height="16">
      <div align="center">제목&nbsp;&nbsp;</div>
     </td>
- 
+
     <td style="font-family:돋움; font-size:12">
      <%=noti.getNOTI_SUBJECT() %>
     </td>
