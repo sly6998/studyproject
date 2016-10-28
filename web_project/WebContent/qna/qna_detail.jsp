@@ -4,12 +4,10 @@
 <%@ page import="java.util.*"%>
 <%@ page import="java.text.SimpleDateFormat"%>
 <%
+ String QNA_REPLY_MEMBER_ID = (String)session.getAttribute("MEMBER_ID");
  QnaBean qna=(QnaBean)request.getAttribute("qnadata");
  QnaBean qna2=(QnaBean)request.getAttribute("qnadata2");
- 
  List replyList2 = (List)request.getAttribute("replylist2");
-
-
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,17 +62,24 @@
   
    
    <tr>
+   
+   
+   
     <Td colspan=3>
     	
-    	<table width=500>
-    	
+    	<form name="qna_reply_write_form" method="post" action="./QnaReplyWriteAction.html">
+    	<table width=600>
     		<tr>
+    			<td>
+    				<%=QNA_REPLY_MEMBER_ID %>
+    		 		<input type="hidden" name="QNA_MEMBER_ID" value="<%=QNA_REPLY_MEMBER_ID %>"/>
+    			</td>
     			<td style="border:0px solid #ddd; font-size:small; font-weight:bold; " colspan=3>
-    				<input style="width:400px; height:50px; " name="" type="text" />
+    				<input style="width:400px; height:50px;" name="QNA_REPLY_CONTENT" type="text" value="<%=QNA_REPLY_CONTENT %>"/>
     				<a href="">등록</a>
     			</td>
     		</tr>
-    		
+    	
     		<%
        		  for (int i = 0; i < replyList2.size(); i++) {
               QnaBean bl2 = (QnaBean) replyList2.get(i);
@@ -102,7 +107,7 @@
     		<% } %>
     		
     	</table> 
-		   
+		</form>	   
 	<tr bgcolor="cccccc">
     <td colspan="3" style="height:1px;"></td>
    </tr>

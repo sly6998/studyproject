@@ -44,6 +44,7 @@ import com.interior.qna.QnaDetailAction;
 import com.interior.qna.QnaListAction;
 import com.interior.qna.QnaModifyAction;
 import com.interior.qna.QnaModifyView;
+import com.interior.qna.QnaReplyWriteAction;
 import com.interior.qna.QnaWriteAction;
 import com.interior.review.ReviewDeleteAction;
 import com.interior.review.ReviewDetailAction;
@@ -437,6 +438,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			}
 		} else if (command.equals("/QnaDeleteAction.html")) {// 질문게시판 글 삭제 action
 			action = new QnaDeleteAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/QnaReplyWriteAction.html")) {// 질문게시판 댓글 등록 action
+			action = new QnaReplyWriteAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {

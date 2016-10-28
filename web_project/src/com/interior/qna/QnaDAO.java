@@ -109,7 +109,7 @@ public class QnaDAO {
 				qna.setQnA_LEV(rs.getInt("qnA_LEV"));
 				qna.setQnA_READCOUNT(rs.getInt("qnA_READCOUNT"));
 				list.add(qna);
-				System.out.println(list);	//arraylist에 담겨진 값을 console창에서 확인하기 위해..
+				
 			}
 			return list;
 			
@@ -152,7 +152,7 @@ public class QnaDAO {
 				qna2.setQnA_REPLY_REF(rs.getInt("QNA_REPLY_REF"));
 				qna2.setQnA_REPLY_LEV(rs.getInt("QNA_REPLY_LEV"));
 				list.add(qna2);
-				System.out.println(list);
+				
 			}
 			
 			return list;
