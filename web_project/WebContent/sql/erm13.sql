@@ -232,7 +232,7 @@ values ('test123', '없듬', '탁자A', '탁자01', '한샘', 'nomal', 1, 100, s
 update BASKET set BASKET_MEMBER_ID='test123';
 
 select * from basket;
-
+ 
 
 
 
