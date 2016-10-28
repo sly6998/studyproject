@@ -11,6 +11,8 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
+import org.omg.CORBA.Request;
+
 
 public class BasketDAO {
 	
@@ -44,7 +46,7 @@ public class BasketDAO {
 				BasketBean basket = new BasketBean();
 				basket.setBASKET_MEMBER_ID(rs.getString("BASKET_MEMBER_ID"));
 				basket.setBASKET_ITEM_IMAGE(rs.getString("BASKET_ITEM_IMAGE"));
-				basket.setBASKET_ITEM_NAME(rs.getString("BASKET_MEMBER_NAME"));
+				basket.setBASKET_ITEM_NAME(rs.getString("BASKET_ITEM_NAME"));
 				basket.setBASKET_ITEM_MODEL(rs.getString("BASKET_ITEM_MODEL"));
 				basket.setBASKET_ITEM_BRAND(rs.getString("BASKET_ITEM_BRAND"));
 				basket.setBASKET_ITEM_TYPE(rs.getString("BASKET_ITEM_TYPE"));
@@ -102,8 +104,8 @@ public class BasketDAO {
 	public boolean addBasket(BasketBean basketdata) {
 		// TODO Auto-generated method stub
 		String sql = "Insert into basket "
-				+ "(BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_ITEM_NAME, BASKET_ITEM_PRICE, BASKET_AMOUNT,BASKET_DATE) "
-				+ "values (?,?,?,?,?,sysdate)";
+				+ "(BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_ITEM_NAME, BASKET_ITEM_TYPE, BASKET_ITEM_PRICE, BASKET_AMOUNT,BASKET_DATE) "
+				+ "values (?,?,?,?,?,?,sysdate)";
 		int result = 0;
 		
 		try{
@@ -112,9 +114,12 @@ public class BasketDAO {
 			pstmt.setString(1, basketdata.getBASKET_MEMBER_ID());
 			pstmt.setString(2, basketdata.getBASKET_ITEM_IMAGE());
 			pstmt.setString(3, basketdata.getBASKET_ITEM_NAME());
-			pstmt.setInt(4, basketdata.getBASKET_ITEM_PRICE());
-			pstmt.setInt(5, basketdata.getBASKET_AMOUNT());
+			pstmt.setString(4, basketdata.getBASKET_ITEM_TYPE());
+			pstmt.setInt(5, basketdata.getBASKET_ITEM_PRICE());
+			pstmt.setInt(6, basketdata.getBASKET_AMOUNT());
 			result = pstmt.executeUpdate();
+			
+			
 				
 			if(result!=0){
 				return true;

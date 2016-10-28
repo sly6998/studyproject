@@ -27,12 +27,14 @@ public class AddBasketAction implements Action {
 	    boolean result = false;
 	    
 	    basketdata.setBASKET_MEMBER_ID(id);
-	    basketdata.setBASKET_ITEM_IMAGE(request.getParameter("item_img"));
 	    basketdata.setBASKET_ITEM_NAME(request.getParameter("item_name"));
+	    basketdata.setBASKET_ITEM_TYPE(request.getParameter("item_type"));
 	    basketdata.setBASKET_ITEM_PRICE(Integer.parseInt(request.getParameter("item_price")));
 	    basketdata.setBASKET_AMOUNT(Integer.parseInt(request.getParameter("num")));
+	    basketdata.setBASKET_ITEM_IMAGE(request.getParameter("item_img"));
 	    
 	    result = basketdao.addBasket(basketdata);
+	    
 	    
 	    if(result == false){
 	      System.out.println("장바구니 추가 실패");
@@ -46,7 +48,7 @@ public class AddBasketAction implements Action {
 		out.println("if(con_value==true){");
 		out.println("location.href='./basketlist.html';");
 		out.println("}else{");
-		out.println("location.go(-1);");
+		out.println("location.href='./product_list.html';");
 		out.println("}");
 		out.println("</script>");
 		out.close();
