@@ -35,7 +35,6 @@ import com.interior.noti.NotiListAction;
 import com.interior.noti.NotiModifyAction;
 import com.interior.noti.NotiModifyViewAction;
 import com.interior.noti.NotiReplyDeleteAction;
-import com.interior.noti.NotiReplyDetailAction;
 import com.interior.noti.NotiReplyModifyAction;
 import com.interior.noti.NotiReplyModifyViewAction;
 import com.interior.noti.NotiReplyWriteAction;
