@@ -11,12 +11,25 @@ public class BasketBean {
 	private int BASKET_ITEM_PRICE;
 	private String BASKET_ITEM_IMAGE;
 	private String BASKET_ITEM_BRAND;
+	private String BASKET_ITEM_TYPE;
 	private Date BASKET_DATE;
-	private int BAKSET_AMOUNT;
+	private int BASKET_AMOUNT;//수량
 	private int BASKET_RESULT;
 	private String BASKET_ITEM_MODEL;
 	
 	
+	public int getBASKET_AMOUNT() {
+		return BASKET_AMOUNT;
+	}
+	public void setBASKET_AMOUNT(int bASKET_AMOUNT) {
+		BASKET_AMOUNT = bASKET_AMOUNT;
+	}
+	public String getBASKET_ITEM_TYPE() {
+		return BASKET_ITEM_TYPE;
+	}
+	public void setBASKET_ITEM_TYPE(String bASKET_ITEM_TYPE) {
+		BASKET_ITEM_TYPE = bASKET_ITEM_TYPE;
+	}
 	public String getBASKET_MEMBER_ID() {
 		return BASKET_MEMBER_ID;
 	}
@@ -64,12 +77,6 @@ public class BasketBean {
 	}
 	public void setBASKET_DATE(Date bASKET_DATE) {
 		BASKET_DATE = bASKET_DATE;
-	}
-	public int getBAKSET_AMOUNT() {
-		return BAKSET_AMOUNT;
-	}
-	public void setBAKSET_AMOUNT(int bAKSET_AMOUNT) {
-		BAKSET_AMOUNT = bAKSET_AMOUNT;
 	}
 	public int getBASKET_RESULT() {
 		return BASKET_RESULT;

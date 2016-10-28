@@ -5,8 +5,19 @@
 <%@ page import="com.interior.basket.*"%>
 
 <%
-  String MEMBER_ID = null;
-  if (session.getAttribute("MEMBER_ID") != null) {
+  String MEMBER_ID = "";
+  String MEMBER_NAME = "";
+  List basketList = (List)request.getAttribute("basketList");
+  if(basketList != null){
+	  System.out.println("asd");
+	  System.out.println(basketList.size());
+
+  }
+  
+%>
+<%-- <%
+  String MEMBER_ID = "";
+  if (session.getAttribute("MEMBER_ID") != "") {
   MEMBER_ID =(String)session.getAttribute("MEMBER_ID");
   }
   
@@ -16,7 +27,7 @@
   int maxpage = ((Integer)request.getAttribute("maxpage")).intValue();
   int startpage = ((Integer)request.getAttribute("startpage")).intValue();
   int endpage = ((Integer)request.getAttribute("endpage")).intValue();
-%>
+%> --%>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -24,19 +35,55 @@
 <title></title>
 <meta charset="utf-8">
 
-
-
 </head>
 <body >
-<h3 >주문내역 조회</h3>
-
-
-<h4> 주문자(ID) :  </h4> 
- 
-<h4> 주문자(이름) : 김순자 </h4> 
-
+<h3 >장바구니</h3>
 
 <table width="870">
+	 <%
+         for (int i = 0; i < basketList.size(); i++) {
+        	 BasketBean bl = (BasketBean)basketList.get(i);
+      %>
+      <tr align="center" valign="middle" style="border: 1px solid #ddd;"
+         onmouseover="this.style.backgroundColor='#F8F8F8'">
+         <td height="23"
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <%=bl.getBASKET_ITEM_IMAGE()%>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <a href="#" style='text-decoration: none;'><%=bl.getBASKET_ITEM_NAME()%>
+         </a>
+         </td>
+         
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center"><%=bl.getBASKET_ITEM_MODEL()%>
+            </div>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center">
+               <%=bl.getBASKET_ITEM_BRAND()%></div>
+         </td>
+
+         <td
+            style="font-family: Tahoma; font-size: 10pt; border: 0px solid #000;">
+            <div align="center"><%=bl.getBASKET_ITEM_TYPE()%>
+            </div>
+         </td>
+
+      </tr>
+      
+      <%
+         }
+      %>
+
+	
+	
 	
 	<!-- 항목 (번호/제목 / 글쓴이 / 날짜 / 조회수 ) -->
 	<tr align="center" style="border:1px solid #ddd; background-color:#EFEFEF ">

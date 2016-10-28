@@ -31,11 +31,13 @@ CREATE TABLE ADVICE
 
 CREATE TABLE BASKET
 (
+	
 	BASKET_MEMBER_ID varchar2(20),
 	BASKET_MEMBER_NAME varchar2(20),
 	BASKET_ITEM_NAME varchar2(50),
-	BASKET_ITEM_PRICE varchar2(10),
+	BASKET_ITEM_PRICE number(10),
 	BASKET_ITEM_IMAGE varchar2(50),
+	BASKET_ITEM_TYPE varchar2(50),
 	BASKET_ITEM_BRAND varchar2(50),
 	BASKET_DATE date,
 	BASKET_AMOUNT number(5),
@@ -223,6 +225,15 @@ drop sequence noti_seq;
 drop sequence review_seq;
 drop sequence qna_board_seq;
 drop sequence advice_seq;
+
+/* 테스트 */
+insert into basket (BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_MEMBER_NAME, BASKET_ITEM_MODEL, BASKET_ITEM_BRAND, BASKET_ITEM_TYPE, BASKET_AMOUNT, BASKET_ITEM_PRICE, BASKET_DATE) 
+values ('test123', '없듬', '탁자A', '탁자01', '한샘', 'nomal', 1, '100', sysdate);
+
+update BASKET set BASKET_MEMBER_ID='test123';
+
+select * from basket;
+
 
 
 

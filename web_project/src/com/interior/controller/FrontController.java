@@ -318,6 +318,17 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			
 			
 			
+			/* 장바구니 */
+			
+		} else if (command.equals("/basketlist.html")) {// 장바구니 리스트 페이지 이동 & action
+			action = new BasketListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+			
+			
 			
 			/* 후기 */
 

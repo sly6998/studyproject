@@ -11,8 +11,6 @@ import javax.naming.Context;
 import javax.naming.InitialContext;
 import javax.sql.DataSource;
 
-import com.interior.advice.AdviceBean;
-
 
 public class BasketDAO {
 	
@@ -30,59 +28,36 @@ public class BasketDAO {
 		}
 	}
 
-	public int getListCount() {  //총 basket 리스트 수
-		// TODO Auto-generated method stub
-		int count = 0;
-		
-		try{
-			con = ds.getConnection();
-			pstmt = con.prepareStatement("select count(*) from basket");
-			rs = pstmt.executeQuery();
-			
-			if(rs.next()){
-				count = rs.getInt(1);
-				}
-			}catch(Exception e){
-				System.out.println("getListCount error : "+e);
-			}finally{
-				if(rs!=null) try{rs.close();}catch(SQLException ex){}
-				if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
-				if(con!=null) try{con.close();}catch(SQLException ex){}
-			}
-			return count;
-		}
 
-	public List getBasketList(int page, int limit) {//Basket 리스트 불러오기
+	public List getBasketList(String id) {//Basket 리스트 불러오기
 		// TODO Auto-generated method stub
-		String sql = "select * from Basket where " +
-		"(select rownum rnum, Basket_member_ID, Basket_member_name from " +
-		"(select * from Basket order by " +
-		"Basket_date desc)) " +
-		"where rnum>=? and rnum<=?";
-		
-		List list = new ArrayList();
-		
-		int startrow=(page-1)*10+1; //읽기 시작할 row 번호 입니다.
-		int endrow = startrow+limit-1; //읽을 마지막 row 번호 입니다.
+		String sql = "select * from basket where BASKET_MEMBER_ID=?";
+		List basketlist = new ArrayList();
 		
 		try{
 			con=ds.getConnection();
 			pstmt = con.prepareStatement(sql);
-			pstmt.setInt(1, startrow);
-			pstmt.setInt(2, endrow);
+			pstmt.setString(1, id);
 			rs = pstmt.executeQuery();
 			
 			while(rs.next()){
 				BasketBean basket = new BasketBean();
 				basket.setBASKET_MEMBER_ID(rs.getString("BASKET_MEMBER_ID"));
-				basket.setBASKET_MEMBER_NAME(rs.getString("BASKET_MEMBER_NAME"));
+				basket.setBASKET_ITEM_IMAGE(rs.getString("BASKET_ITEM_IMAGE"));
+				basket.setBASKET_ITEM_NAME(rs.getString("BASKET_MEMBER_NAME"));
+				basket.setBASKET_ITEM_MODEL(rs.getString("BASKET_ITEM_MODEL"));
+				basket.setBASKET_ITEM_BRAND(rs.getString("BASKET_ITEM_BRAND"));
+				basket.setBASKET_ITEM_TYPE(rs.getString("BASKET_ITEM_TYPE"));
+				basket.setBASKET_AMOUNT(rs.getInt("BASKET_AMOUNT"));
+				basket.setBASKET_ITEM_PRICE(rs.getInt("BASKET_ITEM_PRICE"));
 				
-				list.add(basket);
+				basketlist.add(basket);
 			}
 			
-			return list;
+			return basketlist;
 		}catch(Exception e){
 			System.out.println("getBasketList error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
