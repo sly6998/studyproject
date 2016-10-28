@@ -27,37 +27,40 @@ $(function(){
 	    document.getElementById('price_sum').value = sum_price;
 	  });
 	}) 
+	
+	
+function addbasket(){
+	document.product_detail.action="./addBasket.html";
+	document.product_detail.submit;
+}
 </script>
 </head>
 <body>
-	
+	<form name="a" action="./../addBasket.html">
+		<input type="text" name="abc" value="ass">
+		<input type="submit" value="ww">
+	</form>
 <h3 >상품보기(detail)</h3>
-<form id="" method="post" enctype="multipart/form-data">                    
 
-
+<form name="product_detail" method="post" action="./../addBasket.html">                    
 <table width=800>
-	<tr >
-		<td  style='border:0px solid #000; ' width=300 rowspan="6" >
+	<tr>
+		<td>
 			<img name="item_img" src="../images/sofa1.jpg" width=250 height="200">
 		</td>
-                                                        	
 		<td>
 			상품명 
 		</td>
-		
 		<td>
-			<input type="text" name="item_name" value="엄청난 소파" disabled="disabled">
+			<input type="text" id="item_name" name="item_name" value="엄청난 소파">
 		</td>
 	</tr>
-		
 	<tr>
 		<td>가  격</td>
-		<input type="text" name="item_price" id="item_price" value="500" disabled="disabled">
+		<input type="text" name="item_price" id="item_price" value="500">
 	</tr>
-	
 	<tr>
 		<td>옵션</td>
-		
 		<td>	
 			<select name="item_type">
 			<option selected="selected">색상</option>
@@ -66,7 +69,6 @@ $(function(){
 			</select>                           
 		</td>
 	</tr>
-	
 	<tr>
 		<td>수  량</td>
 		<td>
@@ -97,18 +99,18 @@ $(function(){
 		<td><input type="text" name=price_sum id="price_sum" value=""></td>
 	</tr>
 	
-	
-	
-	
 	<tr>
 		<td colspan=2>
 			<a href="">바로구매</a>
-			<a href="./../addBasket.html">장바구니 추가</a>
+			<input type="submit" value="장바구니 추가">
+			<a href="#" onclick="addbasket()">장바구니 추가</a>
 			<a href="product_list.jsp">목록으로</a>
 		</td>
 	</tr>
+  </table>
+</form>
                                                           
-	<tr height="50px">
+	<!-- <tr height="50px">
 	</tr>
                                                          
 	<tr> 
@@ -123,9 +125,7 @@ $(function(){
 		 	<img src="../images/sofa1_2.jpg">
 		</td>
 	</TR>
-</table>
-                                                    					
-</form>
+  -->                                                   					
                                                 
 </body>
 </html>

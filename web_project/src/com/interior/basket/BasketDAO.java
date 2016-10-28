@@ -98,7 +98,34 @@ public class BasketDAO {
 		return null;
 	}
 
-	
-	
-	
+
+	public boolean addBasket(BasketBean basketdata) {
+		// TODO Auto-generated method stub
+		String sql = "Insert into basket "
+				+ "(BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_ITEM_NAME, BASKET_ITEM_PRICE, BASKET_AMOUNT,BASKET_DATE) "
+				+ "values (?,?,?,?,?,sysdate)";
+		int result = 0;
+		
+		try{
+			con = ds.getConnection();
+			pstmt = con.prepareStatement(sql);
+			pstmt.setString(1, basketdata.getBASKET_MEMBER_ID());
+			pstmt.setString(2, basketdata.getBASKET_ITEM_IMAGE());
+			pstmt.setString(3, basketdata.getBASKET_ITEM_NAME());
+			pstmt.setInt(4, basketdata.getBASKET_ITEM_PRICE());
+			pstmt.setInt(5, basketdata.getBASKET_AMOUNT());
+			result = pstmt.executeUpdate();
+				
+			if(result!=0){
+				return true;
+			}
+		}catch(Exception e){
+			System.out.println("addBasket Error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return false;
+	}
 }
