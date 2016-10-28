@@ -1,10 +1,15 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ page import="com.interior.qna.*" %>
+<%@ page import="java.util.*"%>
+<%@ page import="java.text.SimpleDateFormat"%>
 <%
  QnaBean qna=(QnaBean)request.getAttribute("qnadata");
  QnaBean qna2=(QnaBean)request.getAttribute("qnadata2");
  
+ List replyList2 = (List)request.getAttribute("replylist2");
+
+
 %>
 <!DOCTYPE html>
 <html lang="en">
@@ -69,27 +74,32 @@
     				<a href="">등록</a>
     			</td>
     		</tr>
-    		 
+    		
+    		<%
+       		  for (int i = 0; i < replyList2.size(); i++) {
+              QnaBean bl2 = (QnaBean) replyList2.get(i);
+   			%>
     		<tr> 
 				<td style="border:0px solid #ddd; font-size:small; font-weight:bold; ">
 					
-					<%= qna2.getQnA_REPLY_MEMBER_ID() %>
+					<%= bl2.getQnA_REPLY_MEMBER_ID() %>
 				</td>
 				
 			   	<td style="border:0px solid #ddd; font-size:small;" align="center" width="350">
-			   		<%= qna2.getQnA_REPLY_CONTENT() %>
+			   		<%= bl2.getQnA_REPLY_CONTENT() %>
 			   	</td>
 			   	
 		   		<td style="border:0px solid #ddd; font-size:small;" align="right">
 		   			<font color="#747474">
-		   			<% if(qna2.getQnA_REPLY_DATE() == null){ %>
+		   			<% if(bl2.getQnA_REPLY_DATE() == null){ %>
 		   			-
 		   			<% }else{ %>
-		   			<%= qna2.getQnA_REPLY_DATE() %>
+		   			<%= bl2.getQnA_REPLY_DATE() %>
 		   			<% } %>
 		   			</font>
 		   		</td>
     		</tr>
+    		<% } %>
     		
     	</table> 
 		   

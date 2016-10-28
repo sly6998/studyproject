@@ -109,7 +109,52 @@ public class QnaDAO {
 				qna.setQnA_LEV(rs.getInt("qnA_LEV"));
 				qna.setQnA_READCOUNT(rs.getInt("qnA_READCOUNT"));
 				list.add(qna);
+				System.out.println(list);	//arraylist에 담겨진 값을 console창에서 확인하기 위해..
 			}
+			return list;
+			
+		}catch(Exception e){
+			System.out.println("getQnaList error : "+e);
+		}finally{
+			if(rs!=null) try{rs.close();}catch(SQLException ex){}
+			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
+			if(con!=null) try{con.close();}catch(SQLException ex){}
+		}
+		return null;
+	}
+	
+	
+	
+	
+	
+	public List getQnaReplyList(int num2) {//qna 댓글 목록 불러오기
+		// TODO Auto-generated method stub
+		String sql =  "select * from qna_reply where qna_reply_num=?";
+		
+		List list = new ArrayList();
+		
+		
+		try{
+			con=ds.getConnection();
+			pstmt=con.prepareStatement(sql);
+			pstmt.setInt(1, num2);
+			rs=pstmt.executeQuery();
+			
+			while(rs.next()){
+				
+				QnaBean qna2 = new QnaBean();
+				qna2.setQnA_REPLY_NUM(rs.getInt("QNA_REPLY_NUM"));
+				qna2.setQnA_REPLY_MEMBER_ID(rs.getString("QNA_REPLY_MEMBER_ID"));
+				qna2.setQnA_REPLY_MEMBER_NAME(rs.getString("QNA_REPLY_MEMBER_NAME"));
+			   	qna2.setQnA_REPLY_CONTENT(rs.getString("QNA_REPLY_CONTENT"));
+				qna2.setQnA_REPLY_DATE(rs.getDate("QNA_REPLY_DATE"));
+				qna2.setQnA_REPLY_SEQ(rs.getInt("QNA_REPLY_SEQ"));
+				qna2.setQnA_REPLY_REF(rs.getInt("QNA_REPLY_REF"));
+				qna2.setQnA_REPLY_LEV(rs.getInt("QNA_REPLY_LEV"));
+				list.add(qna2);
+				System.out.println(list);
+			}
+			
 			return list;
 		}catch(Exception e){
 			System.out.println("getQnaList error : "+e);
@@ -181,59 +226,7 @@ public class QnaDAO {
 		}
 		return null;
 	}
-	
-	public QnaBean getQnaReplyDetail(int num2) {//qna 게시글  댓글 상세보기
-	
-		QnaBean qna2 = null;
-		String sql = "select * from qna_reply where qna_reply_num=?";
-		 
 		
-		try{
-			con=ds.getConnection();
-			pstmt=con.prepareStatement(sql);
-			pstmt.setInt(1, num2);
-			
-			rs=pstmt.executeQuery();
-			
-			 
-			if(rs.next()){
-				qna2 = new QnaBean();
-				qna2.setQnA_REPLY_NUM(rs.getInt("QNA_REPLY_NUM"));
-				qna2.setQnA_REPLY_MEMBER_ID(rs.getString("QNA_REPLY_MEMBER_ID"));
-				qna2.setQnA_REPLY_MEMBER_NAME(rs.getString("QNA_REPLY_MEMBER_NAME"));
-			   	qna2.setQnA_REPLY_CONTENT(rs.getString("QNA_REPLY_CONTENT"));
-				qna2.setQnA_REPLY_DATE(rs.getDate("QNA_REPLY_DATE"));
-				qna2.setQnA_REPLY_SEQ(rs.getInt("QNA_REPLY_SEQ"));
-				qna2.setQnA_REPLY_REF(rs.getInt("QNA_REPLY_REF"));
-				qna2.setQnA_REPLY_LEV(rs.getInt("QNA_REPLY_LEV"));
-			}
-			else{
-				qna2 = new QnaBean();
-				qna2.setQnA_REPLY_NUM(41);
-				qna2.setQnA_REPLY_MEMBER_ID("-");
-				qna2.setQnA_REPLY_MEMBER_NAME("-");
-			   	qna2.setQnA_REPLY_CONTENT("-");
-				
-				qna2.setQnA_REPLY_SEQ(1);
-				qna2.setQnA_REPLY_REF(1);
-				qna2.setQnA_REPLY_LEV(1);
-			}
-			
-			
-			
-			return qna2;
-		}catch(Exception e){
-			System.out.println("getREPLY_Detail error : "+e);
-		}finally{
-			if(rs!=null) try{rs.close();}catch(SQLException ex){}
-			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
-			if(con!=null) try{con.close();}catch(SQLException ex){}
-		}
-		
-		
-		return null;
-	}
-	
 
 	public boolean qnaInsert(QnaBean qnadata) {//qna 글쓰기 action
 		// TODO Auto-generated method stub
