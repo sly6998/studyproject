@@ -8,6 +8,8 @@ import javax.servlet.http.HttpServletResponse;
 import com.interior.controller.Action;
 import com.interior.controller.ActionForward;
 
+import com.interior.sendemail.SendEmail;;
+
 public class MemberFindPWDAction implements Action {
 
 	@Override
@@ -31,9 +33,20 @@ public class MemberFindPWDAction implements Action {
 		if (!(member.getMEMBER_PWD().equals("")) || member.getMEMBER_PWD() != null) {
 
 			String pwd = (String) member.getMEMBER_PWD();
-
+			String id = (String) member.getMEMBER_ID();
+			
+			System.out.println(id);
+			System.out.println(member.getMEMBER_ID());
+			String emailTO = "";
+			String emailContent = id+" 고객님의 비밀번호는 \n"+pwd+" 입니다.";
+			boolean result = true;
+			
+			request.setAttribute("result", result);
+			
+			SendEmail sendemail = new SendEmail(emailTO, emailContent);
+			sendemail.main(null);
+			
 			forward.setRedirect(false);
-			request.setAttribute("pwd", pwd);
 		    forward.setPath("./member/member_pwdfind_result.jsp");
 			return forward;
 		} else if (member.getMEMBER_PWD().equals("")) {

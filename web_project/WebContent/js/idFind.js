@@ -88,6 +88,7 @@ function infocus(element){
  
  function result_close(){
 	 window.close();
+	 
  }
 
 

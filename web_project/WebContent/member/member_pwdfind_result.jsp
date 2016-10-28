@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%
-	String pwd = (String) request.getAttribute("pwd");
+	boolean result = (boolean) request.getAttribute("result");
 %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -24,12 +24,13 @@
 			<div align="center">
 				<span class="form-control">
 					<font size="4">
-						<%if(pwd !=""){%>
-						회원님의 password는 <br><font color="red"><%=pwd%></font> 입니다.
-						<%}else if(pwd == ""){%>
+						<%if(result == true){%>
+						가입하신 회원정보 Email로<br>비밀번호를 전송하였습니다.
+						<%}else if(result == false){%>
 						일치하는 회원정보가 없습니다.
 						<%}%>
-					</font> 
+					</font>
+					
 				</span><br>
 				<button type="button" class="btn-default-1 btn"
 					onclick="result_close()">Close</button>

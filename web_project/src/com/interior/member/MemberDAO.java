@@ -136,7 +136,7 @@ public class MemberDAO {
 
 	public MemberBean pwdfind(MemberBean member) { // 비밀번호 찾기 action
 		// TODO Auto-generated method stub
-		String sql = "select PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) as pwd from member_info where member_ID=? and member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
+		String sql = "select PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) as pwd, member_id from member_info where member_ID=? and member_name=? and member_tel=? and member_year=? and member_month=? and member_day=?";
 		MemberBean mb = new MemberBean();
 		
 		try{
@@ -151,6 +151,7 @@ public class MemberDAO {
 			rs=pstmt.executeQuery();
 			
 			if(rs.next()){
+				mb.setMEMBER_ID(rs.getString("member_id"));
 				mb.setMEMBER_PWD(rs.getString("pwd"));
 			}else if(!rs.next()){
 				mb.setMEMBER_PWD("");

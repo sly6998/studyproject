@@ -56,7 +56,7 @@ public class NotiDAO {
 
 	public List getNotiList(int page, int limit, String cond) {//게시판 리스트를 받아옴
 		// TODO Auto-generated method stub
-		String sql = "select * from " +
+		String sql = "select * from " + 	
 		"(select rownum rnum, noti_num, NOTI_MEMBER_NAME, noti_subject, noti_content," +
 		"noti_readcount, noti_date from " +
 		"(select * from noti order by " +
@@ -422,9 +422,9 @@ public class NotiDAO {
 		}
 		
 		//공지사항 글 댓글 보기
-		public NotiBean getReplyDetail(int num2) throws Exception {
+		public NotiReplyBean getReplyDetail(int num2) throws Exception {
 			// TODO Auto-generated method stub
-			NotiBean notireply = null;
+			NotiReplyBean notireply = null;
 						
 			try{
 				con=ds.getConnection();
@@ -434,7 +434,7 @@ public class NotiDAO {
 				rs = pstmt.executeQuery();
 				
 				if(rs.next()){
-					notireply = new NotiBean();
+					notireply = new NotiReplyBean();
 					notireply.setNOTI_REPLY_NUM(rs.getInt("NOTI_REPLY_NUM"));
 					notireply.setNOTI_REPLY_MEMBER_NAME(rs.getString("NOTI_REPLY_MEMBER_NAME"));					
 					notireply.setNOTI_REPLY_MEMBER_ID(rs.getString("NOTI_REPLY_MEMBER_ID"));
