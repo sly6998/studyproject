@@ -16,7 +16,7 @@
 	<tr>
 		<!-- 첫번재 소파 이미지  -->
 		<td width="300" style="border:1px solid #ddd;" align=center>
-			<a href="product_detail.jsp">
+			<a href="./product/product_detail.jsp">
 			<img src="../images/sofa1.jpg" width="250" height="200">
 			</a>
 		</td>

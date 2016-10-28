@@ -65,6 +65,7 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 		String command = RequestURI.substring(contextPath.length());
 		ActionForward forward = null;
 		Action action = null;
+		System.out.println(command);
 
 		
 		
@@ -322,6 +323,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			
 		} else if (command.equals("/basketlist.html")) {// 장바구니 리스트 페이지 이동 & action
 			action = new BasketListAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/addBasket.html")) {// 장바구니 추가 action
+			action = new AddBasketAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
