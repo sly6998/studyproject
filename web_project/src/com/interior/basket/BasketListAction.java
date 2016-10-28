@@ -19,8 +19,8 @@ public class BasketListAction implements Action {
 		ActionForward forward = new ActionForward();
 		BasketDAO basketdao = new BasketDAO();
 		List basketList = new ArrayList();
-		HttpSession session = request.getSession(true);
-		String id = (String)session.getAttribute("id");
+		HttpSession session = request.getSession();
+		String id = (String)session.getAttribute("MEMBER_ID");
 		
 		basketList = basketdao.getBasketList(id);// 리스트를 받아옴
 

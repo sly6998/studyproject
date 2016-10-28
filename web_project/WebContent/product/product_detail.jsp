@@ -5,7 +5,29 @@
 <head>
     <title></title>
     <meta charset="utf-8">
-
+    <script src="<%=request.getContextPath()%>/js/jquery.js"></script>
+<script>
+$(function(){ 
+	$('#price_sum').val($('#item_price').val());
+	  $('.bt_up').click(function(){ 
+	    var n = $('.bt_up').index(this);
+	    var num = $(".num:eq("+n+")").val();
+	    num = $(".num:eq("+n+")").val(num*1+1);
+	    
+	    var sum_price = $('#item_price').val()*$(".num:eq("+n+")").val();
+	    document.getElementById('price_sum').value = sum_price;
+	    
+	  });
+	  $('.bt_down').click(function(){ 
+	    var n = $('.bt_down').index(this);
+	    var num = $(".num:eq("+n+")").val();
+	    num = $(".num:eq("+n+")").val(num*1-1); 
+	    
+	    var sum_price = $('#item_price').val()*$(".num:eq("+n+")").val();
+	    document.getElementById('price_sum').value = sum_price;
+	  });
+	}) 
+</script>
 </head>
 <body>
 	
@@ -16,64 +38,73 @@
 <table width=800>
 	<tr >
 		<td  style='border:0px solid #000; ' width=300 rowspan="6" >
-			<img src="../images/sofa1.jpg" width=250 height="200">
+			<img name="item_img" src="../images/sofa1.jpg" width=250 height="200">
 		</td>
                                                         	
-		<td style='border:0px solid #000;' >
-			상품명  : 
+		<td>
+			상품명 
 		</td>
 		
-		<td style='border:0px solid #000; '>
-			엄청난 엄청난 엄청난 소파
+		<td>
+			<input type="text" name="item_name" value="엄청난 소파" disabled="disabled">
 		</td>
 	</tr>
 		
 	<tr>
-		<td>가  격  : </td>
-		
-		<td>500,000,000,000원</td>
+		<td>가  격</td>
+		<input type="text" name="item_price" id="item_price" value="500" disabled="disabled">
 	</tr>
 	
 	<tr>
-		<td>	사이즈  : </td>
+		<td>옵션</td>
 		
 		<td>	
-			<select id="" style="width:170px; height:25px">
-			<option selected="selected">사이즈(선택)</option>
-			<option>중</option>
-			<option>대</option>
-			<option>특대</option>
+			<select name="item_type">
+			<option selected="selected">색상</option>
+			<option>블랙</option>
+			<option>브라운</option>
 			</select>                           
 		</td>
 	</tr>
 	
 	<tr>
-		<td>수  량  : </td>
+		<td>수  량</td>
 		<td>
-			<select id="" style="width:170px; height:25px" >
-			<option selected="selected">수량(선택)</option>
-			<option>1</option>
-			<option>2</option>
-			<option>3</option>
-			<option>4</option>
-			<option>5</option>
-			</select>
+    <table border="0" width="50">
+      <tr>
+        <td>
+          <table>
+            <tr>
+              <td><input type="text" name="num" value="1" id="" class="num"/></td>
+              <td>
+                <div>
+                  <img src="http://placehold.it/10x10" alt="" width="10" height="10" class="bt_up"/>
+                </div>
+                <div>
+                  <img src="http://placehold.it/10x10" alt="" width="10" height="10" class="bt_down" />
+                </div>
+              </td>
+            </tr>
+          </table>
+        </td>
+      </tr>
+    </table>
 		</td>		
 	</tr>
-	
+
 	<tr>
-		<Td>총금액 : </Td>
-		
-		<td>원</td>
+		<Td>총금액</Td>
+		<td><input type="text" name=price_sum id="price_sum" value=""></td>
 	</tr>
+	
+	
+	
 	
 	<tr>
 		<td colspan=2>
 			<a href="">바로구매</a>
-			<a href="">장바구니</a>
+			<a href="./../addBasket.html">장바구니 추가</a>
 			<a href="product_list.jsp">목록으로</a>
-		
-
 		</td>
 	</tr>
                                                           

@@ -228,7 +228,7 @@ drop sequence advice_seq;
 
 /* 테스트 */
 insert into basket (BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_MEMBER_NAME, BASKET_ITEM_MODEL, BASKET_ITEM_BRAND, BASKET_ITEM_TYPE, BASKET_AMOUNT, BASKET_ITEM_PRICE, BASKET_DATE) 
-values ('test123', '없듬', '탁자A', '탁자01', '한샘', 'nomal', 1, '100', sysdate);
+values ('test123', '없듬', '탁자A', '탁자01', '한샘', 'nomal', 1, 100, sysdate);
 
 update BASKET set BASKET_MEMBER_ID='test123';
 
