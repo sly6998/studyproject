@@ -193,9 +193,6 @@ CREATE TABLE REVIEW_REPLY
  REVIEW_REPLY_LEV number
 );
 
-
-select * from qna_reply 
-
 /* Select Tables */
 
 Select * from advice;
@@ -205,17 +202,18 @@ Select * from member_info;
 Select * from noti;
 Select * from order_list;
 Select * from qna_board;
-Select * from qna_reply where qna_reply_num=41;
+Select * from qna_reply 
 Select * from review;
 select * from NOTI_REPLY;
-select count(*) from qna_reply
+
+
 /* Create Sequence(시퀀스 생성) */
 
-create sequence member_info_seq start with 1 increment by 1
-create sequence noti_seq start with 1 increment by 1
-create sequence review_seq start with 1 increment by 1
-create sequence qna_board_seq start with 1 increment by 1
-create sequence advice_seq start with 1 increment by 1
+create sequence member_info_seq start with 1 increment by 1;
+create sequence noti_seq start with 1 increment by 1;
+create sequence review_seq start with 1 increment by 1;
+create sequence qna_board_seq start with 1 increment by 1;
+create sequence advice_seq start with 1 increment by 1;
 
 /* drop sequence(시퀀스 삭제)*/
 
@@ -229,17 +227,7 @@ drop sequence advice_seq;
 insert into basket (BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_MEMBER_NAME, BASKET_ITEM_MODEL, BASKET_ITEM_BRAND, BASKET_ITEM_TYPE, BASKET_AMOUNT, BASKET_ITEM_PRICE, BASKET_DATE) 
 values ('test123', '없듬', '탁자A', '탁자01', '한샘', 'nomal', 1, 100, sysdate);
 
-update BASKET set BASKET_MEMBER_ID='test123';
-
-select * from basket;
- 
-
-
 
 /* 데이터베이스 암호화 복호화 (삭제 하지 마세요)*/
-insert into member_info (member_id, member_name, member_pwd) values ('gg','테스터gg',PACK_ENCRYPTION_DECRYPTION.FUNC_ENCRYPT('11')); /*암호화*/
 select member_id, member_name, PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) from member_info; /*복호화*/
-
-
-
 select PACK_ENCRYPTION_DECRYPTION.FUNC_DECRYPT(member_pwd) from member_info where member_ID='admin' and member_name='관리자' and member_tel='010-4455-4444' and member_year=1995 and member_month=12 and member_day=19;

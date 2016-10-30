@@ -29,7 +29,11 @@
 <head>
 <title></title>
 <meta charset="utf-8">
-
+<style>
+input{
+text-align:center;
+}
+</style>
 </head>
 <body >
 <h3 >장바구니</h3>
@@ -48,7 +52,7 @@
       %>
       <tr>
          <td>
-            <%=bl.getBASKET_ITEM_IMAGE()%>
+         <img src="<%=bl.getBASKET_ITEM_IMAGE()%>" width="150">
          </td>
          <td>
          	<table>
@@ -61,10 +65,13 @@
          	</table>
          </td>
          <td>
-           <%=bl.getBASKET_AMOUNT()%>
+           <input type="text" name = "amount" size="1" class="num" value="<%=bl.getBASKET_AMOUNT()%>"><br>
+ 			<a href="#">수정</a>
          </td>
          <td>
+           <span id="price">
            <%=bl.getBASKET_ITEM_PRICE()%>
+           </span>
          </td>
          <td>
          	<a href="#">삭제</a>

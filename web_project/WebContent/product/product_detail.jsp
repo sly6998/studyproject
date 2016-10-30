@@ -26,7 +26,7 @@ $(function(){
 	    var sum_price = $('#item_price').val()*$(".num:eq("+n+")").val();
 	    document.getElementById('price_sum').value = sum_price;
 	  });
-	}) 
+	}); 
 	
 	
 function addbasket(){
@@ -47,6 +47,8 @@ function addbasket(){
 	<tr>
 		<td>
 			<img name="item_img" src="../images/sofa1.jpg" width=250 height="200">
+			<%String img = request.getContextPath()+"/images/sofa1.jpg";%>
+			<input type="hidden" name="hidden_img" value="<%=img%>">
 		</td>
 		<td>
 			상품명 
@@ -79,12 +81,8 @@ function addbasket(){
             <tr>
               <td><input type="text" name="num" value="1" id="" class="num"/></td>
               <td>
-                <div>
-                  <img src="http://placehold.it/10x10" alt="" width="10" height="10" class="bt_up"/>
-                </div>
-                <div>
-                  <img src="http://placehold.it/10x10" alt="" width="10" height="10" class="bt_down" />
-                </div>
+                  <img src="../images/up_btn.png" alt="" width="10" valign="bottom" class="bt_up"/>
+                  <img src="../images/down_btn.png" alt="" width="10" valign="top" class="bt_down" />
               </td>
             </tr>
           </table>

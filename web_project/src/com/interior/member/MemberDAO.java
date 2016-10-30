@@ -344,6 +344,7 @@ public class MemberDAO {
 			
 		}catch(Exception e){
 			System.out.println("getMemberList error : "+e);
+			e.printStackTrace();
 		}finally{
 			if(rs!=null) try{rs.close();}catch(SQLException ex){}
 			if(pstmt!=null) try{pstmt.close();}catch(SQLException ex){}
