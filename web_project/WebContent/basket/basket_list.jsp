@@ -71,6 +71,7 @@ text-align:center;
            <span id="price">
            <%=bl.getBASKET_ITEM_PRICE()%>
            </span>
+           
          </td>
          <td>
          	<a href="#">삭제</a>
