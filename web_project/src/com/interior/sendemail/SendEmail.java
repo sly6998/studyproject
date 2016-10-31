@@ -75,7 +75,7 @@ public class SendEmail {
 
 }
 
-
+ 
 class MyAuthentication extends Authenticator {
 	 
     PasswordAuthentication pa;
