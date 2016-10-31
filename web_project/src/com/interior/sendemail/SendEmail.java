@@ -50,7 +50,7 @@ public class SendEmail {
 			msg.setFrom(from);
 			
 			
-			// 이메일 수신자  
+			// 이메일 수신자
 			InternetAddress to = new InternetAddress("sly6998@naver.com");
 			msg.setRecipient(Message.RecipientType.TO, to);
 			
