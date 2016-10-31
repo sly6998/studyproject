@@ -15,6 +15,7 @@ import com.interior.advice.AdviceWriteAction;
 import com.interior.basket.AddBasketAction;
 import com.interior.basket.BasketDetailAction;
 import com.interior.basket.BasketListAction;
+import com.interior.basket.BasketModifyAction;
 import com.interior.member.ManagementModifyAction;
 import com.interior.member.MemberFindIDAction;
 import com.interior.member.MemberFindPWDAction;
@@ -331,6 +332,13 @@ public class FrontController extends javax.servlet.http.HttpServlet implements j
 			}
 		} else if (command.equals("/addBasket.html")) {// 장바구니 추가 action
 			action = new AddBasketAction();
+			try {
+				forward = action.execute(request, response);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+		} else if (command.equals("/dksks.html")) {// 장바구니 추가 action
+			action = new BasketModifyAction();
 			try {
 				forward = action.execute(request, response);
 			} catch (Exception e) {
