@@ -16,8 +16,15 @@ public class BasketBean {
 	private int BASKET_AMOUNT;//수량
 	private int BASKET_RESULT;
 	private String BASKET_ITEM_MODEL;
+	private int BASKET_NUM;
 	
 	
+	public int getBASKET_NUM() {
+		return BASKET_NUM;
+	}
+	public void setBASKET_NUM(int bASKET_NUM) {
+		BASKET_NUM = bASKET_NUM;
+	}
 	public int getBASKET_AMOUNT() {
 		return BASKET_AMOUNT;
 	}

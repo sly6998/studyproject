@@ -33,7 +33,9 @@ public class BasketDAO {
 
 	public List getBasketList(String id) {//Basket 리스트 불러오기
 		// TODO Auto-generated method stub
-		String sql = "select * from basket where BASKET_MEMBER_ID=?";
+		String sql = "select rownum, BASKET_MEMBER_ID, BASKET_ITEM_IMAGE, BASKET_ITEM_NAME, "
+				+ "BASKET_ITEM_MODEL, BASKET_ITEM_BRAND, BASKET_ITEM_TYPE, BASKET_AMOUNT, BASKET_ITEM_PRICE "
+				+ "from basket where BASKET_MEMBER_ID=?";
 		List basketlist = new ArrayList();
 		
 		try{
@@ -44,6 +46,7 @@ public class BasketDAO {
 			
 			while(rs.next()){
 				BasketBean basket = new BasketBean();
+				basket.setBASKET_NUM(rs.getInt("ROWNUM"));
 				basket.setBASKET_MEMBER_ID(rs.getString("BASKET_MEMBER_ID"));
 				basket.setBASKET_ITEM_IMAGE(rs.getString("BASKET_ITEM_IMAGE"));
 				basket.setBASKET_ITEM_NAME(rs.getString("BASKET_ITEM_NAME"));

@@ -66,7 +66,7 @@ text-align:center;
          </td>
          <td>
            <input type="text" name = "amount" size="1" class="num" value="<%=bl.getBASKET_AMOUNT()%>"><br>
- 			<a href="#">수정</a>
+ 			<a href="./BasketModify.html?rownum=<%=bl.getBASKET_NUM()%>">수정</a>
          </td>
          <td>
            <span id="price">
