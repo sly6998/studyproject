@@ -5,10 +5,9 @@
 <%@ page import="com.interior.basket.*"%>
 
 <%
-  String MEMBER_ID = "";
+  String MEMBER_ID = (String)session.getAttribute("MEMBER_ID");
   String MEMBER_NAME = "";
   List basketList = (List)request.getAttribute("basketList");
-  
 %>
 <%-- <%
   String MEMBER_ID = "";
